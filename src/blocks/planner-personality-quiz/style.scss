@@ -1,0 +1,336 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+$number-of-options: 5;
+.planner-personality-type-quiz {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: start;
+	justify-content: center;
+	color: #000;
+	user-select: none;
+	scroll-behavior: smooth;
+}
+.variant {
+    padding-bottom: 4rem;
+}
+/* Hide all questions initially */
+.qa-hidden {
+    display: none;
+}
+
+/* Show only the active question */
+.qa-active {
+    display: block;
+}
+
+
+
+.form-wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+form {
+	width: 90%;
+	max-width: 500px;
+	@media only screen and (max-width: 768px) {
+		.question-container{
+			top: 100px; 
+		}
+	}
+	.question-container{
+		width: 100%;
+		position: sticky; /* Sticky positioning */
+		top: 140px; /* Sticks to the top */
+		background-color: #ffffff; /* Background color to overlap scrolling content */
+		z-index: 10; /* Ensure it stays on top of scrolling content */
+		padding: 10px; /* Padding for space around the question */
+		text-align: center;
+	}
+	.question {
+		margin-top: 0;
+		font-weight: 400;
+		text-align: center;
+		font-size: 16px;
+	}
+	.variant.inactive {
+		opacity: .3;
+	}
+	.choice-slider {
+		display: flex;
+		flex-direction: row;
+		align-content: stretch;
+		position: relative;
+		width: 100%;
+		height: 50px;
+		user-select: none;
+		&::before {
+			content: " ";
+			position: absolute;
+			height: 2px;
+			width: 100%;
+			width: calc(100% * (#{$number-of-options - 1} / #{$number-of-options}));
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: #000;
+		}
+		input, label {
+			box-sizing: border-box;
+			flex: 1;
+			user-select: none;
+			cursor: pointer;
+		}
+		label {
+			display: inline-block;
+			position: relative;
+			width: 20%;
+			height: 100%;
+			user-select: none;
+			&::before {
+				content: attr(data-points);
+				position: absolute;
+				left: 50%;
+				padding-top: 10px;
+				transform: translate(-50%, 45px);
+				font-size: 12px;
+				letter-spacing: 0.4px;
+				font-weight: 400;
+				white-space: nowrap;
+				opacity: 0.85;
+				transition: all 0.15s ease-in-out;
+				text-wrap: balance;
+				text-align: center;
+			}
+			&::after {
+				content: " ";
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				width: 30px;
+				height: 30px;
+				border: 2px solid #000;
+				background: #fff;
+				border-radius: 50%;
+				pointer-events: none;
+				user-select: none;
+				z-index: 1;
+				cursor: pointer;
+				transition: all 0.15s ease-in-out;
+			}
+			&:hover::after {
+				transform: translate(-50%, -50%) scale(1.25);
+			}
+		}
+		input {
+			display: none;
+			&:checked {
+				+ label::before {
+					font-weight: 800;
+					opacity: 1;
+				}
+				+ label::after {
+					border-width: 4px;
+					transform: translate(-50%, -50%) scale(0.75);
+				}
+				~ .points-pos {
+					opacity: 1;
+				}
+				@for $i from 1 through $number-of-options {
+					&:nth-child(#{$i * 2 - 1}) ~ .points-pos {
+						left: #{($i * 20%) - 10%};
+					}
+				}
+			}
+		}
+		.points-pos {
+			display: block;
+			position: absolute;
+			top: 50%;
+			width: 12px;
+			height: 12px;
+			background: #000;
+			border-radius: 50%;
+			transition: all 0.15s ease-in-out;
+			transform: translate(-50%, -50%);
+			border: 2px solid #fff;
+			opacity: 0;
+			z-index: 2;
+		}
+	}
+	&:valid {
+		.choice-slider {
+			input {
+				+ label::before {
+					transform: translate(-50%, 45px) scale(0.9);
+					transition: all 0.15s linear;
+				}
+				&:checked + label::before {
+					transform: translate(-50%, 45px) scale(1.1);
+					transition: all 0.15s linear;
+				}
+			}
+		}
+	}
+}
+
+.planner-personality-type-quiz button[type='button']#next-question-button,
+.planner-personality-type-quiz button[type='button']#show-answer-button,
+.planner-personality-type-quiz button[type='button']#send-email-button {
+	display: block;
+	position: relative;
+	margin: 56px auto 0;
+	padding: 10px 20px;
+	appearance: none;
+	transition: all 0.15s ease-in-out;
+	font-family: inherit;
+	font-size: 24px;
+	font-weight: 600;
+	background: #fff;
+	color: #000;
+	border: 2px solid #000;
+	border-radius: 8px;
+	outline: 0;
+	user-select: none;
+	cursor: pointer;
+	&.hidden {
+		display: none;
+	}
+	&:hover {
+		// transform: scale(1.1);
+		background: #000;
+		color: #fff;
+		&:active {
+			transform: scale(0.9);
+		}
+	}
+	&:focus {
+		background: #4caf50;
+		border-color: #4caf50;
+		color: #fff;
+		// pointer-events: none;
+		&::before {
+			animation: spin 1s linear infinite;
+		}
+	}
+	&::before {
+		display: inline-block;
+		width: 0;
+		opacity: 0;
+		content: "\f3f4";
+		font-family: "Font Awesome 5 Pro";
+		font-weight: 900;
+		margin-right: 0;
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+		width: 24px;
+		opacity: 1;
+		margin-right: 12px;
+	}
+	to {
+		transform: rotate(360deg);
+		width: 24px;
+		opacity: 1;
+		margin-right: 12px;
+	}
+}
+
+.variant.inactive {
+	opacity: .3;
+}
+
+#tie-break {
+
+	width: 90%;
+    margin-left: 1rem;
+    text-align: justify;
+	scroll-margin-top: 60px;
+
+	.tie-break-control {
+		// font-family: system-ui, sans-serif;
+		// font-size: 2rem;
+		// font-weight: bold;
+		line-height: 1.1;
+		display: grid;
+		grid-template-columns: 1em auto;
+		gap: 2rem;
+		align-items: center;
+		margin-bottom: 1rem;
+	  }
+	  
+	  .tie-break-lbl + .tie-break-lbl {
+		margin-top: 1em;
+	  }
+
+	  label.tie-break-lbl {
+		cursor: pointer;
+	  }
+	  
+	  .tie-break-control:focus-within {
+		color: var(--form-control-color);
+		font-weight: bold;
+	  }
+
+	  input[type="radio"]:checked + .tie-break-lbl {
+		font-weight: bold;
+	  }
+
+  
+	  input[type="radio"] {
+		/* Add if not using autoprefixer */
+		-webkit-appearance: none;
+		/* Remove most all native input styles */
+		appearance: none;
+		/* For iOS < 15 */
+		background-color: var(--form-background);
+		/* Not removed via appearance */
+		margin: .5rem;
+	  
+		font: inherit;
+		color: currentColor;
+		width: 1.15em;
+		height: 1.15em;
+		border: 0.15em solid currentColor;
+		border-radius: 50%;
+		transform: translateY(-0.075em);
+	  
+		display: grid;
+		place-content: center;
+	  }
+	  
+	  input[type="radio"]::before {
+		content: "";
+		width: 0.65em;
+		height: 0.65em;
+		border-radius: 50%;
+		transform: scale(0);
+		transition: 120ms transform ease-in-out;
+		box-shadow: inset 1em 1em var(--form-control-color);
+		/* Windows High Contrast Mode */
+		background-color: CanvasText;
+	  }
+	  
+	  input[type="radio"]:checked::before {
+		transform: scale(1);
+	  }
+	  
+	  input[type="radio"]:focus {
+		outline: max(2px, 0.15em) solid currentColor;
+		outline-offset: max(2px, 0.15em);
+	  }
+
+
+}

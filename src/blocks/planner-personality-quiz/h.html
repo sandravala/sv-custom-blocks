@@ -1,0 +1,80 @@
+<div class="form-wrapper">
+    <form class="form-container">
+    <? foreach ($quiz as $index => $q) {
+        echo '<div class="qa">';
+            echo '<div class="question-container"><h1 class="question">' . esc_html($q['question']) . '</h1></div>';
+        
+        foreach ($q['answers'] as $key => $answer) {
+            // Access the text and letter for each answer
+            $text = $answer['text'];
+            $letter = $answer['letter'];
+            $key += 1;
+            
+            echo '<div class="variant" id="variant-' . esc_attr($letter) . '">';
+            echo '<p style="text-align: center;" data-dichotomy="' . esc_attr($letter) . '">' . esc_html($text) . '</p>';
+            echo '<div class="choice-slider">';
+            
+            foreach ($points as $i => $value) {
+                
+                $i += 1;
+                
+
+                echo '<input type="radio" class="choice-input" name="points-' . esc_attr($key) . '" id="points-' . esc_attr($key) . '-' . esc_attr($i) . '" value="' . esc_attr($i) . '" required>';
+                echo '<label for="points-' . esc_attr($key) . '-' . esc_attr($i) . '" class="choice-label" data-points="' . esc_attr($value) . '"></label>';
+
+            }
+
+            echo '<div class="points-pos" id="points-pos-' . esc_attr($key) . '"></div>';
+            
+            
+            echo '</div>';
+            echo '</div>';
+        }
+        
+        echo '</div>'; // Close qa div
+    }
+    ?>
+
+           
+        </div>
+    </form>
+    <button type="submit" class="submit-button">Get Debt Free!</button>
+</div>
+
+
+
+<?php foreach ($quiz as $index => $q) { 
+    // Add a class to show the first question, hide the rest
+    $visibilityClass = $index === 0 ? 'qa-active' : 'qa-hidden';
+?>
+    <div class="qa <?php echo esc_attr($visibilityClass); ?>">
+        <div class="question-container">
+            <h1 class="question"><?php echo esc_html($q['question']); ?></h1>
+        </div>
+
+        <?php 
+        foreach ($q['answers'] as $key => $answer) {
+            // Access the text and letter for each answer
+            $text = $answer['text'];
+            $letter = $answer['letter'];
+            $key += 1; // Increment key for unique id
+        ?>
+            <div class="variant" id="variant-<?php echo esc_attr($letter); ?>">
+                <p style="text-align: center;" data-dichotomy="<?php echo esc_attr($letter); ?>">
+                    <?php echo esc_html($text); ?>
+                </p>
+                <div class="choice-slider">
+                    <?php
+                    foreach ($points as $i => $value) {
+                        $i += 1; // Increment for unique input id
+                    ?>
+                        <input type="radio" class="choice-input" name="points-<?php echo esc_attr($key); ?>" id="points-<?php echo esc_attr($key); ?>-<?php echo esc_attr($i); ?>" value="<?php echo esc_attr($i); ?>" required>
+                        <label for="points-<?php echo esc_attr($key); ?>-<?php echo esc_attr($i); ?>" class="choice-label" data-points="<?php echo esc_attr($value); ?>"></label>
+                    <?php } ?>
+                    <div class="points-pos" id="points-pos-<?php echo esc_attr($key); ?>"></div>
+                </div>
+            </div>
+        <?php } ?>
+        <button type="button" class="next-question-button" style="display:none;">Next Question</button>
+        </div>
+<?php } ?>
