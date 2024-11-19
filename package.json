@@ -5,8 +5,13 @@
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
+    "files": [
+        "build",
+        "sv-custom-blocks.php",
+        "readme.txt"
+    ],
 	"scripts": {
-		"build": "wp-scripts build",
+		"build": "webpack",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
@@ -15,6 +20,20 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^30.0.2"
+		"@babel/core": "^7.26.0",
+		"@babel/preset-env": "^7.26.0",
+		"@babel/preset-react": "^7.25.9",
+		"@wordpress/block-editor": "^14.7.0",
+		"@wordpress/blocks": "^14.1.0",
+		"@wordpress/i18n": "^5.12.0",
+		"@wordpress/scripts": "^30.0.2",
+		"babel-loader": "^9.2.1",
+		"copy-webpack-plugin": "^12.0.2",
+		"css-loader": "^7.1.2",
+		"sass": "^1.81.0",
+		"sass-loader": "^16.0.3",
+		"style-loader": "^4.0.0",
+		"webpack": "^5.96.1",
+		"webpack-cli": "^5.1.4"
 	}
 }

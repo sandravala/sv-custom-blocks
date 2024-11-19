@@ -38,7 +38,6 @@ export default function Edit() {
 					'planner-personality-quiz'
 				) }
 			</p>
-			<div>divas</div>
 		</>
 	);
 }
