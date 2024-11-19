@@ -381,13 +381,15 @@ function QuizRender() {
     //     }
     // };
 
-    const activeElementRef = useRef(null);
 
     useEffect(() => {
-        if (activeElementRef.current) {
-            activeElementRef.current.scrollIntoView({
+        
+        const activeElement = document.querySelector('.variant.active');
+
+        if (activeElement) {
+            activeElement.scrollIntoView({
                 behavior: 'smooth',
-                block: 'start', 
+                block: 'center',
             });
         }
     }, [tieBreak, currentVariant, currentQuestion, currentTieBreakQuestion]);
@@ -437,7 +439,7 @@ function QuizRender() {
             console.log('end of quiz');
             console.log(currentTieBreakQuestion);
             
-            // Handle end of quiz logic, maybe show results or reset the quiz
+            // Handle end of quiz logic
             // 
         }
     };
@@ -464,7 +466,7 @@ function QuizRender() {
         <>
 
             {quizData[currentQuestion] && quizData[currentQuestion].answers.map((answer, answerIndex) => (
-                <div className={`variant ${currentVariant !== answerIndex ? 'inactive' : 'active'}`} id={`variant-${answer.letter}`} ref={currentVariant !== answerIndex ? activeElementRef : null}>
+                <div className={`variant ${currentVariant !== answerIndex ? 'inactive' : 'active'}`} id={`variant-${answer.letter}`}>
                 <p style={{ textAlign: 'center' }} data-dichotomy={answer.letter}>
                     {answer.text}
                 </p>
@@ -521,7 +523,7 @@ function QuizRender() {
 
                 {showResultContainer && 
                     <div>
-                        rezultatas
+                        rezultatas {dichotomy}
                     </div>
 
                 }
