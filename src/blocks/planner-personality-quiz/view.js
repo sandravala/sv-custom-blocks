@@ -22,12 +22,11 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
+import quiz from './assets/data/quizData.json';
 
 
 document.addEventListener('DOMContentLoaded', function () {
-
         renderForm();
-
 });
 
 
@@ -146,90 +145,53 @@ function QuizRender() {
     //     }
     // ];
 
-    const quizData = [
-        {
-            question: '',
-            answers: [
-                { text: 'Geriausia, kai galiu dieną pradėti peržiūrėjus darbų sąrašą ir detaliai suplanavus darbotvarkę.', letter: 'J' },
-                { text: 'Pradedant ar jau vykdant projektą, man svarbu užtikrinti, kad rezultatai ir sprendimai atitiktų visų susijusių šalių poreikius.', letter: 'F' },
-                { text: 'Mane motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
-                { text: 'Kilus konfliktui darbe, problemą imuosi spręsti tiesiogiai ir visų pirma ieškau logiškiausio varianto.', letter: 'T' },
-                { text: 'Atėjus idėjai, man geriausia ją pirmiau apmąstyti vienumoje ir tuomet su kitais  pasidalinti raštu.', letter: 'I' }
-            ]
-        },
-        // {
-        //     question: '',
-        //     answers: [
-        //         { text: 'Kad išlaikyčiau motyvaciją, man svarbus lankstumas - galimybė prisitaikyti ir keisti planus, kai to reikia.', letter: 'P' },
-        //         { text: 'Iškilus konfliktui komandoje, stengiuosi tarpininkauti ir padėti rasti kompromisą.', letter: 'F' },
-        //         { text: 'Kai turiu daug darbo, labiausiai dėmesį sutelkiu į kylančias situacijas ir prioritetus nustatau pagal tai, kas tuo metu svarbiausia.', letter: 'T' },
-        //         { text: 'Man svarbu dirbant kiek įmanoma labiau laikytis pirminio plano.', letter: 'S' },
-        //         { text: 'Man kur kas svarbiau pasiekti aukštą kūrybiškumo lygį ir geriausią įmanomą rezultatą, nei griežtai laikytis nustatytų terminų.', letter: 'N' }
-        //     ]
-        // },
-        // {
-        //     question: '',
-        //     answers: [
-        //         { text: 'Kilus problemai, man geriausia neišradinėti dviračio ir naudoti patikrintus metodus, kurie veikė praeityje.', letter: 'S' },
-        //         { text: 'Darbe / komandoje konfliktų kilti neturėtų. Manau, kad kiekvienas turėtų išsispręsti savo problemas asmeniškai.', letter: 'I' },
-        //         { text: 'Džiaugiuosi, kai nenumatyti pasikeitimai planuose man atneša galimybę patyrinėti naujas kryptis ir galimybes.', letter: 'N' },
-        //         { text: 'Stengiuosi darbų nepradėti, kol neaptariu ir nesuderinu veiksmai su klientais / kolegomis.', letter: 'E' },
-        //         { text: 'Projekto sėkmę vertinu labiausiai pagal tai, kiek jis išpildo suinteresuotų šalių pasitenkinimą ir gerovę.', letter: 'F' }
-        //     ]
-        // },
-        // {
-        //     question: '',
-        //     answers: [
-        //         { text: 'Man geriausia dieną pradėti nuo naujausių užduočių / užklausų ir dirbant atsižvelgti į tolesnę įvykių eigą.', letter: 'P' },
-        //         { text: 'Mėgstu dalintis inovatyviomis idėjomis, kurios skatina kūrybiškumą ir naujas kryptis darbe.', letter: 'N' },
-        //         { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais komandos nariais.', letter: 'E' },
-        //         { text: 'Kai turiu pasirinkti, ką iš daugybės užduočių atlikti pirmiausiai, renkuosi pagal jų tiesioginę praktinę naudą.', letter: 'S' },
-        //         { text: 'Vertinu galimybę dirbti savarankiškai ir apgalvoti sprendimus ramioje aplinkoje.', letter: 'I' }
-        //     ]
-        // },
-        // {
-        //     question: '',
-        //     answers: [
-        //         { text: 'Kilus nenumatytai problemai mano įgyvendinamame projekte, pirmiausiai surenku visus faktus ir jais remiantis ieškau logiškiausio sprendimo.', letter: 'T' },
-        //         { text: 'Savo užduotis planuoju iš anksto ir jas užbaigiu dažnai dar gerokai prieš galutinį terminą.', letter: 'J' },
-        //         { text: 'Pasikeitimai darbotvarkėje ar planuose man ne trukdo, o padeda atrasti naujų galimybių!', letter: 'P' },
-        //         { text: 'Kilus konfliktinei situacijai darbe, svarbu visiems aktyviai ją aptarti ir išreikšti savo nuomonę.', letter: 'E' },
-        //         { text: 'Kai darbo daug, svarbu prioritetą teikti užduotims, kurios atitinka ilgalaikę viziją ir tikslus.', letter: 'N' },
-
-        //     ]
-        // },
-        // {
-        //     question: '',
-        //     answers: [
-        //         { text: 'Kilus nenumatytai problemai, nedelsiant ieškau greito ir efektyvaus sprendimo, kuris iš karto galėtų būti pritaikytas.', letter: 'P' },
-        //         { text: 'Labiau mėgstu dirbti savarankiškai ir pasidalinti rezultatais su komanda vėliau.', letter: 'I' },
-        //         { text: 'Man svarbu, kad dirbant komandoje visi galėtų laisvai dalintis idėjomis ir prisidėti prie bendro rezultato.', letter: 'N' },
-        //         { text: 'Geriausia motyvacija - pasiekti norimą tikslą ir užduotį išbraukti iš sąrašo.', letter: 'J' }, 
-        //         { text: 'Geriausiai pailsiu, kai galiu pabendrauti arba užsiimti aktyviais pomėgiais.', letter: 'E' },
-
-        //     ]
-        // },
-        // {
-        //     question: '',
-        //     answers: [
-        //         { text: 'Svarbu dieną pradėti sutelkiant dėmesį į tą užduotį, kurią reikia atlikti pirmiausia.', letter: 'S' },
-        //         { text: 'Kalbant apie naujas idėjas darbe, svarbiau atsižvelgti į galimybę sklandžiai ir efektyviai jas pritaikyti, o ne į jų kūrybiškumą.', letter: 'T' },
-        //         { text: 'Projekto sėkmė tiesiogiai priklauso nuo to, kiek projekto įgyvendinimo metu gebama laikytis pirminio plano ir tvarkos.', letter: 'J' },
-        //         { text: 'Kilus problemai darbe, svarbu atsižvelgti  į komandos narių poreikius ir siekti sprendimo, kuris būtų priimtinas visiems.', letter: 'F' },
-        //         { text: 'Projekto sėkmę vertinu pagal tai, kaip lengvai jis buvo įgyvendintas ir kokių trukdžių buvo išvengta.', letter: 'P' }
-        //     ]
-        // },
-        // {
-        //     question: '',
-        //     answers: [
-        //         { text: 'Man motyvacijos stueikia žinojimas, kad mano darbas padeda kitiems ir prisideda prie bendros gerovės.', letter: 'F' },
-        //         { text: 'Po ilgos darbo dienos pailsėti man padeda rami veikla, tokia, kaip skaitymas ar meditacija.', letter: 'I' },
-        //         { text: 'Kilus naujoms idėjoms, geriausia jas atvirai aptarti su komanda / klientais.', letter: 'E' },
-        //         { text: 'Kai turiu padaryti daug, pirmiausiai nustatau prioritetus pagal terminus ir svarbą, ir griežtai laikausi sudaryto grafiko.', letter: 'J' },
-        //         { text: 'Projekto sėkmę geriausia vertinti pagal veiksmų efektyvumą ir pasiektus rezultatus.', letter: 'T' }
-        //     ]
-        // }
-    ];
+    
+    // const quizData = [
+    //     {
+    //         question: '',
+    //         answers: [
+    //             { text: 'Geriausia dieną pradėti peržiūrėjus darbų sąrašą ir detaliai suplanavus darbotvarkę.', letter: 'J' },
+    //             { text: 'Nenumatyti pasikeitimai planuose - teigiamas dalykas, nes suteikia galimybę patyrinėti naujas kryptis ir galimybes.', letter: 'N' },
+    //             { text: 'Kilus problemai darbe, svarbu atsižvelgti  į komandos narių poreikius ir siekti sprendimo, kuris būtų priimtinas visiems.', letter: 'F' },
+    //             { text: 'Vertinu galimybę dirbti vienumoje ir apgalvoti sprendimus ramioje aplinkoje.', letter: 'I' },
+    //             { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais žmonėmis (komandos nariais ir pan.).', letter: 'E' },
+    //             { text: 'Mane dirbti labiausiai motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
+    //         ]
+    //     },
+    //     {
+    //         question: '',
+    //         answers: [
+    //             { text: 'Projekto sėkmė tiesiogiai priklauso nuo jo atitikimo pirminiam planui ir tvarkai.', letter: 'J' },
+    //             { text: 'Manau, kad svarbu dirbant kiek įmanoma daugiau laikytis to, kas suplanuota.', letter: 'S' },
+    //             { text: 'Manau, kad svarbu dieną pradėti nuo naujausių užduočių / užklausų, o toliau jau atsižvelgti į faktinę situaciją.', letter: 'P' },
+    //             { text: 'Po ilgos darbo dienos pailsėti man padeda rami veikla (pvz., skaitymas ar meditacija).', letter: 'I' },
+    //             { text: 'Mėgstu kurti inovatyvias idėjas, kurios leidžia naudoti kūrybiškumą darbe.', letter: 'N' },
+    //             { text: 'Kilus nenumatytai problemai darbe, pirmiausiai surenku visus faktus ir logiškai analizuoju, kaip rasti geriausia sprendimą.', letter: 'T' }
+    //         ]
+    //     },
+    //     {
+    //         question: '',
+    //         answers: [
+    //             { text: 'Labiau mėgstu dirbti savarankiškai, o su komanda tik pasidalinti darbo rezultatais.', letter: 'I' },
+    //             { text: 'Projekto sėkmę reikėtų vertinti pagal suinteresuotų šalių pasitenkinimą ir gerovę.', letter: 'F' },
+    //             { text: 'Kilus naujoms idėjoms, geriausia jas atvirai aptarti su komanda / klientais.', letter: 'E' },
+    //             { text: 'Kai turiu padaryti daug, pirmiausiai nustatau prioritetus pagal terminus ir svarbą, ir griežtai laikausi sudaryto grafiko.', letter: 'J' },
+    //             { text: 'Kilus nenumatytai problemai darbe, nedelsiant ieškau greito ir efektyvaus sprendimo, kuris iš karto būtų pritaikomas.', letter: 'P' },
+    //             { text: 'Projekto sėkmę geriausia vertinti pagal pasiektą efektyvumą ir rezultatus.', letter: 'T' }
+    //         ]
+    //     },
+    //     {
+    //         question: '',
+    //         answers: [
+    //             { text: 'Vertinant naujas idėjas darbe, kur kas svarbesnė yra galimybė sklandžiai ir efektyviai jas pritaikyti, o ne jų kūrybiškumas ar inovatyvumas.', letter: 'T' },
+    //             { text: 'Man motyvacijos darbe suteikia žinojimas, kad mano darbas padeda kitiems ir prisideda prie bendros gerovės.', letter: 'F' },
+    //             { text: 'Projekto sėkmę vertinu pagal tai, kaip lengvai jis buvo įgyvendintas ir kokių trukdžių buvo išvengta.', letter: 'P' },
+    //             { text: 'Kilus problemai darbe, svarbu neišradinėti dviračio ir naudoti jau patikrintus ir patikimus metodus.', letter: 'S' },
+    //             { text: 'Kai darbo daug, svarbu prioritetą teikti užduotims, kurios atitinka ilgalaikę viziją ir tikslus.', letter: 'N' },
+    //             { text: 'Geriausiai pailsiu, kai galiu bendrauti arba užsiimti aktyvia veikla.', letter: 'E' }
+    //         ]
+    //     }
+    // ];
 
     const points = [
         "100% ne aš",
@@ -238,6 +200,8 @@ function QuizRender() {
         "Skamba panašiai",
         "100% AŠ!"
     ];
+
+    const [quizData, setQuizData] = useState(quiz);
 
     const tieBreakerQuestions = [
         {
@@ -449,19 +413,42 @@ function QuizRender() {
 
         setTieBreak([]);
         setShowResultContainer(!showResultContainer);
-        
+        const dichotomyToSend = dichotomy.reduce((prev, current) => prev + current, ''); 
 
     };
 
     const sendEmail = () => {
 
-        //ajax with dichotomy and email users
+        const dichotomyToSend = dichotomy.reduce((prev, current) => prev + current, ''); 
+
+        // jQuery(document).ready(function ($) {
+                   
+        //         $.ajax({
+        //             url: sv_ajax_object.ajax_url, // AJAX URL passed from PHP
+        //             type: 'POST',
+        //             data: {
+        //                 action: 'sv_handle_ajax_request', // Action name
+        //                 nonce: sv_ajax_object.nonce,     // Nonce for security
+        //                 data: dichotomyToSend,                // Data to send
+        //             },
+        //             success: function (response) {
+        //                 if (response.success) {
+        //                     $('#ajax-response').text('Response: ' + response.data.response); // Show the response
+        //                 } else {
+        //                     $('#ajax-response').text('Error: ' + response.data);
+        //                 }
+        //             },
+        //             error: function () {
+        //                 $('#ajax-response').text('An error occurred.');
+        //             },
+        //         });
+        //     ;
+        // });
 
     };
 
 
     return (
-
         
         <>
 
@@ -473,7 +460,6 @@ function QuizRender() {
                 <div className="choice-slider">
                     {points.map((point, pointIndex) => {
                         const points = pointIndex + 1;
-
                          return (<>
                             <input
                                 type="radio"
@@ -501,7 +487,7 @@ function QuizRender() {
                 {tieBreak.length > 0 && tieBreak.map((q, index) => {
                     
                 return (
-                    <div id="tie-break" key={index} ref={index === currentTieBreakQuestion ? activeElementRef : null}>
+                    <div id="tie-break" key={index} className='variant active'>
                     <p>{tieBreakerQuestions[q].question}</p>
                     
                     {tieBreakerQuestions[q].answers.map((a, idx) => (

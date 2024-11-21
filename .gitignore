@@ -32,3 +32,4 @@ node_modules/
 # dev files
 package.json
 README.md 
+build/
