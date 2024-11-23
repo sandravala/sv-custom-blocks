@@ -1,0 +1,69 @@
+{
+    "name": "Bitė",
+    "oneLiner": "Metodiškas meistras, kuris niekada nepaklysta – nei miške, nei lentynoje su dokumentais. Dar daugiau – tu visada žinai, kur rasti kiekvieną dokumentą ar daiktą. Ne tik darbe, bet ir garaže, spintoje ar netgi telefone!",
+    "strength": [
+        "Dėmesys detalėms – gebi itin kruopščiai planuoti ir vykdyti užduotis. Tai visiems garantuoja, kad tai, ko imsies, bus tikslu ir aišku.",
+        "Nuoseklumas – įprastai tu pasikliauni sistemingomis strategijomis ir užtikrini, kad darbai būtų atliekami laiku ir patikimai.",
+        "Patikimumas – jei kažkam įsipareigojai, tai ir padarysi (kad ir kas nutiktų). Dirbant su tavimi, galima drąsiai pasitikėti, kad užduotys bus užbaigtos laiku."
+    ],
+    "weakness": [
+        "Pasipriešinimas pokyčiams – tu labiau linkusi:ęs pasikliauti nusistovėjusiomis ir patikrintomis praktikomis, todėl nauji metodai ar pokyčiai gali kelti stresą.",
+        "Per didelis dėmesys smulkmenoms – kartais gali paskęsti detalėse, prarandant bendrą vaizdą ir atidedant svarbesnius darbus.",
+        "Sunkumai su neaiškumu – jeigu nėra aiškių nurodymų, instrukcijų arba stinga struktūros, tavo produktyvumas gali itin sumažėti."
+    ],
+    "focus": [
+        "Praktikuok lankstumą: įvesk nedidelių pokyčių į savo rutiną, kad lengviau prisitaikytum prie netikėtumų, kai jie kils rimtesnėse situacijose.",
+        "Užduok sau klausimą, kaip konkrečios smulkmenos prisideda prie bendro projekto tikslo. Tai padės nustatyti prioritetus ir neįstrigti neesminėse detalėse.",
+        "Išmok veikti nežinomybėje, žingsnis po žingsnio identifikuojant esminius pradinius veiksmus, net jei ir liks dar daug neatsakytų klausimų."
+    ],
+    "avoid": [
+        "Pasitikrink, ar nesipriešini naujiems metodams ar technologijoms vien tik dėl to, kad jie tau kol kas – nepatogūs ir nepažinti. Nuolat primink sau, kad inovacijos turi potencialo pagerinti produktyvumą.",
+        "Reguliariai reflektuok ir vertink: ar tavo taikomos rutinos nepaseno ir nėra mažiau efektyvios už kai kuriuos kitus galimus metodus ar praktikas.",
+        "Perfekcionizmo. Žmonėms, linkusiems į detales, būdinga siekti viską sustyguoti maksimaliai gerai. Bet šis polinkis, kai nekontroliuojamas, gali stabdyti pažangą."
+    ],
+    "help": [
+        "Aiškūs nurodymai, detalūs planai ir išbandytos (patikimos) procedūros, kurios padeda išlaikyti stabilumą ir nuspėjamumą.",
+        "Laiko planavimo įrankiai ir užduočių sąrašai, kurie palaiko sistemingą darbų eigą ir užduočių stebėjimą.",
+        "Struktūruota aplinka su aiškiomis taisyklėmis ir vaidmenimis, kur kiekvienas žino, už ką yra atsakingas, ir ko tikėtis."
+    ],
+    "disturb": [
+        "Netikėti pokyčiai, struktūros trūkumas ir aplinka, kurioje nespėjama užtikrinti nuoseklaus darbo proceso.",
+        "Per didelis darbų kiekis be aiškios prioritizacijos.",
+        "Neaiškios instrukcijos arba projektai be aiškių tikslų ir struktūros."
+    ],
+    "challenge": [
+        "Pasipriešinimas pokyčiams – įpročiai ir nusistovėję metodai gali trukdyti prisitaikyti prie naujų technologijų ar darbo praktikų.",
+        "Smulkmenų spąstai – gali užstrigti smulkiose detalėse, prarandant bendrą vaizdą ir vilkinant progresą.",
+        "Sąstingis, esant neaiškumui – kai nėra aiškių nurodymų ar struktūros, gali kilti nusivylimas ir mažėti produktyvumas."
+    ],
+    "excercise": {
+        "Viso gero, komforto zona": [
+            "Pasirink vieną mažą savo įprastinę užduotį, kurią atlieki jau seniai pasirinktu būdu ar naudojantis tau įprastomis priemonėmis. Vieną savaitę paskirk išsiaiškinti, kaip tą pačią užduotį galima būtų atlikti efektyviau, greičiau ar paprasčiau (pvz., naudojantis kitomis priemonėmis ar skirtingais metodais). Gali pagūglinti, paklausti DI ar pasidomėti, kaip tą pačią užduotį atlieka tavo kolegos, šeimos nariai, draugai ir pan. Kitą savaitę pamėgink savo užduotį atlikti tuo alternatyviu būdu (žinoma, jeigu tik jis turi aiškius privalumus). Svarbu: neatmesti alternatyvių veiklos metodų ar priemonių vien tik dėl to, kad „tu žinai geriau“, „tu jau dirbi su X ir niekuo nesiskundi“ ir pan. Labai gali būti, kad egzistuoja efektyvesnis būdas atlikti užduotį X, tik tu dar apie tai nežinai. Tad sužinok ;)",
+            "Tikslas: didinti lankstumą ir ugdyti labiau prisitaikantį požiūrį, kuris padėtų lengviau laviruoti netikėtumuose.",
+            "Kodėl tai veikia: pripratus prie nedidelių pokyčių, lengviau bus reaguoti, kai atsiras didesni ar sudėtingesni pasikeitimai."
+        ],
+        "Plataus kampo objektyvas": [
+            "Kartą per savaitę skirk 30 minučių, kad peržiūrėtum visus savo dabartinius projektus ir procesus. Išsirink vieną užduotį, kuriai skyrei daugiausiai dėmesio. Atsitrauk ir paklausk savęs: Kaip šis darbas prisideda prie bendro tikslo? Jeigu reiktų įvardinti 20% pastangų šioje užduotyje, kurios atneša 80% rezultato, kokie veiksmai tai būtų? Ar šiam darbui skiriamas laikas ir pastangos – proporcingi jo reikšmei bendram tikslui?",
+            "Tikslas: Žengti žingsnį atgal ir atsitraukti nuo smulkmenų prie svarbesnių tikslų, efektyviau valdant laiką ir prioritetus.",
+            "Kodėl tai veikia: Ši užduotis padeda tau vertinti darbų vertę platesniame kontekste, išlaikant pusiausvyrą tarp detalių ir bendro vaizdo."
+        ],
+        "Ką daryti, kai neaišku, ką daryti": [
+            "Pasirink vieną projektą ar užduotį, kurie yra neaiškūs (t.y. turi daug neatsakytų klausimų) arba kuriems trūksta aiškių instrukcijų. Įvardink 3 galimus pradinius veiksmus arba klausimus, į kuriuos turi atsakyti prieš imantis veiksmų. Tada sutelk dėmesį į šiuos klausimus ir ženk pirmą žingsnį, remiantis jau turima informacija.",
+            "Tikslas: lavinti gebėjimą dirbti su neaiškiomis situacijomis ir didinti pasitikėjimą sprendimų priėmimu net ir esant ribotai informacijai.",
+            "Kodėl tai veikia: ši praktika leidžia tau išmokti valdyti neaiškias situacijas, ugdant gebėjimą imtis veiksmų, net kai instrukcijos nėra pilnai aiškios."
+        ]
+    },
+    "advice": [
+        "Skirk laiko savirefleksijai: bent kartą per savaitę pasitikrink, ar nepaskendai detalėse. Paklausk savęs, kaip ir kokia proporcija užduotys, kurias atlikai, prisideda prie bendrų tikslų.",
+        "Pamėgink deleguoti užduotis, kurios nebūtinai reikalauja tavo dėmesio. Tai padės atlaisvinti laiko svarbesniems darbams ir leis komandos nariams augti.",
+        "Kai susiduri su neaiškumu, nebijok užduoti daugiau klausimų – tai padės sukurti aiškesnę užduočių eigą ir išvengti nusivylimo dėl nežinomybės."
+    ],
+    "description": [
+        "Tu esi patikimas žmogus, tikra komandos atrama, kuri užtikrina, kad viskas vyktų sklandžiai ir pagal planą. Tavo kruopštumas, dėmesys detalėms ir įsipareigojimas tvarkai bei sistemai yra tikri sėkmės garantai. Esi ta:as, kuris vertina nuoseklumą ir atsakomybę, todėl tiek darbe, tiek asmeniniame gyvenime sieki išlaikyti stabilumą ir aiškumą.",
+        "Vis dėlto, svarbu nepamiršti, kad šiandieniniame nuolat besikeičiančiame pasaulyje vien planų nepakanka. Kartais gyvenimas meta netikėtus iššūkius, ir būtent tada lankstumas tampa tavo didžiausia stiprybe. Tavo struktūruotas požiūris suteikia tvirtą pagrindą, tačiau leisk sau retkarčiais paleisti kontrolę ir priimti pokyčius kaip naujas galimybes. Tai nereiškia atsisakyti savo vertybių – tai reiškia prisitaikyti ir augti kartu su naujomis situacijomis.",
+        "Mano patarimas: toliau remkis savo metodiškumu ir atsakingumu, bet mokykis atvirai priimti pokyčius. Net ir nedideli prisitaikymai gali padėti tau įgyvendinti savo tikslus efektyviau, o kartu ir suteikti naujų perspektyvų. Balansas tarp struktūros ir lankstumo yra tavo raktas į ilgalaikę sėkmę. Kai gebėsi prisitaikyti prie netikėtumų ir taip pat neišsimušant iš vėžių išlaikyti savo sistemingą požiūrį, tapsi ne tik patikima:u, bet ir nenugalima:u."
+    ],
+    "shortDescription": [
+        "Tu puikiai susitvarkai su užduotimis, kuriose reikalingas dėmesys detalėms, nes dievini, kai viskas vyksta pagal aiškų planą. Tačiau, kad ir kaip šauniai tvarkytumeis, be iššūkių neasieini – kaip ir visi mes. Tau greičiausiai ne itin lengva prisitaikyti prie pokyčių, o kai užduotys tampa neaiškios, gali kilti nusivylimas ar net sumažėti produktyvumas."
+    ]
+}

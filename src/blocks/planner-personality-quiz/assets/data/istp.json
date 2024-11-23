@@ -1,0 +1,69 @@
+{
+    "name": "Katė",
+    "oneLiner": "Kai viskas griūna ir kiti stresuoja \"ką daryti?!\", tu ramiai įžengi ir viską sutvarkai su šypsena, lyg tai būtų dar viena dienos pramoga.",
+    "strength": [
+        "Praktiškumas – puikiai randi veiksmingus sprendimus, kurie greitai sprendžia kilusias problemas.",
+        "Lankstumas – greitai reaguoji į naujas situacijas ir gerai veiki dinamiškoje aplinkoje, kurioje reikia greitų sprendimų.",
+        "Saviraiška – mėgsti dirbti savarankiškai, gebi prisiimti atsakomybę ir tau nereikia nuolatinių atsiskaitymų, kad darytum tai, ką sutarei padaryti."
+    ],
+    "weakness": [
+        "Nepastovumas – tau labiau patinka spontaniškumas, todėl gali kilti sunkumų kuriant ilgalaikius planus ir jų laikantis.",
+        "Prokrastinacija – polinkis atidėlioti planavimą ir organizavimą, o tai gali sukelti stresą ir nuolat „užmesti“ paskutinės minutės užduotis.",
+        "Rutinos vengimas – nemėgsti pasikartojančių užduočių, todėl gali apleisti svarbias palaikymo ar administracines užduotis."
+    ],
+    "focus": [
+        "Susikurk bazinę dienos plano struktūrą, kad svarbios ilgalaikės užduotys nebūtų pamirštos.",
+        "Susikurk paprastą sistemą, kuri padės valdyti ir atlikti rutinines užduotis ir neleis joms krautis į didžiulį neatliktų darbų kalną.",
+        "Naudok savo problemų sprendimo įgūdžius, kad optimizuotum procesus ir rastum efektyvesnių būdų užduotims atlikti."
+    ],
+    "avoid": [
+        "Nepasikliauk vien savo spontaniškumu – tai gali atnešti chaosą ir praleistus terminus.",
+        "Nepasiduok prokrastinacijai, kai kalbama apie planavimą ir palaikomuosius darbus.",
+        "Venk ignoruoti ilgalaikius tikslus, pirmenybę teikiant tik dabartiniams, įdomesniems iššūkiams."
+    ],
+    "help": [
+        "Lanksti darbo aplinka, kurioje gali greitai priimti sprendimus ir atlikti užduotis praktiškai.",
+        "Įrankiai ir sistemos, kurios supaprastina planavimą ir sumažina organizavimui skirtą laiką.",
+        "Galimybė dirbti savarankiškai ir prisiimti atsakomybę už rezultatus."
+    ],
+    "disturb": [
+        "Griežti grafikai, pasikartojančios užduotys ir aplinka, kurioje nuolat reikia stebėti ir kontroliuoti.",
+        "Situacijos, reikalaujančios išsamios ilgalaikės planavimo strategijos arba nesuteikiančios greitų veiksmų galimybių.",
+        "Darbas, kuris labiau susijęs su teorija ar abstrakčiomis idėjomis, bet neturi praktinio pritaikymo."
+    ],
+    "challenge": [
+        "Planavimas – kaip suderinti savo pomėgį veikti čia ir dabar ir ilgalaikį planavimą, kad išvengtum degančių paskutinės minutės užduočių ar nebaigtų projektų.",
+        "Prokrastinacija – kaip nevengti rutinos darbų, kad jiem pamažu nevirstų netvarka ir nekeltų bereikalingos painiavos.",
+        "Platus matymas – kaip nepamesti ilgalaikių tikslų svarbos, kai susikoncentruoji į esamas problemas."
+    ],
+    "excercise": {
+        "Greitas planavimas": [
+            "Kiekvienos dienos pradžioje skirk 15 minučių greitam veiksmų planui sudaryti. Užsirašyk tris pagrindines užduotis, kurias nori atlikti, įtraukiant ir trumpalaikius, ir vieną ilgalaikį tikslą. Laikyk šį sąrašą matomoje vietoje ir naudokis juo visą dieną.",
+            "Tikslas: ugdyti įprotį įtraukti planavimą į įprastą rutiną, tuo pačiu neperkraunant savęs per dideliais planais.",
+            "Kodėl tai veikia: ši užduotis padeda planuoti koncentruotai ir konkrečiai, skatina tave veiksmingai nustatyti prioritetus, tuo pat metu išlaikant lankstumą."
+        ],
+        "Efektyvumo iššūkis": [
+            "Pasirink vieną rutininę užduotį, kurios dažnai vengi (pvz., darbo vietos tvarkymas, dokumentų valdymas). Naudok savo problemų sprendimo įgūdžius, kad rastum būdų, kaip šią užduotį atlikti efektyviau (pvz., naudojant naują įrankį ar sukuriant optimizuotą procesą). Nustatyk laikmatį ir pabandyk atlikti šią užduotį greičiau nei įprastai.",
+            "Tikslas: paversti rutinines užduotis iššūkiu, kad jos taptų įdomesnės ir veiksmingesnės.",
+            "Kodėl tai veikia: ši užduotis leidžia tavo natūralų polinkį spręsti problemas pritaikyti rutininiams darbams, optimizuojant juos ir tuo pačiu sutaupant laiko."
+        ],
+        "Projektų užbaigimo sprintas": [
+            "Identifikuok vieną nebaigtą projektą ir nustatyk laikmatį 30 minučių. Dirbk išskirtinai ties šiuo projektu be jokių trukdžių, susitelkiant į tam tikrą jo užduotį. Kartok šį sprintą kasdien \/ kas savaitę, kol projektas bus užbaigtas.",
+            "Tikslas: ugdyti nuoseklumą ir gebėjimą sutelkti dėmesį užbaigiant ilgalaikius projektus išvengiant jausmo, kad užduotis yra neįveikiama.",
+            "Kodėl tai veikia: šis metodas suskaido dideles užduotis į trumpus, valdomus etapus, skatinant nuolatinį progresą ir mažinant pojūtį, kad darbų pabaiga yra per toli."
+        ]
+    },
+    "advice": [
+        "Kiekvieną dieną skirk šiek tiek laiko planavimui, kad išvengtum paskutinės minutės streso.",
+        "Naudok savo kūrybiškumą ir problemų sprendimo gebėjimus, kad kasdienes užduotis atliktum efektyviau.",
+        "Kasdien dirbk po truputį su rutininėmis užduotimis – tai geriausias būdas išvengti perdegimo ir susikaupusių užduočių."
+    ],
+    "description": [
+        "Kartais apie tokius žmones kaip tu sakoma „tikras McGyveris“ – nesvarbu, kokia situacija ištinka, tu gebi sugalvoti sprendimą vietoje. Esi ta:s, kuri:s greitai prisitaiko prie pokyčių, kai viskas aplinkui dega ir reikia greito veiksmo. Tavo praktiškas mąstymas ir gebėjimas improvizuoti reiškia, kad ir su minimaliais ištekliais gali rasti išeitį net iš sudėtingiausios situacijos. Intuicija – tai tavo stiprioji pusė, ir tu ją moki puikiai išnaudoti. Nesvarbu, ar tai būtų smulki problemytė, ar rimtas iššūkis – tu tiesiog veiki.",
+        "Tačiau... tokia spontaniška prigimtis turi ir savo iššūkių. Kai užduotys tampa monotoniškos arba reikalauja ilgalaikio planavimo, gali pradėti jausti, kad motyvacija slūgsta. Tavo stiprioji pusė yra greitas sprendimų priėmimas ir veiksmas „čia ir dabar“, bet ilgos, iš anksto suplanuotos strategijos – ne visada tavo arkliukas.",
+        "Štai mano patarimas: išmok į savo spontanišką veiksmą įpinti šiek tiek struktūros. Nereikia planuoti visko iki smulkmenų – užtenka kelių žingsnių į priekį, kurie leis tau išlaikyti kryptį net tada, kai įprasta intuicija nesuveikia. Leisk sau veikti lanksčiai, tačiau nepamiršk integruoti ir šiek tiek sistemos – tai padės išlaikyti balansą ir neperdegti, net kai kasdienybė tampa nuobodi. Galų gale, svarbiausia – išnaudoti tavo gebėjimą greitai prisitaikyti, bet taip pat susikurti tokią rutiną, kuri ne tik remiasi tavo stiprybėmis, bet ir suteikia tau palaikymo, kai reikia veikti ten, kur esi mažiau stipri:us. Tokiu būdu išlaikysi savo natūralų tempą ir vis tiek judėsi į priekį produktyviai, net ir susidūrus su ilgalaikiais iššūkiais."
+    ],
+    "shortDescription": [
+        "Tu gebi puikiai spręsti praktines problemas ir geriausiai veiki esant kintančioms situacijoms. Tavo stiprybė slypi gebėjime greitai prisitaikyti ir rasti veiksmingus, rankomis apčiuopiamus sprendimus. Tau labiau patinka dirbti savarankiškai, turint laisvę veikti pagal savo intuiciją. Vis dėlto, ilgalaikio planavimo ir rutinos darbai tau dažnai atrodo nuobodūs, o tai gali lemti atidėliojimą ar nebaigtus darbus."
+    ]
+}

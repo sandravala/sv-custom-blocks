@@ -187,12 +187,12 @@ form {
 .planner-personality-type-quiz button[type='button']#send-email-button {
 	display: block;
 	position: relative;
-	margin: 56px auto 0;
+	margin: 0 auto 0;
 	padding: 10px 20px;
 	appearance: none;
 	transition: all 0.15s ease-in-out;
 	font-family: inherit;
-	font-size: 24px;
+	font-size: 1em;
 	font-weight: 600;
 	background: #fff;
 	color: #000;
@@ -231,6 +231,16 @@ form {
 		margin-right: 0;
 		transform: rotate(0deg);
 	}
+}
+
+
+.planner-personality-type-quiz button[type='button']#next-question-button {
+	margin: 50px auto 0;
+}
+
+.planner-personality-type-quiz button[type='button']#send-email-button:disabled {
+	pointer-events: none;
+	opacity: 40%;
 }
 
 @keyframes spin {
@@ -332,5 +342,133 @@ form {
 		outline-offset: max(2px, 0.15em);
 	  }
 
+	  .variant {
+		padding-bottom: 2rem;
+	}
 
 }
+
+div.progress-bar-container {
+	padding: 0 2em;
+    margin: 1em 0;
+}
+
+div.progress-bar-container.hidden {
+	display: none;
+}
+
+.progress-bar-container progress {
+    appearance: none; /* Remove default browser styles */
+    -webkit-appearance: none; /* For Safari/Chrome */
+    width: 100%; /* Set the desired width */
+    height: 4px; /* Set the desired height */
+    border: none; /* Remove borders */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #eee; /* Background color */
+    overflow: hidden; /* Clip inner bar for rounded corners */
+  }
+
+  /* Style the progress value bar */
+  progress::-webkit-progress-bar {
+    background-color: #eee; /* Background of the track */
+    border-radius: 10px; /* Match the outer border radius */
+  }
+
+  progress::-webkit-progress-value {
+    background-image: linear-gradient(to left, #e66465, #9198e5);; /* Inner bar color (green in this case) */
+    border-radius: 10px; /* Match the outer border radius */
+    transition: width 0.3s ease; /* Smooth transition */
+  }
+
+  /* Firefox support */
+  progress::-moz-progress-bar {
+    background-image: linear-gradient(to left, #e66465, #9198e5);; /* Inner bar color for Firefox */
+    border-radius: 10px;
+  }
+
+.result-container {
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+div.contact-form input {
+	width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+div.contact-form input#subscribe-name.error,
+div.contact-form input#subscribe-email.error {
+	border-color: red;
+	box-shadow: 0 0 0 1px #ffc0c0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically */
+    align-items: flex-start; /* Align all inputs to the left */
+    gap: 10px; /* Add spacing between inputs */
+	margin-bottom: 2em;
+}
+
+.contact-form span.error {
+	color: red;
+	font-size: 1em;
+}
+
+.contact-form span.error.hidden {
+	display: none;
+}
+
+// .contact-form input[type="checkbox"] {
+//     width: auto; /* Reset the width to auto for the checkbox */
+//     padding: 0; /* Remove padding for the checkbox */
+//     margin-left: .3em; /* Ensure it aligns with the left edge */
+//     display: inline-block;
+//     vertical-align: middle; /* Align checkbox with the text or other elements */
+// }
+.checkbox-container {
+    display: flex;
+    align-items: center; /* Align checkbox and text vertically */
+    gap: 5px; /* Space between checkbox and text */
+	padding-left: .3em;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto; /* Ensure checkbox does not take full width */
+    margin: 0; /* Remove default margins */
+}
+
+.checkbox-container label {
+	font-size: .8em;
+}
+
+/* Change label color to red if checkbox is not checked */
+.checkbox-container input[type="checkbox"]:not(:checked) + label {
+    color: red; /* Label turns red if checkbox is unchecked */
+}
+
+.productivity-type ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.productivity-type p {
+	text-align: justify;
+}
+
+.productivity-overlay {
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10%;
+    background: linear-gradient(to top, rgb(255 255 255), 50%, rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+

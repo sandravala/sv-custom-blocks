@@ -1,0 +1,69 @@
+{
+    "name": "Gepardas",
+    "oneLiner": "Jei gyvenimas yra kinas, tu esi kaskadininkas – viską darai greitai, efektyviai ir visada su nuotykiais. Sprendi problemas tada, kai kiti dar jų nė nepastebėjo.",
+    "strength": [
+        "Greitas sprendimų priėmimas – gali greitai įvertinti situaciją ir priimti sprendimus, net esant spaudimui ar aplinkybėms keičiantis.",
+        "Praktiškas problemų sprendimas – mėgsti rasti tiesioginius sprendimus ir greitai imtis veiksmų, kad išspręstum problemas.",
+        "Lankstumas – gebi lengvai keisti planus ir strategijas pagal naują informaciją ar aplinkybes, todėl tiesiog klesti dinamiškose situacijose."
+    ],
+    "weakness": [
+        "Sunku planuoti ilgam laikotarpiui – tau labiau patinka greiti rezultatai ir veiksmai, todėl gali nepaisyti ilgalaikių strategijų.",
+        "Impulsyvumas – kartais pasineri į užduotis be išsamaus planavimo, kas gali lemti klaidas ar praleistas detales.",
+        "Sunkumai su nuoseklumu – gali prarasti susidomėjimą projektais, kai pradinis užsidegimas atvėsta, todėl užduotys kartais lieka neužbaigtos."
+    ],
+    "focus": [
+        "Ugdyk nuoseklumą atliekant trumpalaikes, greitas užduotis, kurios tiesiogiai siejasi su ilgalaikiais tikslais.",
+        "Naudok minimalią planavimo struktūrą, kuri padės organizuoti užduotis nesijaučiant suvaržyta:u.",
+        "Praktikuok refleksiją, kad apmąstytum savo sprendimus ir impulsyvius veiksmus ir geriau planuotum ateitį."
+    ],
+    "avoid": [
+        "Venk apleisti projektus, kai jie tampa rutiniški ar praranda naujumo žavesį – rask būdų, kaip juos padaryti sau įdomesnius.",
+        "Nepamiršk ilgalaikio planavimo, kad per trumpalaikius malonumus pernelyg neatitoltum nuo svarbių tikslų.",
+        "Apgalvok, kaip nepražiūrėti svarbių detalių ar rizikų, kai veršiesi nedelsiant imtis veiksmų."
+    ],
+    "help": [
+        "Aplinka, kurioje gausu įvairovės, praktinių užduočių ir galimybių greitai priimti sprendimus.",
+        "Lankstūs planavimo įrankiai, leidžiantys spontaniškai keisti planus ir juos koreguoti.",
+        "Laiko blokavimas konkrečioms užduotims, kad išlaikytum susitelkimą ir palaikytum tempą ir progresą ilgalaikiuose projektuose."
+    ],
+    "disturb": [
+        "Griežtos tvarkos, pasikartojančios užduotys ir aplinka su per daug biurokratijos ar vėlavimų.",
+        "Projektai, kuriuose nėra greitų rezultatų ar praktinio pritaikymo.",
+        "Situacijos, kuriose reikia daug dėmesio teorijai ar ilgiems planavimo etapams be veiksmų."
+    ],
+    "challenge": [
+        "Ilgo laikotarpio planavimas – kaip leisti sau veikti greitai ir atlikti užduotis, kad nepaleistum iš akių ilgalaikių strategijų.",
+        "Impulsyvumas – kaip neprivelti klaidų, kai imiesi veiksmų be tinkamo planavimo.",
+        "Nuoseklumas – kaip išlaikyti susidomėjimą projektu, kai pradinis energijos pliūpsnis išgaruoja."
+    ],
+    "excercise": {
+        "Maži laimėjimai": [
+            "Suskaidyk ilgalaikį projektą į mažesnius, trumpalaikius tikslus, kuriuos gali atlikti per dieną arba savaitę. Kiekvieną dieną pasiek vieną trumpalaikį tikslą ir sek pažangą vizualiai (pvz., ant lentos ar planuoklyje).",
+            "Tikslas: išlaikyti susidomėjimą ir kurti progresą per greitus pasiekimus, taip sistemingai artėjant prie ilgalaikių tikslų.",
+            "Kodėl tai veikia: užduotis suteikia momentinio pasitenkinimo ir jausmą, kad kažką pasiekei, išlaikant motyvaciją ir tuo pačiu integruojant ilgalaikį planavimą."
+        ],
+        "Prieš veiksmą": [
+            "Prieš pradedant naują užduotį ar projektą, sudaryk paprastą sąrašą su 3-5 pagrindiniais žingsniais ar klausimais, kuriuos reikia apsvarstyti. Peržiūrėk šį sąrašą prieš pradedant veikti, kad užtikrintum, jog turi aiškų planą ir visus reikiamus išteklius ir taip sumažintum klaidų riziką.",
+            "Tikslas: sumažinti impulsyvių veiksmų neigiamų pasekmių riziką ir pagerinti darbų kokybę, kartu stiprinant planavimo įprotį.",
+            "Kodėl tai veikia: ši užduotis skatina ugdytis įprotį bent minimaliai planuoti prieš pradedant veikti. Taip išpildomas ir tavo poreikis greitam veiksmui, ir apsisaugoma nuo galimų klaidų."
+        ],
+        "Nuoseklumo iššūkis": [
+            "Pasirink vieną tavo turimą ilgalaikį projektą, kuriam tavo motyvacija ar užsidegimas jau pavėsę. Įsipareigok dirbti su juo bent 15 minučių kasdien visą savaitę. Naudok laikmatį laikui sekti ir žymėk pažangą kasdien kalendoriuje.",
+            "Tikslas: ugdyti nuoseklumą mažais, lengvai pasiekiamais žingsniais, padedant išlaikyti motyvaciją dirbti ilgalaikiuose projektuose.",
+            "Kodėl tai veikia: ši užduotis padeda ugdyti įprotį dirbti nuosekliai neperspaudžiant, net ir tada, kai pradinė energija išblėsta."
+        ]
+    },
+    "advice": [
+        "Susikurk tam tikrą „paruoštuką“ ar struktūrą, kuri padės lengvai suplanuoti projektą prieš stačia galva neriant į veiksmą.",
+        "Ieškok galimybės dirbti su projektais, kuriuose gali išpildyti savo poreikį keisti veiklas ir pasiekti greitus rezultatus, tačiau ugdyk ir gebėjimą užbaigti ilgalaikius projektus net ir tada, kai jie tampa mažiau jaudinantys.",
+        "Praktikuok susitelkimą į detales arba ieškok įrankių \/ būdų, kaip jų nepražiūrėti, net jei jos gali pasirodyti nuobodžios – tai gali padėti išvengti klaidų, kurios mažina produktyvumą."
+    ],
+    "description": [
+        "Tu esi žmogus, kuris iššūkius mato kaip galimybes ir mėgaujasi greitai priimamais sprendimais. Tavo energija ir praktiškas požiūris leidžia natūraliai imtis lyderio vaidmens, ypač kai situacijos reikalauja greito mąstymo ir ryžtingų veiksmų. Esi ta:as, kuri:is geriausiai jaučiasi veiksmo įkarštyje, kai prieš akis yra problema, kurią reikia spręsti, ir tikslas, kurį reikia pasiekti. Tavo drąsa ir iniciatyvumas ne kartą ištraukė tave iš sudėtingų situacijų ir tapo tikru komandos užnugariu.",
+        "Vis dėlto, svarbu prisiminti, kad ne kiekviena problema reikalauja žaibiško sprendimo. Kartais lėtesnis, apdairesnis požiūris gali atverti naujų galimybių ir leisti išvengti netikėtų klaidų. Derinant savo veiklumą su trupučiu strateginio planavimo ir apgalvojimo, suteiksi sau dar daugiau erdvės augti ir siekti naujų aukštumų.",
+        "Mano patarimas: išlaikyk savo drąsą ir gebėjimą greitai reaguoti, bet nepamiršk skirti laiko refleksijai ir apmąstymams. Net ir trumpas stabtelėjimas prieš veiksmą gali padėti tau pamatyti platesnį kontekstą ir priimti dar geresnius sprendimus. Taip galėsi dar efektyviau išnaudoti savo talentus, tapti dar stipresne:iu lydere:iu ir sėkmingai judėti pirmyn, nepaisant jokių kliūčių."
+    ],
+    "shortDescription": [
+        "Tu esi žmogus, kuris klesti dinamiškose situacijose. Dievini greitus sprendimus, veiklą „čia ir dabar“ ir praktinį problemų sprendimą. Kiekvienas iššūkis tave motyvuoja imtis veiksmų, tačiau kartais gali kilti sunkumų planuojant ilgalaikius tikslus arba išlaikant susidomėjimą projektu, kai jis praranda savo naujumo žavesį. Jei išmoktum valdyti savo impulsus veikti čia ir dabar ir kartais pagalvotum apie strateginius tikslus, tau atsivertų neriboti horizontai!"
+    ]
+}

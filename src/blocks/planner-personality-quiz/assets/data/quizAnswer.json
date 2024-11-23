@@ -1,0 +1,306 @@
+{
+    "ESTJ": {
+        "name": "Liūtas",
+        "oneLiner": "Toks žmogus, kuris net savaitgalį suplanuos minučių tikslumu ir dar bandys sudrausminti tuos, kurie mėgins plaukti pasroviui.",
+        "strength": [
+            "Gebėjimas tvarkingai planuoti – sugebi sudaryti detalius planus ir grafikus, taip užtikrinant, kad visi darbai būtų atlikti laiku.",
+            "Efektyvus delegavimas – žinai, kam paskirti tam tikras užduotis, kad maksimaliai išnaudotum kiekvieno komandos nario stipriąsias savybes.",
+            "Patikimumas – jeigu pažadi, tai visi gali būti 100% tikri, kad atliksi tai, kas sutarta. Tavo projektai visada vyksta pagal planą ir visos užduotys yra užbaigiamos."
+        ],
+        "weakness": [
+            "Nelankstumas – kartais gali būti sunku prisitaikyti prie netikėtų pokyčių ar naujų metodų. Gali būti sunku perlipti įpročius ar nusistovėjusias rutinas – net ir tada, kai jos tau nepadeda.",
+            "Polinkis kontroliuoti – kartais gali būti sunku paleisti kontrolę. Todėl, nors ir gebant efektyviai deleguoti, kitiems patikėtų užduočių rezultatas gali nuvilti (mikrovadyba dar niekam nepadėjo užduotį atlikti geriau).",
+            "Pernelyg didelis dėmesys efektyvumui – gali skambėti keistai, bet ne visada svarbiausia – efektyvumas. Kartais svarbu suteikti erdvės kūrybiškumui ir paieškoti inovacijų, kurios ilguoju laikotarpiu padės pasiekti aukštesnį produktyvumo lygį. Kai pernelyg siekiama efektyvumo dabar, galimybė užsitikrinti produktyvumo augimą gali būti ir pražiūrėta."
+        ],
+        "description": [
+            "Tu esi tikras produktyvumo pamatas – žmogus, kuriam tvarka ir planavimas yra natūralios savybės. Tavo organizuotumas ir patikimumas užtikrina, kad tikslai bus pasiekti laikantis aukščiausio kokybės standarto. Klesti ten, kur gali pritaikyti savo stiprius organizacinius įgūdžius ir praktišką mąstymą, siekiant apčiuopiamų rezultatų. Tavo gebėjimas planuoti, struktūruoti ir deleguoti užduotis leidžia užtikrintai judėti į priekį ir sukurti aiškią kryptį tiek sau, tiek kitiems.",
+            "Tačiau, siekiant dar aukštesnio produktyvumo, verta pagalvoti, kaip į savo sistemą įsileisti šiek tiek lankstumo ir kūrybiškumo. Būti atvirai:am naujoms idėjoms ir netradiciniams veikimo būdams nereiškia atsisakyti savo vertybių – tai reiškia jas sustiprinti ir dar labiau praturtinti. Kartais per didelis noras kontroliuoti gali tapti iššūkiu, kai aplinkybės keičiasi, o planai turi būti peržiūrėti.",
+            "Mano patarimas: išlaikyk savo natūralų efektyvumą, bet leisk sau retkarčiais eksperimentuoti ir atvirai priimti pokyčius. Integruodama:as lankstumą ir kūrybiškumą į savo struktūruotą požiūrį, sugebėsi ne tik efektyviai įgyvendinti savo tikslus, bet ir lengviau prisitaikyti prie netikėtų situacijų. Toks balansas padės tau dar labiau sužibėti ir išlikti nenugalima:u bet kokioje aplinkoje."
+        ]
+    },
+    "ISTJ": {
+        "name": "Bitė",
+        "oneLiner": "Metodiškas meistras, kuris niekada nepaklysta – nei miške, nei lentynoje su dokumentais. Dar daugiau – tu visada žinai, kur rasti kiekvieną dokumentą ar daiktą. Ne tik darbe, bet ir garaže, spintoje ar netgi telefone!",
+        "strength": [
+            "Dėmesys detalėms – gebi itin kruopščiai planuoti ir vykdyti užduotis. Tai visiems garantuoja, kad tai, ko imsies, bus tikslu ir aišku.",
+            "Nuoseklumas – įprastai tu pasikliauni sistemingomis strategijomis ir užtikrini, kad darbai būtų atliekami laiku ir patikimai.",
+            "Patikimumas – jei kažkam įsipareigojai, tai ir padarysi (kad ir kas nutiktų). Dirbant su tavimi, galima drąsiai pasitikėti, kad užduotys bus užbaigtos laiku."
+        ],
+        "weakness": [
+            "Pasipriešinimas pokyčiams – tu labiau linkusi:ęs pasikliauti nusistovėjusiomis ir patikrintomis praktikomis, todėl nauji metodai ar pokyčiai gali kelti stresą.",
+            "Per didelis dėmesys smulkmenoms – kartais gali paskęsti detalėse, prarandant bendrą vaizdą ir atidedant svarbesnius darbus.",
+            "Sunkumai su neaiškumu – jeigu nėra aiškių nurodymų, instrukcijų arba stinga struktūros, tavo produktyvumas gali itin sumažėti."
+        ],
+        "description": [
+            "Tu esi patikimas žmogus, tikra komandos atrama, kuri užtikrina, kad viskas vyktų sklandžiai ir pagal planą. Tavo kruopštumas, dėmesys detalėms ir įsipareigojimas tvarkai bei sistemai yra tikri sėkmės garantai. Esi ta:as, kuris vertina nuoseklumą ir atsakomybę, todėl tiek darbe, tiek asmeniniame gyvenime sieki išlaikyti stabilumą ir aiškumą.",
+            "Vis dėlto, svarbu nepamiršti, kad šiandieniniame nuolat besikeičiančiame pasaulyje vien planų nepakanka. Kartais gyvenimas meta netikėtus iššūkius, ir būtent tada lankstumas tampa tavo didžiausia stiprybe. Tavo struktūruotas požiūris suteikia tvirtą pagrindą, tačiau leisk sau retkarčiais paleisti kontrolę ir priimti pokyčius kaip naujas galimybes. Tai nereiškia atsisakyti savo vertybių – tai reiškia prisitaikyti ir augti kartu su naujomis situacijomis.",
+            "Mano patarimas: toliau remkis savo metodiškumu ir atsakingumu, bet mokykis atvirai priimti pokyčius. Net ir nedideli prisitaikymai gali padėti tau įgyvendinti savo tikslus efektyviau, o kartu ir suteikti naujų perspektyvų. Balansas tarp struktūros ir lankstumo yra tavo raktas į ilgalaikę sėkmę. Kai gebėsi prisitaikyti prie netikėtumų ir taip pat neišsimušant iš vėžių išlaikyti savo sistemingą požiūrį, tapsi ne tik patikima:u, bet ir nenugalima:u."
+        ]
+    },
+    "ENTP": {
+        "name": "Varnas",
+        "oneLiner": "Idėjų fontanas, kuriam vienos idėjos niekada negana – visada reikia bent penkių!",
+        "strength": [
+            "Inovatyvus mąstymas – tu nuolat ieškai kūrybiškų sprendimų, dažnai siūlai naujas, netradicines idėjas.",
+            "Lankstumas – greitai prisitaikai prie naujų situacijų ir lengvai keiti kryptį, kai atsiranda naujų galimybių.",
+            "Entuziazmas mokytis – pasižymi smalsumu ir trokšti nuolat mokytis, semtis naujų žinių ir patirčių."
+        ],
+        "weakness": [
+            "Nuoseklumo trūkumas – nors pradedi naujus projektus su entuziazmu, gali prarasti susidomėjimą dar prieš juos užbaigiant.",
+            "Sunku susitelkti į rutiną – mėgsti įvairovę ir naujoves, todėl nuobodžios ar pasikartojančios užduotys tau gali tapti iššūkiu.",
+            "Per didelis įsipareigojimų kiekis – dažnai imiesi per daug projektų vienu metu, todėl gali išbarstyti save ir realiai įgyvendinti mažumą jų."
+        ],
+        "description": [
+            "Tu esi tikra idėjų kibirkštis – žmogus, kuris uždega kūrybingumą ir inovacijas visur, kur tik pasirodo. Tavo mintys – tai nesibaigianti galimybių ir naujų idėjų žaidimų aikštelė. Tave traukia dinamiška aplinka, kurioje gali laisvai mąstyti, eksperimentuoti ir tyrinėti naujus kelius. Esi ta:as, kuri:is geba pažadinti kūrybiškumą tiek savyje, tiek aplinkiniuose, ir tavo energija įkvepia visus siekti daugiau.",
+            "Vis dėlto, svarbu prisiminti, kad tikroji magija vyksta tada, kai ne tik gimsta idėjos, bet ir jos paverčiamos realybe. Tavo kūrybinis polėkis kartais gali nukreipti į per daug pradėtų, bet nebaigtų projektų, todėl truputis disciplinos gali būti tavo slaptasis ginklas. Net nedidelis planavimas ir struktūros įvedimas gali padėti užbaigti tai, ką pradėjai, ir paversti tavo vizijas į apčiuopiamus rezultatus.",
+            "Mano patarimas: išlaikyk savo neišsenkantį kūrybiškumą, bet leisk sau įsivesti ir šiek tiek tvarkos. Bendradarbiavimas su kitais padės subalansuoti tavo laisvą, žaismingą mąstymą su reikalinga struktūra. Kai sujungsi savo kūrybinę energiją su disciplina, tapsi nenugalima:u – tavo idėjos ne tik uždegs aplinkinius, bet ir taps realiais pokyčiais, kuriančiais tikrą poveikį pasauliui."
+        ]
+    },
+    "INTJ": {
+        "name": "pelėda",
+        "oneLiner": "Šachmatų meistras gyvenime, kuris visada planuoja tris žingsnius į priekį. Net tada, kai eina pasiimti kavos.",
+        "strength": [
+            "Strateginis mąstymas – puikiai planuoji ilgalaikius projektus, nustatai ambicingus siekius ir išsamiai numatai, kaip juos pasiekti.",
+            "Analitinis problemų sprendimas – logika ir analitinis mąstymas yra tavo stiprybės, kurios padeda, kai reikia spręsti sudėtingus klausimus ir rasti efektyviausius sprendimus.",
+            "Savitvarda – gebi dirbti savarankiškai, susitelkti į tikslus ir atkakliai jų siekti."
+        ],
+        "weakness": [
+            "Polinkis į perfekcionizmą – kartais per daug analizuoji ir lauki tobulo sprendimo, dėl ko gali vilkintis įgyvendinimas.",
+            "Trumpalaikių užduočių ignoravimas – gali praleisti pro akis paprastas kasdienes užduotis, jei per daug susitelksi į ilgalaikius tikslus.",
+            "Sunku priimti kitų nuomonę – mėgsti dirbti savarankiškai ir gali vengti bendradarbiavimo, kas truputį susiaurins tavo mąstymą ir matymą."
+        ],
+        "description": [
+            "Tu esi tikra:as užkulisių strategė:as – žmogus, kuris visada žiūri kelis žingsnius į priekį ir geba matyti platesnį kontekstą. Tavo aštrus dėmesys detalėms ir analitinis protas leidžia kurti tokias strategijas, apie kurias kiti dažnai net nesusimąsto. Tau patinka sudėtingi iššūkiai ir ambicingi tikslai, o tavo metodiškas požiūris padeda juos paversti apgalvotais veiksmų planais. Tavo stiprybė – gebėjimas iš anksto numatyti galimus scenarijus ir rasti kelią link sėkmės.",
+            "Vis dėlto, svarbu prisiminti, kad dideli tikslai susideda iš daugybės mažų, kasdienių užduočių, kurios taip pat reikalauja dėmesio ir motyvacijos. Kartais gali būti lengva pasinerti į didelės vizijos kūrimą, pamirštant, kad mažos detalės yra raktas į jos įgyvendinimą. Be to, tavo stiprus savarankiškumas kartais gali atitolinti tave nuo kitų nuomonių ir įžvalgų, kurios galėtų suteikti vertingos perspektyvos.",
+            "Mano patarimas: toliau kurk savo ambicingas strategijas, bet nepamiršk įtraukti ir aplinkinių į procesą. Atvirumas kitų nuomonėms ir bendradarbiavimas gali atverti naujų galimybių ir padėti tavo idėjoms tapti dar stipresnėmis. Išlaikyk balansą tarp ilgalaikio planavimo ir dėmesio kasdienėms užduotims – taip ne tik paversi savo vizijas realybe, bet ir sukursi stiprų pagrindą ilgalaikei sėkmei."
+        ]
+    },
+    "ISFJ": {
+        "name": "Vėžlys",
+        "oneLiner": "Žmogus, kuris niekada nepraleidžia svarbių detalių, nepamiršta niekieno gimtadienio ir visada turi ekstra pleistrų.",
+        "strength": [
+            "Kruopštumas ir patikimumas – atkreipi dėmesį į svarbias smulkmenas, kurias kiti galbūt praleistų. Taip užtikrini, kad užduotys būtų atliktos kokybiškai ir laiku.",
+            "Palaikanti prigimtis – mėgsti padėti kitiems ir kurti harmoniją, gali netgi peržengti savo galimybių ribas, kad padėtum kolegoms ar artimiesiems.",
+            "Nuoseklumas – tau patinka rutina ir struktūra, kurios padeda užtikrinti stabilius rezultatus tavo darbe."
+        ],
+        "weakness": [
+            "Pokyčių baimė – tau gali būti sunku prisitaikyti prie netikėtų pokyčių, kas sukelia stresą ir sumažina efektyvumą.",
+            "Per didelis atsakomybės prisiėmimas – dažnai per daug rūpiniesi kitų gerove, prisiimi svetimas atsakomybes, todėl nuolat balansuoji ant išsekimo ribos.",
+            "Sunku nustatyti ribas – kartais tau sudėtinga pasakyti „ne“, o tai gali lemti, kad spėji padėti visiems, tačiau nepakanka laiko savoms reikmėms ar saviems tikslams."
+        ],
+        "description": [
+            "Tu esi tikras komandos stuburas – žmogus, kuriuo visi gali pasikliauti, ypač kai reikia, kad darbai būtų atlikti tiksliai ir laiku. Tavo kruopštumas ir atsakomybės jausmas yra nepakeičiami – esi ta:as, kuri:is užtikrina, kad niekas neprasprūstų pro akis, ir kad kiekviena smulkmena būtų apgalvota. Tave džiugina rūpinimasis kitais ir pagalba komandai, o tavo atsidavimas ir dėmesys detalėms dažnai tampa sėkmės garantu net ir sudėtingiausiuose projektuose.",
+            "Vis dėlto, tavo siekis, kad viskas vyktų tobulai pagal planą, gali kartais tapti iššūkiu, ypač kai situacija pasikeičia ir reikia greitai prisitaikyti. Atmink, kad net ir geriausi planai kartais susiduria su netikėtais pokyčiais – tai neišvengiama. Vietoj to, kad leistum panikai perimti kontrolę, mokykis priimti pokyčius kaip naują galimybę, o ne kaip trukdį. Ir svarbiausia, nebijok prašyti pagalbos, kai to reikia – net stipriausi komandos nariai kartais turi remtis kitų palaikymu.",
+            "Mano patarimas: išlaikyk savo metodišką ir atsakingą požiūrį, bet leisk sau būti lankstesne:iu. Priimk, kad ne visada viskas klostysis pagal planą, ir vertink tai kaip progą augti. Derindama:as savo kruopštumą su gebėjimu prisitaikyti prie pokyčių, sukursi aplinką, kurioje ne tik pati:s klestėsi, bet ir padėsi dirbantiems kartu judėti į priekį su užtikrintu pagrindu ir pasitikėjimu."
+        ]
+    },
+    "ESTP": {
+        "name": "Gepardas",
+        "oneLiner": "Jei gyvenimas yra kinas, tu esi kaskadininkas – viską darai greitai, efektyviai ir visada su nuotykiais. Sprendi problemas tada, kai kiti dar jų nė nepastebėjo.",
+        "strength": [
+            "Greitas sprendimų priėmimas – gali greitai įvertinti situaciją ir priimti sprendimus, net esant spaudimui ar aplinkybėms keičiantis.",
+            "Praktiškas problemų sprendimas – mėgsti rasti tiesioginius sprendimus ir greitai imtis veiksmų, kad išspręstum problemas.",
+            "Lankstumas – gebi lengvai keisti planus ir strategijas pagal naują informaciją ar aplinkybes, todėl tiesiog klesti dinamiškose situacijose."
+        ],
+        "weakness": [
+            "Sunku planuoti ilgam laikotarpiui – tau labiau patinka greiti rezultatai ir veiksmai, todėl gali nepaisyti ilgalaikių strategijų.",
+            "Impulsyvumas – kartais pasineri į užduotis be išsamaus planavimo, kas gali lemti klaidas ar praleistas detales.",
+            "Sunkumai su nuoseklumu – gali prarasti susidomėjimą projektais, kai pradinis užsidegimas atvėsta, todėl užduotys kartais lieka neužbaigtos."
+        ],
+        "description": [
+            "Tu esi žmogus, kuris iššūkius mato kaip galimybes ir mėgaujasi greitai priimamais sprendimais. Tavo energija ir praktiškas požiūris leidžia natūraliai imtis lyderio vaidmens, ypač kai situacijos reikalauja greito mąstymo ir ryžtingų veiksmų. Esi ta:as, kuri:is geriausiai jaučiasi veiksmo įkarštyje, kai prieš akis yra problema, kurią reikia spręsti, ir tikslas, kurį reikia pasiekti. Tavo drąsa ir iniciatyvumas ne kartą ištraukė tave iš sudėtingų situacijų ir tapo tikru komandos užnugariu.",
+            "Vis dėlto, svarbu prisiminti, kad ne kiekviena problema reikalauja žaibiško sprendimo. Kartais lėtesnis, apdairesnis požiūris gali atverti naujų galimybių ir leisti išvengti netikėtų klaidų. Derinant savo veiklumą su trupučiu strateginio planavimo ir apgalvojimo, suteiksi sau dar daugiau erdvės augti ir siekti naujų aukštumų.",
+            "Mano patarimas: išlaikyk savo drąsą ir gebėjimą greitai reaguoti, bet nepamiršk skirti laiko refleksijai ir apmąstymams. Net ir trumpas stabtelėjimas prieš veiksmą gali padėti tau pamatyti platesnį kontekstą ir priimti dar geresnius sprendimus. Taip galėsi dar efektyviau išnaudoti savo talentus, tapti dar stipresne:iu lydere:iu ir sėkmingai judėti pirmyn, nepaisant jokių kliūčių."
+        ]
+    },
+    "ENTJ": {
+        "name": "Erelis",
+        "oneLiner": "Viršininkė:As, kuris turi atsakymą viskam (net kai niekas dar nesuprato, koks yra klausimas).",
+        "strength": [
+            "Strateginis planavimas – tau puikiai sekasi nustatyti ilgalaikius tikslus ir kurti detalius planus jiems pasiekti.",
+            "Ryžtinga lyderystė – užtikrintai priimi sprendimus ir vadovauji kitiems, ypač iššūkių metu.",
+            "Tikslų siekimas – gebi stipriai susitelkti į rezultatą, turi tvirtą motyvaciją ir ryžtą įgyvendinti užsibrėžtus tikslus."
+        ],
+        "weakness": [
+            "Per daug struktūros – tau gali būti sunku prisitaikyti prie pokyčių ar naujos informacijos, dažniausiai mėgsti laikytis pradinio plano nepaisant aplinkybių.",
+            "Per didelis dėmesys efektyvumui – kartais gali nepaisyti kitų emocijų ir gerovės (rezultatas bet kokia kaina).",
+            "Sunku paleisti kontrolę – nori valdyti visas projekto dalis, net ir tas, kuriose tiesiogiai nedalyvauji. Todėl dirbantys su tavimi gali nematyti galimybės prisidėti ar veikti laisvai."
+        ],
+        "description": [
+            "Tu esi tikra:as vizionierė:ius, kuri:is ne tik mato didelį paveikslą, bet ir žino, kaip jį įgyvendinti. Tavo ryžtingumas ir strateginis mąstymas suteikia tau gebėjimą valdyti sudėtingus projektus, todėl esi įspūdinga:as lyderė:is. Tavo stiprybė – gebėjimas aiškiai nustatyti kryptį ir įkvėpti komandą judėti į priekį, nepaisant iššūkių.",
+            "Tačiau, net ir puikiai suplanuoti projektai kartais susiduria su netikėtais pokyčiais, kurie gali pareikalauti papildomo lankstumo. Nors tavo strateginis požiūris dažnai yra labai tvirtas, atmink, kad atvirumas kitų įžvalgoms ir naujoms idėjoms gali būti tikras stiprybės ženklas. Ugdydama:as gebėjimą lanksčiai reaguoti į pokyčius ir vertindama:as kitų žmonių indėlį, ne tik sustiprinsi savo lyderystę, bet ir sukursi bendradarbiavimo kultūrą, kuri padės aplinkiniams siekti neįtikėtinų rezultatų.",
+            "Mano patarimas: tęsk savo vizionierišką kelią, bet nepamiršk, kad stipriausias lyderis yra tas, kuris ne tik rodo kryptį, bet ir geba prisitaikyti prie netikėtų aplinkybių. Būk atvira:as naujoms idėjoms, vertink kitų indėlį ir leisk sau veikti truputį lanksčiau. Taip sujungsi savo strateginį mąstymą su atvirumu pokyčiams ir gebėjimu bendradarbiauti – o tai leis tavo vizijoms tapti realybe ir nuversti kalnus."
+        ]
+    },
+    "INTP": {
+        "name": "Meškėnas",
+        "oneLiner": "Protas, kuris analizuoja viską – nuo juodųjų skylių iki kavos pupelių sudėties. Praktika? Čia jau kita istorija...",
+        "strength": [
+            "Analitinis mąstymas – sugebi lengvai išnarplioti sudėtingas problemas ir atrasti jų esminius ryšius bei modelius.",
+            "Kūrybiškas problemų sprendimas – dažnai sugalvoji netradicinius sprendimus ir matai galimybes, kurių kiti galbūt nepastebi.",
+            "Intelektinis smalsumas – mėgsti mokytis naujų dalykų, dažnai gilinantis į tau įdomias temas."
+        ],
+        "weakness": [
+            "Sunku įgyvendinti praktiškai – dažnai pasineri į teorijas ir idėjas, todėl gali kilti sunkumų perkelti jas į konkrečius veiksmus.",
+            "Atidėliojimas ir perfekcionizmas – dėl noro pasiekti tobulumą gali vilkinti projektų pradžią arba pabaigą.",
+            "Nepaisyti rutinos – nemėgsti pasikartojančių ar nuobodžių užduočių, o tai gali didinti neorganizuotumą ir mesti darbus jų neužbaigus."
+        ],
+        "description": [
+            "Tu esi tikra:as intelektualė:as – pirmūnė:as, kuri:is nuolat siekia perprasti pasaulio sudėtingumą, narplioja paslaptis ir ieško gilesnės prasmės. Tavo loginis, analitinis mąstymas ir aistra tyrinėti abstrakčias koncepcijas išskiria tave kaip mąstytoją, kuri:is sugeba pažvelgti giliau, nei paviršius. Tave traukia sudėtingos sistemos ir teorijos, kurios leidžia tau laisvai tyrinėti, teoretizuoti ir spręsti iššūkius savo sąlygomis.",
+            "Vis dėlto, būnant inovatore:iumi, pereiti nuo idėjų prie praktinio įgyvendinimo gali būti iššūkis. Tavo protas dažnai sklando aukštai, kur gimsta genialios idėjos, tačiau jas įgyvendinti realybėje kartais pritrūksta struktūros ar konkrečių žingsnių. Kad būtų lengviau nutiesti tiltą tarp teorijos ir praktikos, pabandyk suskaidyti savo ambicingas idėjas į mažus, aiškius tikslus – tai padės tau judėti į priekį nuosekliau ir greičiau.",
+            "Mano patarimas: išlaikyk savo aistrą tyrinėti ir gilintis į teorijas, tačiau nepamiršk įtraukti šiek tiek planavimo ir struktūros. Skirk laiko ne tik apmąstyti idėjas, bet ir suplanuoti konkrečius veiksmus jų įgyvendinimui. Atradus balansą tarp gilaus mąstymo ir praktinių žingsnių, galėsi paversti savo vizionieriškas idėjas realybe ir padaryti tikrą pokytį."
+        ]
+    },
+    "ISFP": {
+        "name": "Elnias",
+        "oneLiner": "Mėgsta ramybę ir meną. Ji:is mielai pasirinktų tapyti akvarele ant jūros kranto, kol kiti šokinėja per bangas.",
+        "strength": [
+            "Kūrybiškumas ir lankstumas – tu gebi prisitaikyti prie naujų situacijų ir atrasti unikalius sprendimus, todėl dažnai įneši meninį požiūrį į savo darbą.",
+            "Empatija ir palaikymas – natūraliai palaikai kitus ir kuri harmoniją, padedi sukurti teigiamą atmosferą tiek darbe, tiek asmeniniame gyvenime.",
+            "Vertybėmis grįstas darbas – tave motyvuoja asmeninės vertybės ir aistra tam, ką darai, todėl dirbi neskaičiuojant valandų ir jėgų su tais projektais, kurie tau yra svarbūs."
+        ],
+        "weakness": [
+            "Struktūros vengimas – tau labiau patinka lankstumas, o tai kartais gali lemti neorganizuotumą ir netgi praleistus terminus.",
+            "Sunku nustatyti ribas – tau sunku pasakyti „ne“ ir iškelti savo poreikius, todėl gali persidirbti ir perdegti.",
+            "Atidėliojimas dėl nepatogių užduočių – vengi užduočių, kurios nesiderina su tavo asmeninėmis vertybėmis ar atrodo neįdomios, dėl to tavo produktyvumas gali ženkliai sumažėti."
+        ],
+        "description": [
+            "Tu esi tikra komandos širdis ir siela – žmogus, kuris įneša šilumos, kūrybiškumo ir subtilaus meniško dvelksmo į kiekvieną projektą. Tave labiausiai džiugina darbas, kuriame gali laisvai išreikšti savo vertybes ir sukurti harmoniją bendradarbiaujant su kitais. Tavo natūrali empatija, gebėjimas išklausyti ir lankstumas daro tave ypač malonia:iu ir pageidaujama:u komandos nare:iu. Tu dažnai atrandi kūrybiškus, netikėtus sprendimus, pritaikytus konkretiems žmonėms ir situacijoms, todėl tavo idėjos dažnai tampa tikrais perlais komandiniame darbe.",
+            "Vis dėlto, kaip kūrybingai asmenybei, tau kartais gali būti sunku laikytis griežtos struktūros ar terminų. Tu labiau mėgsti veikti pagal intuiciją ir jausti laisvę, tačiau šiek tiek organizuotumo gali padėti paversti tavo gražias vizijas realybe. Struktūra nebūtinai turi apriboti tavo kūrybinę dvasią – ji gali tapti rėmais, kurie suteiks stabilumo ir padės išgryninti tavo idėjas.",
+            "Mano patarimas: priimk savo kūrybišką prigimtį, bet tuo pačiu leisk sau nusistatyti švelnias ribas ir aiškius tikslus. Derinant kūrybinę laisvę su truputį daugiau organizuotumo, atrasi pusiausvyrą, kuri leis išnaudoti visus tavo talentus ir jaustis nenugalimai. Rask savo asmeninę produktyvumo formulę – tokią, kuri ne tik atspindi tavo kūrybiškumą, bet ir padeda tau siekti apčiuopiamų rezultatų. Tokiu būdu tu ne tik kursi įspūdingas idėjas, bet ir patirsi tikrą pasitenkinimą jas įgyvendinant."
+        ]
+    },
+    "ENFP": {
+        "name": "Delfinas",
+        "oneLiner": "Entuziastingas idėjų generatorius, kuriam reikia nuolatinės kūrybinės laisvės – ir kavos... DAUUUG kavos.",
+        "strength": [
+            "Kūrybiškumas ir entuziazmas – tavo energija ir kūrybiškumas leidžia lengvai generuoti naujas idėjas ir sprendimus.",
+            "Lankstumas – gebi puikiai prisitaikyti ir lengvai atsiveri naujoms galimybėms, priimi pokyčius ir spontaniškumą.",
+            "Empatija ir bendravimas – lengvai supranti kitų požiūrį ir gebi kurti pozityvią, bendradarbiaujančią kultūrą."
+        ],
+        "weakness": [
+            "Per greitas įsipareigojimas – dažnai viskam sakai taip ir dėl to imiesi per daug projektų. Taip vis daugėja neužbaigtų užduočių ir gali atvesti net iki perdegimo.",
+            "Gebėjimo susikaupti stoka – tau gali būti sunku išlaikyti dėmesį ilgesnį laiką ir pabaigti pradėtus projektus prieš imantis naujų.",
+            "Prokrastinacija – atidėlioji užduotis, kurios tau atrodo neįdomios, o tai gali lemti neorganizuotumą ir stresą."
+        ],
+        "description": [
+            "Tu esi tikras gyvybingumo ir kūrybiškumo šaltinis – žmogus, kuris į bet kokią erdvę įneša energijos, įkvėpimo ir naujovių. Tavo entuziazmas tyrinėti naujas idėjas ir galimybes padaro tave tikra:u inovatore:iumi, nuolat siekiančia:iu surasti naujus sprendimus ir būdus, kaip įkvėpti kitus. Bendradarbiavimas ir naujų galimybių ieškojimas – tai tavo tikrasis polėkis, ir tavo energija užkrečia aplinkinius, skatindama juos veikti drąsiau.",
+            "Vis dėlto, tavo neišsenkantis entuziazmas kartais gali tapti kliūtimi. Esi žmogus, kuris mėgsta viską išbandyti, todėl gali būti sunku susitelkti ties vienu prioritetu ar užbaigti pradėtus projektus. Tavo kūrybinė dvasia trokšta laisvės, bet kartais būtent ji gali tapti kliūtimi, kai reikia laikytis nuoseklaus plano.",
+            "Mano patarimas: išmok derinti savo norą tyrinėti su šiek tiek aiškesnės struktūros kūrimu. Nusistatyk kelis aiškius tikslus ir leisk sau lanksčiai veikti, tačiau nepamiršk išlaikyti ryšį su realybe. Net ir minimalus planavimas gali padėti paversti tavo gausybę idėjų realiais, apčiuopiamais rezultatais. Kai rasi balansą tarp kūrybinės laisvės ir praktiškų veiksmų, tavo inovatyvios idėjos taps ne tik įkvepiančiomis, bet ir įgyvendinamomis – ir tai bus tavo tikrasis indėlis į pasaulį."
+        ]
+    },
+    "INFJ": {
+        "name": "Vilkas",
+        "oneLiner": "Tas, kuris ne tik aiškiai mato kryptį, bet ir labai stengiasi, kad visa grupė nueitų ta kryptimi – net jei dėl to reikia aukoti savo laisvą savaitgalį. Mąstydamas apie kitų gerovę, gali suplanuoti pasaulio taiką, bet dažnai pamiršta suplanuoti laiką sau.",
+        "strength": [
+            "Strateginis mąstymas – puikiai numatai ilgalaikius tikslus ir gebi sukurti aiškų planą, kaip juos pasiekti.",
+            "Empatija ir įžvalga – gebi iš esmės suprasti skirtingus žmones, jų motyvus ir įvairias situacijas, todėl tavo planavimas apima tiek praktinius, tiek emocinius aspektus.",
+            "Tikslingas įgyvendinimas – esi labai motyvuota:as įgyvendinti projektus, kurių poveikyje matai prasmę."
+        ],
+        "weakness": [
+            "Perfekcionizmas – kartais gali užstrigti analizėje ir atidėlioti veiksmus, laukdama:as tobulumo.",
+            "Trumpalaikių užduočių ignoravimas – dažnai susitelki į didelį paveikslą, todėl gali praleisti trumpalaikes užduotis, kurios neskamba taip didingai.",
+            "Per didelis atsakomybės prisiėmimas – dažnai per daug rūpiniesi kitais, dėl ko gali perdegti ar prarasti asmeninį efektyvumą."
+        ],
+        "description": [
+            "Tu esi žmogus, kuris nuolat ieško gilesnės prasmės ir siekia ilgalaikių pokyčių. Tavo vizija visada nukreipta į priekį, bet tu nesi vien tik svajotoja:s – kruopščiai planuoji, kaip pasiekti savo tikslus, neprarandant ryšio su vertybėmis. Esi ta:as, kuri:is mato ne tik galutinį rezultatą, bet ir visą kelią, vedantį į jį. Tavo gebėjimas įsigilinti į kitų poreikius leidžia kurti planus, kurie yra ne tik praktiški, bet ir jautriai atsižvelgia į emocinius aspektus bei poveikį aplinkiniams.",
+            "Tačiau būtent ši tavo aistra siekti tobulumo ir padėti kitiems gali kartais tave išvarginti. Tu nuolat stengiesi išlaikyti aukštus standartus ir neretai prisiimi per daug atsakomybės, siekdama:as užtikrinti, kad viskas vyktų kuo sklandžiau. Nors tavo atsidavimas yra nuostabus, prisimink, kad tai, kas padaryta yra geriau už, tai, kas tobula, bet taip ir liko popieriuje. Kartais svarbiausia yra tiesiog pradėti – padaryti pirmąjį žingsnį ir leisti procesui natūraliai vystytis.",
+            "Mano patarimas: rūpinkis savimi taip pat, kaip rūpiniesi kitais. Leisk sau atsipalaiduoti ir priimti, kad ne viskas turi būti tobula. Suteik kitiems galimybę patiems prisiimti atsakomybę už jų veiksmus – taip ne tik apsaugosi savo energiją, bet ir suteiksi aplinkiniams galimybę augti. Kai išmoksi subalansuoti savo tobulumo siekį su savęs priėmimu, tavo įtaka taps dar stipresnė ir ilgalaikiškesnė, o įpratus veikti nelaukiant tobulumo – pasieksi labai daug."
+        ]
+    },
+    "ESFP": {
+        "name": "Zebras",
+        "oneLiner": "Tas, kuris įneša entuziazmo ir energijos į bet kokį projektą – net jei darbai kartais nukeliauja į antrą planą dėl netikėtos, bet labai smagios išvykos! Gyvena šia akimirka, visada pasiruošęs spontaniškai pakeisti planus ir daryti tai, kas tuo metu atrodo smagiausia.",
+        "strength": [
+            "Aukštas energijos lygis – į kiekvieną užduotį atsineši entuziazmo ir energijos, taip motyvuoji kitus ir sukuri pozityvią aplinką.",
+            "Lankstumas – greitai prisitaikai prie pokyčių, todėl puikiai veiki dinamiškose situacijose.",
+            "Bendravimo įgūdžiai – gebi puikiai komunikuoti ir bendradarbiauti, lengvai bendrauji ir užmezgi ryšius su kitais."
+        ],
+        "weakness": [
+            "Sunku susikoncentruoti į ilgalaikius tikslus – tau patinka greiti rezultatai, todėl gali būti sunku išlaikyti dėmesį ilgalaikiuose projektuose.",
+            "Rutinos vengimas – nemėgsti pasikartojančių ar nuobodžių užduočių, o tai gali lemti atidėliojimą ir nebaigtus projektus.",
+            "Impulsyvumas – kartais per greitai priimi sprendimus, pilnai neįvertinus, kokias ilgalaikes pasekmes tai gali turėti."
+        ],
+        "description": [
+            "Tu esi tikras energijos užtaisas – žmogus, kuris įneša gyvybės ir pozityvumo į bet kokią komandą ar projektą. Tavo entuziazmas, meilė veiksmui ir spontaniškumas užkrečia aplinkinius, skatina juos veikti drąsiau ir su didesniu pasitikėjimu. Esi ta:as, kuri:is lengvai prisitaiko prie naujų situacijų, greitai randa kūrybiškus sprendimus ir nebijo veikti ne pagal planą. Tavo gebėjimas imtis veiksmų „čia ir dabar“ dažnai tampa išsigelbėjimu, kai viskas aplinkui ima griūti.",
+            "Tačiau yra ir kita medalio pusė. Nuolat gyvenant šia akimirka, gali kartais pamiršti ilgalaikius tikslus ar struktūrą, kuri leistų pasiekti dar daugiau. Spontaniškumas – tavo stiprybė, bet kartais jis gali vesti į situacijas, kuriose pritrūksta krypties ir aiškumo. Jei skirsi šiek tiek laiko refleksijai ir paprastam planavimui, net ir minimaliai – tai padės išlaikyti balansą tarp mėgavimosi dabartimi ir judėjimo į priekį.",
+            "Mano patarimas: neprarask savo natūralaus polėkio ir noro gyventi šia akimirka, bet suteik sau truputį struktūros. Net keli apgalvoti žingsniai į priekį gali padėti nukreipti tavo energiją taip, kad ji ne tik įkvėptų aplinkinius, bet ir virstų realiais rezultatais. Taip tavo spontaniškumas taps tikra supergalia, leidžiančia mėgautis procesu ir kartu siekti ilgalaikių tikslų."
+        ]
+    },
+    "ESFJ": {
+        "name": "Šuo",
+        "oneLiner": "Žmogus, kuris moka suorganizuoti tobulą vakarėlį ir visiems paskirstyti užduotis – kad niekas neliktų be torto.",
+        "strength": [
+            "Organizaciniai įgūdžiai – puikiai planuoji veiklas ir projektus; užtikrini, kad viskas būtų atlikta efektyviai.",
+            "Į komandą orientuotas planavimas – puikiai koordinuoji komandos pastangas, palaikant pozityvią ir bendradarbiaujančią atmosferą.",
+            "Patikimumas – esi patikima:as ir atsakinga:as, visada įgyvendini savo pareigas bei padedi komandos nariams."
+        ],
+        "weakness": [
+            "Polinkis į per daug įsipareigojimų – dažnai prisiimi per daug atsakomybių, siekiant padėti kitiems, o tai gali lemti perdegimą.",
+            "Sunku priimti grįžtamąjį ryšį – tau gali būti sunku priimti kritiką, nes ją vertini pernelyg asmeniškai, o tai gali pakenkti produktyvumui.",
+            "Per didelis dėmesys harmonijai – kartais gali per daug stengtis išlaikyti harmoniją, pakišant neišspręstus konfliktus ar trūkumus po kilimu."
+        ],
+        "description": [
+            "Tu esi grupės širdis, žmogus, kuris aplink save kuria jaukią ir vienijančią atmosferą, leidžiančią kiekvienam jaustis vertinamam ir įtrauktam. Tavo natūralus talentas organizuoti ir koordinuoti projektus, veiklas ir žmones, padeda lengvai sukurti harmoningą ir produktyvią aplinką, kurioje žmonės jaučiasi gerai ir gali susitelkti į bendrus tikslus. Tave traukia socialinės sąveikos, o padėti kitiems sėkmingai įgyvendinti jų svajones – tai tavo didžiausias džiaugsmas ir motyvacija.",
+            "Vis dėlto, tavo stiprus noras palaikyti kitus ir būti mėgstamai:am kartais gali peraugti į per didelį prisitaikymą, grįžtamojo ryšio vengimą ar net savęs pamiršimą. Dažnai būni ta:s, kuri:s pasiruošęs viską mesti, kad padėtų kitiems, tačiau svarbu nepamiršti ir savo poreikių. Rūpinimasis savimi nėra egoizmas, tai būtina sąlyga, kad galėtum toliau džiaugtis socialiniais ryšiais ir būti ta:uo, kuri:is palaiko visus kitus.",
+            "Mano patarimas: mokykis priimti grįžtamąjį ryšį ir pokyčius kaip augimo galimybes. Nebijok iškelti sudėtingų klausimų, net jei jie gali sukelti trumpalaikį diskomfortą – ilgainiui tai tik sustiprins tavo gebėjimą kurti darnius ryšius ir išlaikyti balansą. Kai subalansuosi savo norą padėti kitiems ir pasirūpinimą savimi, tavo įtaka tik augs. Tu tapsi ne tik tuo žmogumi, kuris suburia ir palaiko kitus, bet ir tikra:u lydere:iu, gebančia:iu pasiekti įspūdingų rezultatų."
+        ]
+    },
+    "ENFJ": {
+        "name": "Žirgas",
+        "oneLiner": "Tikras šoumenas, kuris visus įkvepia šypsotis ir kurti pasaulį, kuriame gera gyventi. Žmogus, kuriam norisi papasakoti visas gyvenimo paslaptis – nes jis visada išklausys ir supras.",
+        "strength": [
+            "Įkvepianti lyderystė – natūraliai motyvuoji ir įkvepi kitus, sukuri palaikančią ir įtraukiančią atmosferą.",
+            "Stiprus vertybinis pagrindas – tikslus planuoji atsižvelgiant į vertybes ir žmones. Taip užtikrini, kad kiekvienas jaustųsi įtrauktas ir matytų savo indėlį į bendrus tikslus.",
+            "Organizaciniai įgūdžiai – puikiai koordinuoji pastangas, valdai projektus ir užtikrini, kad planai būtų įgyvendinti veiksmingai."
+        ],
+        "weakness": [
+            "Per didelis įsipareigojimas kitų poreikiams – dažnai prisiimi per daug atsakomybės už kitų sėkmę, kas gali lemti perdegimą.",
+            "Sunku nustatyti ribas – tau sunku pasakyti „ne“, todėl dažnai pirmenybę teiki kitų poreikiams, o savo asmeninius tikslus ir gerovę pamiršti.",
+            "Savęs ignoravimas – dažnai ignoruoji asmeninius poreikius, kai sieki padėti kitiems, o tai gali lemti nuovargį ir sumažėjusį produktyvumą."
+        ],
+        "description": [
+            "Tu esi įkvepianti:s lyderė:is, kuri:s visada mato potencialą žmonėse ir geba jį atskleisti, parodydamas kelią į šviesesnę ateitį. Tavo charizma ir nuoširdi empatija leidžia lengvai užmegzti gilų ryšį su aplinkiniais. Tave iš tiesų džiugina galimybė kurti teigiamus pokyčius ir skatinti bendradarbiavimą komandoje – tu klesti aplinkoje, kur visi siekia bendrų tikslų.",
+            "Bet... tavo aistra padėti ir įkvėpti kitus kartais skatina prisiimti daugiau atsakomybės, nei iš tiesų galėtum pakelti. Tu nori būti užnugaris visiems, tačiau tai gali vesti link išsekimo. Nepamiršk: nustatyti ribas ir pasirūpinti savimi nėra egoizmas – tai būtina, jei nori išlaikyti savo įtaką ir efektyvumą. Kai randi laiko sau ir pasidalini atsakomybėmis su kitais, ne tik apsaugoji savo gerovę, bet ir įgalini aplinkinius augti ir mokytis.",
+            "Mano patarimas: priimk savo norą įkvėpti ir motyvuoti kitus, bet neužmiršk klausytis ir savo poreikių bei tikslų. Įsivertink, kiek svarbu yra rasti balansą tarp pagalbos kitiems ir pagalbos sau. Kai sujungsi savo aistrą lyderystei su įsipareigojimu savo asmeninei gerovei, tavo įtaka ne tik sustiprės, bet ir taps išties transformuojanti. Taip tu gebėsi ne tik vesti kitus link bendrų tikslų, bet ir skatinti realius, prasmingus pokyčius, kurie atves į geresnį rytojų."
+        ]
+    },
+    "INFP": {
+        "name": "Drugelis",
+        "oneLiner": "Romantiškas svajotojas, kuris gali iš bet ko padaryti meno kūrinį – net iš neplautų indų.",
+        "strength": [
+            "Kūrybiškumas ir vizionieriškumas – kuri unikalius, vertybėmis pagrįstus sprendimus ir idėjas, suteiki gylio ir atrandi inovacijų projektams, su kuriais dirbi.",
+            "Lankstus planavimas – atvirai priimi naujas idėjas ir neapsiriboji įprastais metodais, siekiant tikslų.",
+            "Aistra ir atsidavimas – 100 procentų atsiduodi projektams, kurie atitinka tavo asmenines vertybes, kuriuose matai prasmę ir tikslą."
+        ],
+        "weakness": [
+            "Sunku įgyvendinti praktikoje – tau dažnai būna sudėtinga paversti abstrakčias idėjas į konkrečius veiksmus ir užbaigti pradėtus projektus.",
+            "Rutinos vengimas – nemėgsti pasikartojančių užduočių, o tai gali sukelti atidėliojimą ir dezorganizaciją.",
+            "Per daug dėmesio mąstymui ir idealizavimui – gali būti linkusi:ęs per daug analizuoti ir ieškoti tobulumo, kas atitolina praktinius veiksmus arba trukdo užbaigti projektus, kurie neatitinka tavo idealistinių standartų."
+        ],
+        "description": [
+            "Esi vizionierė:ius, kuri:s kiekvieną naują idėją ir iššūkį priima pilna širdimi, įnešdama:as kūrybiškumo, empatijos ir idealizmo. Tavo gebėjimas žiūrėti nepaisant įprastų rėmų ir įsiklausyti į gilesnes vertybes leidžia matyti tai, ko kiti dažnai nepastebi. Esi žmogus, kuris į bet kokius projektus įneša novatoriškų sprendimų, kurdamas ne tik produktyvius, bet ir prasmingus rezultatus. Tave labiausiai įkvepia darbai, kurie rezonuoja su tavo vidiniais įsitikinimais ir leidžia realizuoti savo kūrybinį potencialą.",
+            "Vis dėlto, būnant vizionieriumi, neretai susiduriama su iššūkiu paversti idėjas realybe. Kelias nuo įkvėpimo iki praktinio įgyvendinimo gali būti ilgas, o pati proceso struktūra kartais atrodo pernelyg suvaržanti tavo laisvą kūrybinę dvasią. Čia ir slypi tavo galimybė augti: susikurk lengvą, tačiau kryptingą planą, kuris leistų ne tik vizualizuoti idėjas, bet ir žengti aiškiais praktiniais žingsniais jų įgyvendinimo link.",
+            "Mano patarimas: priimk savo kūrybiškumą ir gebėjimą svajoti apie didelius dalykus, bet nepamiršk išlaikyti ryšio su realybe. Skirk laiko refleksijai ir susikurk rėmus, kurie padėtų tavo idėjoms įgauti formą be pernelyg griežtos kontrolės. Taip išlaikysi balansą tarp kūrybos laisvės ir efektyvaus veikimo. Kai sujungsi savo vizionierišką polėkį su praktiškais veiksmais, tavo idėjos taps ne tik įkvepiančiomis, bet ir įgyvendinamomis. Ir būtent tuomet pasieksi įspūdingų rezultatų, kurie ne tik atitiks tavo vertybes, bet ir turės realią, ilgalaikę reikšmę pasauliui."
+        ]
+    },
+    "ISTP": {
+        "name": "Katė",
+        "oneLiner": "Kai viskas griūna ir kiti stresuoja \"ką daryti?!\", tu ramiai įžengi ir viską sutvarkai su šypsena, lyg tai būtų dar viena dienos pramoga.",
+        "strength": [
+            "Praktiškumas – puikiai randi veiksmingus sprendimus, kurie greitai sprendžia kilusias problemas.",
+            "Lankstumas – greitai reaguoji į naujas situacijas ir gerai veiki dinamiškoje aplinkoje, kurioje reikia greitų sprendimų.",
+            "Saviraiška – mėgsti dirbti savarankiškai, gebi prisiimti atsakomybę ir tau nereikia nuolatinių atsiskaitymų, kad darytum tai, ką sutarei padaryti."
+        ],
+        "weakness": [
+            "Nepastovumas – tau labiau patinka spontaniškumas, todėl gali kilti sunkumų kuriant ilgalaikius planus ir jų laikantis.",
+            "Prokrastinacija – polinkis atidėlioti planavimą ir organizavimą, o tai gali sukelti stresą ir nuolat „užmesti“ paskutinės minutės užduotis.",
+            "Rutinos vengimas – nemėgsti pasikartojančių užduočių, todėl gali apleisti svarbias palaikymo ar administracines užduotis."
+        ],
+        "description": [
+            "Kartais apie tokius žmones kaip tu sakoma „tikras McGyveris“ – nesvarbu, kokia situacija ištinka, tu gebi sugalvoti sprendimą vietoje. Esi ta:s, kuri:s greitai prisitaiko prie pokyčių, kai viskas aplinkui dega ir reikia greito veiksmo. Tavo praktiškas mąstymas ir gebėjimas improvizuoti reiškia, kad ir su minimaliais ištekliais gali rasti išeitį net iš sudėtingiausios situacijos. Intuicija – tai tavo stiprioji pusė, ir tu ją moki puikiai išnaudoti. Nesvarbu, ar tai būtų smulki problemytė, ar rimtas iššūkis – tu tiesiog veiki.",
+            "Tačiau... tokia spontaniška prigimtis turi ir savo iššūkių. Kai užduotys tampa monotoniškos arba reikalauja ilgalaikio planavimo, gali pradėti jausti, kad motyvacija slūgsta. Tavo stiprioji pusė yra greitas sprendimų priėmimas ir veiksmas „čia ir dabar“, bet ilgos, iš anksto suplanuotos strategijos – ne visada tavo arkliukas.",
+            "Štai mano patarimas: išmok į savo spontanišką veiksmą įpinti šiek tiek struktūros. Nereikia planuoti visko iki smulkmenų – užtenka kelių žingsnių į priekį, kurie leis tau išlaikyti kryptį net tada, kai įprasta intuicija nesuveikia. Leisk sau veikti lanksčiai, tačiau nepamiršk integruoti ir šiek tiek sistemos – tai padės išlaikyti balansą ir neperdegti, net kai kasdienybė tampa nuobodi. Galų gale, svarbiausia – išnaudoti tavo gebėjimą greitai prisitaikyti, bet taip pat susikurti tokią rutiną, kuri ne tik remiasi tavo stiprybėmis, bet ir suteikia tau palaikymo, kai reikia veikti ten, kur esi mažiau stipri:us. Tokiu būdu išlaikysi savo natūralų tempą ir vis tiek judėsi į priekį produktyviai, net ir susidūrus su ilgalaikiais iššūkiais."
+        ]
+    }
+}

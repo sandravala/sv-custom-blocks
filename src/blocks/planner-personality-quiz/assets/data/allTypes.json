@@ -1,0 +1,1106 @@
+{
+    "ESTJ": {
+        "name": "Liūtas",
+        "oneLiner": "Toks žmogus, kuris net savaitgalį suplanuos minučių tikslumu ir dar bandys sudrausminti tuos, kurie mėgins plaukti pasroviui.",
+        "strength": [
+            "Gebėjimas tvarkingai planuoti – sugebi sudaryti detalius planus ir grafikus, taip užtikrinant, kad visi darbai būtų atlikti laiku.",
+            "Efektyvus delegavimas – žinai, kam paskirti tam tikras užduotis, kad maksimaliai išnaudotum kiekvieno komandos nario stipriąsias savybes.",
+            "Patikimumas – jeigu pažadi, tai visi gali būti 100% tikri, kad atliksi tai, kas sutarta. Tavo projektai visada vyksta pagal planą ir visos užduotys yra užbaigiamos."
+        ],
+        "weakness": [
+            "Nelankstumas – kartais gali būti sunku prisitaikyti prie netikėtų pokyčių ar naujų metodų. Gali būti sunku perlipti įpročius ar nusistovėjusias rutinas – net ir tada, kai jos tau nepadeda.",
+            "Polinkis kontroliuoti – kartais gali būti sunku paleisti kontrolę. Todėl, nors ir gebant efektyviai deleguoti, kitiems patikėtų užduočių rezultatas gali nuvilti (mikrovadyba dar niekam nepadėjo užduotį atlikti geriau).",
+            "Pernelyg didelis dėmesys efektyvumui – gali skambėti keistai, bet ne visada svarbiausia – efektyvumas. Kartais svarbu suteikti erdvės kūrybiškumui ir paieškoti inovacijų, kurios ilguoju laikotarpiu padės pasiekti aukštesnį produktyvumo lygį. Kai pernelyg siekiama efektyvumo dabar, galimybė užsitikrinti produktyvumo augimą gali būti ir pražiūrėta."
+        ],
+        "focus": [
+            "Ugdyk lankstumą, kad pokyčiai nesugriautų tavo planų ir gebėjimo veikti efektyviai.",
+            "Pratinkis paleisti kontrolę – pasitikėk savo komandos (ar tų, kuriems deleguoji \/ perduodi užduotis) gebėjimais.",
+            "Skirk laiko generuoti kūrybiškas idėjas užduočių atlikimui ir rezultatų siekimui – tai gali padėti pastebėti naujas galimybes."
+        ],
+        "avoid": [
+            "Stenkis neįstrigti per daug griežtose taisyklėse – taip užgniauši savo (ir kitų) kūrybiškumą.",
+            "Pernelyg didelės kontrolės, nes ji gali sumažinti komandos ar tų, kuriems perduodi užduotis, motyvaciją.",
+            "Pernelyg didelio susitelkimo tik į žinomus efektyvumo metodus. Gali būti, kad žinai ir moki ne viską."
+        ],
+        "help": [
+            "Aiškūs tikslai, struktūruota aplinka ir gerai apibrėžtos procedūros – tai tavo kelias į sėkmę.",
+            "Planavimo įrankiai ir užduočių stebėjimas, kurie padeda sekti progresą ir laikytis terminų.",
+            "Lyderystės galimybės, kuriose gali priimti sprendimus ir vadovauti kitiems."
+        ],
+        "disturb": [
+            "Neaiškumas, chaotiška aplinka ir struktūros trūkumas gali sukelti stresą.",
+            "Situacijos, kuriose reikia greitos reakcijos be aiškaus plano, gali išmušti iš pusiausvyros.",
+            "Aplinka, kurioje nepaisoma taisyklių, gali tave erzinti ir demotyvuoti."
+        ],
+        "challenge": [
+            "Kontrolės perteklius – noras (su)valdyti viską gali sumažinti bendrą komandos efektyvumą – tuomet teks užduotis atlikti pačiai:iam.",
+            "Sunkumai prisitaikant prie pokyčių – netikėti pasikeitimai gali kelti stresą, ypač kai tai sutrikdo tavo planus.",
+            "Pasipriešinimas neįprastiems metodams – pasikliauji tradiciniais, tau jau žinomais ir pažįstamais veiklos būdais ir metodais, o tai gali riboti inovacijas (ir galimybę veikti produktyviau)."
+        ],
+        "excercise": {
+            "Delegavimo eksperimentas": [
+                "Pasirink užduotį, kurią paprastai atliktum pati:s, ir deleguok ją kitam žmogui (komandos nariui, paslaugų teikėjui \/ specialistui ar šeimos nariui \/ draugui). Net jei dirbi viena:s ir neturi galimybės deleguoti darbines užduotis, gali delegavimo eksperimentą atlikti su buities darbais ir šeimos nariais. Deleguojant pateik esmines gaires (reikalingas darbui atlikti), o po to atsitrauk – leisk žmogui, kuriam delegavai užduotį, ją atlikti savo nuožiūra. Suplanuok vieną susitikimą užduoties pabaigoje, kad kartu peržvelgtumėte rezultatus. Svarbu: labai aiškiai apsibrėžti ir iškomunikuoti siekiamą rezultatą ir svarbius aspektus, tačiau nesikišti į procesą siekiant to rezultato (net jei jis vyksta ir ne taip, kaip tu įsivaizduoji).",
+                "Tikslas: mokytis paleisti kontrolę ir pasitikėti kitais, leidžiant jiems parodyti savo gebėjimus.",
+                "Kodėl tai veikia: tai padeda palaipsniui sumažinti polinkį į mikrovadybą ir stiprina gebėjimą dirbti komandoje, t.y. dalintis užduotimis (o ne vien tik tobulai viską atlikti pačiai:iam)."
+            ],
+            "Gali būti ir kitaip": [
+                "Pasirink vieną iš savo reguliariai atliekamų užduočių. Skirk 30 minučių ir įvardink bent tris alternatyvius metodus \/ būdus tą pačią užduotį atlikti per tiek pat laiko arba greičiau. Gali būti, kad kai kurie būdai bus netradiciniai ar tau neįprasti (vadinasi, nekeliantys pasitikėjimo), bet išsirink vieną ir pabandyk jį taikyti bent vieną savaitę. Jei nesugalvoji trijų galimų alternatyvų, tai pasiklausk kolegų, draugų, šeimos narių.",
+                "Tikslas: ugdyti lankstumą ir mokytis atvirumo naujiems metodams ir galimybėms, net jei jie atrodo neįprasti.",
+                "Kodėl tai veikia: tai skatina tave išbandyti naujus metodus, kurie gali būti efektyvesni ar kūrybiškesni, ir padeda didinti lankstumą. Papildoma nauda – pamačius ir praktiškai patyrus, kad yra daugybė skirtingų būdų pasiekti tam pačiam rezultatui, mažės noras kištis ir kontroliuoti tuos, kurie imasi deleguotų užduočių."
+            ],
+            "Imunitetas pasikeitimams": [
+                "Pagalvok apie realų iššūkį, kuris gali sutrikdyti tavo planus (pvz., komandos narys staiga suserga arba klientas sumažina biudžetą, o gal sugenda automobilis). Sudaryk atsarginį planą, kuris apimtų tris aiškius žingsnius, ką darytum konkretaus pasikeitimo atveju.",
+                "Tikslas: pasiruošti galimiems trikdžiams, kad netikėtumai nesugriautų tavo plano ir motyvacijos.",
+                "Kodėl tai veikia: galimų trikdžių apgalvojimas leidžia pasirengti netikėtumams ir suteikia daugiau pasitikėjimo valdant nenumatytas situacijas. Be to, suteikia galimybę geriau planuoti ir lanksčiau vertinti įvairius iššūkius."
+            ]
+        },
+        "advice": [
+            "Kiekvieną savaitę susiplanuok laiko „idėjų sesijoms“. Tai leis ne tik susikoncentruoti į strateginius sprendimus, bet ir apgalvoti alternatyvius būdus.",
+            "Stenkis bent kartą per mėnesį deleguoti užduotį, kurios įprastai niekam nepatikėtum – tai ne tik sumažins tavo darbo krūvį, bet ir leis ugdytis darbo komandoje įgūdžius.",
+            "Krizės atveju – visada turėk paruoštą „planą B“ (t.y. planuojant nepraleisk rizikų valdymo dalies). Tai padės lengviau reaguoti į įvairius netikėtumus ir greičiau prisitaikyti."
+        ],
+        "description": [
+            "Tu esi tikras produktyvumo pamatas – žmogus, kuriam tvarka ir planavimas yra natūralios savybės. Tavo organizuotumas ir patikimumas užtikrina, kad tikslai bus pasiekti laikantis aukščiausio kokybės standarto. Klesti ten, kur gali pritaikyti savo stiprius organizacinius įgūdžius ir praktišką mąstymą, siekiant apčiuopiamų rezultatų. Tavo gebėjimas planuoti, struktūruoti ir deleguoti užduotis leidžia užtikrintai judėti į priekį ir sukurti aiškią kryptį tiek sau, tiek kitiems.",
+            "Tačiau, siekiant dar aukštesnio produktyvumo, verta pagalvoti, kaip į savo sistemą įsileisti šiek tiek lankstumo ir kūrybiškumo. Būti atvirai:am naujoms idėjoms ir netradiciniams veikimo būdams nereiškia atsisakyti savo vertybių – tai reiškia jas sustiprinti ir dar labiau praturtinti. Kartais per didelis noras kontroliuoti gali tapti iššūkiu, kai aplinkybės keičiasi, o planai turi būti peržiūrėti.",
+            "Mano patarimas: išlaikyk savo natūralų efektyvumą, bet leisk sau retkarčiais eksperimentuoti ir atvirai priimti pokyčius. Integruodama:as lankstumą ir kūrybiškumą į savo struktūruotą požiūrį, sugebėsi ne tik efektyviai įgyvendinti savo tikslus, bet ir lengviau prisitaikyti prie netikėtų situacijų. Toks balansas padės tau dar labiau sužibėti ir išlikti nenugalima:u bet kokioje aplinkoje."
+        ],
+        "shortDescription": [
+            "Tu esi žmogus, kuriam tvarka ir planavimas – neatsiejama kasdienybės dalis. Tau labiausiai patinka, kai viskas vyksta pagal aiškų planą. Detalūs grafikai, užduočių paskirstymas, atsakomybių aiškumas – tai tavo stiprioji pusė. Ir nors sugebi puikiai organizuot ir planuot įvairius reikalus, kartais gali kilti iššūkių, kai gyvenimas pamėtėja pokyčių ar reikia pasitikėti kitais (be nuolatinės priežiūros)."
+        ]
+    },
+    "ISTJ": {
+        "name": "Bitė",
+        "oneLiner": "Metodiškas meistras, kuris niekada nepaklysta – nei miške, nei lentynoje su dokumentais. Dar daugiau – tu visada žinai, kur rasti kiekvieną dokumentą ar daiktą. Ne tik darbe, bet ir garaže, spintoje ar netgi telefone!",
+        "strength": [
+            "Dėmesys detalėms – gebi itin kruopščiai planuoti ir vykdyti užduotis. Tai visiems garantuoja, kad tai, ko imsies, bus tikslu ir aišku.",
+            "Nuoseklumas – įprastai tu pasikliauni sistemingomis strategijomis ir užtikrini, kad darbai būtų atliekami laiku ir patikimai.",
+            "Patikimumas – jei kažkam įsipareigojai, tai ir padarysi (kad ir kas nutiktų). Dirbant su tavimi, galima drąsiai pasitikėti, kad užduotys bus užbaigtos laiku."
+        ],
+        "weakness": [
+            "Pasipriešinimas pokyčiams – tu labiau linkusi:ęs pasikliauti nusistovėjusiomis ir patikrintomis praktikomis, todėl nauji metodai ar pokyčiai gali kelti stresą.",
+            "Per didelis dėmesys smulkmenoms – kartais gali paskęsti detalėse, prarandant bendrą vaizdą ir atidedant svarbesnius darbus.",
+            "Sunkumai su neaiškumu – jeigu nėra aiškių nurodymų, instrukcijų arba stinga struktūros, tavo produktyvumas gali itin sumažėti."
+        ],
+        "focus": [
+            "Praktikuok lankstumą: įvesk nedidelių pokyčių į savo rutiną, kad lengviau prisitaikytum prie netikėtumų, kai jie kils rimtesnėse situacijose.",
+            "Užduok sau klausimą, kaip konkrečios smulkmenos prisideda prie bendro projekto tikslo. Tai padės nustatyti prioritetus ir neįstrigti neesminėse detalėse.",
+            "Išmok veikti nežinomybėje, žingsnis po žingsnio identifikuojant esminius pradinius veiksmus, net jei ir liks dar daug neatsakytų klausimų."
+        ],
+        "avoid": [
+            "Pasitikrink, ar nesipriešini naujiems metodams ar technologijoms vien tik dėl to, kad jie tau kol kas – nepatogūs ir nepažinti. Nuolat primink sau, kad inovacijos turi potencialo pagerinti produktyvumą.",
+            "Reguliariai reflektuok ir vertink: ar tavo taikomos rutinos nepaseno ir nėra mažiau efektyvios už kai kuriuos kitus galimus metodus ar praktikas.",
+            "Perfekcionizmo. Žmonėms, linkusiems į detales, būdinga siekti viską sustyguoti maksimaliai gerai. Bet šis polinkis, kai nekontroliuojamas, gali stabdyti pažangą."
+        ],
+        "help": [
+            "Aiškūs nurodymai, detalūs planai ir išbandytos (patikimos) procedūros, kurios padeda išlaikyti stabilumą ir nuspėjamumą.",
+            "Laiko planavimo įrankiai ir užduočių sąrašai, kurie palaiko sistemingą darbų eigą ir užduočių stebėjimą.",
+            "Struktūruota aplinka su aiškiomis taisyklėmis ir vaidmenimis, kur kiekvienas žino, už ką yra atsakingas, ir ko tikėtis."
+        ],
+        "disturb": [
+            "Netikėti pokyčiai, struktūros trūkumas ir aplinka, kurioje nespėjama užtikrinti nuoseklaus darbo proceso.",
+            "Per didelis darbų kiekis be aiškios prioritizacijos.",
+            "Neaiškios instrukcijos arba projektai be aiškių tikslų ir struktūros."
+        ],
+        "challenge": [
+            "Pasipriešinimas pokyčiams – įpročiai ir nusistovėję metodai gali trukdyti prisitaikyti prie naujų technologijų ar darbo praktikų.",
+            "Smulkmenų spąstai – gali užstrigti smulkiose detalėse, prarandant bendrą vaizdą ir vilkinant progresą.",
+            "Sąstingis, esant neaiškumui – kai nėra aiškių nurodymų ar struktūros, gali kilti nusivylimas ir mažėti produktyvumas."
+        ],
+        "excercise": {
+            "Viso gero, komforto zona": [
+                "Pasirink vieną mažą savo įprastinę užduotį, kurią atlieki jau seniai pasirinktu būdu ar naudojantis tau įprastomis priemonėmis. Vieną savaitę paskirk išsiaiškinti, kaip tą pačią užduotį galima būtų atlikti efektyviau, greičiau ar paprasčiau (pvz., naudojantis kitomis priemonėmis ar skirtingais metodais). Gali pagūglinti, paklausti DI ar pasidomėti, kaip tą pačią užduotį atlieka tavo kolegos, šeimos nariai, draugai ir pan. Kitą savaitę pamėgink savo užduotį atlikti tuo alternatyviu būdu (žinoma, jeigu tik jis turi aiškius privalumus). Svarbu: neatmesti alternatyvių veiklos metodų ar priemonių vien tik dėl to, kad „tu žinai geriau“, „tu jau dirbi su X ir niekuo nesiskundi“ ir pan. Labai gali būti, kad egzistuoja efektyvesnis būdas atlikti užduotį X, tik tu dar apie tai nežinai. Tad sužinok ;)",
+                "Tikslas: didinti lankstumą ir ugdyti labiau prisitaikantį požiūrį, kuris padėtų lengviau laviruoti netikėtumuose.",
+                "Kodėl tai veikia: pripratus prie nedidelių pokyčių, lengviau bus reaguoti, kai atsiras didesni ar sudėtingesni pasikeitimai."
+            ],
+            "Plataus kampo objektyvas": [
+                "Kartą per savaitę skirk 30 minučių, kad peržiūrėtum visus savo dabartinius projektus ir procesus. Išsirink vieną užduotį, kuriai skyrei daugiausiai dėmesio. Atsitrauk ir paklausk savęs: Kaip šis darbas prisideda prie bendro tikslo? Jeigu reiktų įvardinti 20% pastangų šioje užduotyje, kurios atneša 80% rezultato, kokie veiksmai tai būtų? Ar šiam darbui skiriamas laikas ir pastangos – proporcingi jo reikšmei bendram tikslui?",
+                "Tikslas: Žengti žingsnį atgal ir atsitraukti nuo smulkmenų prie svarbesnių tikslų, efektyviau valdant laiką ir prioritetus.",
+                "Kodėl tai veikia: Ši užduotis padeda tau vertinti darbų vertę platesniame kontekste, išlaikant pusiausvyrą tarp detalių ir bendro vaizdo."
+            ],
+            "Ką daryti, kai neaišku, ką daryti": [
+                "Pasirink vieną projektą ar užduotį, kurie yra neaiškūs (t.y. turi daug neatsakytų klausimų) arba kuriems trūksta aiškių instrukcijų. Įvardink 3 galimus pradinius veiksmus arba klausimus, į kuriuos turi atsakyti prieš imantis veiksmų. Tada sutelk dėmesį į šiuos klausimus ir ženk pirmą žingsnį, remiantis jau turima informacija.",
+                "Tikslas: lavinti gebėjimą dirbti su neaiškiomis situacijomis ir didinti pasitikėjimą sprendimų priėmimu net ir esant ribotai informacijai.",
+                "Kodėl tai veikia: ši praktika leidžia tau išmokti valdyti neaiškias situacijas, ugdant gebėjimą imtis veiksmų, net kai instrukcijos nėra pilnai aiškios."
+            ]
+        },
+        "advice": [
+            "Skirk laiko savirefleksijai: bent kartą per savaitę pasitikrink, ar nepaskendai detalėse. Paklausk savęs, kaip ir kokia proporcija užduotys, kurias atlikai, prisideda prie bendrų tikslų.",
+            "Pamėgink deleguoti užduotis, kurios nebūtinai reikalauja tavo dėmesio. Tai padės atlaisvinti laiko svarbesniems darbams ir leis komandos nariams augti.",
+            "Kai susiduri su neaiškumu, nebijok užduoti daugiau klausimų – tai padės sukurti aiškesnę užduočių eigą ir išvengti nusivylimo dėl nežinomybės."
+        ],
+        "description": [
+            "Tu esi patikimas žmogus, tikra komandos atrama, kuri užtikrina, kad viskas vyktų sklandžiai ir pagal planą. Tavo kruopštumas, dėmesys detalėms ir įsipareigojimas tvarkai bei sistemai yra tikri sėkmės garantai. Esi ta:as, kuris vertina nuoseklumą ir atsakomybę, todėl tiek darbe, tiek asmeniniame gyvenime sieki išlaikyti stabilumą ir aiškumą.",
+            "Vis dėlto, svarbu nepamiršti, kad šiandieniniame nuolat besikeičiančiame pasaulyje vien planų nepakanka. Kartais gyvenimas meta netikėtus iššūkius, ir būtent tada lankstumas tampa tavo didžiausia stiprybe. Tavo struktūruotas požiūris suteikia tvirtą pagrindą, tačiau leisk sau retkarčiais paleisti kontrolę ir priimti pokyčius kaip naujas galimybes. Tai nereiškia atsisakyti savo vertybių – tai reiškia prisitaikyti ir augti kartu su naujomis situacijomis.",
+            "Mano patarimas: toliau remkis savo metodiškumu ir atsakingumu, bet mokykis atvirai priimti pokyčius. Net ir nedideli prisitaikymai gali padėti tau įgyvendinti savo tikslus efektyviau, o kartu ir suteikti naujų perspektyvų. Balansas tarp struktūros ir lankstumo yra tavo raktas į ilgalaikę sėkmę. Kai gebėsi prisitaikyti prie netikėtumų ir taip pat neišsimušant iš vėžių išlaikyti savo sistemingą požiūrį, tapsi ne tik patikima:u, bet ir nenugalima:u."
+        ],
+        "shortDescription": [
+            "Tu puikiai susitvarkai su užduotimis, kuriose reikalingas dėmesys detalėms, nes dievini, kai viskas vyksta pagal aiškų planą. Tačiau, kad ir kaip šauniai tvarkytumeis, be iššūkių neasieini – kaip ir visi mes. Tau greičiausiai ne itin lengva prisitaikyti prie pokyčių, o kai užduotys tampa neaiškios, gali kilti nusivylimas ar net sumažėti produktyvumas."
+        ]
+    },
+    "ENTP": {
+        "name": "Varnas",
+        "oneLiner": "Idėjų fontanas, kuriam vienos idėjos niekada negana – visada reikia bent penkių!",
+        "strength": [
+            "Inovatyvus mąstymas – tu nuolat ieškai kūrybiškų sprendimų, dažnai siūlai naujas, netradicines idėjas.",
+            "Lankstumas – greitai prisitaikai prie naujų situacijų ir lengvai keiti kryptį, kai atsiranda naujų galimybių.",
+            "Entuziazmas mokytis – pasižymi smalsumu ir trokšti nuolat mokytis, semtis naujų žinių ir patirčių."
+        ],
+        "weakness": [
+            "Nuoseklumo trūkumas – nors pradedi naujus projektus su entuziazmu, gali prarasti susidomėjimą dar prieš juos užbaigiant.",
+            "Sunku susitelkti į rutiną – mėgsti įvairovę ir naujoves, todėl nuobodžios ar pasikartojančios užduotys tau gali tapti iššūkiu.",
+            "Per didelis įsipareigojimų kiekis – dažnai imiesi per daug projektų vienu metu, todėl gali išbarstyti save ir realiai įgyvendinti mažumą jų."
+        ],
+        "focus": [
+            "Skaidyk projektus ir grandiozines idėjas į mažus veiksmus, kad išlaikytum pagreitį ir neprarastum susidomėjimo.",
+            "Sukurk sistemą idėjų ir projektų prioritetizavimui, kad galėtum susitelkti į tuos, kurie turi didžiausią poveikį.",
+            "Nustatyk sau aiškius terminus (ir juos viešai deklaruok), kad padėtum sau užbaigti tai, ką pradėjai. Net ir tada, kai motyvacija nuslops."
+        ],
+        "avoid": [
+            "Venk per greitai pereiti prie naujų idėjų, nebaigus pradėtų projektų.",
+            "Atsargiai vertink savo galimybes (geriausia – su tam tikru „rezervu“), kad neprisiimtum per daug įsipareigojimų vienu metu, nes tai gali nuvesti į perdegimą.",
+            "Nepamiršk skirti dėmesio ne tokioms didingoms kasdienėms užduotims, kurios vis dėl to būtinos tavo idėjų įgyvendinimui."
+        ],
+        "help": [
+            "Lanksti aplinka, leidžianti kurti ir eksperimentuoti be griežtų ribų.",
+            "Įrankiai, skirti idėjų fiksavimui ir organizavimui, pvz., skaitmeniniai užrašai ar minčių žemėlapiai.",
+            "Galimybės bendradarbiauti ir diskutuoti su kitais, kad galėtum tobulinti savo idėjas."
+        ],
+        "disturb": [
+            "Pernelyg griežta rutina ir pasikartojančios užduotys, kurios riboja kūrybinę laisvę.",
+            "Projektai, reikalaujantys didelio dėmesio detalėms ar ilgalaikio įsipareigojimo be įvairovės.",
+            "Užduotys be intelektualinio stimulo, kuriose lengva greitai prarasti susidomėjimą."
+        ],
+        "challenge": [
+            "Užbaigti tai, ką pradėjai – entuziazmas dėl naujų idėjų dažnai priblėsta nespėjus jų pilnai įgyvendinti.",
+            "Svarbių detalių pražiūrėjimas – dėmesys didelėms idėjoms gali lemti, kad pamiršti esmines detales, kurios reikalingos projektui įgyvendinti ar užbaigti.",
+            "Sunku nustatyti prioritetus – nuolatinis domėjimasis keliais dalykais vienu metu gali pastūmėti į per daug projektų vienu metu ir išsiblaškymą, persidirbimą, perdegimą."
+        ],
+        "excercise": {
+            "Nuo idėjos prie veiksmo": [
+                "Pasidaryk lentelę su trimis stulpeliais: Idėja, Sekantis veiksmas, Terminas. Kiekvienai naujai idėjai užrašyk vieną konkretų veiksmą, kurį gali atlikti per 48 valandas, ir nustatyk terminą, iki kada to veiksmo imsies. Kai tik veiksmas atliktas – užrašyk sekantį veiksmą tai pačiai idėjai. Kasdien stebėk pažangą. Svarbu: lentelėje negali „kabėti“ neatlikti veiksmai, pavėluoti veiksmai, perkeliami veiksmai ar idėjos be jokių veiksmų. Jeigu tokių tavo lentelėje randasi, vadinasi, tai idėjai dar neatėjo laikas. Kada nors galbūt jis ateis, bet dabar – tegu neužima vietos!",
+                "Tikslas: paversti idėjas į konkrečius veiksmus ir užtikrinti, kad jas įgyvendinsi.",
+                "Kodėl tai veikia: ši užduotis padeda nukreipti tavo kūrybinę energiją į praktinius žingsnius, ugdo įprotį užbaigti pradėtus darbus ir skatina pagalvoti, prieš visa galva pasineriant į naują idėją."
+            ],
+            "Rutinos sprintas": [
+                "Pasirink vieną tavo įgyvendinamą projektą ar procesą ir nustatyk laikmatį 30 minučių. Per šį laiką susitelk tik į kokią nors techninę, rutininę ar šiaip ne itin įdomią užduotį. Jokių išorinių trikdžių, pašalinių darbų ir pan. Pasistenk kuo daugiau atlikti per šį laiką. Svarbu: tokius sprintus nusimatyk reguliariai savo darbotvarkėje. Trukmę gali ir didinti, kai pajausi, kad tos 30 minučių nebuvo tokios jau kankinančiai nemalonios.",
+                "Tikslas: pastiprinti „atsparumą“ neįdomioms, bet būtinoms užduotims ir užtikrinti, kad tavo idėjos būtų tinkamai įgyvendintos.",
+                "Kodėl tai veikia: ši užduotis paskatina skirti neskausmingą laiko kiekį nelaukiant, kol užeis įkvėpimas daryti kažką, ką tau reikia padaryti. Net jei ir nelabai įdomu."
+            ],
+            "Prioritetų iššūkis:": [
+                "Sudaryk visų dabartinių projektų ir idėjų sąrašą. Skirk jiems balus pagal poveikį (pelningumą, atitiktį tavo tikslams, norams ar vertybėms ir pan,), įgyvendinamumą ir asmeninį susidomėjimą. Sudėk atskirų kriterijų balus ir matysi, kurie projektai ar idėjos tau yra svarbiausi. Pasirink tris aukščiausio prioriteto projektus ar idėjas, kuriems sutelksi dėmesį artimiausias dvi savaites, o likusius atidėk.",
+                "Tikslas: neištaškyti dėmesio ir išvengti per daug įsipareigojimų, vienu metu susitelkiant į svarbiausius projektus.",
+                "Kodėl tai veikia: ši užduotis padeda objektyviai apsispręsti, kur skirti savo laiką ir energiją, užkertant kelią blaškymuisi dėl mažiau svarbių idėjų. Juk visiems aišku, kad tau jų netrūksta!"
+            ]
+        },
+        "advice": [
+            "Skirk laiko idėjų „inkubavimui“: kai tik atsiranda nauja idėja, užrašyk ją ir duok sau laiko ją pergalvoti prieš imantis veiksmų. Tai padės nenerti stačia galva į kiekvieną naują idėją, kai dar nebaigei įgyvendinti ankstesnių.",
+            "Ieškok partnerių ar komandų, kurios padės tau įgyvendinti praktines detales. Taip išvengsi nuobodulio ir užtikrinsi, kad tavo idėjos bus įgyvendintos iki galo.",
+            "Kiekvieną dieną skirk bent 30 minučių rutininėms užduotims – tai padės išlaikyti tvarką ir neprarasti ryšio su praktiniu projekto įgyvendinimu."
+        ],
+        "description": [
+            "Tu esi tikra idėjų kibirkštis – žmogus, kuris uždega kūrybingumą ir inovacijas visur, kur tik pasirodo. Tavo mintys – tai nesibaigianti galimybių ir naujų idėjų žaidimų aikštelė. Tave traukia dinamiška aplinka, kurioje gali laisvai mąstyti, eksperimentuoti ir tyrinėti naujus kelius. Esi ta:as, kuri:is geba pažadinti kūrybiškumą tiek savyje, tiek aplinkiniuose, ir tavo energija įkvepia visus siekti daugiau.",
+            "Vis dėlto, svarbu prisiminti, kad tikroji magija vyksta tada, kai ne tik gimsta idėjos, bet ir jos paverčiamos realybe. Tavo kūrybinis polėkis kartais gali nukreipti į per daug pradėtų, bet nebaigtų projektų, todėl truputis disciplinos gali būti tavo slaptasis ginklas. Net nedidelis planavimas ir struktūros įvedimas gali padėti užbaigti tai, ką pradėjai, ir paversti tavo vizijas į apčiuopiamus rezultatus.",
+            "Mano patarimas: išlaikyk savo neišsenkantį kūrybiškumą, bet leisk sau įsivesti ir šiek tiek tvarkos. Bendradarbiavimas su kitais padės subalansuoti tavo laisvą, žaismingą mąstymą su reikalinga struktūra. Kai sujungsi savo kūrybinę energiją su disciplina, tapsi nenugalima:u – tavo idėjos ne tik uždegs aplinkinius, bet ir taps realiais pokyčiais, kuriančiais tikrą poveikį pasauliui."
+        ],
+        "shortDescription": [
+            "Esi tas žmogus, kuris tiesiog verda nuo idėjų, nuolat ieškantis naujų galimybių ir sprendimų. Tau patinka iššūkiai ir kūrybiškumas, mėgsti laisvę eksperimentuoti ir veikti be griežtų ribų. Tačiau su visais šiais talentais ateina ir iššūkių – kartais prarandi susidomėjimą dar nepradėjus projektui artėti prie pabaigos, o rutininės užduotys gali pasirodyti pernelyg nuobodžios. Vis dėlto, su tinkama strategija gali ne tik sukurti įspūdingas naujas idėjas, bet ir paversti jas realybe."
+        ]
+    },
+    "INTJ": {
+        "name": "pelėda",
+        "oneLiner": "Šachmatų meistras gyvenime, kuris visada planuoja tris žingsnius į priekį. Net tada, kai eina pasiimti kavos.",
+        "strength": [
+            "Strateginis mąstymas – puikiai planuoji ilgalaikius projektus, nustatai ambicingus siekius ir išsamiai numatai, kaip juos pasiekti.",
+            "Analitinis problemų sprendimas – logika ir analitinis mąstymas yra tavo stiprybės, kurios padeda, kai reikia spręsti sudėtingus klausimus ir rasti efektyviausius sprendimus.",
+            "Savitvarda – gebi dirbti savarankiškai, susitelkti į tikslus ir atkakliai jų siekti."
+        ],
+        "weakness": [
+            "Polinkis į perfekcionizmą – kartais per daug analizuoji ir lauki tobulo sprendimo, dėl ko gali vilkintis įgyvendinimas.",
+            "Trumpalaikių užduočių ignoravimas – gali praleisti pro akis paprastas kasdienes užduotis, jei per daug susitelksi į ilgalaikius tikslus.",
+            "Sunku priimti kitų nuomonę – mėgsti dirbti savarankiškai ir gali vengti bendradarbiavimo, kas truputį susiaurins tavo mąstymą ir matymą."
+        ],
+        "focus": [
+            "Skaidyk ilgalaikius tikslus į mažesnius veiksmus, kad užtikrintum nuoseklią pažangą.",
+            "Susikurk rutiną, padedančią susidoroti su kasdienėmis užduotimis, kad neprarastum balanso tarp ilgalaikių ir trumpalaikių tikslų.",
+            "Praktikuok atvirumą atsiliepimams ir bendradarbiavimui – tai gali praturtinti tavo idėjas ir strategijas."
+        ],
+        "avoid": [
+            "Venk „analizės paralyžiaus“ – nusistatyk laiką, per kurį turi imtis veiksmų, net jei visos sąlygos dar nėra idealios.",
+            "Nepamiršk trumpalaikių užduočių, kurios yra būtinos ilgalaikių tikslų įgyvendinimui.",
+            "Neatmesk kitų nuomonės – skirtingos perspektyvos gali suteikti vertingų įžvalgų. Net jei jos ateis tik po kurio laiko."
+        ],
+        "help": [
+            "Rami aplinka, leidžianti susitelkti į mąstymą ir strateginį planavimą.",
+            "Įrankiai, skirti organizuoti ir stebėti sudėtingus projektus bei ilgalaikius tikslus.",
+            "Laiko blokavimas, kad būtų išlaikytas balansas tarp strateginio darbo ir kasdienių užduočių."
+        ],
+        "disturb": [
+            "Nuolatiniai trukdžiai, neorganizuota aplinka ir neaiškūs tikslai.",
+            "Pernelyg didelis dėmesys greitiems rezultatams arba intelektualinių stimulų trūkumas.",
+            "Situacijos, kai reikia greitų sprendimų (bet neužtenka laiko analizei)."
+        ],
+        "challenge": [
+            "Planų komplikavimas – gali įstrigti analizėje, per daug dėmesio skiriant planavimui ir nepakankamai – faktiniams veiksmams.",
+            "Sunkumai su rutininėmis užduotimis – prarandi susidomėjimą pasikartojančiomis ar nuobodžiomis užduotimis, kurios tiesiogiai neveda prie tavo ilgalaikių vizijų.",
+            "Sunku priimti kitų nuomonę – mėgsti dirbti viena:as, bet tai gali trukdyti pasinaudoti kitų įžvalgomis."
+        ],
+        "excercise": {
+            "Imk ir daryk": [
+                "Pasirink vieną sudėtingą projektą ar idėją, su kuria dirbi. Nusimatyk tris paprastus žingsnius, kuriuos gali atlikti iš karto. Vieną iš žingsnių atlik per artimiausią valandą, nepergalvojant ir netobulinant iki begalybės.",
+                "Tikslas: skatinti veiksmą, o ne tobulumo siekį, ir įveikti analizės paralyžių.",
+                "Kodėl tai veikia: ši užduotis padeda pereiti nuo tobulo planavimo prie praktinio veiksmų atlikimo, didinant tempą ir pažangą net sudėtinguose projektuose."
+            ],
+            "Ką manai": [
+                "Pasidalink savo vykdomu projektu su kolega arba draugu (arba šeimos nariu, jei dirbi viena:s – gali dalintis ir buitiniais projektais, ne tik darbiniais) ir paprašyk jų grįžtamojo ryšio. Pabandyk pritaikyti bent vieną jų pasiūlymą, net jei jis skiriasi nuo tavo pradinės idėjos. Peržvelk rezultatus ir įvertink poveikį.",
+                "Tikslas: ugdyti bendradarbiavimo gebėjimus ir būti atviresniam kitų perspektyvoms.",
+                "Kodėl tai veikia: ši užduotis padeda tau išeiti už komforto zonos ribų ir integruoti išorines įžvalgas, gerinant tavo prisitaikymą ir gebėjimą bendradarbiauti."
+            ],
+            "Pomodoro": [
+                "Pasirink vieną pasikartojančią užduotį, kurią paprastai atidėlioji. Nustatyk laikmatį 25 minutėms (naudok „Pomodoro“ techniką) ir šį laiką susitelk tik į tos užduoties atlikimą. Po to apdovanok save trumpa pertrauka ar mėgstama veikla.",
+                "Tikslas: ugdyti nuoseklumą atliekant rutinines užduotis ir palaipsniui integruoti jas į savo dienotvarkę.",
+                "Kodėl tai veikia: ši užduotis padeda sukurti įprotį valdyti kasdienes užduotis efektyviai, mažinant atidėliojimą ir atlaisvinant erdvę strateginiams darbams."
+            ]
+        },
+        "advice": [
+            "Skirk laiko strateginei refleksijai – kartą per savaitę peržiūrėk ilgalaikius tikslus ir stebėk, kokie veiksmai priartino prie jų įgyvendinimo.",
+            "Sukurk sistemą kasdienių užduočių vykdymui: net jei šios užduotys nėra malonios, jos padeda pasiekti ilgalaikius tikslus.",
+            "Praktikuok bendradarbiavimą su kitais – net jei mėgsti dirbti viena:as, kitų žmonių įžvalgos gali suteikti naujų perspektyvų."
+        ],
+        "description": [
+            "Tu esi tikra:as užkulisių strategė:as – žmogus, kuris visada žiūri kelis žingsnius į priekį ir geba matyti platesnį kontekstą. Tavo aštrus dėmesys detalėms ir analitinis protas leidžia kurti tokias strategijas, apie kurias kiti dažnai net nesusimąsto. Tau patinka sudėtingi iššūkiai ir ambicingi tikslai, o tavo metodiškas požiūris padeda juos paversti apgalvotais veiksmų planais. Tavo stiprybė – gebėjimas iš anksto numatyti galimus scenarijus ir rasti kelią link sėkmės.",
+            "Vis dėlto, svarbu prisiminti, kad dideli tikslai susideda iš daugybės mažų, kasdienių užduočių, kurios taip pat reikalauja dėmesio ir motyvacijos. Kartais gali būti lengva pasinerti į didelės vizijos kūrimą, pamirštant, kad mažos detalės yra raktas į jos įgyvendinimą. Be to, tavo stiprus savarankiškumas kartais gali atitolinti tave nuo kitų nuomonių ir įžvalgų, kurios galėtų suteikti vertingos perspektyvos.",
+            "Mano patarimas: toliau kurk savo ambicingas strategijas, bet nepamiršk įtraukti ir aplinkinių į procesą. Atvirumas kitų nuomonėms ir bendradarbiavimas gali atverti naujų galimybių ir padėti tavo idėjoms tapti dar stipresnėmis. Išlaikyk balansą tarp ilgalaikio planavimo ir dėmesio kasdienėms užduotims – taip ne tik paversi savo vizijas realybe, bet ir sukursi stiprų pagrindą ilgalaikei sėkmei."
+        ],
+        "shortDescription": [
+            "Tu mėgsti grandiozinius planus, strategiją ir gebi aiškiai matyti ilgalaikius tikslus. Tavo stiprybė – gebėjimas mąstyti iš tolo ir numatyti ateitį, kruopščiai planuojant kiekvieną žingsnį. Vis dėlto, kartais gali delsti pradėti veikti, nes pernelyg susitelksi į tobulą strategiją, o kasdienės užduotys tau gali atrodyti kaip bereikšmės. Tinkamai sustrategavus ir sujungus savo stiprybes su priemonėmis „pridengti“ silpnybes, gali pasiekti aukštumų."
+        ]
+    },
+    "ISFJ": {
+        "name": "Vėžlys",
+        "oneLiner": "Žmogus, kuris niekada nepraleidžia svarbių detalių, nepamiršta niekieno gimtadienio ir visada turi ekstra pleistrų.",
+        "strength": [
+            "Kruopštumas ir patikimumas – atkreipi dėmesį į svarbias smulkmenas, kurias kiti galbūt praleistų. Taip užtikrini, kad užduotys būtų atliktos kokybiškai ir laiku.",
+            "Palaikanti prigimtis – mėgsti padėti kitiems ir kurti harmoniją, gali netgi peržengti savo galimybių ribas, kad padėtum kolegoms ar artimiesiems.",
+            "Nuoseklumas – tau patinka rutina ir struktūra, kurios padeda užtikrinti stabilius rezultatus tavo darbe."
+        ],
+        "weakness": [
+            "Pokyčių baimė – tau gali būti sunku prisitaikyti prie netikėtų pokyčių, kas sukelia stresą ir sumažina efektyvumą.",
+            "Per didelis atsakomybės prisiėmimas – dažnai per daug rūpiniesi kitų gerove, prisiimi svetimas atsakomybes, todėl nuolat balansuoji ant išsekimo ribos.",
+            "Sunku nustatyti ribas – kartais tau sudėtinga pasakyti „ne“, o tai gali lemti, kad spėji padėti visiems, tačiau nepakanka laiko savoms reikmėms ar saviems tikslams."
+        ],
+        "focus": [
+            "Nustatyk asmenines ribas ir praktikuok „ne“ sakymą, kad neperkrautum savęs atsakomybėmis.",
+            "Susikurk rutiną, kuri leis skirti laiko sau ir poilsiui, kad išvengtum perdegimo.",
+            "Praktikuok smulkių pokyčių įvedimą į savo kasdienybę, kad galėtum geriau prisitaikyti prie netikėtumų."
+        ],
+        "avoid": [
+            "Venk prisiimti per daug atsakomybių, kad neapsikrautum užduotimis kitų naudai, bet savo produktyvumo ir gerovės sąskaita.",
+            "Stebėk, kad nepaskęstum rutinoje, kas gali trukdyti tavo lankstumui ir produktyvumui.",
+            "Nepakišk po kilimu neišspręstų konfliktų, nes jie ilgainiui gali sutrikdyti harmoniją, kurios sieki."
+        ],
+        "help": [
+            "Struktūruota aplinka, kurioje yra aiškiai apibrėžti vaidmenys ir lūkesčiai, leidžiantys efektyviai planuoti ir įgyvendinti užduotis.",
+            "Palaikanti bendruomenė, kuri vertina ir pripažįsta tavo indėlį.",
+            "Įrankiai, skirti užduočių ir tvarkaraščių valdymui, tokie kaip planuokliai ar skaitmeniniai kalendoriai, kurie padeda sekti įsipareigojimus."
+        ],
+        "disturb": [
+            "Chaotiška aplinka, stabilumo trūkumas ir konfliktai, kurie sukelia stresą ir diskomfortą.",
+            "Greiti pokyčiai be užtektinai laiko prie jų priprasti ar aiškių nurodymų.",
+            "Aplinka, kurioje nevertinamas tavo darbas ir įnašas."
+        ],
+        "challenge": [
+            "Pokyčiai – kaip prisitaikyti prie netikėtų pokyčių, kad kontrolės nepaimtų stresas.",
+            "Įsipareigojimų kiekis – kaip prisiimti tiek atsakomybių, kiek jų realiai gali pavežti neperdegant.",
+            "Ribų brėžimas – kaip išmokti mandagiai, bet tvirtai sakyti „ne“ viskam, kas viršija krūvį ar atitraukia nuo asmeninių tikslų."
+        ],
+        "excercise": {
+            "Ką nors kito": [
+                "Pasirink vieną mažą pokytį, kurį gali įvesti į savo kasdienę rutiną (pvz., išbandyti naują darbo įrankį, metodiką, pakeisti darbo aplinką arba šiek tiek pakoreguoti savo darbotvarkę). Taikyk šį pokytį savaitę ir stebėk, kaip tai veikia tavo produktyvumą ir nuotaiką. Savaitės pabaigoje įvertink savo patirtį. Svarbu: pasirink tokį pokytį, kuris būtų išties naudingas ir produktyvus tau, o ne tokį, kurį darytum vien dėl to, kad įrodytum, kad gali.",
+                "Tikslas: lavinti gebėjimą prisitaikyti prie pokyčių, palaipsniui juos įtraukiant į savo rutiną.",
+                "Kodėl tai veikia: ši užduotis padeda tau priimti mažesnius pokyčius, kai jie vyksta kontroliuojamai ir po truputį, todėl mažėja stresas susidūrus ir su didesniais pokyčiais."
+            ],
+            "Tam davė, tam davė, o tam - neliko": [
+                "Kartą per savaitę peržiūrėk savo esamus įsipareigojimus ir užduotis. Išsirink vieną užduotį, kurią prisiėmei, kad padėtum kitam, bet kuri neprisideda prie tavo tikslų. Pagalvok, kaip galėtum jos atsisakyti (jei įmanoma – dabar, arba ką sakytum ateityje tam pačiam žmogui ar tokiam prašymui). Sudėliok visas turimas užduotis į prioritetų eilę (skiriant balus pagal atitiktį tavo tikslams, vertybėms, norams, pagal poveikį ar rezultatą ir malonumą tas užduotis atliekant). Pirmiau dirbk su aukščiausiai prioritetų sąraše esančiomis užduotimis.",
+                "Tikslas: lavinti gebėjimą nustatyti ribas ir pirmenybę teikti savo asmeniniams tikslams, kad išvengtum perdegimo.",
+                "Kodėl tai veikia: ši užduotis padeda praktikuoti asertyvumą, tam tikrą struktūrą priimant sprendimus, kada pasakyti „ne“ ir įtvirtinti nuostatą, kad tavo poreikiai gali būti svarbesni už kitų prašymus."
+            ],
+            "Ačiū SAU": [
+                "Kiekvienos dienos pabaigoje skirk 10 minučių refleksijai. Užrašyk tris dalykus, kuriuos pasiekei (įvykdei), du dalykus, už kuriuos esi dėkingas, ir vieną dalyką, kurį padarysi rytoj, kad palaikytum savo tikslus ar gerovę.",
+                "Tikslas: ugdyti savivoką ir stiprinti pusiausvyrą tarp pagalbos kitiems ir rūpinimosi savimi.",
+                "Kodėl tai veikia: ši užduotis padeda išlaikyti ryšį su savo tikslais ir gerove, skatindama sveiką balansą tarp pagalbos kitiems ir asmeninio produktyvumo."
+            ]
+        },
+        "advice": [
+            "Savaitės pradžioje suplanuok savo laiką taip, kad visada turėtum bent valandą SAU. Tą valandą gali užpildyti bet kas, kas leidžia tau pailsėti ir atgauti jėgas.",
+            "Praktikuok sakyti „ne“ smulkioms užduotims, kurios trukdo siekti asmeninių tikslų – taip galėsi geriau valdyti savo laiką ir išvengti išsekimo.",
+            "Kas mėnesį išbandyk vieną naują veiklą arba įrankį – tai padės lavinti gebėjimą prisitaikyti prie pokyčių."
+        ],
+        "description": [
+            "Tu esi tikras komandos stuburas – žmogus, kuriuo visi gali pasikliauti, ypač kai reikia, kad darbai būtų atlikti tiksliai ir laiku. Tavo kruopštumas ir atsakomybės jausmas yra nepakeičiami – esi ta:as, kuri:is užtikrina, kad niekas neprasprūstų pro akis, ir kad kiekviena smulkmena būtų apgalvota. Tave džiugina rūpinimasis kitais ir pagalba komandai, o tavo atsidavimas ir dėmesys detalėms dažnai tampa sėkmės garantu net ir sudėtingiausiuose projektuose.",
+            "Vis dėlto, tavo siekis, kad viskas vyktų tobulai pagal planą, gali kartais tapti iššūkiu, ypač kai situacija pasikeičia ir reikia greitai prisitaikyti. Atmink, kad net ir geriausi planai kartais susiduria su netikėtais pokyčiais – tai neišvengiama. Vietoj to, kad leistum panikai perimti kontrolę, mokykis priimti pokyčius kaip naują galimybę, o ne kaip trukdį. Ir svarbiausia, nebijok prašyti pagalbos, kai to reikia – net stipriausi komandos nariai kartais turi remtis kitų palaikymu.",
+            "Mano patarimas: išlaikyk savo metodišką ir atsakingą požiūrį, bet leisk sau būti lankstesne:iu. Priimk, kad ne visada viskas klostysis pagal planą, ir vertink tai kaip progą augti. Derindama:as savo kruopštumą su gebėjimu prisitaikyti prie pokyčių, sukursi aplinką, kurioje ne tik pati:s klestėsi, bet ir padėsi dirbantiems kartu judėti į priekį su užtikrintu pagrindu ir pasitikėjimu."
+        ],
+        "shortDescription": [
+            "Tu esi ta:s, kuri:s nuolat pasirūpina, kad viskas vyktų sklandžiai ir laiku. Mėgsti stabilumą ir padedi kitiems pasiekti jų tikslus. Tavo stiprybės – kruopštumas ir patikimumas, kurie leidžia nuosekliai siekti rezultatų. Tačiau kartais gali kilti sunkumų, kai reikia prisitaikyti prie pokyčių arba kai prisiimi per daug atsakomybių, rūpindamasis kitų gerove labiau nei savo."
+        ]
+    },
+    "ESTP": {
+        "name": "Gepardas",
+        "oneLiner": "Jei gyvenimas yra kinas, tu esi kaskadininkas – viską darai greitai, efektyviai ir visada su nuotykiais. Sprendi problemas tada, kai kiti dar jų nė nepastebėjo.",
+        "strength": [
+            "Greitas sprendimų priėmimas – gali greitai įvertinti situaciją ir priimti sprendimus, net esant spaudimui ar aplinkybėms keičiantis.",
+            "Praktiškas problemų sprendimas – mėgsti rasti tiesioginius sprendimus ir greitai imtis veiksmų, kad išspręstum problemas.",
+            "Lankstumas – gebi lengvai keisti planus ir strategijas pagal naują informaciją ar aplinkybes, todėl tiesiog klesti dinamiškose situacijose."
+        ],
+        "weakness": [
+            "Sunku planuoti ilgam laikotarpiui – tau labiau patinka greiti rezultatai ir veiksmai, todėl gali nepaisyti ilgalaikių strategijų.",
+            "Impulsyvumas – kartais pasineri į užduotis be išsamaus planavimo, kas gali lemti klaidas ar praleistas detales.",
+            "Sunkumai su nuoseklumu – gali prarasti susidomėjimą projektais, kai pradinis užsidegimas atvėsta, todėl užduotys kartais lieka neužbaigtos."
+        ],
+        "focus": [
+            "Ugdyk nuoseklumą atliekant trumpalaikes, greitas užduotis, kurios tiesiogiai siejasi su ilgalaikiais tikslais.",
+            "Naudok minimalią planavimo struktūrą, kuri padės organizuoti užduotis nesijaučiant suvaržyta:u.",
+            "Praktikuok refleksiją, kad apmąstytum savo sprendimus ir impulsyvius veiksmus ir geriau planuotum ateitį."
+        ],
+        "avoid": [
+            "Venk apleisti projektus, kai jie tampa rutiniški ar praranda naujumo žavesį – rask būdų, kaip juos padaryti sau įdomesnius.",
+            "Nepamiršk ilgalaikio planavimo, kad per trumpalaikius malonumus pernelyg neatitoltum nuo svarbių tikslų.",
+            "Apgalvok, kaip nepražiūrėti svarbių detalių ar rizikų, kai veršiesi nedelsiant imtis veiksmų."
+        ],
+        "help": [
+            "Aplinka, kurioje gausu įvairovės, praktinių užduočių ir galimybių greitai priimti sprendimus.",
+            "Lankstūs planavimo įrankiai, leidžiantys spontaniškai keisti planus ir juos koreguoti.",
+            "Laiko blokavimas konkrečioms užduotims, kad išlaikytum susitelkimą ir palaikytum tempą ir progresą ilgalaikiuose projektuose."
+        ],
+        "disturb": [
+            "Griežtos tvarkos, pasikartojančios užduotys ir aplinka su per daug biurokratijos ar vėlavimų.",
+            "Projektai, kuriuose nėra greitų rezultatų ar praktinio pritaikymo.",
+            "Situacijos, kuriose reikia daug dėmesio teorijai ar ilgiems planavimo etapams be veiksmų."
+        ],
+        "challenge": [
+            "Ilgo laikotarpio planavimas – kaip leisti sau veikti greitai ir atlikti užduotis, kad nepaleistum iš akių ilgalaikių strategijų.",
+            "Impulsyvumas – kaip neprivelti klaidų, kai imiesi veiksmų be tinkamo planavimo.",
+            "Nuoseklumas – kaip išlaikyti susidomėjimą projektu, kai pradinis energijos pliūpsnis išgaruoja."
+        ],
+        "excercise": {
+            "Maži laimėjimai": [
+                "Suskaidyk ilgalaikį projektą į mažesnius, trumpalaikius tikslus, kuriuos gali atlikti per dieną arba savaitę. Kiekvieną dieną pasiek vieną trumpalaikį tikslą ir sek pažangą vizualiai (pvz., ant lentos ar planuoklyje).",
+                "Tikslas: išlaikyti susidomėjimą ir kurti progresą per greitus pasiekimus, taip sistemingai artėjant prie ilgalaikių tikslų.",
+                "Kodėl tai veikia: užduotis suteikia momentinio pasitenkinimo ir jausmą, kad kažką pasiekei, išlaikant motyvaciją ir tuo pačiu integruojant ilgalaikį planavimą."
+            ],
+            "Prieš veiksmą": [
+                "Prieš pradedant naują užduotį ar projektą, sudaryk paprastą sąrašą su 3-5 pagrindiniais žingsniais ar klausimais, kuriuos reikia apsvarstyti. Peržiūrėk šį sąrašą prieš pradedant veikti, kad užtikrintum, jog turi aiškų planą ir visus reikiamus išteklius ir taip sumažintum klaidų riziką.",
+                "Tikslas: sumažinti impulsyvių veiksmų neigiamų pasekmių riziką ir pagerinti darbų kokybę, kartu stiprinant planavimo įprotį.",
+                "Kodėl tai veikia: ši užduotis skatina ugdytis įprotį bent minimaliai planuoti prieš pradedant veikti. Taip išpildomas ir tavo poreikis greitam veiksmui, ir apsisaugoma nuo galimų klaidų."
+            ],
+            "Nuoseklumo iššūkis": [
+                "Pasirink vieną tavo turimą ilgalaikį projektą, kuriam tavo motyvacija ar užsidegimas jau pavėsę. Įsipareigok dirbti su juo bent 15 minučių kasdien visą savaitę. Naudok laikmatį laikui sekti ir žymėk pažangą kasdien kalendoriuje.",
+                "Tikslas: ugdyti nuoseklumą mažais, lengvai pasiekiamais žingsniais, padedant išlaikyti motyvaciją dirbti ilgalaikiuose projektuose.",
+                "Kodėl tai veikia: ši užduotis padeda ugdyti įprotį dirbti nuosekliai neperspaudžiant, net ir tada, kai pradinė energija išblėsta."
+            ]
+        },
+        "advice": [
+            "Susikurk tam tikrą „paruoštuką“ ar struktūrą, kuri padės lengvai suplanuoti projektą prieš stačia galva neriant į veiksmą.",
+            "Ieškok galimybės dirbti su projektais, kuriuose gali išpildyti savo poreikį keisti veiklas ir pasiekti greitus rezultatus, tačiau ugdyk ir gebėjimą užbaigti ilgalaikius projektus net ir tada, kai jie tampa mažiau jaudinantys.",
+            "Praktikuok susitelkimą į detales arba ieškok įrankių \/ būdų, kaip jų nepražiūrėti, net jei jos gali pasirodyti nuobodžios – tai gali padėti išvengti klaidų, kurios mažina produktyvumą."
+        ],
+        "description": [
+            "Tu esi žmogus, kuris iššūkius mato kaip galimybes ir mėgaujasi greitai priimamais sprendimais. Tavo energija ir praktiškas požiūris leidžia natūraliai imtis lyderio vaidmens, ypač kai situacijos reikalauja greito mąstymo ir ryžtingų veiksmų. Esi ta:as, kuri:is geriausiai jaučiasi veiksmo įkarštyje, kai prieš akis yra problema, kurią reikia spręsti, ir tikslas, kurį reikia pasiekti. Tavo drąsa ir iniciatyvumas ne kartą ištraukė tave iš sudėtingų situacijų ir tapo tikru komandos užnugariu.",
+            "Vis dėlto, svarbu prisiminti, kad ne kiekviena problema reikalauja žaibiško sprendimo. Kartais lėtesnis, apdairesnis požiūris gali atverti naujų galimybių ir leisti išvengti netikėtų klaidų. Derinant savo veiklumą su trupučiu strateginio planavimo ir apgalvojimo, suteiksi sau dar daugiau erdvės augti ir siekti naujų aukštumų.",
+            "Mano patarimas: išlaikyk savo drąsą ir gebėjimą greitai reaguoti, bet nepamiršk skirti laiko refleksijai ir apmąstymams. Net ir trumpas stabtelėjimas prieš veiksmą gali padėti tau pamatyti platesnį kontekstą ir priimti dar geresnius sprendimus. Taip galėsi dar efektyviau išnaudoti savo talentus, tapti dar stipresne:iu lydere:iu ir sėkmingai judėti pirmyn, nepaisant jokių kliūčių."
+        ],
+        "shortDescription": [
+            "Tu esi žmogus, kuris klesti dinamiškose situacijose. Dievini greitus sprendimus, veiklą „čia ir dabar“ ir praktinį problemų sprendimą. Kiekvienas iššūkis tave motyvuoja imtis veiksmų, tačiau kartais gali kilti sunkumų planuojant ilgalaikius tikslus arba išlaikant susidomėjimą projektu, kai jis praranda savo naujumo žavesį. Jei išmoktum valdyti savo impulsus veikti čia ir dabar ir kartais pagalvotum apie strateginius tikslus, tau atsivertų neriboti horizontai!"
+        ]
+    },
+    "ENTJ": {
+        "name": "Erelis",
+        "oneLiner": "Viršininkė:As, kuris turi atsakymą viskam (net kai niekas dar nesuprato, koks yra klausimas).",
+        "strength": [
+            "Strateginis planavimas – tau puikiai sekasi nustatyti ilgalaikius tikslus ir kurti detalius planus jiems pasiekti.",
+            "Ryžtinga lyderystė – užtikrintai priimi sprendimus ir vadovauji kitiems, ypač iššūkių metu.",
+            "Tikslų siekimas – gebi stipriai susitelkti į rezultatą, turi tvirtą motyvaciją ir ryžtą įgyvendinti užsibrėžtus tikslus."
+        ],
+        "weakness": [
+            "Per daug struktūros – tau gali būti sunku prisitaikyti prie pokyčių ar naujos informacijos, dažniausiai mėgsti laikytis pradinio plano nepaisant aplinkybių.",
+            "Per didelis dėmesys efektyvumui – kartais gali nepaisyti kitų emocijų ir gerovės (rezultatas bet kokia kaina).",
+            "Sunku paleisti kontrolę – nori valdyti visas projekto dalis, net ir tas, kuriose tiesiogiai nedalyvauji. Todėl dirbantys su tavimi gali nematyti galimybės prisidėti ar veikti laisvai."
+        ],
+        "focus": [
+            "Atrask, kaip integruoti bent truputį lankstumo į savo greižtus planus, kad galėtum lengviau prisitaikyti prie pokyčių ir naujos informacijos.",
+            "Praktikuok aktyvų klausymą ir empatiją, kad pagerintum bendradarbiavimo galimybes.",
+            "Išmok deleguoti atsakomybes ir pasitikėti kartu dirbančiais – tai gali skatinti inovacijas, produktyvumą ir kūrybiškumą."
+        ],
+        "avoid": [
+            "Venk pernelyg griežto planavimo, nes tai gali stabdyti gebėjimą prisitaikyti prie pokyčių ir priversti pražiopsoti naujas galimybes.",
+            "Skirk dėmesio ne tik tam, kaip tavo sprendimai paveiks rezultatą, bet ir poveikį aplinkiniams – balansuok tarp efektyvumo ir empatijos.",
+            "Nepersitempk ir nemėgink visko padaryti viena:s – suteik kitiems galimybę prisidėti ir tobulėti."
+        ],
+        "help": [
+            "Aplinka, kurioje gali strateguoti ir imtis lyderystės.",
+            "Aiškūs tikslai, struktūruoti rėmai ir efektyvūs procesai, kurie padeda palaikyti produktyvumą.",
+            "Projektų valdymo ir delegavimo įrankiai, padedantys sekti užduotis ir atsakomybes."
+        ],
+        "disturb": [
+            "Neapibrėžtumas, netvarkinga aplinka ir neaiškūs tikslai, kurie trikdo strateginį mąstymą.",
+            "Situacijos, kuriose reikia pasyvaus vaidmens arba kuriose trūksta galimybių vadovauti.",
+            "Aplinka, kurioje trūksta motyvacijos ar aiškių tikslų, stabdanti tavo galimybę siekti rezultatų."
+        ],
+        "challenge": [
+            "Griežta struktūra – kaip prisitaikyti prie pasikeitimų, tuo pat metu visiškai nepaleidžiant ir planavimo proceso.",
+            "Efektyvumas bet kokia kaina – kaip nepamesti lankstumo ar kūrybiškumo, susitelkus į rezultatus.",
+            "Kontrolė – kaip valdyti visą procesą, neapribojant ir neperkontroliuojant galimybės kitiems prisidėti ir veikti kartu."
+        ],
+        "excercise": {
+            "Lankstumo pratybos": [
+                "Pasirink esamą projektą ir nustatyk vieną sritį, kurioje mėginsi taikyti lankstesnį požiūrį (pvz., leisk dirbantiems kartu pasirinkti savo metodus ar laiką). Nustatyk konkretų laikotarpį (pvz., dvi savaites) ir stebėk, kaip tai paveikia projekto eigą.",
+                "Tikslas: ugdyti gebėjimą lanksčiai planuoti ir įgyvendinti savo planus, nepametant iš akių rezultato.",
+                "Kodėl tai veikia: ši užduotis leidžia tau eksperimentuoti su lankstumu kontroliuojamoje aplinkoje, padėdama pamatyti jo naudą ir tai, kaip jis gali derėti su struktūra."
+            ],
+            "Kūrybinė pertrauka": [
+                "Skirk 30 minučių planavimo sesijoje brainstormingui. Paieškok alternatyvių strategijų ar kūrybinių sprendimų esamam projektui. Įtrauk kitus žmones ir apsvarstyk idėjas, kurios skiriasi nuo tavo įprasto požiūrio. Pratestuok bent vieną idėją.",
+                "Tikslas: skatinti kūrybišką mąstymą ir integruoti naujas idėjas į tavo strateginius planus.",
+                "Kodėl tai veikia: ši užduotis leidžia tau atsitraukti nuo efektyvumo siekio bet kokia kaina ir leidžia patyrinėti kitas galimybes, ugdant lankstesnį ir inovatyvesnį požiūrį."
+            ],
+            "Delegavimo ir įgalinimo iššūkis": [
+                "Išsirink vieną projekto sritį, kurią paprastai valdai asmeniškai, ir visiškai deleguok atsakomybę ar užduotį komandos (arba šeimos) nariui. Suteik jiems sprendimo teisę ir pagalbą tik tada, kai to prašoma, o užduotį įvertink tik baigus projektą.",
+                "Tikslas: ugdyti pasitikėjimą kitų žmonių gebėjimais ir praktikuoti atsakomybės delegavimą.",
+                "Kodėl tai veikia: ši užduotis padeda pamažu įprasti deleguoti atsakomybes, leidžiant ir kitiems imtis iniciatyvos ir prisidėti prie projekto sėkmės naujais būdais."
+            ]
+        },
+        "advice": [
+            "Kartą per savaitę skirk laiko kūrybinei idėjų sesijai su komanda (jei tokią turi) – tai padės išlaikyti šviežių idėjų srautą.",
+            "Praktikuok delegavimą – net jei esi linkusi:ęs imtis atsakomybės pati:s, deleguojant padėsi kitiems tobulėti ir stiprinsi savo įgūdį dirbti su kitais ir dalintis atsakomybe.",
+            "Skirk laiko asmeninei refleksijai – taip galėsi geriau atsižvelgti ir į kitų poreikius bei stiprinti bendradarbiavimo įgūdžius."
+        ],
+        "description": [
+            "Tu esi tikra:as vizionierė:ius, kuri:is ne tik mato didelį paveikslą, bet ir žino, kaip jį įgyvendinti. Tavo ryžtingumas ir strateginis mąstymas suteikia tau gebėjimą valdyti sudėtingus projektus, todėl esi įspūdinga:as lyderė:is. Tavo stiprybė – gebėjimas aiškiai nustatyti kryptį ir įkvėpti komandą judėti į priekį, nepaisant iššūkių.",
+            "Tačiau, net ir puikiai suplanuoti projektai kartais susiduria su netikėtais pokyčiais, kurie gali pareikalauti papildomo lankstumo. Nors tavo strateginis požiūris dažnai yra labai tvirtas, atmink, kad atvirumas kitų įžvalgoms ir naujoms idėjoms gali būti tikras stiprybės ženklas. Ugdydama:as gebėjimą lanksčiai reaguoti į pokyčius ir vertindama:as kitų žmonių indėlį, ne tik sustiprinsi savo lyderystę, bet ir sukursi bendradarbiavimo kultūrą, kuri padės aplinkiniams siekti neįtikėtinų rezultatų.",
+            "Mano patarimas: tęsk savo vizionierišką kelią, bet nepamiršk, kad stipriausias lyderis yra tas, kuris ne tik rodo kryptį, bet ir geba prisitaikyti prie netikėtų aplinkybių. Būk atvira:as naujoms idėjoms, vertink kitų indėlį ir leisk sau veikti truputį lanksčiau. Taip sujungsi savo strateginį mąstymą su atvirumu pokyčiams ir gebėjimu bendradarbiauti – o tai leis tavo vizijoms tapti realybe ir nuversti kalnus."
+        ],
+        "shortDescription": [
+            "Tu esi tas žmogus, kuris geba lengvai vadovauti, kurti ilgalaikes strategijas ir organizuoti didelius projektus, t.y. esi ryžtinga:s strategė:as. Tau natūralu užimti vadovaujančias pozicijas, spręsti sudėtingus klausimus ir siekti tikslų. Tavo aistra – efektyvumas ir rezultatai, tačiau kartais gali būti sunku prisitaikyti prie pokyčių, paleisti kontrolę ar atsižvelgti į kitų emocinius poreikius."
+        ]
+    },
+    "INTP": {
+        "name": "Meškėnas",
+        "oneLiner": "Protas, kuris analizuoja viską – nuo juodųjų skylių iki kavos pupelių sudėties. Praktika? Čia jau kita istorija...",
+        "strength": [
+            "Analitinis mąstymas – sugebi lengvai išnarplioti sudėtingas problemas ir atrasti jų esminius ryšius bei modelius.",
+            "Kūrybiškas problemų sprendimas – dažnai sugalvoji netradicinius sprendimus ir matai galimybes, kurių kiti galbūt nepastebi.",
+            "Intelektinis smalsumas – mėgsti mokytis naujų dalykų, dažnai gilinantis į tau įdomias temas."
+        ],
+        "weakness": [
+            "Sunku įgyvendinti praktiškai – dažnai pasineri į teorijas ir idėjas, todėl gali kilti sunkumų perkelti jas į konkrečius veiksmus.",
+            "Atidėliojimas ir perfekcionizmas – dėl noro pasiekti tobulumą gali vilkinti projektų pradžią arba pabaigą.",
+            "Nepaisyti rutinos – nemėgsti pasikartojančių ar nuobodžių užduočių, o tai gali didinti neorganizuotumą ir mesti darbus jų neužbaigus."
+        ],
+        "focus": [
+            "Suskaidyk sudėtingas idėjas į mažus, konkrečius veiksmus, kad lengviau nuo idėjos pereitum į praktinį jos įgyvendinimą.",
+            "Nustatyk konkrečius terminus ir naudok įrankius (pvz., pomodoro laikmačius ar atsakomybės partnerius), kad lengviau atsispirtum pagundai atidėlioti.",
+            "Susikurk paprastą sistemą, kuri padėtų valdyti (ir atlikti) kasdienes užduotis ir neleistų joms kauptis."
+        ],
+        "avoid": [
+            "Venk įstrigti teorijose, neatliekant veiksmų, kurie padėtų išbandyti tavo idėjas praktikoje.",
+            "Nepasiduok atidėliojimui dėl per didelio dėmesio analizės arba netobulumo baimės.",
+            "Nepamiršk praktinių detalių, kol susitelki į intelektinius užsiėmimus."
+        ],
+        "help": [
+            "Rami ir susikaupti leidžianti aplinka, kurioje gali giliai apmąstyti ir tyrinėti idėjas.",
+            "Įrankiai, skirti organizuoti mintis ir sekti progresą, pvz., minčių žemėlapiai, projektų valdymo programos ar užrašai.",
+            "Lankstus tvarkaraštis, kuris leidžia susikoncentruoti ir tyrinėti intensyviai, kai pagauni įkvėpimą."
+        ],
+        "disturb": [
+            "Griežta rutina, per daug socialumo (t.y. darbo su žmonėmis) ir aplinka, kuri nuolat pertraukia tavo susikaupimą.",
+            "Situacijos, kuriose reikia daug bendradarbiauti arba laikytis griežtų gairių, nepaliekant vietos kūrybiškumui.",
+            "Projektai, kurie neturi intelektualinio stimulo arba iššūkių, dėl ko gali greitai prarasti susidomėjimą."
+        ],
+        "challenge": [
+            "Sunku praktiškai įgyvendinti idėjas – kaip puikias ir išskirtines idėjas paversti konkrečiais veiksmais.",
+            "Atidėliojimas – kaip veikti organizuotai ir užbaigti tuos darbus, kuriuos turi, kai tau pasidaro nuobodu (pavyzdžiui, kai reikia atlikti užduotis, kurios nekelia tau jokio iššūkio).",
+            "Per didelis idealizmas – kaip atsitraukti nuo analizės ir nustoti ieškoti to tobulo, paties geriausio varianto, kad laiku pajudėtum ir matytum progresą."
+        ],
+        "excercise": {
+            "Action!": [
+                "Pasirink vieną idėją arba projektą, apie kurį galvoji. Nustatyk laikmatį 30 minučių ir užrašyk pirmuosius penkis konkrečius veiksmus, kuriuos reikia atlikti norint pradėti šią idėją. Išsirink vieną veiksmą ir atlik jį iškart, nepergalvojant. Svarbu: veiksmai turi būti tokie, kuriuos galėtum atlikti iškart (kuriems nereikia papildomos analizės, resursų ir idėjų).",
+                "Tikslas: mokytis veikti iškart, nelaukiant, kol tinkamai susiklostys aplinkybės, planetos ir horoskopai.",
+                "Kodėl tai veikia: šis pratimas perkelia dėmesį nuo neribotos fantazijos į konkrečius veiksmus, ir taip padeda lengviau pereiti nuo planavimo prie įgyvendinimo."
+            ],
+            "Rutina savo noru": [
+                "Susikurk trumpą, kasdienę rutiną, kurioje derinamos tiek stimuliuojančios veiklos (pvz., mokytis naujo dalyko, generuoti idėjas), tiek būtinos, bet mažiau įdomios užduotys (pvz., susitvarkyti failus \/ daiktus, atsakyti į el. laiškus, užpildyti ataskaitas). Naudok laikmatį, kaitaliok užduotis, sąmoningai apribok laiką, kurį skiri tau labiausiai patinkančioms užduotims.",
+                "Tikslas: subalansuoti intelektinę stimuliaciją su praktiniu produktyvumu, įtraukiant abu į struktūruotą rutiną.",
+                "Kodėl tai veikia: pratimas padeda išlaikyti susidomėjimą ir išvengti atidėliojimo rutininėse užduotyse, tuo pačiu pasidarant laiko ir kūrybiškesnei veiklai."
+            ],
+            "Apsispręsk ir judėk toliau": [
+                "Vienam klausimui, apie kurį ilgai galvoji (pvz., kokią programą naudoti projektui arba ar pradėti naują projektą, arba kaip išspręsti vieną ar kitą klausimą savo projekte), apsibrėžk du galimus pasirinkimus. Nustatyk 30 minučių laikmatį ir priimk sprendimą per tą laiką. Prisimink: sprendimus gerais ar blogais padarome mes (tai reiškia, kad tavo rankose galia bet kokį sprendimą padaryti naudingu tau).",
+                "Tikslas: sumažinti analizės paralyžių ir stiprinti sprendimų priėmimo įgūdį.",
+                "Kodėl tai veikia: šis pratimas skatina greičiau priimti sprendimus, apribojant galimybes ir skatinant apsispręsti per ribotą laiką, nepastringant perteklinėje analizėje."
+            ]
+        },
+        "advice": [
+            "Susikurk „idėjų banką“, kuriame galėsi laikyti visas įdomias mintis ir idėjas. Reguliariai peržiūrėk savo banką (idėja rutinai!) ir paversk pasirinktą idėją realybe. Savaime suprantama, tik tada, kai užbaigsi visa, ką JAU pradėjai.",
+            "Įtrauk kasdienes (nuobodžias) užduotis į savo dienotvarkę trumpais intervalais, kad jos netrukdytų tau išlaikyti produktyvumo ir motyvacijos.",
+            "Pratinkis priimti sprendimus su ribotu informacijos kiekiu – netobulas sprendimas yra visuomet 100% geriau už jokio sprendimo."
+        ],
+        "description": [
+            "Tu esi tikra:as intelektualė:as – pirmūnė:as, kuri:is nuolat siekia perprasti pasaulio sudėtingumą, narplioja paslaptis ir ieško gilesnės prasmės. Tavo loginis, analitinis mąstymas ir aistra tyrinėti abstrakčias koncepcijas išskiria tave kaip mąstytoją, kuri:is sugeba pažvelgti giliau, nei paviršius. Tave traukia sudėtingos sistemos ir teorijos, kurios leidžia tau laisvai tyrinėti, teoretizuoti ir spręsti iššūkius savo sąlygomis.",
+            "Vis dėlto, būnant inovatore:iumi, pereiti nuo idėjų prie praktinio įgyvendinimo gali būti iššūkis. Tavo protas dažnai sklando aukštai, kur gimsta genialios idėjos, tačiau jas įgyvendinti realybėje kartais pritrūksta struktūros ar konkrečių žingsnių. Kad būtų lengviau nutiesti tiltą tarp teorijos ir praktikos, pabandyk suskaidyti savo ambicingas idėjas į mažus, aiškius tikslus – tai padės tau judėti į priekį nuosekliau ir greičiau.",
+            "Mano patarimas: išlaikyk savo aistrą tyrinėti ir gilintis į teorijas, tačiau nepamiršk įtraukti šiek tiek planavimo ir struktūros. Skirk laiko ne tik apmąstyti idėjas, bet ir suplanuoti konkrečius veiksmus jų įgyvendinimui. Atradus balansą tarp gilaus mąstymo ir praktinių žingsnių, galėsi paversti savo vizionieriškas idėjas realybe ir padaryti tikrą pokytį."
+        ],
+        "shortDescription": [
+            "Tu esi tas žmogus, kuris mėgsta analizuoti sudėtingas problemas, gilintis į abstrakčias idėjas ir ieškoti kūrybiškų sprendimų, esi įžvalgi:us strategė:as. Tau patinka intelektualūs iššūkiai, tačiau kartais gali būti sunku įgyvendinti savo idėjas praktiškai. Be to, rutininės užduotys ar pasikartojantys darbai tau dažnai atrodo nuobodūs ir trukdo veikti produktyviai."
+        ]
+    },
+    "ISFP": {
+        "name": "Elnias",
+        "oneLiner": "Mėgsta ramybę ir meną. Ji:is mielai pasirinktų tapyti akvarele ant jūros kranto, kol kiti šokinėja per bangas.",
+        "strength": [
+            "Kūrybiškumas ir lankstumas – tu gebi prisitaikyti prie naujų situacijų ir atrasti unikalius sprendimus, todėl dažnai įneši meninį požiūrį į savo darbą.",
+            "Empatija ir palaikymas – natūraliai palaikai kitus ir kuri harmoniją, padedi sukurti teigiamą atmosferą tiek darbe, tiek asmeniniame gyvenime.",
+            "Vertybėmis grįstas darbas – tave motyvuoja asmeninės vertybės ir aistra tam, ką darai, todėl dirbi neskaičiuojant valandų ir jėgų su tais projektais, kurie tau yra svarbūs."
+        ],
+        "weakness": [
+            "Struktūros vengimas – tau labiau patinka lankstumas, o tai kartais gali lemti neorganizuotumą ir netgi praleistus terminus.",
+            "Sunku nustatyti ribas – tau sunku pasakyti „ne“ ir iškelti savo poreikius, todėl gali persidirbti ir perdegti.",
+            "Atidėliojimas dėl nepatogių užduočių – vengi užduočių, kurios nesiderina su tavo asmeninėmis vertybėmis ar atrodo neįdomios, dėl to tavo produktyvumas gali ženkliai sumažėti."
+        ],
+        "focus": [
+            "Susikurk paprastą, tau tinkančią planavimo sistemą, kuri leidžia veikti lanksčiai, bet taip pat padeda ir sekti prioritetus ir terminus.",
+            "Praktikuok ribų brėžimą ir rūpinimąsi savimi, kad išvengtum perdegimo ir išlaikytum balansą.",
+            "Suskaidyk didesnes nemalonias ar nuobodžias užduotis į mažus, lengvai pasiekiamus žingsnius, kad sumažintum vidinį pasipriešinimą ir padidintum produktyvumą."
+        ],
+        "avoid": [
+            "Nepamiršk savo asmeninių tikslų ir poreikių, norėdama:as visiems padėti ar išlaikyti harmoniją.",
+            "Venk atidėlioti būtinas, bet mažiau įdomias užduotis – tai gali sukelti stresą ir chaosą.",
+            "Nepakišinėk po kilimu konfliktų ar sunkių pokalbių, nes tai gali užauginti dideles problemas ilgalaikėje perspektyvoje."
+        ],
+        "help": [
+            "Palaikanti, rami aplinka, kurioje gali laisvai save išreikšti ir augti.",
+            "Lankstūs planavimo įrankiai, kurie turi vizualinius elementus, pvz., spalvoti kalendoriai ar kūrybiškos užrašinės, kad planavimas būtų įdomesnis.",
+            "Ramybės ir savirefleksijos laikas, leidžiantis atsijungti ir pasikrauti bei prisiminti savo vertybes."
+        ],
+        "disturb": [
+            "Griežti tvarkaraščiai, didelis spaudimas ir kai reikalaujama per daug laiko ir energijos.",
+            "Aplinka, kurioje nėra vietos kūrybiškumui ar asmeninei vizijai.",
+            "Situacijos, reikalaujančios nuolatinio konfliktų sprendimo arba greito sudėtingų sprendimų priėmimo be laiko refleksijai."
+        ],
+        "challenge": [
+            "Struktūra – kaip nepanirti į chaosą, neatsisakant spontaniškumo ir pernelyg savęs nesuvaržant.",
+            "Ribos – kaip neprisimti daugiau atsakomybių, nei gali pavežti, ir išmokti pasakyti „ne“, kad išvengtum perdegimo.",
+            "Atidėliojimas – kaip laiku ir nestumdant atlikti užduotis, kurias padaryti privalai, nors ir netiki jų prasme arba bodiesi jų."
+        ],
+        "excercise": {
+            "Kūrybiška rutina": [
+                "Pasirink vieną rutininę užduotį, kurios dažniausiai vengi (pvz., failų tvarkymas, tvarkaraščio sudarymas, ataskaitos ir pan.). Paversk ją malonesne, įtraukiant kūrybinį elementą. Pvz., jei tvarkai failus, naudok estetiškai patrauklius šablonus. Skirk bent 15 minučių per dieną tokioms užduotims ir po jų atlikimo apdovanok save kūrybine pertrauka (pvz., piešimu ar rašymu). Svarbu: kūrybinis elementas (dimensija) turi būti pritaikomas paprastai ir jokiais būdais negali tapti patogia atidėliojimo priežastimi. Naudokis tuo, ką jau turi arba kas yra lengvai prieinama.",
+                "Tikslas: paversti rutinines užduotis malonesnėmis, kad jos skatintų dirbti nuosekliai.",
+                "Kodėl tai veikia: šis pratimas leidžia tau panaudoti kūrybiškumą, kad kasdienės veiklos būtų estetiškai patrauklesnės ir asmeniškai įdomesnės, mažina rutininių užduočių monotoniją ir skatina reguliariai skirti joms laiko."
+            ],
+            "Ribos": [
+                "Pasirink vieną sritį, kurioje per daug įsipareigojai kitiems (pvz., savanoriška pagalba, papildomos atsakomybės darbe). Apgalvok, kaip galėtum pagarbiai atsisakyti arba susitarti dėl naujų šio įsipareigojimo sąlygų. Užsirašyk paruoštuką, jei reikia, pvz., „Man būtų malonu prisidėti, bet padidėjus krūviui, šiuo metu turiu susitelkti į savo projektus“.",
+                "Tikslas: ugdyti gebėjimą nustatyti ribas ir prioritetizuoti asmeninius poreikius.",
+                "Kodėl tai veikia: pratimas padeda ugdyti pasitikėjimą sakant „ne“, mažinant per didelį įsipareigojimų kiekį ir išlaisvinant laiką asmeniškai svarbioms veikloms."
+            ],
+            "Atidėliojimo stabdis": [
+                "Pasirink vieną užduotį, kurios vengi dėl diskomforto ar nuobodumo. Nustatyk laikmatį 10 minučių ir pradėk su ja dirbti. Turi galimybę sustoti, kai laikmatis pasibaigs, o jei nori tęsti - tęsk dar 10.",
+                "Tikslas: sumažinti vidinį pasipriešinimą pradėti nepatogias ir nemalonias užduotis, suskaidant jas į mažus, lengvai įveikiamus etapus.",
+                "Kodėl tai veikia: pratimas padea sumažinti pradinį barjerą pradėti nemalonias užduotis, todėl tau lengviau įveikti atidėliojimą ir įgauti pagreitį, net dirbant su užduotimis, kurių paprastai vengi."
+            ]
+        },
+        "advice": [
+            "Susikurk ir naudok vizualų planavimo įrankį, pvz., spalvingą kalendorių ar kūrybišką užrašinę, kad planavimas būtų malonesnis.",
+            "Praktikuok sakyti „ne“ nedidelėmis porcijomis – pradėk nuo mažų įsipareigojimų, kurių gali atsisakyti be kaltės jausmo. Pavyzdžiui, be jokių vyniojimų atsisakyk siūlomos prekės \/ paslaugos, aukoti konkrečiai organizacijai (kai to daryti iš tiesų nenori), arba eiti vakarienės \/ kavos \/ į renginį.",
+            "Suskaidyk dideles nemalonias užduotis į mažus veiksmus (arba tiesiog laiko tarpus), kad būtų lengviau pradėti ir įveikti atidėliojimą."
+        ],
+        "description": [
+            "Tu esi tikra komandos širdis ir siela – žmogus, kuris įneša šilumos, kūrybiškumo ir subtilaus meniško dvelksmo į kiekvieną projektą. Tave labiausiai džiugina darbas, kuriame gali laisvai išreikšti savo vertybes ir sukurti harmoniją bendradarbiaujant su kitais. Tavo natūrali empatija, gebėjimas išklausyti ir lankstumas daro tave ypač malonia:iu ir pageidaujama:u komandos nare:iu. Tu dažnai atrandi kūrybiškus, netikėtus sprendimus, pritaikytus konkretiems žmonėms ir situacijoms, todėl tavo idėjos dažnai tampa tikrais perlais komandiniame darbe.",
+            "Vis dėlto, kaip kūrybingai asmenybei, tau kartais gali būti sunku laikytis griežtos struktūros ar terminų. Tu labiau mėgsti veikti pagal intuiciją ir jausti laisvę, tačiau šiek tiek organizuotumo gali padėti paversti tavo gražias vizijas realybe. Struktūra nebūtinai turi apriboti tavo kūrybinę dvasią – ji gali tapti rėmais, kurie suteiks stabilumo ir padės išgryninti tavo idėjas.",
+            "Mano patarimas: priimk savo kūrybišką prigimtį, bet tuo pačiu leisk sau nusistatyti švelnias ribas ir aiškius tikslus. Derinant kūrybinę laisvę su truputį daugiau organizuotumo, atrasi pusiausvyrą, kuri leis išnaudoti visus tavo talentus ir jaustis nenugalimai. Rask savo asmeninę produktyvumo formulę – tokią, kuri ne tik atspindi tavo kūrybiškumą, bet ir padeda tau siekti apčiuopiamų rezultatų. Tokiu būdu tu ne tik kursi įspūdingas idėjas, bet ir patirsi tikrą pasitenkinimą jas įgyvendinant."
+        ],
+        "shortDescription": [
+            "Tu vertini harmoniją, kūrybiškumą ir mėgsti dirbti spontaniškai. Tavo stiprybės slypi gebėjime kurti šiltą aplinką ir padėti kitiems, dažnai dirbant tyliai ir užkulisiuose. Tau svarbu, kad darbas atspindėtų tavo asmenines vertybes, bet kartais dėl to gali būti sunku nustatyti ribas ir rūpintis savo poreikiais. Be to, gali vengti rutinos ar nepatogių užduočių, nes jos atrodo per daug struktūruotos ir neįdomios."
+        ]
+    },
+    "ENFP": {
+        "name": "Delfinas",
+        "oneLiner": "Entuziastingas idėjų generatorius, kuriam reikia nuolatinės kūrybinės laisvės – ir kavos... DAUUUG kavos.",
+        "strength": [
+            "Kūrybiškumas ir entuziazmas – tavo energija ir kūrybiškumas leidžia lengvai generuoti naujas idėjas ir sprendimus.",
+            "Lankstumas – gebi puikiai prisitaikyti ir lengvai atsiveri naujoms galimybėms, priimi pokyčius ir spontaniškumą.",
+            "Empatija ir bendravimas – lengvai supranti kitų požiūrį ir gebi kurti pozityvią, bendradarbiaujančią kultūrą."
+        ],
+        "weakness": [
+            "Per greitas įsipareigojimas – dažnai viskam sakai taip ir dėl to imiesi per daug projektų. Taip vis daugėja neužbaigtų užduočių ir gali atvesti net iki perdegimo.",
+            "Gebėjimo susikaupti stoka – tau gali būti sunku išlaikyti dėmesį ilgesnį laiką ir pabaigti pradėtus projektus prieš imantis naujų.",
+            "Prokrastinacija – atidėlioji užduotis, kurios tau atrodo neįdomios, o tai gali lemti neorganizuotumą ir stresą."
+        ],
+        "focus": [
+            "Susikurk sistemą, kuri padės prioritetizuoti projektus ir laikytis įsipareigojimų, o darbus daryti po vieną vienu metu.",
+            "Ribok vienu metu įgyvendinamų projektų skaičių, kad išvengtum per didelio krūvio.",
+            "Susikurk rutiną, kuri padėtų lengviau įveikti tau mažiau įdomias užduotis ir išlaikyti bendrą produktyvumą."
+        ],
+        "avoid": [
+            "Venk imtis užduočių gerai jų neapgalvojus ir neįvertinus – tai gali atvesti į perdegimą.",
+            "Naujų idėjų be plano, kaip sėkmingai įgyvendinti ir užbaigti jau pradėtas.",
+            "Važiuoti vien ant įkvėpimo – tavo idėjoms įgyvendinti reikia ir tiesiog nuoseklaus darbo, net kai pirminis entuziazmas jau išgaravęs."
+        ],
+        "help": [
+            "Laisvė tyrinėti idėjas, bendradarbiaujanti aplinka ir kūrybiniai projektai.",
+            "Įrankiai idėjoms organizuoti ir keliems projektams valdyti vienu metu, pvz., vizualinės lentos ar skaitmeniniai planuokliai.",
+            "Laiko blokavimo technikos, leidžiančios skirti tam tikrą laiką konkretiems užduočių ar projektų etapams."
+        ],
+        "disturb": [
+            "Griežti tvarkaraščiai, pasikartojančios užduotys ir ribotos galimybės kūrybai.",
+            "Situacijos, reikalaujančios dėmesio detalėms arba ilgalaikių įsipareigojimų be įvairovės.",
+            "Aplinka, kurioje trūksta įkvėpimo, socialinių sąveikų ar tyrinėjimo galimybių."
+        ],
+        "challenge": [
+            "Per didelis įsipareigojimas – kaip pažaboti savo entuziazmą lengvai įsitraukti į daugelį naujų idėjų, kad nepatirtum perdegimo ir turėtum laiko bei energijos užbaigti pradėtiems darbams.",
+            "Sunku susikoncentruoti – kaip užbaigti pradėtus projektus, kai dėmesys natūraliai krypsta į naujas idėjas.",
+            "Sunku išlaikyti tęstinumą – kaip užtikrinti, kad pradinio susidomėjimo sumažėjimas neskatintų mesti projektų ar idėjų, jų neužbaigus."
+        ],
+        "excercise": {
+            "Prioritetai": [
+                "Sudaryk visų dabartinių tavo projektų ir idėjų sąrašą. Kiekvieną įvertink balais nuo 1 iki 5 pagal poveikį (tavo tikslams, vertybėms), įgyvendinamumą ir asmeninį suinteresuotumą. Pasirink tris svarbiausius projektus, kuriems sutelksi dėmesį per artimiausias dvi savaites, o kitus atidėk į šalį. Po dviejų savaičių peržiūrėk sąrašą ir vėl perėliok prioritetus.",
+                "Tikslas: stiprinti dėmesio sutelkimo įgūdį ir valdyti didelį įsipareigojimų (darbų) kiekį, identifikuojant ir susitelkiant į svarbiausius projektus.",
+                "Kodėl tai veikia: šis pratimas padeda objektyviai įvertinti savo įsipareigojimus ir susitelkti į mažiau, bet svarbesnių projektų, taip sumažinant perdegimo riziką ir skatinant veikti nepaisant įkvėpimo bangavimo."
+            ],
+            "Be trukdžių": [
+                "Pasirink vieną užduotį ar projektą, prie kurio dirbsi 25 minutes naudojant „Pomodoro“ techniką. Išjunk pranešimus ir paslėpk visus trukdžius (pvz., telefoną, nereikalingus naršyklės skirtukus). Po 25 minučių daryk 5 minučių pertrauką ir tą patį procesą pakartok dar du kartus. Sek, kiek padarei per šiuos tris sprintus. Svarbu: po 25 minučių būtinai atsitrauk pailsėti, net jei ir užsidegei „varyti“, o per poilsiui skirtas 5 minutes pasirink tavo emocinei ir fizinei būklei palankias veiklas.",
+                "Tikslas: didinti produktyvumą, dirbant trumpais, bet intensyviais periodais be pertraukų – ir stiprinti atsparumą įvairioms distrakcijoms.",
+                "Kodėl tai veikia: ši užduotis padeda išlaikyti dėmesį ties viena užduotimi, vengiant įprastų trukdžių, ir suteikia greito pasitenkinimo jausmą."
+            ],
+            "Atsikratyk balasto": [
+                "Kiekvienos savaitės pabaigoje peržiūrėk savo įsipareigojimus (ypač jeigu per savaitę atsirado naujų) ir identifikuok vieną, kurį galėtum deleguoti, atidėti ar visai atsisakyti. Sutaupytą laiką kitą savaitę naudok jau pradėtam, bet neužbaigtam projektui įgyvendinti.",
+                "Tikslas: palaipsniui mažinti per didelį įsipareigojimų skaičių ir pratintis sutelkti dėmesį į jau pradėtų projektų užbaigimą.",
+                "Kodėl tai veikia: ši užduotis skatina reguliariai peržiūrėti savo darbo krūvį ir ugdo ieškoti būdų, kaip atlaisvinti laiką bei erdvę, kad galėtum sutelkti dėmesį į pradėtų darbų užbaigimą."
+            ]
+        },
+        "advice": [
+            "Kas savaitę skirk laiko peržiūrėti savo prioritetus ir projektų eigą – tai padės tau likti pasirinktoje kryptyje (mažiau blaškytis tapr skirtingų idėjų) ir išvengti perdegimo.",
+            "Praktikuok riboti prisiimtų užduočių skaičių, kad galėtum geriau valdytum savo laiką ir lengviau koncentruotum savo dėmesį į tai, kas išties svarbu.",
+            "Naudok kūrybiškus planavimo įrankius, kad planavimas būtų įdomesnis."
+        ],
+        "description": [
+            "Tu esi tikras gyvybingumo ir kūrybiškumo šaltinis – žmogus, kuris į bet kokią erdvę įneša energijos, įkvėpimo ir naujovių. Tavo entuziazmas tyrinėti naujas idėjas ir galimybes padaro tave tikra:u inovatore:iumi, nuolat siekiančia:iu surasti naujus sprendimus ir būdus, kaip įkvėpti kitus. Bendradarbiavimas ir naujų galimybių ieškojimas – tai tavo tikrasis polėkis, ir tavo energija užkrečia aplinkinius, skatindama juos veikti drąsiau.",
+            "Vis dėlto, tavo neišsenkantis entuziazmas kartais gali tapti kliūtimi. Esi žmogus, kuris mėgsta viską išbandyti, todėl gali būti sunku susitelkti ties vienu prioritetu ar užbaigti pradėtus projektus. Tavo kūrybinė dvasia trokšta laisvės, bet kartais būtent ji gali tapti kliūtimi, kai reikia laikytis nuoseklaus plano.",
+            "Mano patarimas: išmok derinti savo norą tyrinėti su šiek tiek aiškesnės struktūros kūrimu. Nusistatyk kelis aiškius tikslus ir leisk sau lanksčiai veikti, tačiau nepamiršk išlaikyti ryšį su realybe. Net ir minimalus planavimas gali padėti paversti tavo gausybę idėjų realiais, apčiuopiamais rezultatais. Kai rasi balansą tarp kūrybinės laisvės ir praktiškų veiksmų, tavo inovatyvios idėjos taps ne tik įkvepiančiomis, bet ir įgyvendinamomis – ir tai bus tavo tikrasis indėlis į pasaulį."
+        ],
+        "shortDescription": [
+            "Tu esi žmogus, kuris tiesiog spinduliuoja energiją, idėjas ir norą tyrinėti įvairias sritis. Tau patinka spontaniškumas ir kūryba, o aplinka, kurioje gali laisvai išreikšti save, tau yra gyvybiškai būtina. Mėgsti dirbti su kitais ir kurti pozityvią energiją komandoje. Tačiau kartais per didelis užsidegimas gali lemti pernelyg daug pradėtų, bet nebaigtų projektų arba atidėliojimą, kai užduotys tampa per daug nuobodžios."
+        ]
+    },
+    "INFJ": {
+        "name": "Vilkas",
+        "oneLiner": "Tas, kuris ne tik aiškiai mato kryptį, bet ir labai stengiasi, kad visa grupė nueitų ta kryptimi – net jei dėl to reikia aukoti savo laisvą savaitgalį. Mąstydamas apie kitų gerovę, gali suplanuoti pasaulio taiką, bet dažnai pamiršta suplanuoti laiką sau.",
+        "strength": [
+            "Strateginis mąstymas – puikiai numatai ilgalaikius tikslus ir gebi sukurti aiškų planą, kaip juos pasiekti.",
+            "Empatija ir įžvalga – gebi iš esmės suprasti skirtingus žmones, jų motyvus ir įvairias situacijas, todėl tavo planavimas apima tiek praktinius, tiek emocinius aspektus.",
+            "Tikslingas įgyvendinimas – esi labai motyvuota:as įgyvendinti projektus, kurių poveikyje matai prasmę."
+        ],
+        "weakness": [
+            "Perfekcionizmas – kartais gali užstrigti analizėje ir atidėlioti veiksmus, laukdama:as tobulumo.",
+            "Trumpalaikių užduočių ignoravimas – dažnai susitelki į didelį paveikslą, todėl gali praleisti trumpalaikes užduotis, kurios neskamba taip didingai.",
+            "Per didelis atsakomybės prisiėmimas – dažnai per daug rūpiniesi kitais, dėl ko gali perdegti ar prarasti asmeninį efektyvumą."
+        ],
+        "focus": [
+            "Suskaidyk ilgalaikius tikslus į mažus, įgyvendinamus žingsnius, kad užtikrintum nuoseklią pažangą.",
+            "Susikurk rutiną kasdienėms užduotims valdyti – tai padės išvengti „netyčinio“ kasdienių detalių ignoravimo.",
+            "Nustatyk asmenines ribas ir prioritetizuok savo poreikius, kad išvengtum perdegimo."
+        ],
+        "avoid": [
+            "Venk pernelyg ilgai laukti, kol viskas taps tobula – pradėk veikti net ir netobulomis sąlygomis.",
+            "Nepamiršk trumpalaikių užduočių, kurios būtinos ilgalaikių tikslų pasiekimui.",
+            "Nepersitempk bandydamas padėti kitiems savo sąskaita – išlaikyk pusiausvyrą tarp asmeninių ir kitų žmonių poreikių."
+        ],
+        "help": [
+            "Laikas ramiai refleksijai ir strateginiam planavimui, kad galėtum derinti veiksmus su vertybėmis ir ilgalaikiais tikslais.",
+            "Palaikanti aplinka, skatinanti gilų mąstymą ir suteikianti emocinę paramą.",
+            "Įrankiai, skirti lengviau organizuoti mintis bei idėjas ir suskaidyti sudėtingus projektus į valdomus etapus."
+        ],
+        "disturb": [
+            "Dinamiška, neorganizuota aplinka, nuolatiniai trukdžiai ir per didelis laiko \/ energijos reikalavimas.",
+            "Situacijos, kuriose reikia greitų sprendimų ir trūksta laiko apmąstymams.",
+            "Aplinka, kuri neatitinka asmeninių vertybių arba reikalauja dažnai eiti į kompromisus su savo asmeniniu matymu."
+        ],
+        "challenge": [
+            "Per daug dėmesio analizei ir perfekcionizmas – kaip neatidėlioti praktinių veiksmų, kai susitelki į platesnį vaizdą ir strateginį planavimą.",
+            "Trumpalaikių užduočių ignoravimas – kaip nepamiršti praktinių, kasdienių užduočių, kai sieki ilgalaikių tikslų.",
+            "Per didelis atsakomybės prisiėmimas už kitus – kaip padėti kitiems, neaukojant asmeninio produktyvumo ir gerovės."
+        ],
+        "excercise": {
+            "Greitas sprendimas": [
+                "Pasirink vieną sprendimą ar projektą, kurį jau ilgai planuoji \/ strateguoji \/ analizuoji. Nustatyk laikmatį 15 minučių ir padaryk greitą sprendimą dėl artimiausio sekančio veiksmo arba atlik nedidelę projekto užduotį be tolesnių apmąstymų ar tobulinimo. Priimk rezultatą tokį, koks yra, ir judėk toliau.",
+                "Tikslas: subalansuoti laiką, skiriamą apmąstymams ir skatinti greitą veiksmą, net jei jis nėra tobulas.",
+                "Kodėl tai veikia: ši užduotis skatina vengti per didelio dėmesio analizei ir perfekcionizmo, skatindama greitą, ryžtingą veiksmą ir parodant, kad progresas – ne mažiau svarbu, nei tobulas planas."
+            ],
+            "Mikroplanavimas": [
+                "Kiekvienos dienos pradžioje užrašyk tris nedideles, paprastas užduotis, kurios padeda siekti ilgalaikių tikslų (pvz., išsiųsti el. laišką, suplanuoti susitikimą, perskaityti straipsnį, parengti tekstą ir pan.). Atlik šias užduotis per pirmąją darbo valandą.",
+                "Tikslas: mokytis skirti dėmesio ir trumpalaikiams veiksmams, vedantiems į ilgalaikius tikslus, ir ugdyti įprotį kasdien žengti mažą žingsnelį didelių tikslų link.",
+                "Kodėl tai veikia: ši užduotis padeda integruoti ilgalaikį mąstymą su praktiškais veiksmais, kasdien matant apčiuopiamą progresą ir išvengiant smulkių, bet būtinų užduočių atidėliojimo."
+            ],
+            "Ribų refleksija": [
+                "Kartą per savaitę skirk 15 minučių apmąstymams apie savo įsipareigojimus ir identifikuok sritis, kuriose prisiėmei per daug atsakomybės už kitus. Pasirink vieną įsipareigojimą, kurį gali sumažinti ar atiduoti (grąžinti) kitiems, o sutaupytą laiką paskirk asmeninei gerovei ar prasmingam projektui.",
+                "Tikslas: ugdytis sąmoningumą apie atsakomybės ribas ir praktikuoti ribų brėžimą, kad išlaikytum energijos ir laiko balansą.",
+                "Kodėl tai veikia: ši užduotis skatina vertinti prisiimamus įsipareigojimus ir aktyviau brėžti ribas, kai jauti, kad tų įsipareigojimų – jau per daug."
+            ]
+        },
+        "advice": [
+            "Susikurk ribų refleksijos ritualą, kuris padės reguliariai įsivertinti, ar ne per daug įsipareigojai, ir suteiks galimybę atlaisvinti laiką asmeniniams poreikiams.",
+            "Pratinkis kasdien atlikti mažas užduotis, kurios padeda siekti ilgalaikių tikslų, kad išvengtum to, jog tik planuoji ir beveik niekad neįgyvendini.",
+            "Pratinkis veikti greitai – ne viskas turi būti tobula, kad būtų prasminga."
+        ],
+        "description": [
+            "Tu esi žmogus, kuris nuolat ieško gilesnės prasmės ir siekia ilgalaikių pokyčių. Tavo vizija visada nukreipta į priekį, bet tu nesi vien tik svajotoja:s – kruopščiai planuoji, kaip pasiekti savo tikslus, neprarandant ryšio su vertybėmis. Esi ta:as, kuri:is mato ne tik galutinį rezultatą, bet ir visą kelią, vedantį į jį. Tavo gebėjimas įsigilinti į kitų poreikius leidžia kurti planus, kurie yra ne tik praktiški, bet ir jautriai atsižvelgia į emocinius aspektus bei poveikį aplinkiniams.",
+            "Tačiau būtent ši tavo aistra siekti tobulumo ir padėti kitiems gali kartais tave išvarginti. Tu nuolat stengiesi išlaikyti aukštus standartus ir neretai prisiimi per daug atsakomybės, siekdama:as užtikrinti, kad viskas vyktų kuo sklandžiau. Nors tavo atsidavimas yra nuostabus, prisimink, kad tai, kas padaryta yra geriau už, tai, kas tobula, bet taip ir liko popieriuje. Kartais svarbiausia yra tiesiog pradėti – padaryti pirmąjį žingsnį ir leisti procesui natūraliai vystytis.",
+            "Mano patarimas: rūpinkis savimi taip pat, kaip rūpiniesi kitais. Leisk sau atsipalaiduoti ir priimti, kad ne viskas turi būti tobula. Suteik kitiems galimybę patiems prisiimti atsakomybę už jų veiksmus – taip ne tik apsaugosi savo energiją, bet ir suteiksi aplinkiniams galimybę augti. Kai išmoksi subalansuoti savo tobulumo siekį su savęs priėmimu, tavo įtaka taps dar stipresnė ir ilgalaikiškesnė, o įpratus veikti nelaukiant tobulumo – pasieksi labai daug."
+        ],
+        "shortDescription": [
+            "Tu esi žmogus, kuris mąsto strategiškai ir visuomet mato didelį paveikslą, planuodamas ilgalaikius tikslus, kurie dera su tavo vertybėmis ir siekiu kurti prasmingus pokyčius. Tau svarbu ne tik praktiniai, bet ir emociniai veiksniai, todėl gebi efektyviai planuoti, atsižvelgdamas į žmones ir jų poreikius. Vis dėlto, dėl savo idealizmo ir perfekcionizmo gali kilti sunkumų, kai reikia pradėti veikti, be to, dažnai per daug rūpiniesi kitais, pamiršdama:as savo poreikius."
+        ]
+    },
+    "ESFP": {
+        "name": "Zebras",
+        "oneLiner": "Tas, kuris įneša entuziazmo ir energijos į bet kokį projektą – net jei darbai kartais nukeliauja į antrą planą dėl netikėtos, bet labai smagios išvykos! Gyvena šia akimirka, visada pasiruošęs spontaniškai pakeisti planus ir daryti tai, kas tuo metu atrodo smagiausia.",
+        "strength": [
+            "Aukštas energijos lygis – į kiekvieną užduotį atsineši entuziazmo ir energijos, taip motyvuoji kitus ir sukuri pozityvią aplinką.",
+            "Lankstumas – greitai prisitaikai prie pokyčių, todėl puikiai veiki dinamiškose situacijose.",
+            "Bendravimo įgūdžiai – gebi puikiai komunikuoti ir bendradarbiauti, lengvai bendrauji ir užmezgi ryšius su kitais."
+        ],
+        "weakness": [
+            "Sunku susikoncentruoti į ilgalaikius tikslus – tau patinka greiti rezultatai, todėl gali būti sunku išlaikyti dėmesį ilgalaikiuose projektuose.",
+            "Rutinos vengimas – nemėgsti pasikartojančių ar nuobodžių užduočių, o tai gali lemti atidėliojimą ir nebaigtus projektus.",
+            "Impulsyvumas – kartais per greitai priimi sprendimus, pilnai neįvertinus, kokias ilgalaikes pasekmes tai gali turėti."
+        ],
+        "focus": [
+            "Nusistatyk mažus, lengvai pasiekiamus tikslus, kurie suteiktų greito laimėjimo skonį, ir leistų tuo pačiu nuosekliai judėti link ilgalaikių tikslų.",
+            "Susikurk bazinę kasdienę darbotvarkės struktūrą, kuri leistų išlaikyti pusiausvyrą tarp spontaniškumo ir nuoseklaus progreso.",
+            "Praktikuok refleksiją apie priimtus sprendimus, kad objektyviai įvertintum impulsyvių sprendimų poveikį (tiek teigiamą, tiek neigiamą) ir pagerintum planavimo įgūdžius."
+        ],
+        "avoid": [
+            "Nepalik projektų „kabėti“, kai pirminis įkarštis nuslopsta, ir jie tampa rutiniški ar mažiau įdomūs – rask būdų, kaip juos sau paversti įdomesniais.",
+            "Neiškeisk ilgalaikių tikslų į trumpalaikius malonumus.",
+            "Venk per didelio pasinėrimo į socialines veiklas ar pramogas produktyvumo sąskaita."
+        ],
+        "help": [
+            "Bendradarbiaujanti aplinka, kurioje gali bendrauti ir gauti tiesioginį grįžtamąjį ryšį.",
+            "Vizualūs įrankiai, tokie kaip užduočių sąrašai ar kalendoriai, kad galėtum lengvai matyti ir sekti savo progresą.",
+            "Lankstus planavimas, leidžiantis spontaniškai keisti veiksmų eigą ir kūrybiškai spręsti problemas, tuo pat metu užtikrinant, kad vis dar eini savo tikslų link."
+        ],
+        "disturb": [
+            "Griežta darbotarkė, nuolatinės rutininės užduotys ir monotonija, kuri neatneša pasitenkinimo ir greitų rezultatų.",
+            "Aplinka, kurioje trūksta socialinių sąveikų ar dinamikos ir galimybių įsitraukti į veiklas.",
+            "Projektai, kuriems reikia ilgalaikio, individualaus darbo ar nuoseklumo be įvairovės."
+        ],
+        "challenge": [
+            "Planavimas – kaip derinti greitų rezultatų ir spontaniškumo poreikį su dėmesiu ilgalaikiams tikslams.",
+            "Rutina – kaip neužstrigti atidėliojime ar nevilkti iš paskos daugybės pakibusių projektų, kai visomis išgalėmis norisi vengti pasikartojančių užduočių.",
+            "Impulsyvumas – kaip leisti sau veikti spontaniškai, kad tai neatneštų neigiamų ilgalaikių pasekmių ar nepakenktų ilgalaikiams tikslams."
+        ],
+        "excercise": {
+            "Malonesnė rutina": [
+                "Pasirink vieną rutininę užduotį, kurios paprastai vengi (pvz., dokumentų tvarkymas ar biudžeto sudarymas). Susiek ją su malonia veikla (pvz., klausykis mėgstamos muzikos, naudok spalvingus planuoklius, pamėgink aplenkti save). Nustatyk laikmatį 20 minučių ir per jas susitelk tik į tą užduotį.",
+                "Tikslas: paversti rutinines užduotis malonesnėmis ir formuoti įprotį jas reguliariai atlikti.",
+                "Kodėl tai veikia: ši užduotis padeda tau susieti nuobodžias veiklas su maloniais potyriais, todėl lengviau jas įtraukti į savo kasdienybę."
+            ],
+            "Trumpalaikiai tikslai": [
+                "Pasirink ilgalaikį tikslą, kurį apleidai. Suskirstyk jį į mažus savaitinius tikslus, kuriuos galėtum įvykdyti per mažiau nei valandą. Vizualiai sek savo pažangą (pvz., naudok Gantt diagramą ar kitus būdus) ir po kiekvieno savaitinio tikslo įvykdymo apdovanok save smagia veikla.",
+                "Tikslas: susikurti momentinę motyvaciją, kuri padės eiti ilgalaikių tikslų link mažais žingsneliais.",
+                "Kodėl tai veikia: užduotis suteikia greitą pasitenkinimą ir jausmą, kad pasiekei kažką svarbaus, padedant išlaikyti susidomėjimą ir motyvaciją siekti didesnių tikslų."
+            ],
+            "Impulsyvumo refleksija": [
+                "Po to, kai priimi greitą (impulsyvų) sprendimą, skirk bent 5 minutes refleksijai, kodėl priėmei šį sprendimą ir kaip jis dera su tavo ilgalaikiais tikslais. Užrašyk vieną pamoką, kurią gali pritaikyti ateities planavimui.",
+                "Tikslas: ugdyti sąmoningumą dėl impulsyvių sprendimų priėmimo ir jų įtakos tavo tikslams.",
+                "Kodėl tai veikia: ši užduotis skatina refleksiją ir mokymąsi iš savo sprendimų priėmimo proceso."
+            ]
+        },
+        "advice": [
+            "Praktikuok trumpalaikių tikslų nustatymą – tai padės tau išlaikyti susidomėjimą ir daryti progresą ilgalaikių projektų link. Net ir tada, kai motyvacija bus prasisklaidžiusi.",
+            "Vizualiai sek savo kasdienes užduotis, kad galėtum matyti, kiek pasiekei – tai padės išlaikyti motyvaciją ir pajusti greitą pasitenkinimą.",
+            "Kas savaitę peržiūrėk savo socialinius ir darbinius įsipareigojimus, kad išvengtum per didelio įsitraukimo į socialines veiklas produktyvumo sąskaita."
+        ],
+        "description": [
+            "Tu esi tikras energijos užtaisas – žmogus, kuris įneša gyvybės ir pozityvumo į bet kokią komandą ar projektą. Tavo entuziazmas, meilė veiksmui ir spontaniškumas užkrečia aplinkinius, skatina juos veikti drąsiau ir su didesniu pasitikėjimu. Esi ta:as, kuri:is lengvai prisitaiko prie naujų situacijų, greitai randa kūrybiškus sprendimus ir nebijo veikti ne pagal planą. Tavo gebėjimas imtis veiksmų „čia ir dabar“ dažnai tampa išsigelbėjimu, kai viskas aplinkui ima griūti.",
+            "Tačiau yra ir kita medalio pusė. Nuolat gyvenant šia akimirka, gali kartais pamiršti ilgalaikius tikslus ar struktūrą, kuri leistų pasiekti dar daugiau. Spontaniškumas – tavo stiprybė, bet kartais jis gali vesti į situacijas, kuriose pritrūksta krypties ir aiškumo. Jei skirsi šiek tiek laiko refleksijai ir paprastam planavimui, net ir minimaliai – tai padės išlaikyti balansą tarp mėgavimosi dabartimi ir judėjimo į priekį.",
+            "Mano patarimas: neprarask savo natūralaus polėkio ir noro gyventi šia akimirka, bet suteik sau truputį struktūros. Net keli apgalvoti žingsniai į priekį gali padėti nukreipti tavo energiją taip, kad ji ne tik įkvėptų aplinkinius, bet ir virstų realiais rezultatais. Taip tavo spontaniškumas taps tikra supergalia, leidžiančia mėgautis procesu ir kartu siekti ilgalaikių tikslų."
+        ],
+        "shortDescription": [
+            "Tu esi žmogus, kuris mėgsta veiksmą, dinamišką aplinką ir greitus rezultatus. Tavo stiprybės slypi gebėjime suteikti bet kokiems projektams gyvybingumo ir optimizmo, todėl dažnai įkvepi aplinkinius. Vis dėlto, ilgalaikis planavimas ir rutininės užduotys tau gali atrodyti per daug monotoniškos, todėl kartais tau gali kilti sunkumų laikytis nuoseklumo."
+        ]
+    },
+    "ESFJ": {
+        "name": "Šuo",
+        "oneLiner": "Žmogus, kuris moka suorganizuoti tobulą vakarėlį ir visiems paskirstyti užduotis – kad niekas neliktų be torto.",
+        "strength": [
+            "Organizaciniai įgūdžiai – puikiai planuoji veiklas ir projektus; užtikrini, kad viskas būtų atlikta efektyviai.",
+            "Į komandą orientuotas planavimas – puikiai koordinuoji komandos pastangas, palaikant pozityvią ir bendradarbiaujančią atmosferą.",
+            "Patikimumas – esi patikima:as ir atsakinga:as, visada įgyvendini savo pareigas bei padedi komandos nariams."
+        ],
+        "weakness": [
+            "Polinkis į per daug įsipareigojimų – dažnai prisiimi per daug atsakomybių, siekiant padėti kitiems, o tai gali lemti perdegimą.",
+            "Sunku priimti grįžtamąjį ryšį – tau gali būti sunku priimti kritiką, nes ją vertini pernelyg asmeniškai, o tai gali pakenkti produktyvumui.",
+            "Per didelis dėmesys harmonijai – kartais gali per daug stengtis išlaikyti harmoniją, pakišant neišspręstus konfliktus ar trūkumus po kilimu."
+        ],
+        "focus": [
+            "Nustatyk aiškias ribas, kad išvengtum per didelio įsipareigojimo kitų tikslams, ir prioritetizuok savo užduotis kartu su pagalba kitiems.",
+            "Praktikuok grįžtamojo ryšio priėmimą kaip galimybę tobulėti, nes emocingos reakcijos gali trukdyti efektyvumui.",
+            "Atrask balansą tarp pagalbos kitiems ir dėmesio savo asmeniniams tikslams."
+        ],
+        "avoid": [
+            "Venk į antrą planą nustumti savo asmeninius tikslus, besistengiant išlaikyti harmoniją ar padėti kitiems.",
+            "Nepersistenk, įvertink ar prisiimi ne per daug atsakomybių – tai gali sukelti perdegimą ir sumažinti efektyvumą.",
+            "„Positive vibes only“ požiūrio – nesprendžiami klausimai ir konfliktai gali trukdyti komandos dinamikai ir progresui bei produktyvumui."
+        ],
+        "help": [
+            "Struktūruota aplinka, kurioje aiškiai apibrėžti vaidmenys ir lūkesčiai, leidžiantys efektyviai bendradarbiauti.",
+            "Galimybės bendrauti su kitais ir dalyvauti komandinėse veiklose, kuriose gali derinti asmeninius ir komandinius tikslus.",
+            "Laiko valdymo ir užduočių planavimo įrankiai, tokie kaip skaitmeniniai planuokliai ar kalendoriai, padedantys valdyti sekti įsipareigojimus."
+        ],
+        "disturb": [
+            "Neaiškūs vaidmenys ir atsakomybės, dezorganizuota aplinka ir neapibrėžti lūkesčiai, kurie sukelia nerimą ir stresą.",
+            "Pernelyg daug konfliktų ar negatyvumo komandoje, kurie gali atitraukti dėmesį nuo produktyvumo.",
+            "Situacijos, kuriose nuolat reikia aukoti savo poreikius kitų labui."
+        ],
+        "challenge": [
+            "Kitų poreikiai – kaip padėti kitiems, kad neadekvačiai nepadidėtų darbo krūvis ir iš asmeninio gyvenimo neatimtum laiko bei energijos.",
+            "Kritika – kaip išmokti išgirsti ir priimti kritiką, kad ji nepaveiktų tavo pasitikėjimo savimi ir gebėjimo prisitaikyti.",
+            "Konfliktai – kaip išlaikyti ramybę, tačiau nevengti konfliktų, kad neišspręstos problemos nelėtintų progreso ir nekeltų papildomų problemų ateityje."
+        ],
+        "excercise": {
+            "Ribų nustatymo praktika": [
+                "Kartą per savaitę arba kas dvi identifikuok vieną sritį, kurioje per daug įsipareigojai kitiems (pvz., papildomos užduotys, savanoriška pagalba). Pasipraktikuok – kaip galėtum pasakyti „ne“ arba perduoti šią užduotį kitam asmeniui? Išbandyk tai kur nors, kur „skaudės“ mažiausiai. Sutaupytą laiką panaudok asmeniniam projektui ar savo gerovei.",
+                "Tikslas: ugdyti įprotį brėžti ribas ir prioritetizuoti asmeninius poreikius.",
+                "Kodėl tai veikia: ši užduotis padeda tau praktikuoti savo poreikių saugojimą ir pildymą, sumažinant perdegimo riziką ir leidžiant sutelkti dėmesį į asmeninius prioritetus be kaltės jausmo."
+            ],
+            "Pasakyk, ką manai": [
+                "Paprašyk atsiliepimo apie neseniai atliktą projektą iš kolegos, draugo ar šeimos nario, kuriuo pasitiki. Užsirašyk atsiliepimus, stenkis nereaguoti emociškai. Prisimink, kad tai – tų žmonių nuomonė apie konkretų rezultatą, o ne tave. Apsvarstyk, kaip galėtum šį atsiliepimą panaudoti konstruktyviai ir pagerinti savo darbą. Nebūtina taikyti visko tiesiogiai – galbūt užteks pasvarstyti apie galimus kitus sprendimo būdus konkrečioms užduotims atlikti. Įgyvendink vieną pasiūlymą ir stebėk rezultatą.",
+                "Tikslas: ugdyti gebėjimą priimti ir integruoti grįžtamąjį ryšį konstruktyviai.",
+                "Kodėl tai veikia: ši užduotis padeda ugdyti atsparumą kritikai, paverčiant ją augimo ir tobulėjimo įrankiu, taip didinant tiek asmeninį, tiek komandos produktyvumą."
+            ],
+            "Nebėk nuo problemos": [
+                "Pagalvok apie neseną situaciją, kai vengei spręsti konfliktą ar problemą. Pamėgink apgalvoti būdus, kaip galėtum konstruktyviai spręsti šią situaciją, sutelkiant dėmesį į aiškų bendravimą, faktus ir abipusę pagarbą. Įsivardink, kokio tipo situacijose šis metodas būtų tinkamas ir pamėgink bent 20 proc. pritaikyti, kai vėl kils tokia ar panaši situacija.",
+                "Tikslas: gerinti konfliktų sprendimo įgūdžius, kad būtų galima veiksmingai spręsti problemas nebėgant nuo jų, bet ir neprarandant harmonijos.",
+                "Kodėl tai veikia: ši užduotis padeda ugdyti pasitikėjimą ir atrasti būdų spręsti konfliktus konstruktyviai, taip išvengiant kabančių, neišspręstų problemų, kurios gali paveikti komandos dinamiką ir produktyvumą."
+            ]
+        },
+        "advice": [
+            "Skirk laiko reguliariai peržiūrėti savo įsipareigojimus ir nustatyti ribas, kai pradedi jausti, kad esi per daug užsiėmusi:ęs kitų reikalais.",
+            "Pratinkis priimti atsiliepimus be emocijų – tai padės išvengti streso ir leis augti bei tobulėti individualiai ir kaip komandos nariui.",
+            "Mokykis spręsti konfliktus konstruktyviai – tai padės išlaikyti ir auginti sveikus santykius tiek darbe, tiek asmeniniame gyvenime."
+        ],
+        "description": [
+            "Tu esi grupės širdis, žmogus, kuris aplink save kuria jaukią ir vienijančią atmosferą, leidžiančią kiekvienam jaustis vertinamam ir įtrauktam. Tavo natūralus talentas organizuoti ir koordinuoti projektus, veiklas ir žmones, padeda lengvai sukurti harmoningą ir produktyvią aplinką, kurioje žmonės jaučiasi gerai ir gali susitelkti į bendrus tikslus. Tave traukia socialinės sąveikos, o padėti kitiems sėkmingai įgyvendinti jų svajones – tai tavo didžiausias džiaugsmas ir motyvacija.",
+            "Vis dėlto, tavo stiprus noras palaikyti kitus ir būti mėgstamai:am kartais gali peraugti į per didelį prisitaikymą, grįžtamojo ryšio vengimą ar net savęs pamiršimą. Dažnai būni ta:s, kuri:s pasiruošęs viską mesti, kad padėtų kitiems, tačiau svarbu nepamiršti ir savo poreikių. Rūpinimasis savimi nėra egoizmas, tai būtina sąlyga, kad galėtum toliau džiaugtis socialiniais ryšiais ir būti ta:uo, kuri:is palaiko visus kitus.",
+            "Mano patarimas: mokykis priimti grįžtamąjį ryšį ir pokyčius kaip augimo galimybes. Nebijok iškelti sudėtingų klausimų, net jei jie gali sukelti trumpalaikį diskomfortą – ilgainiui tai tik sustiprins tavo gebėjimą kurti darnius ryšius ir išlaikyti balansą. Kai subalansuosi savo norą padėti kitiems ir pasirūpinimą savimi, tavo įtaka tik augs. Tu tapsi ne tik tuo žmogumi, kuris suburia ir palaiko kitus, bet ir tikra:u lydere:iu, gebančia:iu pasiekti įspūdingų rezultatų."
+        ],
+        "shortDescription": [
+            "Tu esi žmogus, kuris mėgsta tvarką ir struktūrą, vertina bendradarbiavimą bei harmoniją. Tavo stiprybės slypi gebėjime koordinuoti veiklas ir tuo pat metu kurti draugišką atmosferą, padedant kitiems pasiekti jų tikslus. Tačiau kartais gali per daug įsipareigoti kitų tikslams ir poreikiams, o tai gali pakenkti tavo asmeniniam produktyvumui ar gerovei."
+        ]
+    },
+    "ENFJ": {
+        "name": "Žirgas",
+        "oneLiner": "Tikras šoumenas, kuris visus įkvepia šypsotis ir kurti pasaulį, kuriame gera gyventi. Žmogus, kuriam norisi papasakoti visas gyvenimo paslaptis – nes jis visada išklausys ir supras.",
+        "strength": [
+            "Įkvepianti lyderystė – natūraliai motyvuoji ir įkvepi kitus, sukuri palaikančią ir įtraukiančią atmosferą.",
+            "Stiprus vertybinis pagrindas – tikslus planuoji atsižvelgiant į vertybes ir žmones. Taip užtikrini, kad kiekvienas jaustųsi įtrauktas ir matytų savo indėlį į bendrus tikslus.",
+            "Organizaciniai įgūdžiai – puikiai koordinuoji pastangas, valdai projektus ir užtikrini, kad planai būtų įgyvendinti veiksmingai."
+        ],
+        "weakness": [
+            "Per didelis įsipareigojimas kitų poreikiams – dažnai prisiimi per daug atsakomybės už kitų sėkmę, kas gali lemti perdegimą.",
+            "Sunku nustatyti ribas – tau sunku pasakyti „ne“, todėl dažnai pirmenybę teiki kitų poreikiams, o savo asmeninius tikslus ir gerovę pamiršti.",
+            "Savęs ignoravimas – dažnai ignoruoji asmeninius poreikius, kai sieki padėti kitiems, o tai gali lemti nuovargį ir sumažėjusį produktyvumą."
+        ],
+        "focus": [
+            "Nustatyk aiškias asmenines ribas, kad galėtum išlaikyti balansą tarp pagalbos kitiems ir asmeninės gerovės.",
+            "Skirk laiko pasirūpinti savimi ir asmeninei refleksijai, kad galėtum palaikyti tolygų energijos lygį, reikalingą asmeniniams tikslams.",
+            "Deleguok atsakomybę kitiems, kad neapsikrautum per daug ir suteiktum kitiems galimybę augti."
+        ],
+        "avoid": [
+            "Venk per daug įsipareigoti padedant kitiems, nes tai gali lemti perdegimą ir savo poreikių ignoravimą.",
+            "Stebėk save atidžiai, kad neprisiimtum per daug atsakomybės už kitų rezultatus, nes tai gali sukelti nusivylimą ir stresą.",
+            "Nepersistenk imantis per daug užduočių – tai gali pakenkti tiek tavo efektyvumui, tiek asmeninei gerovei."
+        ],
+        "help": [
+            "Palaikanti ir bendradarbiaujanti aplinka, kurioje visi siekia bendrų tikslų.",
+            "Galimybės lyderiauti ir mentorystė, kurie dera su tavo vertybėmis ir noru palaikyti kitus.",
+            "Įrankiai, padedantys organizuoti ir sekti įsipareigojimus, kad galėtum valdyti savo darbo krūvį efektyviai."
+        ],
+        "disturb": [
+            "Dezorganizuota aplinka, neaiškūs vaidmenys ir nesuderinamumas su asmeninėmis vertybėmis.",
+            "Situacijos, kuriose reikia atsiriboti arba mažai bendrauti su kitais, nes tai tau gali atrodyti nepakankamai prasminga.",
+            "Aplinka, kurioje trūksta bendradarbiavimo ar galimybių užmegzti asmeninį ryšį."
+        ],
+        "challenge": [
+            "Įsipareigojimas kitų tikslams ir poreikiams – kaip neperdegti, kai padedi kitiems.",
+            "Ribos – kaip išmokti ar išdrįsti atsisakyti, kad neimtum daugiau nei gali pakelti, ignoruojant asmeninius tikslus.",
+            "Laikas sau – kaip dėl didelio dėmesio kitiems nepraleisti būtinybės pasirūpinti savimi, kad išvengtum nuovargio ir sumažėjusio produktyvumo."
+        ],
+        "excercise": {
+            "Asmeninių ribų pratimas": [
+                "Kartą per savaitę arba dvi identifikuok vieną sritį, kurioje prisiėmei per daug atsakomybės už kitus (pvz., papildomas darbas, emocinė parama). Nustatyk aiškias ribas, deleguok užduotis arba apribok laiką, kurį tam skiri. Naudok papildomą laiką asmeninei veiklai, kuri leidžia tau pailsėti ir atgauti jėgas – fizines ir emocines (pvz., hobiai, poilsis).",
+                "Tikslas: praktikuoti ribų nustatymą, kad apsaugotum savo laiką ir energiją.",
+                "Kodėl tai veikia: šis pratimas padeda ugdyti įprotį prioritetizuoti savo poreikius, sumažinant perdegimo riziką ir padedant palaikyti tvarų pagalbos kitiems lygį."
+            ],
+            "Įsipareigok sau": [
+                "Kiekvieną dieną skirk 15-30 minučių veiklai, kuri leidžia tau jaustis geriau (pvz., sportas, skaitymas, meditacija) ir laikykis šio įsipareigojimo kad ir kas nutiktų. Kas savaitę reflektuok, kaip ši praktika veikia tavo energijos lygį ir nuotaiką.",
+                "Tikslas: įtraukti pasirūpinimą savimi į kasdienę rutiną, kad išlaikytum energiją ir atsparumą.",
+                "Kodėl tai veikia: šis pratimas padeda užtikrinti, kad tavo asmeninė gerovė yra prioritetas, padedantis palaikyti gebėjimą rūpintis kitais neišeikvojant savo išteklių."
+            ],
+            "Deleguok ir įgalink": [
+                "Identifikuok vieną atsakomybę, kurią paprastai prisiimi pati:s. Pasirink žmogų iš komandos (arba šeimos, jei neturi komandos), kuriam galėtum deleguoti šią užduotį, suteikiant konkrečius nurodymus - instrukcijas ir pagalbą, kai jos prašoma. Susitark dėl progreso aptarimo reguliarumo, bet leisk tam žmogui autonomiškai atlikti deleguotą užduotį.",
+                "Tikslas: sumažinti asmeninį darbo krūvį ir suteikti kitiems galimybę augti dalijantis atsakomybėmis.",
+                "Kodėl tai veikia: šis pratimas padeda atsisakyti poreikio kontroliuoti kiekvieną aspektą, ugdydamas pasitikėjimą kitais ir užkirsdamas kelią perdegimui, taip pat suteikdamas kitiems galimybę tobulėti ir prisiimti atsakomybę."
+            ]
+        },
+        "advice": [
+            "Praktikuok ribų brėžimą – tai padės apsisaugoti nuo perdegimo ir išlaikyti sveiką balansą tarp pagalbos kitiems ir savo gerovės.",
+            "Kasdien pasirūpink savimi – tai padės išlaikyti energiją ir atsparumą ilguoju laikotarpiu.",
+            "Pasitikėk esančiais šalia – delegavimas ne tik sumažina tavo darbo krūvį, bet ir leidžia kitiems tobulėti bei augti."
+        ],
+        "description": [
+            "Tu esi įkvepianti:s lyderė:is, kuri:s visada mato potencialą žmonėse ir geba jį atskleisti, parodydamas kelią į šviesesnę ateitį. Tavo charizma ir nuoširdi empatija leidžia lengvai užmegzti gilų ryšį su aplinkiniais. Tave iš tiesų džiugina galimybė kurti teigiamus pokyčius ir skatinti bendradarbiavimą komandoje – tu klesti aplinkoje, kur visi siekia bendrų tikslų.",
+            "Bet... tavo aistra padėti ir įkvėpti kitus kartais skatina prisiimti daugiau atsakomybės, nei iš tiesų galėtum pakelti. Tu nori būti užnugaris visiems, tačiau tai gali vesti link išsekimo. Nepamiršk: nustatyti ribas ir pasirūpinti savimi nėra egoizmas – tai būtina, jei nori išlaikyti savo įtaką ir efektyvumą. Kai randi laiko sau ir pasidalini atsakomybėmis su kitais, ne tik apsaugoji savo gerovę, bet ir įgalini aplinkinius augti ir mokytis.",
+            "Mano patarimas: priimk savo norą įkvėpti ir motyvuoti kitus, bet neužmiršk klausytis ir savo poreikių bei tikslų. Įsivertink, kiek svarbu yra rasti balansą tarp pagalbos kitiems ir pagalbos sau. Kai sujungsi savo aistrą lyderystei su įsipareigojimu savo asmeninei gerovei, tavo įtaka ne tik sustiprės, bet ir taps išties transformuojanti. Taip tu gebėsi ne tik vesti kitus link bendrų tikslų, bet ir skatinti realius, prasmingus pokyčius, kurie atves į geresnį rytojų."
+        ],
+        "shortDescription": [
+            "Tu esi tas žmogus, kuris natūraliai motyvuoja kitus ir sukuria teigiamą, bendradarbiaujančią aplinką. Tau patinka planuoti orientuojantis į žmones ir jų vertybes, padedant kitiems augti ir pasiekti tikslus. Tačiau kartais tavo noras padėti kitiems gali tapti kliūtimi, nes per daug įsipareigoji ir ignoruoji asmeninius poreikius."
+        ]
+    },
+    "INFP": {
+        "name": "Drugelis",
+        "oneLiner": "Romantiškas svajotojas, kuris gali iš bet ko padaryti meno kūrinį – net iš neplautų indų.",
+        "strength": [
+            "Kūrybiškumas ir vizionieriškumas – kuri unikalius, vertybėmis pagrįstus sprendimus ir idėjas, suteiki gylio ir atrandi inovacijų projektams, su kuriais dirbi.",
+            "Lankstus planavimas – atvirai priimi naujas idėjas ir neapsiriboji įprastais metodais, siekiant tikslų.",
+            "Aistra ir atsidavimas – 100 procentų atsiduodi projektams, kurie atitinka tavo asmenines vertybes, kuriuose matai prasmę ir tikslą."
+        ],
+        "weakness": [
+            "Sunku įgyvendinti praktikoje – tau dažnai būna sudėtinga paversti abstrakčias idėjas į konkrečius veiksmus ir užbaigti pradėtus projektus.",
+            "Rutinos vengimas – nemėgsti pasikartojančių užduočių, o tai gali sukelti atidėliojimą ir dezorganizaciją.",
+            "Per daug dėmesio mąstymui ir idealizavimui – gali būti linkusi:ęs per daug analizuoti ir ieškoti tobulumo, kas atitolina praktinius veiksmus arba trukdo užbaigti projektus, kurie neatitinka tavo idealistinių standartų."
+        ],
+        "focus": [
+            "Suskaidyk dideles, abstrakčias idėjas į mažus, konkrečius veiksmus, kad būtų lengviau judėti pirmyn.",
+            "Susikurk paprastą rutiną, skirtą kasdienėms, bet būtinoms užduotims atlikti, kad išlaikytum organizuotumą.",
+            "Nustatyk realistiškus lūkesčius ir terminus, kad išvengtum perfekcionizmo ir idealizmo sukeliamo streso (arba tiksliau, streso, kuris kyla, kai perfekcionizmas susitinka su realybe)."
+        ],
+        "avoid": [
+            "Venk pernelyg pasinerti į planavimą ir mąstymą – svarbu veikti net ir tada, kai viskas dar nėra tobula.",
+            "Neatidėliok rutininių užduočių, kurios būtinos, kad išlaikytum nuoseklų projekto progresą.",
+            "Neleisk, kad nusivylimas dėl netobulų rezultatų sutrukdytų progresui – sutelk dėmesį į pažangą, o ne į tobulumą."
+        ],
+        "help": [
+            "Laikas refleksijai ir kūrybiniam mąstymui, suteikiantis erdvę idėjoms tyrinėti ir vertybėms sustiprinti.",
+            "Palaikanti ir kūrybingumą skatinanti aplinka, kuri dera su asmeninėmis vertybėmis.",
+            "Įrankiai mintims ir idėjoms organizuoti, tokie kaip užrašinės ar minčių žemėlapiai, padedantys struktūruoti ir fiksuoti idėjas."
+        ],
+        "disturb": [
+            "Griežta darbotarkė, apriboti lūkesčiai ir aplinka, kurioje nėra kūrybinės laisvės arba reikalingas konformizmas.",
+            "Situacijos, kuriose yra didelis spaudimas atitikti išorinius standartus ar terminus, kurie ne visada dera su tavo asmeninėmis vertybėmis.",
+            "Pernelyg stipri kritika ar negatyvumas, kurie gali slopinti kūrybiškumą ir motyvaciją."
+        ],
+        "challenge": [
+            "Praktika – kaip paversti kūrybines idėjas į praktinius veiksmus, kad laiku imtumeis veiksmų ir nepaliktum neužbaigtų projektų.",
+            "Prokrastinacija – kaip nevengti užduočių, kurios neatitinka asmeninių vertybių ar atrodo nuobodžios.",
+            "Idealizmas – kaip nepaskęsti analizėje ar tobulumo paieškose, kad galėtum pradėti ar pabaigti pradėtus darbus."
+        ],
+        "excercise": {
+            "Planas idėjai": [
+                "Pasirink vieną kūrybinę idėją ar projektą, apie kurį galvoji. Suskirstyk ją į penkis konkrečius, mažus veiksmus, kuriuos galėtum įgyvendinti per mažiau nei valandą (t.y. valanda vienam veiksmui). Suplanuok bent po vieną veiksmą per savaitę ir stebėk savo pažangą.",
+                "Tikslas: paversti kūrybines idėjas realybe, skatinant nuoseklų darbą ir progresą.",
+                "Kodėl tai veikia: ši užduotis padeda abstrakčias idėjas paversti konkrečiais veiksmais, todėl lengviau pradėti ir išlaikyti motyvaciją susitelkiant į konkrečius veiksmus, vengiant per didelio spaudimo dėl viso projekto apimties."
+            ],
+            "Kūrybiška rutina": [
+                "Pasirink vieną rutininę užduotį, kurios dažnai vengi (pvz., dokumentų tvarkymas, planavimas). Paversk ją malonesniu užsiėmimu, pridedant kūrybinį elementą. Pvz., jei tvarkai dokumentus, naudok spalvingas etiketes arba naudok estetiškus skaitmeninius šablonus. Dedikuok 15 minučių kasdien šiai užduočiai ir apdovanok save po darbo trumpa kūrybine veikla (pvz., piešimu, rašymu). Svarbu: naudokis jau turimomis arba lengvai pasiekiamomis priemonėmis. Kūrybinio elemento susikūrimas negali tapti dar viena patogia priežastimi atidėlioti nenorimą užduotį.",
+                "Tikslas: paversti rutininę užduotį malonesne ir kūrybiškai patrauklesne, skatinant reguliarų jos atlikimą.",
+                "Kodėl tai veikia: ši užduotis leidžia tau naudoti savo kūrybiškumą, kad įprastas veiklas paverstum estetiškai patraukliomis ir asmeniškai įdomiomis. Taip mažėja monotonija, o tau lengviau išlaikyti nuoseklumą."
+            ],
+            "Progresas prieš tobulumą": [
+                "Pasirink vieną projektą, kurį atidėlioji dėl to, kad dar neišdirbai iki tobulumo. Nustatyk laikmatį 30 minučių ir dirbk prie jo be jokių taisymų ar tobulinimų. Koncentruokis į progresą, o ne į tobulumą. Pasibaigus laikui, peržiūrėk savo darbą ir užrašyk vieną dalyką, kurį pasiekei, nesvarbu, koks mažas jis bebūtų.",
+                "Tikslas: įveikti perfekcionizmą ir ugdyti įprotį dirbti nuosekliai.",
+                "Kodėl tai veikia: ši užduotis padeda tau veikti be spaudimo dėl tobulumo, leisdama progresuoti ir švęsti mažus laimėjimus, kas ugdo pasitikėjimą ir mažina nerimą, kai reikia pradėti bei užbaigti darbus."
+            ]
+        },
+        "advice": [
+            "Praktikuok abstrakčių idėjų skaidymą į mažus veiksmus – tai padės išvengti atidėliojimo ir palengvins idėjų įgyvendinimą.",
+            "Įtrauk kūrybiškumo į savo rutiną – tai padės įveikti nuobodžias užduotis ir išlaikyti susidomėjimą.",
+            "Atmink, kad progresas yra svarbesnis už tobulumą – veik be baimės, net jei viskas dar nėra idealu."
+        ],
+        "description": [
+            "Esi vizionierė:ius, kuri:s kiekvieną naują idėją ir iššūkį priima pilna širdimi, įnešdama:as kūrybiškumo, empatijos ir idealizmo. Tavo gebėjimas žiūrėti nepaisant įprastų rėmų ir įsiklausyti į gilesnes vertybes leidžia matyti tai, ko kiti dažnai nepastebi. Esi žmogus, kuris į bet kokius projektus įneša novatoriškų sprendimų, kurdamas ne tik produktyvius, bet ir prasmingus rezultatus. Tave labiausiai įkvepia darbai, kurie rezonuoja su tavo vidiniais įsitikinimais ir leidžia realizuoti savo kūrybinį potencialą.",
+            "Vis dėlto, būnant vizionieriumi, neretai susiduriama su iššūkiu paversti idėjas realybe. Kelias nuo įkvėpimo iki praktinio įgyvendinimo gali būti ilgas, o pati proceso struktūra kartais atrodo pernelyg suvaržanti tavo laisvą kūrybinę dvasią. Čia ir slypi tavo galimybė augti: susikurk lengvą, tačiau kryptingą planą, kuris leistų ne tik vizualizuoti idėjas, bet ir žengti aiškiais praktiniais žingsniais jų įgyvendinimo link.",
+            "Mano patarimas: priimk savo kūrybiškumą ir gebėjimą svajoti apie didelius dalykus, bet nepamiršk išlaikyti ryšio su realybe. Skirk laiko refleksijai ir susikurk rėmus, kurie padėtų tavo idėjoms įgauti formą be pernelyg griežtos kontrolės. Taip išlaikysi balansą tarp kūrybos laisvės ir efektyvaus veikimo. Kai sujungsi savo vizionierišką polėkį su praktiškais veiksmais, tavo idėjos taps ne tik įkvepiančiomis, bet ir įgyvendinamomis. Ir būtent tuomet pasieksi įspūdingų rezultatų, kurie ne tik atitiks tavo vertybes, bet ir turės realią, ilgalaikę reikšmę pasauliui."
+        ],
+        "shortDescription": [
+            "Tu esi žmogus, kuris mėgsta tyrinėti savo vertybes ir dirbti prie prasmingų projektų. Tavo stiprybės slypi gebėjime generuoti kūrybiškas idėjas ir sprendimus, kurie atitinka tavo idealus. Tau reikalinga lanksti ir vaizduotę išlaisvinanti planavimo sistema, kuri leistų tau įgyvendinti projektus, turinčius prasmingą poveikį. Vis dėlto kartais susiduri su sunkumais praktiniame savo kūrybiškų idėjų įgyvendinime ir rutininių užduočių valdyme, kas gali lemti atidėliojimą ir neužbaigtus darbus."
+        ]
+    },
+    "ISTP": {
+        "name": "Katė",
+        "oneLiner": "Kai viskas griūna ir kiti stresuoja \"ką daryti?!\", tu ramiai įžengi ir viską sutvarkai su šypsena, lyg tai būtų dar viena dienos pramoga.",
+        "strength": [
+            "Praktiškumas – puikiai randi veiksmingus sprendimus, kurie greitai sprendžia kilusias problemas.",
+            "Lankstumas – greitai reaguoji į naujas situacijas ir gerai veiki dinamiškoje aplinkoje, kurioje reikia greitų sprendimų.",
+            "Saviraiška – mėgsti dirbti savarankiškai, gebi prisiimti atsakomybę ir tau nereikia nuolatinių atsiskaitymų, kad darytum tai, ką sutarei padaryti."
+        ],
+        "weakness": [
+            "Nepastovumas – tau labiau patinka spontaniškumas, todėl gali kilti sunkumų kuriant ilgalaikius planus ir jų laikantis.",
+            "Prokrastinacija – polinkis atidėlioti planavimą ir organizavimą, o tai gali sukelti stresą ir nuolat „užmesti“ paskutinės minutės užduotis.",
+            "Rutinos vengimas – nemėgsti pasikartojančių užduočių, todėl gali apleisti svarbias palaikymo ar administracines užduotis."
+        ],
+        "focus": [
+            "Susikurk bazinę dienos plano struktūrą, kad svarbios ilgalaikės užduotys nebūtų pamirštos.",
+            "Susikurk paprastą sistemą, kuri padės valdyti ir atlikti rutinines užduotis ir neleis joms krautis į didžiulį neatliktų darbų kalną.",
+            "Naudok savo problemų sprendimo įgūdžius, kad optimizuotum procesus ir rastum efektyvesnių būdų užduotims atlikti."
+        ],
+        "avoid": [
+            "Nepasikliauk vien savo spontaniškumu – tai gali atnešti chaosą ir praleistus terminus.",
+            "Nepasiduok prokrastinacijai, kai kalbama apie planavimą ir palaikomuosius darbus.",
+            "Venk ignoruoti ilgalaikius tikslus, pirmenybę teikiant tik dabartiniams, įdomesniems iššūkiams."
+        ],
+        "help": [
+            "Lanksti darbo aplinka, kurioje gali greitai priimti sprendimus ir atlikti užduotis praktiškai.",
+            "Įrankiai ir sistemos, kurios supaprastina planavimą ir sumažina organizavimui skirtą laiką.",
+            "Galimybė dirbti savarankiškai ir prisiimti atsakomybę už rezultatus."
+        ],
+        "disturb": [
+            "Griežti grafikai, pasikartojančios užduotys ir aplinka, kurioje nuolat reikia stebėti ir kontroliuoti.",
+            "Situacijos, reikalaujančios išsamios ilgalaikės planavimo strategijos arba nesuteikiančios greitų veiksmų galimybių.",
+            "Darbas, kuris labiau susijęs su teorija ar abstrakčiomis idėjomis, bet neturi praktinio pritaikymo."
+        ],
+        "challenge": [
+            "Planavimas – kaip suderinti savo pomėgį veikti čia ir dabar ir ilgalaikį planavimą, kad išvengtum degančių paskutinės minutės užduočių ar nebaigtų projektų.",
+            "Prokrastinacija – kaip nevengti rutinos darbų, kad jiem pamažu nevirstų netvarka ir nekeltų bereikalingos painiavos.",
+            "Platus matymas – kaip nepamesti ilgalaikių tikslų svarbos, kai susikoncentruoji į esamas problemas."
+        ],
+        "excercise": {
+            "Greitas planavimas": [
+                "Kiekvienos dienos pradžioje skirk 15 minučių greitam veiksmų planui sudaryti. Užsirašyk tris pagrindines užduotis, kurias nori atlikti, įtraukiant ir trumpalaikius, ir vieną ilgalaikį tikslą. Laikyk šį sąrašą matomoje vietoje ir naudokis juo visą dieną.",
+                "Tikslas: ugdyti įprotį įtraukti planavimą į įprastą rutiną, tuo pačiu neperkraunant savęs per dideliais planais.",
+                "Kodėl tai veikia: ši užduotis padeda planuoti koncentruotai ir konkrečiai, skatina tave veiksmingai nustatyti prioritetus, tuo pat metu išlaikant lankstumą."
+            ],
+            "Efektyvumo iššūkis": [
+                "Pasirink vieną rutininę užduotį, kurios dažnai vengi (pvz., darbo vietos tvarkymas, dokumentų valdymas). Naudok savo problemų sprendimo įgūdžius, kad rastum būdų, kaip šią užduotį atlikti efektyviau (pvz., naudojant naują įrankį ar sukuriant optimizuotą procesą). Nustatyk laikmatį ir pabandyk atlikti šią užduotį greičiau nei įprastai.",
+                "Tikslas: paversti rutinines užduotis iššūkiu, kad jos taptų įdomesnės ir veiksmingesnės.",
+                "Kodėl tai veikia: ši užduotis leidžia tavo natūralų polinkį spręsti problemas pritaikyti rutininiams darbams, optimizuojant juos ir tuo pačiu sutaupant laiko."
+            ],
+            "Projektų užbaigimo sprintas": [
+                "Identifikuok vieną nebaigtą projektą ir nustatyk laikmatį 30 minučių. Dirbk išskirtinai ties šiuo projektu be jokių trukdžių, susitelkiant į tam tikrą jo užduotį. Kartok šį sprintą kasdien \/ kas savaitę, kol projektas bus užbaigtas.",
+                "Tikslas: ugdyti nuoseklumą ir gebėjimą sutelkti dėmesį užbaigiant ilgalaikius projektus išvengiant jausmo, kad užduotis yra neįveikiama.",
+                "Kodėl tai veikia: šis metodas suskaido dideles užduotis į trumpus, valdomus etapus, skatinant nuolatinį progresą ir mažinant pojūtį, kad darbų pabaiga yra per toli."
+            ]
+        },
+        "advice": [
+            "Kiekvieną dieną skirk šiek tiek laiko planavimui, kad išvengtum paskutinės minutės streso.",
+            "Naudok savo kūrybiškumą ir problemų sprendimo gebėjimus, kad kasdienes užduotis atliktum efektyviau.",
+            "Kasdien dirbk po truputį su rutininėmis užduotimis – tai geriausias būdas išvengti perdegimo ir susikaupusių užduočių."
+        ],
+        "description": [
+            "Kartais apie tokius žmones kaip tu sakoma „tikras McGyveris“ – nesvarbu, kokia situacija ištinka, tu gebi sugalvoti sprendimą vietoje. Esi ta:s, kuri:s greitai prisitaiko prie pokyčių, kai viskas aplinkui dega ir reikia greito veiksmo. Tavo praktiškas mąstymas ir gebėjimas improvizuoti reiškia, kad ir su minimaliais ištekliais gali rasti išeitį net iš sudėtingiausios situacijos. Intuicija – tai tavo stiprioji pusė, ir tu ją moki puikiai išnaudoti. Nesvarbu, ar tai būtų smulki problemytė, ar rimtas iššūkis – tu tiesiog veiki.",
+            "Tačiau... tokia spontaniška prigimtis turi ir savo iššūkių. Kai užduotys tampa monotoniškos arba reikalauja ilgalaikio planavimo, gali pradėti jausti, kad motyvacija slūgsta. Tavo stiprioji pusė yra greitas sprendimų priėmimas ir veiksmas „čia ir dabar“, bet ilgos, iš anksto suplanuotos strategijos – ne visada tavo arkliukas.",
+            "Štai mano patarimas: išmok į savo spontanišką veiksmą įpinti šiek tiek struktūros. Nereikia planuoti visko iki smulkmenų – užtenka kelių žingsnių į priekį, kurie leis tau išlaikyti kryptį net tada, kai įprasta intuicija nesuveikia. Leisk sau veikti lanksčiai, tačiau nepamiršk integruoti ir šiek tiek sistemos – tai padės išlaikyti balansą ir neperdegti, net kai kasdienybė tampa nuobodi. Galų gale, svarbiausia – išnaudoti tavo gebėjimą greitai prisitaikyti, bet taip pat susikurti tokią rutiną, kuri ne tik remiasi tavo stiprybėmis, bet ir suteikia tau palaikymo, kai reikia veikti ten, kur esi mažiau stipri:us. Tokiu būdu išlaikysi savo natūralų tempą ir vis tiek judėsi į priekį produktyviai, net ir susidūrus su ilgalaikiais iššūkiais."
+        ],
+        "shortDescription": [
+            "Tu gebi puikiai spręsti praktines problemas ir geriausiai veiki esant kintančioms situacijoms. Tavo stiprybė slypi gebėjime greitai prisitaikyti ir rasti veiksmingus, rankomis apčiuopiamus sprendimus. Tau labiau patinka dirbti savarankiškai, turint laisvę veikti pagal savo intuiciją. Vis dėlto, ilgalaikio planavimo ir rutinos darbai tau dažnai atrodo nuobodūs, o tai gali lemti atidėliojimą ar nebaigtus darbus."
+        ]
+    }
+}

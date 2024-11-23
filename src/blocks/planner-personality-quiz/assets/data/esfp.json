@@ -1,0 +1,69 @@
+{
+    "name": "Zebras",
+    "oneLiner": "Tas, kuris įneša entuziazmo ir energijos į bet kokį projektą – net jei darbai kartais nukeliauja į antrą planą dėl netikėtos, bet labai smagios išvykos! Gyvena šia akimirka, visada pasiruošęs spontaniškai pakeisti planus ir daryti tai, kas tuo metu atrodo smagiausia.",
+    "strength": [
+        "Aukštas energijos lygis – į kiekvieną užduotį atsineši entuziazmo ir energijos, taip motyvuoji kitus ir sukuri pozityvią aplinką.",
+        "Lankstumas – greitai prisitaikai prie pokyčių, todėl puikiai veiki dinamiškose situacijose.",
+        "Bendravimo įgūdžiai – gebi puikiai komunikuoti ir bendradarbiauti, lengvai bendrauji ir užmezgi ryšius su kitais."
+    ],
+    "weakness": [
+        "Sunku susikoncentruoti į ilgalaikius tikslus – tau patinka greiti rezultatai, todėl gali būti sunku išlaikyti dėmesį ilgalaikiuose projektuose.",
+        "Rutinos vengimas – nemėgsti pasikartojančių ar nuobodžių užduočių, o tai gali lemti atidėliojimą ir nebaigtus projektus.",
+        "Impulsyvumas – kartais per greitai priimi sprendimus, pilnai neįvertinus, kokias ilgalaikes pasekmes tai gali turėti."
+    ],
+    "focus": [
+        "Nusistatyk mažus, lengvai pasiekiamus tikslus, kurie suteiktų greito laimėjimo skonį, ir leistų tuo pačiu nuosekliai judėti link ilgalaikių tikslų.",
+        "Susikurk bazinę kasdienę darbotvarkės struktūrą, kuri leistų išlaikyti pusiausvyrą tarp spontaniškumo ir nuoseklaus progreso.",
+        "Praktikuok refleksiją apie priimtus sprendimus, kad objektyviai įvertintum impulsyvių sprendimų poveikį (tiek teigiamą, tiek neigiamą) ir pagerintum planavimo įgūdžius."
+    ],
+    "avoid": [
+        "Nepalik projektų „kabėti“, kai pirminis įkarštis nuslopsta, ir jie tampa rutiniški ar mažiau įdomūs – rask būdų, kaip juos sau paversti įdomesniais.",
+        "Neiškeisk ilgalaikių tikslų į trumpalaikius malonumus.",
+        "Venk per didelio pasinėrimo į socialines veiklas ar pramogas produktyvumo sąskaita."
+    ],
+    "help": [
+        "Bendradarbiaujanti aplinka, kurioje gali bendrauti ir gauti tiesioginį grįžtamąjį ryšį.",
+        "Vizualūs įrankiai, tokie kaip užduočių sąrašai ar kalendoriai, kad galėtum lengvai matyti ir sekti savo progresą.",
+        "Lankstus planavimas, leidžiantis spontaniškai keisti veiksmų eigą ir kūrybiškai spręsti problemas, tuo pat metu užtikrinant, kad vis dar eini savo tikslų link."
+    ],
+    "disturb": [
+        "Griežta darbotarkė, nuolatinės rutininės užduotys ir monotonija, kuri neatneša pasitenkinimo ir greitų rezultatų.",
+        "Aplinka, kurioje trūksta socialinių sąveikų ar dinamikos ir galimybių įsitraukti į veiklas.",
+        "Projektai, kuriems reikia ilgalaikio, individualaus darbo ar nuoseklumo be įvairovės."
+    ],
+    "challenge": [
+        "Planavimas – kaip derinti greitų rezultatų ir spontaniškumo poreikį su dėmesiu ilgalaikiams tikslams.",
+        "Rutina – kaip neužstrigti atidėliojime ar nevilkti iš paskos daugybės pakibusių projektų, kai visomis išgalėmis norisi vengti pasikartojančių užduočių.",
+        "Impulsyvumas – kaip leisti sau veikti spontaniškai, kad tai neatneštų neigiamų ilgalaikių pasekmių ar nepakenktų ilgalaikiams tikslams."
+    ],
+    "excercise": {
+        "Malonesnė rutina": [
+            "Pasirink vieną rutininę užduotį, kurios paprastai vengi (pvz., dokumentų tvarkymas ar biudžeto sudarymas). Susiek ją su malonia veikla (pvz., klausykis mėgstamos muzikos, naudok spalvingus planuoklius, pamėgink aplenkti save). Nustatyk laikmatį 20 minučių ir per jas susitelk tik į tą užduotį.",
+            "Tikslas: paversti rutinines užduotis malonesnėmis ir formuoti įprotį jas reguliariai atlikti.",
+            "Kodėl tai veikia: ši užduotis padeda tau susieti nuobodžias veiklas su maloniais potyriais, todėl lengviau jas įtraukti į savo kasdienybę."
+        ],
+        "Trumpalaikiai tikslai": [
+            "Pasirink ilgalaikį tikslą, kurį apleidai. Suskirstyk jį į mažus savaitinius tikslus, kuriuos galėtum įvykdyti per mažiau nei valandą. Vizualiai sek savo pažangą (pvz., naudok Gantt diagramą ar kitus būdus) ir po kiekvieno savaitinio tikslo įvykdymo apdovanok save smagia veikla.",
+            "Tikslas: susikurti momentinę motyvaciją, kuri padės eiti ilgalaikių tikslų link mažais žingsneliais.",
+            "Kodėl tai veikia: užduotis suteikia greitą pasitenkinimą ir jausmą, kad pasiekei kažką svarbaus, padedant išlaikyti susidomėjimą ir motyvaciją siekti didesnių tikslų."
+        ],
+        "Impulsyvumo refleksija": [
+            "Po to, kai priimi greitą (impulsyvų) sprendimą, skirk bent 5 minutes refleksijai, kodėl priėmei šį sprendimą ir kaip jis dera su tavo ilgalaikiais tikslais. Užrašyk vieną pamoką, kurią gali pritaikyti ateities planavimui.",
+            "Tikslas: ugdyti sąmoningumą dėl impulsyvių sprendimų priėmimo ir jų įtakos tavo tikslams.",
+            "Kodėl tai veikia: ši užduotis skatina refleksiją ir mokymąsi iš savo sprendimų priėmimo proceso."
+        ]
+    },
+    "advice": [
+        "Praktikuok trumpalaikių tikslų nustatymą – tai padės tau išlaikyti susidomėjimą ir daryti progresą ilgalaikių projektų link. Net ir tada, kai motyvacija bus prasisklaidžiusi.",
+        "Vizualiai sek savo kasdienes užduotis, kad galėtum matyti, kiek pasiekei – tai padės išlaikyti motyvaciją ir pajusti greitą pasitenkinimą.",
+        "Kas savaitę peržiūrėk savo socialinius ir darbinius įsipareigojimus, kad išvengtum per didelio įsitraukimo į socialines veiklas produktyvumo sąskaita."
+    ],
+    "description": [
+        "Tu esi tikras energijos užtaisas – žmogus, kuris įneša gyvybės ir pozityvumo į bet kokią komandą ar projektą. Tavo entuziazmas, meilė veiksmui ir spontaniškumas užkrečia aplinkinius, skatina juos veikti drąsiau ir su didesniu pasitikėjimu. Esi ta:as, kuri:is lengvai prisitaiko prie naujų situacijų, greitai randa kūrybiškus sprendimus ir nebijo veikti ne pagal planą. Tavo gebėjimas imtis veiksmų „čia ir dabar“ dažnai tampa išsigelbėjimu, kai viskas aplinkui ima griūti.",
+        "Tačiau yra ir kita medalio pusė. Nuolat gyvenant šia akimirka, gali kartais pamiršti ilgalaikius tikslus ar struktūrą, kuri leistų pasiekti dar daugiau. Spontaniškumas – tavo stiprybė, bet kartais jis gali vesti į situacijas, kuriose pritrūksta krypties ir aiškumo. Jei skirsi šiek tiek laiko refleksijai ir paprastam planavimui, net ir minimaliai – tai padės išlaikyti balansą tarp mėgavimosi dabartimi ir judėjimo į priekį.",
+        "Mano patarimas: neprarask savo natūralaus polėkio ir noro gyventi šia akimirka, bet suteik sau truputį struktūros. Net keli apgalvoti žingsniai į priekį gali padėti nukreipti tavo energiją taip, kad ji ne tik įkvėptų aplinkinius, bet ir virstų realiais rezultatais. Taip tavo spontaniškumas taps tikra supergalia, leidžiančia mėgautis procesu ir kartu siekti ilgalaikių tikslų."
+    ],
+    "shortDescription": [
+        "Tu esi žmogus, kuris mėgsta veiksmą, dinamišką aplinką ir greitus rezultatus. Tavo stiprybės slypi gebėjime suteikti bet kokiems projektams gyvybingumo ir optimizmo, todėl dažnai įkvepi aplinkinius. Vis dėlto, ilgalaikis planavimas ir rutininės užduotys tau gali atrodyti per daug monotoniškos, todėl kartais tau gali kilti sunkumų laikytis nuoseklumo."
+    ]
+}

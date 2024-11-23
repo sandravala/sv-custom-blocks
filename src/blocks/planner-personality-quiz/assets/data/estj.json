@@ -1,0 +1,69 @@
+{
+    "name": "Liūtas",
+    "oneLiner": "Toks žmogus, kuris net savaitgalį suplanuos minučių tikslumu ir dar bandys sudrausminti tuos, kurie mėgins plaukti pasroviui.",
+    "strength": [
+        "Gebėjimas tvarkingai planuoti – sugebi sudaryti detalius planus ir grafikus, taip užtikrinant, kad visi darbai būtų atlikti laiku.",
+        "Efektyvus delegavimas – žinai, kam paskirti tam tikras užduotis, kad maksimaliai išnaudotum kiekvieno komandos nario stipriąsias savybes.",
+        "Patikimumas – jeigu pažadi, tai visi gali būti 100% tikri, kad atliksi tai, kas sutarta. Tavo projektai visada vyksta pagal planą ir visos užduotys yra užbaigiamos."
+    ],
+    "weakness": [
+        "Nelankstumas – kartais gali būti sunku prisitaikyti prie netikėtų pokyčių ar naujų metodų. Gali būti sunku perlipti įpročius ar nusistovėjusias rutinas – net ir tada, kai jos tau nepadeda.",
+        "Polinkis kontroliuoti – kartais gali būti sunku paleisti kontrolę. Todėl, nors ir gebant efektyviai deleguoti, kitiems patikėtų užduočių rezultatas gali nuvilti (mikrovadyba dar niekam nepadėjo užduotį atlikti geriau).",
+        "Pernelyg didelis dėmesys efektyvumui – gali skambėti keistai, bet ne visada svarbiausia – efektyvumas. Kartais svarbu suteikti erdvės kūrybiškumui ir paieškoti inovacijų, kurios ilguoju laikotarpiu padės pasiekti aukštesnį produktyvumo lygį. Kai pernelyg siekiama efektyvumo dabar, galimybė užsitikrinti produktyvumo augimą gali būti ir pražiūrėta."
+    ],
+    "focus": [
+        "Ugdyk lankstumą, kad pokyčiai nesugriautų tavo planų ir gebėjimo veikti efektyviai.",
+        "Pratinkis paleisti kontrolę – pasitikėk savo komandos (ar tų, kuriems deleguoji \/ perduodi užduotis) gebėjimais.",
+        "Skirk laiko generuoti kūrybiškas idėjas užduočių atlikimui ir rezultatų siekimui – tai gali padėti pastebėti naujas galimybes."
+    ],
+    "avoid": [
+        "Stenkis neįstrigti per daug griežtose taisyklėse – taip užgniauši savo (ir kitų) kūrybiškumą.",
+        "Pernelyg didelės kontrolės, nes ji gali sumažinti komandos ar tų, kuriems perduodi užduotis, motyvaciją.",
+        "Pernelyg didelio susitelkimo tik į žinomus efektyvumo metodus. Gali būti, kad žinai ir moki ne viską."
+    ],
+    "help": [
+        "Aiškūs tikslai, struktūruota aplinka ir gerai apibrėžtos procedūros – tai tavo kelias į sėkmę.",
+        "Planavimo įrankiai ir užduočių stebėjimas, kurie padeda sekti progresą ir laikytis terminų.",
+        "Lyderystės galimybės, kuriose gali priimti sprendimus ir vadovauti kitiems."
+    ],
+    "disturb": [
+        "Neaiškumas, chaotiška aplinka ir struktūros trūkumas gali sukelti stresą.",
+        "Situacijos, kuriose reikia greitos reakcijos be aiškaus plano, gali išmušti iš pusiausvyros.",
+        "Aplinka, kurioje nepaisoma taisyklių, gali tave erzinti ir demotyvuoti."
+    ],
+    "challenge": [
+        "Kontrolės perteklius – noras (su)valdyti viską gali sumažinti bendrą komandos efektyvumą – tuomet teks užduotis atlikti pačiai:iam.",
+        "Sunkumai prisitaikant prie pokyčių – netikėti pasikeitimai gali kelti stresą, ypač kai tai sutrikdo tavo planus.",
+        "Pasipriešinimas neįprastiems metodams – pasikliauji tradiciniais, tau jau žinomais ir pažįstamais veiklos būdais ir metodais, o tai gali riboti inovacijas (ir galimybę veikti produktyviau)."
+    ],
+    "excercise": {
+        "Delegavimo eksperimentas": [
+            "Pasirink užduotį, kurią paprastai atliktum pati:s, ir deleguok ją kitam žmogui (komandos nariui, paslaugų teikėjui \/ specialistui ar šeimos nariui \/ draugui). Net jei dirbi viena:s ir neturi galimybės deleguoti darbines užduotis, gali delegavimo eksperimentą atlikti su buities darbais ir šeimos nariais. Deleguojant pateik esmines gaires (reikalingas darbui atlikti), o po to atsitrauk – leisk žmogui, kuriam delegavai užduotį, ją atlikti savo nuožiūra. Suplanuok vieną susitikimą užduoties pabaigoje, kad kartu peržvelgtumėte rezultatus. Svarbu: labai aiškiai apsibrėžti ir iškomunikuoti siekiamą rezultatą ir svarbius aspektus, tačiau nesikišti į procesą siekiant to rezultato (net jei jis vyksta ir ne taip, kaip tu įsivaizduoji).",
+            "Tikslas: mokytis paleisti kontrolę ir pasitikėti kitais, leidžiant jiems parodyti savo gebėjimus.",
+            "Kodėl tai veikia: tai padeda palaipsniui sumažinti polinkį į mikrovadybą ir stiprina gebėjimą dirbti komandoje, t.y. dalintis užduotimis (o ne vien tik tobulai viską atlikti pačiai:iam)."
+        ],
+        "Gali būti ir kitaip": [
+            "Pasirink vieną iš savo reguliariai atliekamų užduočių. Skirk 30 minučių ir įvardink bent tris alternatyvius metodus \/ būdus tą pačią užduotį atlikti per tiek pat laiko arba greičiau. Gali būti, kad kai kurie būdai bus netradiciniai ar tau neįprasti (vadinasi, nekeliantys pasitikėjimo), bet išsirink vieną ir pabandyk jį taikyti bent vieną savaitę. Jei nesugalvoji trijų galimų alternatyvų, tai pasiklausk kolegų, draugų, šeimos narių.",
+            "Tikslas: ugdyti lankstumą ir mokytis atvirumo naujiems metodams ir galimybėms, net jei jie atrodo neįprasti.",
+            "Kodėl tai veikia: tai skatina tave išbandyti naujus metodus, kurie gali būti efektyvesni ar kūrybiškesni, ir padeda didinti lankstumą. Papildoma nauda – pamačius ir praktiškai patyrus, kad yra daugybė skirtingų būdų pasiekti tam pačiam rezultatui, mažės noras kištis ir kontroliuoti tuos, kurie imasi deleguotų užduočių."
+        ],
+        "Imunitetas pasikeitimams": [
+            "Pagalvok apie realų iššūkį, kuris gali sutrikdyti tavo planus (pvz., komandos narys staiga suserga arba klientas sumažina biudžetą, o gal sugenda automobilis). Sudaryk atsarginį planą, kuris apimtų tris aiškius žingsnius, ką darytum konkretaus pasikeitimo atveju.",
+            "Tikslas: pasiruošti galimiems trikdžiams, kad netikėtumai nesugriautų tavo plano ir motyvacijos.",
+            "Kodėl tai veikia: galimų trikdžių apgalvojimas leidžia pasirengti netikėtumams ir suteikia daugiau pasitikėjimo valdant nenumatytas situacijas. Be to, suteikia galimybę geriau planuoti ir lanksčiau vertinti įvairius iššūkius."
+        ]
+    },
+    "advice": [
+        "Kiekvieną savaitę susiplanuok laiko „idėjų sesijoms“. Tai leis ne tik susikoncentruoti į strateginius sprendimus, bet ir apgalvoti alternatyvius būdus.",
+        "Stenkis bent kartą per mėnesį deleguoti užduotį, kurios įprastai niekam nepatikėtum – tai ne tik sumažins tavo darbo krūvį, bet ir leis ugdytis darbo komandoje įgūdžius.",
+        "Krizės atveju – visada turėk paruoštą „planą B“ (t.y. planuojant nepraleisk rizikų valdymo dalies). Tai padės lengviau reaguoti į įvairius netikėtumus ir greičiau prisitaikyti."
+    ],
+    "description": [
+        "Tu esi tikras produktyvumo pamatas – žmogus, kuriam tvarka ir planavimas yra natūralios savybės. Tavo organizuotumas ir patikimumas užtikrina, kad tikslai bus pasiekti laikantis aukščiausio kokybės standarto. Klesti ten, kur gali pritaikyti savo stiprius organizacinius įgūdžius ir praktišką mąstymą, siekiant apčiuopiamų rezultatų. Tavo gebėjimas planuoti, struktūruoti ir deleguoti užduotis leidžia užtikrintai judėti į priekį ir sukurti aiškią kryptį tiek sau, tiek kitiems.",
+        "Tačiau, siekiant dar aukštesnio produktyvumo, verta pagalvoti, kaip į savo sistemą įsileisti šiek tiek lankstumo ir kūrybiškumo. Būti atvirai:am naujoms idėjoms ir netradiciniams veikimo būdams nereiškia atsisakyti savo vertybių – tai reiškia jas sustiprinti ir dar labiau praturtinti. Kartais per didelis noras kontroliuoti gali tapti iššūkiu, kai aplinkybės keičiasi, o planai turi būti peržiūrėti.",
+        "Mano patarimas: išlaikyk savo natūralų efektyvumą, bet leisk sau retkarčiais eksperimentuoti ir atvirai priimti pokyčius. Integruodama:as lankstumą ir kūrybiškumą į savo struktūruotą požiūrį, sugebėsi ne tik efektyviai įgyvendinti savo tikslus, bet ir lengviau prisitaikyti prie netikėtų situacijų. Toks balansas padės tau dar labiau sužibėti ir išlikti nenugalima:u bet kokioje aplinkoje."
+    ],
+    "shortDescription": [
+        "Tu esi žmogus, kuriam tvarka ir planavimas – neatsiejama kasdienybės dalis. Tau labiausiai patinka, kai viskas vyksta pagal aiškų planą. Detalūs grafikai, užduočių paskirstymas, atsakomybių aiškumas – tai tavo stiprioji pusė. Ir nors sugebi puikiai organizuot ir planuot įvairius reikalus, kartais gali kilti iššūkių, kai gyvenimas pamėtėja pokyčių ar reikia pasitikėti kitais (be nuolatinės priežiūros)."
+    ]
+}

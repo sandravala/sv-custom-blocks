@@ -1,0 +1,69 @@
+{
+    "name": "Vėžlys",
+    "oneLiner": "Žmogus, kuris niekada nepraleidžia svarbių detalių, nepamiršta niekieno gimtadienio ir visada turi ekstra pleistrų.",
+    "strength": [
+        "Kruopštumas ir patikimumas – atkreipi dėmesį į svarbias smulkmenas, kurias kiti galbūt praleistų. Taip užtikrini, kad užduotys būtų atliktos kokybiškai ir laiku.",
+        "Palaikanti prigimtis – mėgsti padėti kitiems ir kurti harmoniją, gali netgi peržengti savo galimybių ribas, kad padėtum kolegoms ar artimiesiems.",
+        "Nuoseklumas – tau patinka rutina ir struktūra, kurios padeda užtikrinti stabilius rezultatus tavo darbe."
+    ],
+    "weakness": [
+        "Pokyčių baimė – tau gali būti sunku prisitaikyti prie netikėtų pokyčių, kas sukelia stresą ir sumažina efektyvumą.",
+        "Per didelis atsakomybės prisiėmimas – dažnai per daug rūpiniesi kitų gerove, prisiimi svetimas atsakomybes, todėl nuolat balansuoji ant išsekimo ribos.",
+        "Sunku nustatyti ribas – kartais tau sudėtinga pasakyti „ne“, o tai gali lemti, kad spėji padėti visiems, tačiau nepakanka laiko savoms reikmėms ar saviems tikslams."
+    ],
+    "focus": [
+        "Nustatyk asmenines ribas ir praktikuok „ne“ sakymą, kad neperkrautum savęs atsakomybėmis.",
+        "Susikurk rutiną, kuri leis skirti laiko sau ir poilsiui, kad išvengtum perdegimo.",
+        "Praktikuok smulkių pokyčių įvedimą į savo kasdienybę, kad galėtum geriau prisitaikyti prie netikėtumų."
+    ],
+    "avoid": [
+        "Venk prisiimti per daug atsakomybių, kad neapsikrautum užduotimis kitų naudai, bet savo produktyvumo ir gerovės sąskaita.",
+        "Stebėk, kad nepaskęstum rutinoje, kas gali trukdyti tavo lankstumui ir produktyvumui.",
+        "Nepakišk po kilimu neišspręstų konfliktų, nes jie ilgainiui gali sutrikdyti harmoniją, kurios sieki."
+    ],
+    "help": [
+        "Struktūruota aplinka, kurioje yra aiškiai apibrėžti vaidmenys ir lūkesčiai, leidžiantys efektyviai planuoti ir įgyvendinti užduotis.",
+        "Palaikanti bendruomenė, kuri vertina ir pripažįsta tavo indėlį.",
+        "Įrankiai, skirti užduočių ir tvarkaraščių valdymui, tokie kaip planuokliai ar skaitmeniniai kalendoriai, kurie padeda sekti įsipareigojimus."
+    ],
+    "disturb": [
+        "Chaotiška aplinka, stabilumo trūkumas ir konfliktai, kurie sukelia stresą ir diskomfortą.",
+        "Greiti pokyčiai be užtektinai laiko prie jų priprasti ar aiškių nurodymų.",
+        "Aplinka, kurioje nevertinamas tavo darbas ir įnašas."
+    ],
+    "challenge": [
+        "Pokyčiai – kaip prisitaikyti prie netikėtų pokyčių, kad kontrolės nepaimtų stresas.",
+        "Įsipareigojimų kiekis – kaip prisiimti tiek atsakomybių, kiek jų realiai gali pavežti neperdegant.",
+        "Ribų brėžimas – kaip išmokti mandagiai, bet tvirtai sakyti „ne“ viskam, kas viršija krūvį ar atitraukia nuo asmeninių tikslų."
+    ],
+    "excercise": {
+        "Ką nors kito": [
+            "Pasirink vieną mažą pokytį, kurį gali įvesti į savo kasdienę rutiną (pvz., išbandyti naują darbo įrankį, metodiką, pakeisti darbo aplinką arba šiek tiek pakoreguoti savo darbotvarkę). Taikyk šį pokytį savaitę ir stebėk, kaip tai veikia tavo produktyvumą ir nuotaiką. Savaitės pabaigoje įvertink savo patirtį. Svarbu: pasirink tokį pokytį, kuris būtų išties naudingas ir produktyvus tau, o ne tokį, kurį darytum vien dėl to, kad įrodytum, kad gali.",
+            "Tikslas: lavinti gebėjimą prisitaikyti prie pokyčių, palaipsniui juos įtraukiant į savo rutiną.",
+            "Kodėl tai veikia: ši užduotis padeda tau priimti mažesnius pokyčius, kai jie vyksta kontroliuojamai ir po truputį, todėl mažėja stresas susidūrus ir su didesniais pokyčiais."
+        ],
+        "Tam davė, tam davė, o tam - neliko": [
+            "Kartą per savaitę peržiūrėk savo esamus įsipareigojimus ir užduotis. Išsirink vieną užduotį, kurią prisiėmei, kad padėtum kitam, bet kuri neprisideda prie tavo tikslų. Pagalvok, kaip galėtum jos atsisakyti (jei įmanoma – dabar, arba ką sakytum ateityje tam pačiam žmogui ar tokiam prašymui). Sudėliok visas turimas užduotis į prioritetų eilę (skiriant balus pagal atitiktį tavo tikslams, vertybėms, norams, pagal poveikį ar rezultatą ir malonumą tas užduotis atliekant). Pirmiau dirbk su aukščiausiai prioritetų sąraše esančiomis užduotimis.",
+            "Tikslas: lavinti gebėjimą nustatyti ribas ir pirmenybę teikti savo asmeniniams tikslams, kad išvengtum perdegimo.",
+            "Kodėl tai veikia: ši užduotis padeda praktikuoti asertyvumą, tam tikrą struktūrą priimant sprendimus, kada pasakyti „ne“ ir įtvirtinti nuostatą, kad tavo poreikiai gali būti svarbesni už kitų prašymus."
+        ],
+        "Ačiū SAU": [
+            "Kiekvienos dienos pabaigoje skirk 10 minučių refleksijai. Užrašyk tris dalykus, kuriuos pasiekei (įvykdei), du dalykus, už kuriuos esi dėkingas, ir vieną dalyką, kurį padarysi rytoj, kad palaikytum savo tikslus ar gerovę.",
+            "Tikslas: ugdyti savivoką ir stiprinti pusiausvyrą tarp pagalbos kitiems ir rūpinimosi savimi.",
+            "Kodėl tai veikia: ši užduotis padeda išlaikyti ryšį su savo tikslais ir gerove, skatindama sveiką balansą tarp pagalbos kitiems ir asmeninio produktyvumo."
+        ]
+    },
+    "advice": [
+        "Savaitės pradžioje suplanuok savo laiką taip, kad visada turėtum bent valandą SAU. Tą valandą gali užpildyti bet kas, kas leidžia tau pailsėti ir atgauti jėgas.",
+        "Praktikuok sakyti „ne“ smulkioms užduotims, kurios trukdo siekti asmeninių tikslų – taip galėsi geriau valdyti savo laiką ir išvengti išsekimo.",
+        "Kas mėnesį išbandyk vieną naują veiklą arba įrankį – tai padės lavinti gebėjimą prisitaikyti prie pokyčių."
+    ],
+    "description": [
+        "Tu esi tikras komandos stuburas – žmogus, kuriuo visi gali pasikliauti, ypač kai reikia, kad darbai būtų atlikti tiksliai ir laiku. Tavo kruopštumas ir atsakomybės jausmas yra nepakeičiami – esi ta:as, kuri:is užtikrina, kad niekas neprasprūstų pro akis, ir kad kiekviena smulkmena būtų apgalvota. Tave džiugina rūpinimasis kitais ir pagalba komandai, o tavo atsidavimas ir dėmesys detalėms dažnai tampa sėkmės garantu net ir sudėtingiausiuose projektuose.",
+        "Vis dėlto, tavo siekis, kad viskas vyktų tobulai pagal planą, gali kartais tapti iššūkiu, ypač kai situacija pasikeičia ir reikia greitai prisitaikyti. Atmink, kad net ir geriausi planai kartais susiduria su netikėtais pokyčiais – tai neišvengiama. Vietoj to, kad leistum panikai perimti kontrolę, mokykis priimti pokyčius kaip naują galimybę, o ne kaip trukdį. Ir svarbiausia, nebijok prašyti pagalbos, kai to reikia – net stipriausi komandos nariai kartais turi remtis kitų palaikymu.",
+        "Mano patarimas: išlaikyk savo metodišką ir atsakingą požiūrį, bet leisk sau būti lankstesne:iu. Priimk, kad ne visada viskas klostysis pagal planą, ir vertink tai kaip progą augti. Derindama:as savo kruopštumą su gebėjimu prisitaikyti prie pokyčių, sukursi aplinką, kurioje ne tik pati:s klestėsi, bet ir padėsi dirbantiems kartu judėti į priekį su užtikrintu pagrindu ir pasitikėjimu."
+    ],
+    "shortDescription": [
+        "Tu esi ta:s, kuri:s nuolat pasirūpina, kad viskas vyktų sklandžiai ir laiku. Mėgsti stabilumą ir padedi kitiems pasiekti jų tikslus. Tavo stiprybės – kruopštumas ir patikimumas, kurie leidžia nuosekliai siekti rezultatų. Tačiau kartais gali kilti sunkumų, kai reikia prisitaikyti prie pokyčių arba kai prisiimi per daug atsakomybių, rūpindamasis kitų gerove labiau nei savo."
+    ]
+}

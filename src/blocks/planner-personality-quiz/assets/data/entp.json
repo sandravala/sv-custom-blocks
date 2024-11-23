@@ -1,0 +1,69 @@
+{
+    "name": "Varnas",
+    "oneLiner": "Idėjų fontanas, kuriam vienos idėjos niekada negana – visada reikia bent penkių!",
+    "strength": [
+        "Inovatyvus mąstymas – tu nuolat ieškai kūrybiškų sprendimų, dažnai siūlai naujas, netradicines idėjas.",
+        "Lankstumas – greitai prisitaikai prie naujų situacijų ir lengvai keiti kryptį, kai atsiranda naujų galimybių.",
+        "Entuziazmas mokytis – pasižymi smalsumu ir trokšti nuolat mokytis, semtis naujų žinių ir patirčių."
+    ],
+    "weakness": [
+        "Nuoseklumo trūkumas – nors pradedi naujus projektus su entuziazmu, gali prarasti susidomėjimą dar prieš juos užbaigiant.",
+        "Sunku susitelkti į rutiną – mėgsti įvairovę ir naujoves, todėl nuobodžios ar pasikartojančios užduotys tau gali tapti iššūkiu.",
+        "Per didelis įsipareigojimų kiekis – dažnai imiesi per daug projektų vienu metu, todėl gali išbarstyti save ir realiai įgyvendinti mažumą jų."
+    ],
+    "focus": [
+        "Skaidyk projektus ir grandiozines idėjas į mažus veiksmus, kad išlaikytum pagreitį ir neprarastum susidomėjimo.",
+        "Sukurk sistemą idėjų ir projektų prioritetizavimui, kad galėtum susitelkti į tuos, kurie turi didžiausią poveikį.",
+        "Nustatyk sau aiškius terminus (ir juos viešai deklaruok), kad padėtum sau užbaigti tai, ką pradėjai. Net ir tada, kai motyvacija nuslops."
+    ],
+    "avoid": [
+        "Venk per greitai pereiti prie naujų idėjų, nebaigus pradėtų projektų.",
+        "Atsargiai vertink savo galimybes (geriausia – su tam tikru „rezervu“), kad neprisiimtum per daug įsipareigojimų vienu metu, nes tai gali nuvesti į perdegimą.",
+        "Nepamiršk skirti dėmesio ne tokioms didingoms kasdienėms užduotims, kurios vis dėl to būtinos tavo idėjų įgyvendinimui."
+    ],
+    "help": [
+        "Lanksti aplinka, leidžianti kurti ir eksperimentuoti be griežtų ribų.",
+        "Įrankiai, skirti idėjų fiksavimui ir organizavimui, pvz., skaitmeniniai užrašai ar minčių žemėlapiai.",
+        "Galimybės bendradarbiauti ir diskutuoti su kitais, kad galėtum tobulinti savo idėjas."
+    ],
+    "disturb": [
+        "Pernelyg griežta rutina ir pasikartojančios užduotys, kurios riboja kūrybinę laisvę.",
+        "Projektai, reikalaujantys didelio dėmesio detalėms ar ilgalaikio įsipareigojimo be įvairovės.",
+        "Užduotys be intelektualinio stimulo, kuriose lengva greitai prarasti susidomėjimą."
+    ],
+    "challenge": [
+        "Užbaigti tai, ką pradėjai – entuziazmas dėl naujų idėjų dažnai priblėsta nespėjus jų pilnai įgyvendinti.",
+        "Svarbių detalių pražiūrėjimas – dėmesys didelėms idėjoms gali lemti, kad pamiršti esmines detales, kurios reikalingos projektui įgyvendinti ar užbaigti.",
+        "Sunku nustatyti prioritetus – nuolatinis domėjimasis keliais dalykais vienu metu gali pastūmėti į per daug projektų vienu metu ir išsiblaškymą, persidirbimą, perdegimą."
+    ],
+    "excercise": {
+        "Nuo idėjos prie veiksmo": [
+            "Pasidaryk lentelę su trimis stulpeliais: Idėja, Sekantis veiksmas, Terminas. Kiekvienai naujai idėjai užrašyk vieną konkretų veiksmą, kurį gali atlikti per 48 valandas, ir nustatyk terminą, iki kada to veiksmo imsies. Kai tik veiksmas atliktas – užrašyk sekantį veiksmą tai pačiai idėjai. Kasdien stebėk pažangą. Svarbu: lentelėje negali „kabėti“ neatlikti veiksmai, pavėluoti veiksmai, perkeliami veiksmai ar idėjos be jokių veiksmų. Jeigu tokių tavo lentelėje randasi, vadinasi, tai idėjai dar neatėjo laikas. Kada nors galbūt jis ateis, bet dabar – tegu neužima vietos!",
+            "Tikslas: paversti idėjas į konkrečius veiksmus ir užtikrinti, kad jas įgyvendinsi.",
+            "Kodėl tai veikia: ši užduotis padeda nukreipti tavo kūrybinę energiją į praktinius žingsnius, ugdo įprotį užbaigti pradėtus darbus ir skatina pagalvoti, prieš visa galva pasineriant į naują idėją."
+        ],
+        "Rutinos sprintas": [
+            "Pasirink vieną tavo įgyvendinamą projektą ar procesą ir nustatyk laikmatį 30 minučių. Per šį laiką susitelk tik į kokią nors techninę, rutininę ar šiaip ne itin įdomią užduotį. Jokių išorinių trikdžių, pašalinių darbų ir pan. Pasistenk kuo daugiau atlikti per šį laiką. Svarbu: tokius sprintus nusimatyk reguliariai savo darbotvarkėje. Trukmę gali ir didinti, kai pajausi, kad tos 30 minučių nebuvo tokios jau kankinančiai nemalonios.",
+            "Tikslas: pastiprinti „atsparumą“ neįdomioms, bet būtinoms užduotims ir užtikrinti, kad tavo idėjos būtų tinkamai įgyvendintos.",
+            "Kodėl tai veikia: ši užduotis paskatina skirti neskausmingą laiko kiekį nelaukiant, kol užeis įkvėpimas daryti kažką, ką tau reikia padaryti. Net jei ir nelabai įdomu."
+        ],
+        "Prioritetų iššūkis:": [
+            "Sudaryk visų dabartinių projektų ir idėjų sąrašą. Skirk jiems balus pagal poveikį (pelningumą, atitiktį tavo tikslams, norams ar vertybėms ir pan,), įgyvendinamumą ir asmeninį susidomėjimą. Sudėk atskirų kriterijų balus ir matysi, kurie projektai ar idėjos tau yra svarbiausi. Pasirink tris aukščiausio prioriteto projektus ar idėjas, kuriems sutelksi dėmesį artimiausias dvi savaites, o likusius atidėk.",
+            "Tikslas: neištaškyti dėmesio ir išvengti per daug įsipareigojimų, vienu metu susitelkiant į svarbiausius projektus.",
+            "Kodėl tai veikia: ši užduotis padeda objektyviai apsispręsti, kur skirti savo laiką ir energiją, užkertant kelią blaškymuisi dėl mažiau svarbių idėjų. Juk visiems aišku, kad tau jų netrūksta!"
+        ]
+    },
+    "advice": [
+        "Skirk laiko idėjų „inkubavimui“: kai tik atsiranda nauja idėja, užrašyk ją ir duok sau laiko ją pergalvoti prieš imantis veiksmų. Tai padės nenerti stačia galva į kiekvieną naują idėją, kai dar nebaigei įgyvendinti ankstesnių.",
+        "Ieškok partnerių ar komandų, kurios padės tau įgyvendinti praktines detales. Taip išvengsi nuobodulio ir užtikrinsi, kad tavo idėjos bus įgyvendintos iki galo.",
+        "Kiekvieną dieną skirk bent 30 minučių rutininėms užduotims – tai padės išlaikyti tvarką ir neprarasti ryšio su praktiniu projekto įgyvendinimu."
+    ],
+    "description": [
+        "Tu esi tikra idėjų kibirkštis – žmogus, kuris uždega kūrybingumą ir inovacijas visur, kur tik pasirodo. Tavo mintys – tai nesibaigianti galimybių ir naujų idėjų žaidimų aikštelė. Tave traukia dinamiška aplinka, kurioje gali laisvai mąstyti, eksperimentuoti ir tyrinėti naujus kelius. Esi ta:as, kuri:is geba pažadinti kūrybiškumą tiek savyje, tiek aplinkiniuose, ir tavo energija įkvepia visus siekti daugiau.",
+        "Vis dėlto, svarbu prisiminti, kad tikroji magija vyksta tada, kai ne tik gimsta idėjos, bet ir jos paverčiamos realybe. Tavo kūrybinis polėkis kartais gali nukreipti į per daug pradėtų, bet nebaigtų projektų, todėl truputis disciplinos gali būti tavo slaptasis ginklas. Net nedidelis planavimas ir struktūros įvedimas gali padėti užbaigti tai, ką pradėjai, ir paversti tavo vizijas į apčiuopiamus rezultatus.",
+        "Mano patarimas: išlaikyk savo neišsenkantį kūrybiškumą, bet leisk sau įsivesti ir šiek tiek tvarkos. Bendradarbiavimas su kitais padės subalansuoti tavo laisvą, žaismingą mąstymą su reikalinga struktūra. Kai sujungsi savo kūrybinę energiją su disciplina, tapsi nenugalima:u – tavo idėjos ne tik uždegs aplinkinius, bet ir taps realiais pokyčiais, kuriančiais tikrą poveikį pasauliui."
+    ],
+    "shortDescription": [
+        "Esi tas žmogus, kuris tiesiog verda nuo idėjų, nuolat ieškantis naujų galimybių ir sprendimų. Tau patinka iššūkiai ir kūrybiškumas, mėgsti laisvę eksperimentuoti ir veikti be griežtų ribų. Tačiau su visais šiais talentais ateina ir iššūkių – kartais prarandi susidomėjimą dar nepradėjus projektui artėti prie pabaigos, o rutininės užduotys gali pasirodyti pernelyg nuobodžios. Vis dėlto, su tinkama strategija gali ne tik sukurti įspūdingas naujas idėjas, bet ir paversti jas realybe."
+    ]
+}

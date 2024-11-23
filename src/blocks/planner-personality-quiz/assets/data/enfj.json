@@ -1,0 +1,69 @@
+{
+    "name": "Žirgas",
+    "oneLiner": "Tikras šoumenas, kuris visus įkvepia šypsotis ir kurti pasaulį, kuriame gera gyventi. Žmogus, kuriam norisi papasakoti visas gyvenimo paslaptis – nes jis visada išklausys ir supras.",
+    "strength": [
+        "Įkvepianti lyderystė – natūraliai motyvuoji ir įkvepi kitus, sukuri palaikančią ir įtraukiančią atmosferą.",
+        "Stiprus vertybinis pagrindas – tikslus planuoji atsižvelgiant į vertybes ir žmones. Taip užtikrini, kad kiekvienas jaustųsi įtrauktas ir matytų savo indėlį į bendrus tikslus.",
+        "Organizaciniai įgūdžiai – puikiai koordinuoji pastangas, valdai projektus ir užtikrini, kad planai būtų įgyvendinti veiksmingai."
+    ],
+    "weakness": [
+        "Per didelis įsipareigojimas kitų poreikiams – dažnai prisiimi per daug atsakomybės už kitų sėkmę, kas gali lemti perdegimą.",
+        "Sunku nustatyti ribas – tau sunku pasakyti „ne“, todėl dažnai pirmenybę teiki kitų poreikiams, o savo asmeninius tikslus ir gerovę pamiršti.",
+        "Savęs ignoravimas – dažnai ignoruoji asmeninius poreikius, kai sieki padėti kitiems, o tai gali lemti nuovargį ir sumažėjusį produktyvumą."
+    ],
+    "focus": [
+        "Nustatyk aiškias asmenines ribas, kad galėtum išlaikyti balansą tarp pagalbos kitiems ir asmeninės gerovės.",
+        "Skirk laiko pasirūpinti savimi ir asmeninei refleksijai, kad galėtum palaikyti tolygų energijos lygį, reikalingą asmeniniams tikslams.",
+        "Deleguok atsakomybę kitiems, kad neapsikrautum per daug ir suteiktum kitiems galimybę augti."
+    ],
+    "avoid": [
+        "Venk per daug įsipareigoti padedant kitiems, nes tai gali lemti perdegimą ir savo poreikių ignoravimą.",
+        "Stebėk save atidžiai, kad neprisiimtum per daug atsakomybės už kitų rezultatus, nes tai gali sukelti nusivylimą ir stresą.",
+        "Nepersistenk imantis per daug užduočių – tai gali pakenkti tiek tavo efektyvumui, tiek asmeninei gerovei."
+    ],
+    "help": [
+        "Palaikanti ir bendradarbiaujanti aplinka, kurioje visi siekia bendrų tikslų.",
+        "Galimybės lyderiauti ir mentorystė, kurie dera su tavo vertybėmis ir noru palaikyti kitus.",
+        "Įrankiai, padedantys organizuoti ir sekti įsipareigojimus, kad galėtum valdyti savo darbo krūvį efektyviai."
+    ],
+    "disturb": [
+        "Dezorganizuota aplinka, neaiškūs vaidmenys ir nesuderinamumas su asmeninėmis vertybėmis.",
+        "Situacijos, kuriose reikia atsiriboti arba mažai bendrauti su kitais, nes tai tau gali atrodyti nepakankamai prasminga.",
+        "Aplinka, kurioje trūksta bendradarbiavimo ar galimybių užmegzti asmeninį ryšį."
+    ],
+    "challenge": [
+        "Įsipareigojimas kitų tikslams ir poreikiams – kaip neperdegti, kai padedi kitiems.",
+        "Ribos – kaip išmokti ar išdrįsti atsisakyti, kad neimtum daugiau nei gali pakelti, ignoruojant asmeninius tikslus.",
+        "Laikas sau – kaip dėl didelio dėmesio kitiems nepraleisti būtinybės pasirūpinti savimi, kad išvengtum nuovargio ir sumažėjusio produktyvumo."
+    ],
+    "excercise": {
+        "Asmeninių ribų pratimas": [
+            "Kartą per savaitę arba dvi identifikuok vieną sritį, kurioje prisiėmei per daug atsakomybės už kitus (pvz., papildomas darbas, emocinė parama). Nustatyk aiškias ribas, deleguok užduotis arba apribok laiką, kurį tam skiri. Naudok papildomą laiką asmeninei veiklai, kuri leidžia tau pailsėti ir atgauti jėgas – fizines ir emocines (pvz., hobiai, poilsis).",
+            "Tikslas: praktikuoti ribų nustatymą, kad apsaugotum savo laiką ir energiją.",
+            "Kodėl tai veikia: šis pratimas padeda ugdyti įprotį prioritetizuoti savo poreikius, sumažinant perdegimo riziką ir padedant palaikyti tvarų pagalbos kitiems lygį."
+        ],
+        "Įsipareigok sau": [
+            "Kiekvieną dieną skirk 15-30 minučių veiklai, kuri leidžia tau jaustis geriau (pvz., sportas, skaitymas, meditacija) ir laikykis šio įsipareigojimo kad ir kas nutiktų. Kas savaitę reflektuok, kaip ši praktika veikia tavo energijos lygį ir nuotaiką.",
+            "Tikslas: įtraukti pasirūpinimą savimi į kasdienę rutiną, kad išlaikytum energiją ir atsparumą.",
+            "Kodėl tai veikia: šis pratimas padeda užtikrinti, kad tavo asmeninė gerovė yra prioritetas, padedantis palaikyti gebėjimą rūpintis kitais neišeikvojant savo išteklių."
+        ],
+        "Deleguok ir įgalink": [
+            "Identifikuok vieną atsakomybę, kurią paprastai prisiimi pati:s. Pasirink žmogų iš komandos (arba šeimos, jei neturi komandos), kuriam galėtum deleguoti šią užduotį, suteikiant konkrečius nurodymus - instrukcijas ir pagalbą, kai jos prašoma. Susitark dėl progreso aptarimo reguliarumo, bet leisk tam žmogui autonomiškai atlikti deleguotą užduotį.",
+            "Tikslas: sumažinti asmeninį darbo krūvį ir suteikti kitiems galimybę augti dalijantis atsakomybėmis.",
+            "Kodėl tai veikia: šis pratimas padeda atsisakyti poreikio kontroliuoti kiekvieną aspektą, ugdydamas pasitikėjimą kitais ir užkirsdamas kelią perdegimui, taip pat suteikdamas kitiems galimybę tobulėti ir prisiimti atsakomybę."
+        ]
+    },
+    "advice": [
+        "Praktikuok ribų brėžimą – tai padės apsisaugoti nuo perdegimo ir išlaikyti sveiką balansą tarp pagalbos kitiems ir savo gerovės.",
+        "Kasdien pasirūpink savimi – tai padės išlaikyti energiją ir atsparumą ilguoju laikotarpiu.",
+        "Pasitikėk esančiais šalia – delegavimas ne tik sumažina tavo darbo krūvį, bet ir leidžia kitiems tobulėti bei augti."
+    ],
+    "description": [
+        "Tu esi įkvepianti:s lyderė:is, kuri:s visada mato potencialą žmonėse ir geba jį atskleisti, parodydamas kelią į šviesesnę ateitį. Tavo charizma ir nuoširdi empatija leidžia lengvai užmegzti gilų ryšį su aplinkiniais. Tave iš tiesų džiugina galimybė kurti teigiamus pokyčius ir skatinti bendradarbiavimą komandoje – tu klesti aplinkoje, kur visi siekia bendrų tikslų.",
+        "Bet... tavo aistra padėti ir įkvėpti kitus kartais skatina prisiimti daugiau atsakomybės, nei iš tiesų galėtum pakelti. Tu nori būti užnugaris visiems, tačiau tai gali vesti link išsekimo. Nepamiršk: nustatyti ribas ir pasirūpinti savimi nėra egoizmas – tai būtina, jei nori išlaikyti savo įtaką ir efektyvumą. Kai randi laiko sau ir pasidalini atsakomybėmis su kitais, ne tik apsaugoji savo gerovę, bet ir įgalini aplinkinius augti ir mokytis.",
+        "Mano patarimas: priimk savo norą įkvėpti ir motyvuoti kitus, bet neužmiršk klausytis ir savo poreikių bei tikslų. Įsivertink, kiek svarbu yra rasti balansą tarp pagalbos kitiems ir pagalbos sau. Kai sujungsi savo aistrą lyderystei su įsipareigojimu savo asmeninei gerovei, tavo įtaka ne tik sustiprės, bet ir taps išties transformuojanti. Taip tu gebėsi ne tik vesti kitus link bendrų tikslų, bet ir skatinti realius, prasmingus pokyčius, kurie atves į geresnį rytojų."
+    ],
+    "shortDescription": [
+        "Tu esi tas žmogus, kuris natūraliai motyvuoja kitus ir sukuria teigiamą, bendradarbiaujančią aplinką. Tau patinka planuoti orientuojantis į žmones ir jų vertybes, padedant kitiems augti ir pasiekti tikslus. Tačiau kartais tavo noras padėti kitiems gali tapti kliūtimi, nes per daug įsipareigoji ir ignoruoji asmeninius poreikius."
+    ]
+}

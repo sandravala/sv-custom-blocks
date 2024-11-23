@@ -1,0 +1,69 @@
+{
+    "name": "Drugelis",
+    "oneLiner": "Romantiškas svajotojas, kuris gali iš bet ko padaryti meno kūrinį – net iš neplautų indų.",
+    "strength": [
+        "Kūrybiškumas ir vizionieriškumas – kuri unikalius, vertybėmis pagrįstus sprendimus ir idėjas, suteiki gylio ir atrandi inovacijų projektams, su kuriais dirbi.",
+        "Lankstus planavimas – atvirai priimi naujas idėjas ir neapsiriboji įprastais metodais, siekiant tikslų.",
+        "Aistra ir atsidavimas – 100 procentų atsiduodi projektams, kurie atitinka tavo asmenines vertybes, kuriuose matai prasmę ir tikslą."
+    ],
+    "weakness": [
+        "Sunku įgyvendinti praktikoje – tau dažnai būna sudėtinga paversti abstrakčias idėjas į konkrečius veiksmus ir užbaigti pradėtus projektus.",
+        "Rutinos vengimas – nemėgsti pasikartojančių užduočių, o tai gali sukelti atidėliojimą ir dezorganizaciją.",
+        "Per daug dėmesio mąstymui ir idealizavimui – gali būti linkusi:ęs per daug analizuoti ir ieškoti tobulumo, kas atitolina praktinius veiksmus arba trukdo užbaigti projektus, kurie neatitinka tavo idealistinių standartų."
+    ],
+    "focus": [
+        "Suskaidyk dideles, abstrakčias idėjas į mažus, konkrečius veiksmus, kad būtų lengviau judėti pirmyn.",
+        "Susikurk paprastą rutiną, skirtą kasdienėms, bet būtinoms užduotims atlikti, kad išlaikytum organizuotumą.",
+        "Nustatyk realistiškus lūkesčius ir terminus, kad išvengtum perfekcionizmo ir idealizmo sukeliamo streso (arba tiksliau, streso, kuris kyla, kai perfekcionizmas susitinka su realybe)."
+    ],
+    "avoid": [
+        "Venk pernelyg pasinerti į planavimą ir mąstymą – svarbu veikti net ir tada, kai viskas dar nėra tobula.",
+        "Neatidėliok rutininių užduočių, kurios būtinos, kad išlaikytum nuoseklų projekto progresą.",
+        "Neleisk, kad nusivylimas dėl netobulų rezultatų sutrukdytų progresui – sutelk dėmesį į pažangą, o ne į tobulumą."
+    ],
+    "help": [
+        "Laikas refleksijai ir kūrybiniam mąstymui, suteikiantis erdvę idėjoms tyrinėti ir vertybėms sustiprinti.",
+        "Palaikanti ir kūrybingumą skatinanti aplinka, kuri dera su asmeninėmis vertybėmis.",
+        "Įrankiai mintims ir idėjoms organizuoti, tokie kaip užrašinės ar minčių žemėlapiai, padedantys struktūruoti ir fiksuoti idėjas."
+    ],
+    "disturb": [
+        "Griežta darbotarkė, apriboti lūkesčiai ir aplinka, kurioje nėra kūrybinės laisvės arba reikalingas konformizmas.",
+        "Situacijos, kuriose yra didelis spaudimas atitikti išorinius standartus ar terminus, kurie ne visada dera su tavo asmeninėmis vertybėmis.",
+        "Pernelyg stipri kritika ar negatyvumas, kurie gali slopinti kūrybiškumą ir motyvaciją."
+    ],
+    "challenge": [
+        "Praktika – kaip paversti kūrybines idėjas į praktinius veiksmus, kad laiku imtumeis veiksmų ir nepaliktum neužbaigtų projektų.",
+        "Prokrastinacija – kaip nevengti užduočių, kurios neatitinka asmeninių vertybių ar atrodo nuobodžios.",
+        "Idealizmas – kaip nepaskęsti analizėje ar tobulumo paieškose, kad galėtum pradėti ar pabaigti pradėtus darbus."
+    ],
+    "excercise": {
+        "Planas idėjai": [
+            "Pasirink vieną kūrybinę idėją ar projektą, apie kurį galvoji. Suskirstyk ją į penkis konkrečius, mažus veiksmus, kuriuos galėtum įgyvendinti per mažiau nei valandą (t.y. valanda vienam veiksmui). Suplanuok bent po vieną veiksmą per savaitę ir stebėk savo pažangą.",
+            "Tikslas: paversti kūrybines idėjas realybe, skatinant nuoseklų darbą ir progresą.",
+            "Kodėl tai veikia: ši užduotis padeda abstrakčias idėjas paversti konkrečiais veiksmais, todėl lengviau pradėti ir išlaikyti motyvaciją susitelkiant į konkrečius veiksmus, vengiant per didelio spaudimo dėl viso projekto apimties."
+        ],
+        "Kūrybiška rutina": [
+            "Pasirink vieną rutininę užduotį, kurios dažnai vengi (pvz., dokumentų tvarkymas, planavimas). Paversk ją malonesniu užsiėmimu, pridedant kūrybinį elementą. Pvz., jei tvarkai dokumentus, naudok spalvingas etiketes arba naudok estetiškus skaitmeninius šablonus. Dedikuok 15 minučių kasdien šiai užduočiai ir apdovanok save po darbo trumpa kūrybine veikla (pvz., piešimu, rašymu). Svarbu: naudokis jau turimomis arba lengvai pasiekiamomis priemonėmis. Kūrybinio elemento susikūrimas negali tapti dar viena patogia priežastimi atidėlioti nenorimą užduotį.",
+            "Tikslas: paversti rutininę užduotį malonesne ir kūrybiškai patrauklesne, skatinant reguliarų jos atlikimą.",
+            "Kodėl tai veikia: ši užduotis leidžia tau naudoti savo kūrybiškumą, kad įprastas veiklas paverstum estetiškai patraukliomis ir asmeniškai įdomiomis. Taip mažėja monotonija, o tau lengviau išlaikyti nuoseklumą."
+        ],
+        "Progresas prieš tobulumą": [
+            "Pasirink vieną projektą, kurį atidėlioji dėl to, kad dar neišdirbai iki tobulumo. Nustatyk laikmatį 30 minučių ir dirbk prie jo be jokių taisymų ar tobulinimų. Koncentruokis į progresą, o ne į tobulumą. Pasibaigus laikui, peržiūrėk savo darbą ir užrašyk vieną dalyką, kurį pasiekei, nesvarbu, koks mažas jis bebūtų.",
+            "Tikslas: įveikti perfekcionizmą ir ugdyti įprotį dirbti nuosekliai.",
+            "Kodėl tai veikia: ši užduotis padeda tau veikti be spaudimo dėl tobulumo, leisdama progresuoti ir švęsti mažus laimėjimus, kas ugdo pasitikėjimą ir mažina nerimą, kai reikia pradėti bei užbaigti darbus."
+        ]
+    },
+    "advice": [
+        "Praktikuok abstrakčių idėjų skaidymą į mažus veiksmus – tai padės išvengti atidėliojimo ir palengvins idėjų įgyvendinimą.",
+        "Įtrauk kūrybiškumo į savo rutiną – tai padės įveikti nuobodžias užduotis ir išlaikyti susidomėjimą.",
+        "Atmink, kad progresas yra svarbesnis už tobulumą – veik be baimės, net jei viskas dar nėra idealu."
+    ],
+    "description": [
+        "Esi vizionierė:ius, kuri:s kiekvieną naują idėją ir iššūkį priima pilna širdimi, įnešdama:as kūrybiškumo, empatijos ir idealizmo. Tavo gebėjimas žiūrėti nepaisant įprastų rėmų ir įsiklausyti į gilesnes vertybes leidžia matyti tai, ko kiti dažnai nepastebi. Esi žmogus, kuris į bet kokius projektus įneša novatoriškų sprendimų, kurdamas ne tik produktyvius, bet ir prasmingus rezultatus. Tave labiausiai įkvepia darbai, kurie rezonuoja su tavo vidiniais įsitikinimais ir leidžia realizuoti savo kūrybinį potencialą.",
+        "Vis dėlto, būnant vizionieriumi, neretai susiduriama su iššūkiu paversti idėjas realybe. Kelias nuo įkvėpimo iki praktinio įgyvendinimo gali būti ilgas, o pati proceso struktūra kartais atrodo pernelyg suvaržanti tavo laisvą kūrybinę dvasią. Čia ir slypi tavo galimybė augti: susikurk lengvą, tačiau kryptingą planą, kuris leistų ne tik vizualizuoti idėjas, bet ir žengti aiškiais praktiniais žingsniais jų įgyvendinimo link.",
+        "Mano patarimas: priimk savo kūrybiškumą ir gebėjimą svajoti apie didelius dalykus, bet nepamiršk išlaikyti ryšio su realybe. Skirk laiko refleksijai ir susikurk rėmus, kurie padėtų tavo idėjoms įgauti formą be pernelyg griežtos kontrolės. Taip išlaikysi balansą tarp kūrybos laisvės ir efektyvaus veikimo. Kai sujungsi savo vizionierišką polėkį su praktiškais veiksmais, tavo idėjos taps ne tik įkvepiančiomis, bet ir įgyvendinamomis. Ir būtent tuomet pasieksi įspūdingų rezultatų, kurie ne tik atitiks tavo vertybes, bet ir turės realią, ilgalaikę reikšmę pasauliui."
+    ],
+    "shortDescription": [
+        "Tu esi žmogus, kuris mėgsta tyrinėti savo vertybes ir dirbti prie prasmingų projektų. Tavo stiprybės slypi gebėjime generuoti kūrybiškas idėjas ir sprendimus, kurie atitinka tavo idealus. Tau reikalinga lanksti ir vaizduotę išlaisvinanti planavimo sistema, kuri leistų tau įgyvendinti projektus, turinčius prasmingą poveikį. Vis dėlto kartais susiduri su sunkumais praktiniame savo kūrybiškų idėjų įgyvendinime ir rutininių užduočių valdyme, kas gali lemti atidėliojimą ir neužbaigtus darbus."
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "name": "pelėda",
+    "oneLiner": "Šachmatų meistras gyvenime, kuris visada planuoja tris žingsnius į priekį. Net tada, kai eina pasiimti kavos.",
+    "strength": [
+        "Strateginis mąstymas – puikiai planuoji ilgalaikius projektus, nustatai ambicingus siekius ir išsamiai numatai, kaip juos pasiekti.",
+        "Analitinis problemų sprendimas – logika ir analitinis mąstymas yra tavo stiprybės, kurios padeda, kai reikia spręsti sudėtingus klausimus ir rasti efektyviausius sprendimus.",
+        "Savitvarda – gebi dirbti savarankiškai, susitelkti į tikslus ir atkakliai jų siekti."
+    ],
+    "weakness": [
+        "Polinkis į perfekcionizmą – kartais per daug analizuoji ir lauki tobulo sprendimo, dėl ko gali vilkintis įgyvendinimas.",
+        "Trumpalaikių užduočių ignoravimas – gali praleisti pro akis paprastas kasdienes užduotis, jei per daug susitelksi į ilgalaikius tikslus.",
+        "Sunku priimti kitų nuomonę – mėgsti dirbti savarankiškai ir gali vengti bendradarbiavimo, kas truputį susiaurins tavo mąstymą ir matymą."
+    ],
+    "focus": [
+        "Skaidyk ilgalaikius tikslus į mažesnius veiksmus, kad užtikrintum nuoseklią pažangą.",
+        "Susikurk rutiną, padedančią susidoroti su kasdienėmis užduotimis, kad neprarastum balanso tarp ilgalaikių ir trumpalaikių tikslų.",
+        "Praktikuok atvirumą atsiliepimams ir bendradarbiavimui – tai gali praturtinti tavo idėjas ir strategijas."
+    ],
+    "avoid": [
+        "Venk „analizės paralyžiaus“ – nusistatyk laiką, per kurį turi imtis veiksmų, net jei visos sąlygos dar nėra idealios.",
+        "Nepamiršk trumpalaikių užduočių, kurios yra būtinos ilgalaikių tikslų įgyvendinimui.",
+        "Neatmesk kitų nuomonės – skirtingos perspektyvos gali suteikti vertingų įžvalgų. Net jei jos ateis tik po kurio laiko."
+    ],
+    "help": [
+        "Rami aplinka, leidžianti susitelkti į mąstymą ir strateginį planavimą.",
+        "Įrankiai, skirti organizuoti ir stebėti sudėtingus projektus bei ilgalaikius tikslus.",
+        "Laiko blokavimas, kad būtų išlaikytas balansas tarp strateginio darbo ir kasdienių užduočių."
+    ],
+    "disturb": [
+        "Nuolatiniai trukdžiai, neorganizuota aplinka ir neaiškūs tikslai.",
+        "Pernelyg didelis dėmesys greitiems rezultatams arba intelektualinių stimulų trūkumas.",
+        "Situacijos, kai reikia greitų sprendimų (bet neužtenka laiko analizei)."
+    ],
+    "challenge": [
+        "Planų komplikavimas – gali įstrigti analizėje, per daug dėmesio skiriant planavimui ir nepakankamai – faktiniams veiksmams.",
+        "Sunkumai su rutininėmis užduotimis – prarandi susidomėjimą pasikartojančiomis ar nuobodžiomis užduotimis, kurios tiesiogiai neveda prie tavo ilgalaikių vizijų.",
+        "Sunku priimti kitų nuomonę – mėgsti dirbti viena:as, bet tai gali trukdyti pasinaudoti kitų įžvalgomis."
+    ],
+    "excercise": {
+        "Imk ir daryk": [
+            "Pasirink vieną sudėtingą projektą ar idėją, su kuria dirbi. Nusimatyk tris paprastus žingsnius, kuriuos gali atlikti iš karto. Vieną iš žingsnių atlik per artimiausią valandą, nepergalvojant ir netobulinant iki begalybės.",
+            "Tikslas: skatinti veiksmą, o ne tobulumo siekį, ir įveikti analizės paralyžių.",
+            "Kodėl tai veikia: ši užduotis padeda pereiti nuo tobulo planavimo prie praktinio veiksmų atlikimo, didinant tempą ir pažangą net sudėtinguose projektuose."
+        ],
+        "Ką manai": [
+            "Pasidalink savo vykdomu projektu su kolega arba draugu (arba šeimos nariu, jei dirbi viena:s – gali dalintis ir buitiniais projektais, ne tik darbiniais) ir paprašyk jų grįžtamojo ryšio. Pabandyk pritaikyti bent vieną jų pasiūlymą, net jei jis skiriasi nuo tavo pradinės idėjos. Peržvelk rezultatus ir įvertink poveikį.",
+            "Tikslas: ugdyti bendradarbiavimo gebėjimus ir būti atviresniam kitų perspektyvoms.",
+            "Kodėl tai veikia: ši užduotis padeda tau išeiti už komforto zonos ribų ir integruoti išorines įžvalgas, gerinant tavo prisitaikymą ir gebėjimą bendradarbiauti."
+        ],
+        "Pomodoro": [
+            "Pasirink vieną pasikartojančią užduotį, kurią paprastai atidėlioji. Nustatyk laikmatį 25 minutėms (naudok „Pomodoro“ techniką) ir šį laiką susitelk tik į tos užduoties atlikimą. Po to apdovanok save trumpa pertrauka ar mėgstama veikla.",
+            "Tikslas: ugdyti nuoseklumą atliekant rutinines užduotis ir palaipsniui integruoti jas į savo dienotvarkę.",
+            "Kodėl tai veikia: ši užduotis padeda sukurti įprotį valdyti kasdienes užduotis efektyviai, mažinant atidėliojimą ir atlaisvinant erdvę strateginiams darbams."
+        ]
+    },
+    "advice": [
+        "Skirk laiko strateginei refleksijai – kartą per savaitę peržiūrėk ilgalaikius tikslus ir stebėk, kokie veiksmai priartino prie jų įgyvendinimo.",
+        "Sukurk sistemą kasdienių užduočių vykdymui: net jei šios užduotys nėra malonios, jos padeda pasiekti ilgalaikius tikslus.",
+        "Praktikuok bendradarbiavimą su kitais – net jei mėgsti dirbti viena:as, kitų žmonių įžvalgos gali suteikti naujų perspektyvų."
+    ],
+    "description": [
+        "Tu esi tikra:as užkulisių strategė:as – žmogus, kuris visada žiūri kelis žingsnius į priekį ir geba matyti platesnį kontekstą. Tavo aštrus dėmesys detalėms ir analitinis protas leidžia kurti tokias strategijas, apie kurias kiti dažnai net nesusimąsto. Tau patinka sudėtingi iššūkiai ir ambicingi tikslai, o tavo metodiškas požiūris padeda juos paversti apgalvotais veiksmų planais. Tavo stiprybė – gebėjimas iš anksto numatyti galimus scenarijus ir rasti kelią link sėkmės.",
+        "Vis dėlto, svarbu prisiminti, kad dideli tikslai susideda iš daugybės mažų, kasdienių užduočių, kurios taip pat reikalauja dėmesio ir motyvacijos. Kartais gali būti lengva pasinerti į didelės vizijos kūrimą, pamirštant, kad mažos detalės yra raktas į jos įgyvendinimą. Be to, tavo stiprus savarankiškumas kartais gali atitolinti tave nuo kitų nuomonių ir įžvalgų, kurios galėtų suteikti vertingos perspektyvos.",
+        "Mano patarimas: toliau kurk savo ambicingas strategijas, bet nepamiršk įtraukti ir aplinkinių į procesą. Atvirumas kitų nuomonėms ir bendradarbiavimas gali atverti naujų galimybių ir padėti tavo idėjoms tapti dar stipresnėmis. Išlaikyk balansą tarp ilgalaikio planavimo ir dėmesio kasdienėms užduotims – taip ne tik paversi savo vizijas realybe, bet ir sukursi stiprų pagrindą ilgalaikei sėkmei."
+    ],
+    "shortDescription": [
+        "Tu mėgsti grandiozinius planus, strategiją ir gebi aiškiai matyti ilgalaikius tikslus. Tavo stiprybė – gebėjimas mąstyti iš tolo ir numatyti ateitį, kruopščiai planuojant kiekvieną žingsnį. Vis dėlto, kartais gali delsti pradėti veikti, nes pernelyg susitelksi į tobulą strategiją, o kasdienės užduotys tau gali atrodyti kaip bereikšmės. Tinkamai sustrategavus ir sujungus savo stiprybes su priemonėmis „pridengti“ silpnybes, gali pasiekti aukštumų."
+    ]
+}

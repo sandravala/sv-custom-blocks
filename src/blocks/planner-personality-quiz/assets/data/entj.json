@@ -1,0 +1,69 @@
+{
+    "name": "Erelis",
+    "oneLiner": "Viršininkė:As, kuris turi atsakymą viskam (net kai niekas dar nesuprato, koks yra klausimas).",
+    "strength": [
+        "Strateginis planavimas – tau puikiai sekasi nustatyti ilgalaikius tikslus ir kurti detalius planus jiems pasiekti.",
+        "Ryžtinga lyderystė – užtikrintai priimi sprendimus ir vadovauji kitiems, ypač iššūkių metu.",
+        "Tikslų siekimas – gebi stipriai susitelkti į rezultatą, turi tvirtą motyvaciją ir ryžtą įgyvendinti užsibrėžtus tikslus."
+    ],
+    "weakness": [
+        "Per daug struktūros – tau gali būti sunku prisitaikyti prie pokyčių ar naujos informacijos, dažniausiai mėgsti laikytis pradinio plano nepaisant aplinkybių.",
+        "Per didelis dėmesys efektyvumui – kartais gali nepaisyti kitų emocijų ir gerovės (rezultatas bet kokia kaina).",
+        "Sunku paleisti kontrolę – nori valdyti visas projekto dalis, net ir tas, kuriose tiesiogiai nedalyvauji. Todėl dirbantys su tavimi gali nematyti galimybės prisidėti ar veikti laisvai."
+    ],
+    "focus": [
+        "Atrask, kaip integruoti bent truputį lankstumo į savo greižtus planus, kad galėtum lengviau prisitaikyti prie pokyčių ir naujos informacijos.",
+        "Praktikuok aktyvų klausymą ir empatiją, kad pagerintum bendradarbiavimo galimybes.",
+        "Išmok deleguoti atsakomybes ir pasitikėti kartu dirbančiais – tai gali skatinti inovacijas, produktyvumą ir kūrybiškumą."
+    ],
+    "avoid": [
+        "Venk pernelyg griežto planavimo, nes tai gali stabdyti gebėjimą prisitaikyti prie pokyčių ir priversti pražiopsoti naujas galimybes.",
+        "Skirk dėmesio ne tik tam, kaip tavo sprendimai paveiks rezultatą, bet ir poveikį aplinkiniams – balansuok tarp efektyvumo ir empatijos.",
+        "Nepersitempk ir nemėgink visko padaryti viena:s – suteik kitiems galimybę prisidėti ir tobulėti."
+    ],
+    "help": [
+        "Aplinka, kurioje gali strateguoti ir imtis lyderystės.",
+        "Aiškūs tikslai, struktūruoti rėmai ir efektyvūs procesai, kurie padeda palaikyti produktyvumą.",
+        "Projektų valdymo ir delegavimo įrankiai, padedantys sekti užduotis ir atsakomybes."
+    ],
+    "disturb": [
+        "Neapibrėžtumas, netvarkinga aplinka ir neaiškūs tikslai, kurie trikdo strateginį mąstymą.",
+        "Situacijos, kuriose reikia pasyvaus vaidmens arba kuriose trūksta galimybių vadovauti.",
+        "Aplinka, kurioje trūksta motyvacijos ar aiškių tikslų, stabdanti tavo galimybę siekti rezultatų."
+    ],
+    "challenge": [
+        "Griežta struktūra – kaip prisitaikyti prie pasikeitimų, tuo pat metu visiškai nepaleidžiant ir planavimo proceso.",
+        "Efektyvumas bet kokia kaina – kaip nepamesti lankstumo ar kūrybiškumo, susitelkus į rezultatus.",
+        "Kontrolė – kaip valdyti visą procesą, neapribojant ir neperkontroliuojant galimybės kitiems prisidėti ir veikti kartu."
+    ],
+    "excercise": {
+        "Lankstumo pratybos": [
+            "Pasirink esamą projektą ir nustatyk vieną sritį, kurioje mėginsi taikyti lankstesnį požiūrį (pvz., leisk dirbantiems kartu pasirinkti savo metodus ar laiką). Nustatyk konkretų laikotarpį (pvz., dvi savaites) ir stebėk, kaip tai paveikia projekto eigą.",
+            "Tikslas: ugdyti gebėjimą lanksčiai planuoti ir įgyvendinti savo planus, nepametant iš akių rezultato.",
+            "Kodėl tai veikia: ši užduotis leidžia tau eksperimentuoti su lankstumu kontroliuojamoje aplinkoje, padėdama pamatyti jo naudą ir tai, kaip jis gali derėti su struktūra."
+        ],
+        "Kūrybinė pertrauka": [
+            "Skirk 30 minučių planavimo sesijoje brainstormingui. Paieškok alternatyvių strategijų ar kūrybinių sprendimų esamam projektui. Įtrauk kitus žmones ir apsvarstyk idėjas, kurios skiriasi nuo tavo įprasto požiūrio. Pratestuok bent vieną idėją.",
+            "Tikslas: skatinti kūrybišką mąstymą ir integruoti naujas idėjas į tavo strateginius planus.",
+            "Kodėl tai veikia: ši užduotis leidžia tau atsitraukti nuo efektyvumo siekio bet kokia kaina ir leidžia patyrinėti kitas galimybes, ugdant lankstesnį ir inovatyvesnį požiūrį."
+        ],
+        "Delegavimo ir įgalinimo iššūkis": [
+            "Išsirink vieną projekto sritį, kurią paprastai valdai asmeniškai, ir visiškai deleguok atsakomybę ar užduotį komandos (arba šeimos) nariui. Suteik jiems sprendimo teisę ir pagalbą tik tada, kai to prašoma, o užduotį įvertink tik baigus projektą.",
+            "Tikslas: ugdyti pasitikėjimą kitų žmonių gebėjimais ir praktikuoti atsakomybės delegavimą.",
+            "Kodėl tai veikia: ši užduotis padeda pamažu įprasti deleguoti atsakomybes, leidžiant ir kitiems imtis iniciatyvos ir prisidėti prie projekto sėkmės naujais būdais."
+        ]
+    },
+    "advice": [
+        "Kartą per savaitę skirk laiko kūrybinei idėjų sesijai su komanda (jei tokią turi) – tai padės išlaikyti šviežių idėjų srautą.",
+        "Praktikuok delegavimą – net jei esi linkusi:ęs imtis atsakomybės pati:s, deleguojant padėsi kitiems tobulėti ir stiprinsi savo įgūdį dirbti su kitais ir dalintis atsakomybe.",
+        "Skirk laiko asmeninei refleksijai – taip galėsi geriau atsižvelgti ir į kitų poreikius bei stiprinti bendradarbiavimo įgūdžius."
+    ],
+    "description": [
+        "Tu esi tikra:as vizionierė:ius, kuri:is ne tik mato didelį paveikslą, bet ir žino, kaip jį įgyvendinti. Tavo ryžtingumas ir strateginis mąstymas suteikia tau gebėjimą valdyti sudėtingus projektus, todėl esi įspūdinga:as lyderė:is. Tavo stiprybė – gebėjimas aiškiai nustatyti kryptį ir įkvėpti komandą judėti į priekį, nepaisant iššūkių.",
+        "Tačiau, net ir puikiai suplanuoti projektai kartais susiduria su netikėtais pokyčiais, kurie gali pareikalauti papildomo lankstumo. Nors tavo strateginis požiūris dažnai yra labai tvirtas, atmink, kad atvirumas kitų įžvalgoms ir naujoms idėjoms gali būti tikras stiprybės ženklas. Ugdydama:as gebėjimą lanksčiai reaguoti į pokyčius ir vertindama:as kitų žmonių indėlį, ne tik sustiprinsi savo lyderystę, bet ir sukursi bendradarbiavimo kultūrą, kuri padės aplinkiniams siekti neįtikėtinų rezultatų.",
+        "Mano patarimas: tęsk savo vizionierišką kelią, bet nepamiršk, kad stipriausias lyderis yra tas, kuris ne tik rodo kryptį, bet ir geba prisitaikyti prie netikėtų aplinkybių. Būk atvira:as naujoms idėjoms, vertink kitų indėlį ir leisk sau veikti truputį lanksčiau. Taip sujungsi savo strateginį mąstymą su atvirumu pokyčiams ir gebėjimu bendradarbiauti – o tai leis tavo vizijoms tapti realybe ir nuversti kalnus."
+    ],
+    "shortDescription": [
+        "Tu esi tas žmogus, kuris geba lengvai vadovauti, kurti ilgalaikes strategijas ir organizuoti didelius projektus, t.y. esi ryžtinga:s strategė:as. Tau natūralu užimti vadovaujančias pozicijas, spręsti sudėtingus klausimus ir siekti tikslų. Tavo aistra – efektyvumas ir rezultatai, tačiau kartais gali būti sunku prisitaikyti prie pokyčių, paleisti kontrolę ar atsižvelgti į kitų emocinius poreikius."
+    ]
+}

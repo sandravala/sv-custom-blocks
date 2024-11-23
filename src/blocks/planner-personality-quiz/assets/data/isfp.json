@@ -1,0 +1,69 @@
+{
+    "name": "Elnias",
+    "oneLiner": "Mėgsta ramybę ir meną. Ji:is mielai pasirinktų tapyti akvarele ant jūros kranto, kol kiti šokinėja per bangas.",
+    "strength": [
+        "Kūrybiškumas ir lankstumas – tu gebi prisitaikyti prie naujų situacijų ir atrasti unikalius sprendimus, todėl dažnai įneši meninį požiūrį į savo darbą.",
+        "Empatija ir palaikymas – natūraliai palaikai kitus ir kuri harmoniją, padedi sukurti teigiamą atmosferą tiek darbe, tiek asmeniniame gyvenime.",
+        "Vertybėmis grįstas darbas – tave motyvuoja asmeninės vertybės ir aistra tam, ką darai, todėl dirbi neskaičiuojant valandų ir jėgų su tais projektais, kurie tau yra svarbūs."
+    ],
+    "weakness": [
+        "Struktūros vengimas – tau labiau patinka lankstumas, o tai kartais gali lemti neorganizuotumą ir netgi praleistus terminus.",
+        "Sunku nustatyti ribas – tau sunku pasakyti „ne“ ir iškelti savo poreikius, todėl gali persidirbti ir perdegti.",
+        "Atidėliojimas dėl nepatogių užduočių – vengi užduočių, kurios nesiderina su tavo asmeninėmis vertybėmis ar atrodo neįdomios, dėl to tavo produktyvumas gali ženkliai sumažėti."
+    ],
+    "focus": [
+        "Susikurk paprastą, tau tinkančią planavimo sistemą, kuri leidžia veikti lanksčiai, bet taip pat padeda ir sekti prioritetus ir terminus.",
+        "Praktikuok ribų brėžimą ir rūpinimąsi savimi, kad išvengtum perdegimo ir išlaikytum balansą.",
+        "Suskaidyk didesnes nemalonias ar nuobodžias užduotis į mažus, lengvai pasiekiamus žingsnius, kad sumažintum vidinį pasipriešinimą ir padidintum produktyvumą."
+    ],
+    "avoid": [
+        "Nepamiršk savo asmeninių tikslų ir poreikių, norėdama:as visiems padėti ar išlaikyti harmoniją.",
+        "Venk atidėlioti būtinas, bet mažiau įdomias užduotis – tai gali sukelti stresą ir chaosą.",
+        "Nepakišinėk po kilimu konfliktų ar sunkių pokalbių, nes tai gali užauginti dideles problemas ilgalaikėje perspektyvoje."
+    ],
+    "help": [
+        "Palaikanti, rami aplinka, kurioje gali laisvai save išreikšti ir augti.",
+        "Lankstūs planavimo įrankiai, kurie turi vizualinius elementus, pvz., spalvoti kalendoriai ar kūrybiškos užrašinės, kad planavimas būtų įdomesnis.",
+        "Ramybės ir savirefleksijos laikas, leidžiantis atsijungti ir pasikrauti bei prisiminti savo vertybes."
+    ],
+    "disturb": [
+        "Griežti tvarkaraščiai, didelis spaudimas ir kai reikalaujama per daug laiko ir energijos.",
+        "Aplinka, kurioje nėra vietos kūrybiškumui ar asmeninei vizijai.",
+        "Situacijos, reikalaujančios nuolatinio konfliktų sprendimo arba greito sudėtingų sprendimų priėmimo be laiko refleksijai."
+    ],
+    "challenge": [
+        "Struktūra – kaip nepanirti į chaosą, neatsisakant spontaniškumo ir pernelyg savęs nesuvaržant.",
+        "Ribos – kaip neprisimti daugiau atsakomybių, nei gali pavežti, ir išmokti pasakyti „ne“, kad išvengtum perdegimo.",
+        "Atidėliojimas – kaip laiku ir nestumdant atlikti užduotis, kurias padaryti privalai, nors ir netiki jų prasme arba bodiesi jų."
+    ],
+    "excercise": {
+        "Kūrybiška rutina": [
+            "Pasirink vieną rutininę užduotį, kurios dažniausiai vengi (pvz., failų tvarkymas, tvarkaraščio sudarymas, ataskaitos ir pan.). Paversk ją malonesne, įtraukiant kūrybinį elementą. Pvz., jei tvarkai failus, naudok estetiškai patrauklius šablonus. Skirk bent 15 minučių per dieną tokioms užduotims ir po jų atlikimo apdovanok save kūrybine pertrauka (pvz., piešimu ar rašymu). Svarbu: kūrybinis elementas (dimensija) turi būti pritaikomas paprastai ir jokiais būdais negali tapti patogia atidėliojimo priežastimi. Naudokis tuo, ką jau turi arba kas yra lengvai prieinama.",
+            "Tikslas: paversti rutinines užduotis malonesnėmis, kad jos skatintų dirbti nuosekliai.",
+            "Kodėl tai veikia: šis pratimas leidžia tau panaudoti kūrybiškumą, kad kasdienės veiklos būtų estetiškai patrauklesnės ir asmeniškai įdomesnės, mažina rutininių užduočių monotoniją ir skatina reguliariai skirti joms laiko."
+        ],
+        "Ribos": [
+            "Pasirink vieną sritį, kurioje per daug įsipareigojai kitiems (pvz., savanoriška pagalba, papildomos atsakomybės darbe). Apgalvok, kaip galėtum pagarbiai atsisakyti arba susitarti dėl naujų šio įsipareigojimo sąlygų. Užsirašyk paruoštuką, jei reikia, pvz., „Man būtų malonu prisidėti, bet padidėjus krūviui, šiuo metu turiu susitelkti į savo projektus“.",
+            "Tikslas: ugdyti gebėjimą nustatyti ribas ir prioritetizuoti asmeninius poreikius.",
+            "Kodėl tai veikia: pratimas padeda ugdyti pasitikėjimą sakant „ne“, mažinant per didelį įsipareigojimų kiekį ir išlaisvinant laiką asmeniškai svarbioms veikloms."
+        ],
+        "Atidėliojimo stabdis": [
+            "Pasirink vieną užduotį, kurios vengi dėl diskomforto ar nuobodumo. Nustatyk laikmatį 10 minučių ir pradėk su ja dirbti. Turi galimybę sustoti, kai laikmatis pasibaigs, o jei nori tęsti - tęsk dar 10.",
+            "Tikslas: sumažinti vidinį pasipriešinimą pradėti nepatogias ir nemalonias užduotis, suskaidant jas į mažus, lengvai įveikiamus etapus.",
+            "Kodėl tai veikia: pratimas padea sumažinti pradinį barjerą pradėti nemalonias užduotis, todėl tau lengviau įveikti atidėliojimą ir įgauti pagreitį, net dirbant su užduotimis, kurių paprastai vengi."
+        ]
+    },
+    "advice": [
+        "Susikurk ir naudok vizualų planavimo įrankį, pvz., spalvingą kalendorių ar kūrybišką užrašinę, kad planavimas būtų malonesnis.",
+        "Praktikuok sakyti „ne“ nedidelėmis porcijomis – pradėk nuo mažų įsipareigojimų, kurių gali atsisakyti be kaltės jausmo. Pavyzdžiui, be jokių vyniojimų atsisakyk siūlomos prekės \/ paslaugos, aukoti konkrečiai organizacijai (kai to daryti iš tiesų nenori), arba eiti vakarienės \/ kavos \/ į renginį.",
+        "Suskaidyk dideles nemalonias užduotis į mažus veiksmus (arba tiesiog laiko tarpus), kad būtų lengviau pradėti ir įveikti atidėliojimą."
+    ],
+    "description": [
+        "Tu esi tikra komandos širdis ir siela – žmogus, kuris įneša šilumos, kūrybiškumo ir subtilaus meniško dvelksmo į kiekvieną projektą. Tave labiausiai džiugina darbas, kuriame gali laisvai išreikšti savo vertybes ir sukurti harmoniją bendradarbiaujant su kitais. Tavo natūrali empatija, gebėjimas išklausyti ir lankstumas daro tave ypač malonia:iu ir pageidaujama:u komandos nare:iu. Tu dažnai atrandi kūrybiškus, netikėtus sprendimus, pritaikytus konkretiems žmonėms ir situacijoms, todėl tavo idėjos dažnai tampa tikrais perlais komandiniame darbe.",
+        "Vis dėlto, kaip kūrybingai asmenybei, tau kartais gali būti sunku laikytis griežtos struktūros ar terminų. Tu labiau mėgsti veikti pagal intuiciją ir jausti laisvę, tačiau šiek tiek organizuotumo gali padėti paversti tavo gražias vizijas realybe. Struktūra nebūtinai turi apriboti tavo kūrybinę dvasią – ji gali tapti rėmais, kurie suteiks stabilumo ir padės išgryninti tavo idėjas.",
+        "Mano patarimas: priimk savo kūrybišką prigimtį, bet tuo pačiu leisk sau nusistatyti švelnias ribas ir aiškius tikslus. Derinant kūrybinę laisvę su truputį daugiau organizuotumo, atrasi pusiausvyrą, kuri leis išnaudoti visus tavo talentus ir jaustis nenugalimai. Rask savo asmeninę produktyvumo formulę – tokią, kuri ne tik atspindi tavo kūrybiškumą, bet ir padeda tau siekti apčiuopiamų rezultatų. Tokiu būdu tu ne tik kursi įspūdingas idėjas, bet ir patirsi tikrą pasitenkinimą jas įgyvendinant."
+    ],
+    "shortDescription": [
+        "Tu vertini harmoniją, kūrybiškumą ir mėgsti dirbti spontaniškai. Tavo stiprybės slypi gebėjime kurti šiltą aplinką ir padėti kitiems, dažnai dirbant tyliai ir užkulisiuose. Tau svarbu, kad darbas atspindėtų tavo asmenines vertybes, bet kartais dėl to gali būti sunku nustatyti ribas ir rūpintis savo poreikiais. Be to, gali vengti rutinos ar nepatogių užduočių, nes jos atrodo per daug struktūruotos ir neįdomios."
+    ]
+}

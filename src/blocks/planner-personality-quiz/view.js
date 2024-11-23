@@ -23,6 +23,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import quiz from './assets/data/quizData.json';
+import answer from './assets/data/quizAnswer.json';
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -38,161 +39,36 @@ function renderForm() {
 
 function QuizRender() {
 
-    // const quizData = [
-    //     {
-    //         question: 'Kaip paprastai pradedi savo darbo dieną?',
-    //         answers: [
-    //             { text: 'Peržiūriu darbų sąrašą ir detaliai suplanuoju savo dieną.', letter: 'J' },
-    //             { text: 'Pradedu dirbti su tuo, kas iškyla, ir einu su srovėmis.', letter: 'P' },
-    //             { text: 'Ieškau naujų idėjų ir įkvėpimo, prieš pradedant užduotis.', letter: 'N' },
-    //             { text: 'Sutelkiu dėmesį į vieną konkrečią užduotį, kurią reikia atlikti pirmiausia.', letter: 'S' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip reaguoji į netikėtus pokyčius savo tvarkaraštyje?',
-    //         answers: [
-    //             { text: 'Prisitaikau prie plano pakeitimų, bet man sunku keisti įprastą rutiną.', letter: 'J' },
-    //             { text: 'Sveikinu pokyčius ir lengvai prisitaikau, dažnai klestėdamas naujose situacijose.', letter: 'P' },
-    //             { text: 'Matau tai kaip galimybę tyrinėti naujas kryptis ir galimybes.', letter: 'N' },
-    //             { text: 'Stengiuosi kuo mažiau trikdyti planą ir išlaikyti kuo daugiau pirminio plano.', letter: 'S' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip tau patinka dirbti su projektais?',
-    //         answers: [
-    //             { text: 'Mėgstu turėti aiškų, žingsnis po žingsnio planą ir griežtai jo laikytis.', letter: 'J' },
-    //             { text: 'Man patinka lankstumas ir prisitaikymas prie situacijos eigos.', letter: 'P' },
-    //             { text: 'Pradedu smegenų šturmu ir išbandau kelis metodus, prieš pasirinkdamas tinkamiausią.', letter: 'N' },
-    //             { text: 'Rimtuosi į praktinius metodus ir naudoju patikrintus procesus.', letter: 'S' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip tvarkaisi su terminais?',
-    //         answers: [
-    //             { text: 'Planuoju iš anksto ir laikui dar nepraėjus atlikau užduotis.', letter: 'J' },
-    //             { text: 'Dažnai dirbu iki pat termino pabaigos, bet vis tiek atlieku kokybišką darbą.', letter: 'P' },
-    //             { text: 'Matau terminus kaip lankstus ir labiau susitelkiu į kūrybiškumą ir kokybę nei į griežtą laiką.', letter: 'N' },
-    //             { text: 'Naudoju terminus, kad paskirstyčiau laiką ir užtikrinčiau, kad užduotys būtų atliktos kruopščiai.', letter: 'S' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip vertini komandinius darbus ir bendradarbiavimą?',
-    //         answers: [
-    //             { text: 'Mėgstu organizuoti ir paskirstyti užduotis, kad viskas būtų atlikta efektyviai.', letter: 'EJ' },
-    //             { text: 'Teikiu pirmenybę smegenų šturmui, kur kiekvienas gali laisvai prisidėti.', letter: 'EN' },
-    //             { text: 'Man labiausiai patinka dirbti savarankiškai, bet bendradarbiauju, kai reikia.', letter: 'IJ' },
-    //             { text: 'Geriausiai dirbu struktūrizuotoje komandoje, kur aiškiai apibrėžti vaidmenys ir atsakomybės.', letter: 'IS' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kas tave motyvuoja atlikti užduotį?',
-    //         answers: [
-    //             { text: 'Pasiekti galutinį tikslą ir išbraukti jį iš sąrašo.', letter: 'J' },
-    //             { text: 'Galimybė atrasti naujų idėjų ir sprendimų.', letter: 'N' },
-    //             { text: 'Praktinė nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
-    //             { text: 'Galimybė prisitaikyti ir keisti planus, kai to reikia.', letter: 'P' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip atsigauni po ilgos darbo dienos?',
-    //         answers: [
-    //             { text: 'Man patinka ramios, apmąstymo veiklos, kaip skaitymas ar meditacija.', letter: 'I' },
-    //             { text: 'Mėgstu bendrauti arba užsiimti aktyviais pomėgiais.', letter: 'E' },
-    //             { text: 'Mėgstu užsiimti kūrybine veikla arba atrasti naują hobį.', letter: 'N' },
-    //             { text: 'Man patinka įprasti, ramūs ritualai, kaip TV žiūrėjimas ar maisto gaminimas.', letter: 'S' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip elgiesi su konfliktu komandos aplinkoje?',
-    //         answers: [
-    //             { text: 'Stengiuosi tarpininkauti ir rasti kompromisą.', letter: 'F' },
-    //             { text: 'Sprendžiu problemą tiesiogiai ir ieškau logiško sprendimo.', letter: 'T' },
-    //             { text: 'Stengiuosi vengti konflikto ir tikiuosi, kad jis išsispręs savaime.', letter: 'I' },
-    //             { text: 'Jaučiu nusivylimą, bet nekalbu, nebent tai tikrai būtina.', letter: 'S' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip sprendi problemas?',
-    //         answers: [
-    //             { text: 'Surinkau visus faktus ir logiškai analizuoju, kad rasti sprendimą.', letter: 'T' },
-    //             { text: 'Pasitikiu savo intuicija ir ieškau modelių arba įžvalgų, kurios nėra akivaizdžios.', letter: 'N' },
-    //             { text: 'Atsižvelgiu į žmonių poreikius ir siekiu sprendimo, kuris tinka visiems.', letter: 'F' },
-    //             { text: 'Rimtuosi į patikrintus metodus, kurie veikė praeityje.', letter: 'S' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip prioritetuoji užduotis?',
-    //         answers: [
-    //             { text: 'Nustatau prioritetus pagal terminus ir svarbą, laikydamasis griežto grafiko.', letter: 'J' },
-    //             { text: 'Dirbu su tuo, kas man tuo metu įdomiausia, ir keičiu prioritetus pagal poreikį.', letter: 'P' },
-    //             { text: 'Rinkiuosi užduotis, kurios dera su ilgalaike vizija ir tikslais.', letter: 'N' },
-    //             { text: 'Imuosi užduočių pagal jų tiesioginę praktinę naudą.', letter: 'S' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip tau patinka komunikuoti savo idėjas?',
-    //         answers: [
-    //             { text: 'Mėgstu jas atvirai aptarti su grupe.', letter: 'E' },
-    //             { text: 'Labiau mėgstu apmąstyti ir pasidalinti raštu.', letter: 'I' }
-    //         ]
-    //     },
-    //     {
-    //         question: 'Kaip vertini projekto sėkmę?',
-    //         answers: [
-    //             { text: 'Pagal pasiektą efektyvumą ir rezultatus.', letter: 'T' },
-    //             { text: 'Pagal žmonių, dalyvavusių projekte, pasitenkinimą ir gerovę.', letter: 'F' }
-    //         ]
-    //     }
-    // ];
+    const quizData = [
+            {
+                question: '',
+                answers: [
+                    { text: 'Geriausia dieną pradėti peržiūrėjus darbų sąrašą ir detaliai suplanavus darbotvarkę.', letter: 'J' },
+                    { text: 'Nenumatyti pasikeitimai planuose - teigiamas dalykas, nes suteikia galimybę patyrinėti naujas kryptis ir galimybes.', letter: 'N' },
+                    { text: 'Kilus problemai darbe, svarbu atsižvelgti  į komandos narių poreikius ir siekti sprendimo, kuris būtų priimtinas visiems.', letter: 'F' },
+                    // { text: 'Vertinu galimybę dirbti vienumoje ir apgalvoti sprendimus ramioje aplinkoje.', letter: 'I' },
+                    // { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais žmonėmis (komandos nariais ir pan.).', letter: 'E' },
+                    { text: 'Mane dirbti labiausiai motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
+                ]
+            },
+            {
+                question: '',
+                answers: [
+                    { text: 'Geriausia dieną pradėti peržiūrėjus darbų sąrašą ir detaliai suplanavus darbotvarkę.', letter: 'J' },
+                    { text: 'Nenumatyti pasikeitimai planuose - teigiamas dalykas, nes suteikia galimybę patyrinėti naujas kryptis ir galimybes.', letter: 'N' },
+                    { text: 'Kilus problemai darbe, svarbu atsižvelgti  į komandos narių poreikius ir siekti sprendimo, kuris būtų priimtinas visiems.', letter: 'F' },
+                    // { text: 'Vertinu galimybę dirbti vienumoje ir apgalvoti sprendimus ramioje aplinkoje.', letter: 'I' },
+                    // { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais žmonėmis (komandos nariais ir pan.).', letter: 'E' },
+                    { text: 'Mane dirbti labiausiai motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
+                ]
+            }
+        ];
 
+
+    //const [quizData, setQuizData] = useState(quiz);    
+   
+    const [quizAnswer, setQuizAnswer] = useState(answer);
     
-    // const quizData = [
-    //     {
-    //         question: '',
-    //         answers: [
-    //             { text: 'Geriausia dieną pradėti peržiūrėjus darbų sąrašą ir detaliai suplanavus darbotvarkę.', letter: 'J' },
-    //             { text: 'Nenumatyti pasikeitimai planuose - teigiamas dalykas, nes suteikia galimybę patyrinėti naujas kryptis ir galimybes.', letter: 'N' },
-    //             { text: 'Kilus problemai darbe, svarbu atsižvelgti  į komandos narių poreikius ir siekti sprendimo, kuris būtų priimtinas visiems.', letter: 'F' },
-    //             { text: 'Vertinu galimybę dirbti vienumoje ir apgalvoti sprendimus ramioje aplinkoje.', letter: 'I' },
-    //             { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais žmonėmis (komandos nariais ir pan.).', letter: 'E' },
-    //             { text: 'Mane dirbti labiausiai motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
-    //         ]
-    //     },
-    //     {
-    //         question: '',
-    //         answers: [
-    //             { text: 'Projekto sėkmė tiesiogiai priklauso nuo jo atitikimo pirminiam planui ir tvarkai.', letter: 'J' },
-    //             { text: 'Manau, kad svarbu dirbant kiek įmanoma daugiau laikytis to, kas suplanuota.', letter: 'S' },
-    //             { text: 'Manau, kad svarbu dieną pradėti nuo naujausių užduočių / užklausų, o toliau jau atsižvelgti į faktinę situaciją.', letter: 'P' },
-    //             { text: 'Po ilgos darbo dienos pailsėti man padeda rami veikla (pvz., skaitymas ar meditacija).', letter: 'I' },
-    //             { text: 'Mėgstu kurti inovatyvias idėjas, kurios leidžia naudoti kūrybiškumą darbe.', letter: 'N' },
-    //             { text: 'Kilus nenumatytai problemai darbe, pirmiausiai surenku visus faktus ir logiškai analizuoju, kaip rasti geriausia sprendimą.', letter: 'T' }
-    //         ]
-    //     },
-    //     {
-    //         question: '',
-    //         answers: [
-    //             { text: 'Labiau mėgstu dirbti savarankiškai, o su komanda tik pasidalinti darbo rezultatais.', letter: 'I' },
-    //             { text: 'Projekto sėkmę reikėtų vertinti pagal suinteresuotų šalių pasitenkinimą ir gerovę.', letter: 'F' },
-    //             { text: 'Kilus naujoms idėjoms, geriausia jas atvirai aptarti su komanda / klientais.', letter: 'E' },
-    //             { text: 'Kai turiu padaryti daug, pirmiausiai nustatau prioritetus pagal terminus ir svarbą, ir griežtai laikausi sudaryto grafiko.', letter: 'J' },
-    //             { text: 'Kilus nenumatytai problemai darbe, nedelsiant ieškau greito ir efektyvaus sprendimo, kuris iš karto būtų pritaikomas.', letter: 'P' },
-    //             { text: 'Projekto sėkmę geriausia vertinti pagal pasiektą efektyvumą ir rezultatus.', letter: 'T' }
-    //         ]
-    //     },
-    //     {
-    //         question: '',
-    //         answers: [
-    //             { text: 'Vertinant naujas idėjas darbe, kur kas svarbesnė yra galimybė sklandžiai ir efektyviai jas pritaikyti, o ne jų kūrybiškumas ar inovatyvumas.', letter: 'T' },
-    //             { text: 'Man motyvacijos darbe suteikia žinojimas, kad mano darbas padeda kitiems ir prisideda prie bendros gerovės.', letter: 'F' },
-    //             { text: 'Projekto sėkmę vertinu pagal tai, kaip lengvai jis buvo įgyvendintas ir kokių trukdžių buvo išvengta.', letter: 'P' },
-    //             { text: 'Kilus problemai darbe, svarbu neišradinėti dviračio ir naudoti jau patikrintus ir patikimus metodus.', letter: 'S' },
-    //             { text: 'Kai darbo daug, svarbu prioritetą teikti užduotims, kurios atitinka ilgalaikę viziją ir tikslus.', letter: 'N' },
-    //             { text: 'Geriausiai pailsiu, kai galiu bendrauti arba užsiimti aktyvia veikla.', letter: 'E' }
-    //         ]
-    //     }
-    // ];
-
     const points = [
         "100% ne aš",
         "Nepanašu į mane",
@@ -201,38 +77,46 @@ function QuizRender() {
         "100% AŠ!"
     ];
 
-    const [quizData, setQuizData] = useState(quiz);
-
     const tieBreakerQuestions = [
         {
-            question: 'Kai turi svarbią užduotį atlikti, kaip renkiesi spręsti problemas?',
+            question: 'Kai turi išspręsti svarbų klausimą, kaip renkiesi ieškoti sprendimo?',
             answers: [
                 { text: 'Man patinka pasitarti su kolegomis ir kartu aptarti galimus sprendimus.', letter: 'E' },
                 { text: 'Mėgstu ramiai apmąstyti galimus sprendimus vienumoje, prieš pasidalinant su kitais.', letter: 'I' }
             ]
         },
         {
-            question: 'Kaip planuoji ilgalaikį projektą?',
+            question: 'Kaip geriau planuoti ilgalaikį projektą?',
             answers: [
-                { text: 'Labiau pasikliauju konkrečiais faktais, ankstesne patirtimi ir žingsnių planu.', letter: 'S' },
-                { text: 'Pradedu nuo vizijos kūrimo ir ieškau naujų galimybių bei kūrybiškų sprendimų.', letter: 'N' }
+                { text: 'Pasikliauti konkrečiais faktais, ankstesne patirtimi ir sudaryti reikalingų žingsnių planą.', letter: 'S' },
+                { text: 'Pradėti nuo vizijos kūrimo ir ieškoti, kaip galima būtų tą viziją įgyvendinti (pageidautina - kūrybiškai).', letter: 'N' }
             ]
         },
         {
-            question: 'Kaip priimi sprendimą dėl komandos nario veiklos?',
+            question: 'Kaip geriau įvertinti komandos nario veiklą?',
             answers: [
-                { text: 'Vertinu pagal objektyvius rezultatus ir veiklos efektyvumą.', letter: 'T' },
-                { text: 'Atsižvelgiu į komandos nario pastangas ir kaip tai paveiks jo motyvaciją bei jausmus.', letter: 'F' }
+                { text: 'Pagal objektyvius rezultatus ir veiklos efektyvumą.', letter: 'T' },
+                { text: 'Atsižvelgiant į įdėtas pastangas ir tai, kaip vertinimas paveiks jo tolesnę motyvaciją.', letter: 'F' }
             ]
         },
         {
-            question: 'Kaip tvarkaisi su pasikeitimais projekte?',
+            question: 'Kaip vertini nenumatytus pasikeitimus (projektuose, užduotyse, planuose)?',
             answers: [
-                { text: 'Stengiuosi laikytis pirminio plano ir kiek įmanoma išvengti pakeitimų.', letter: 'J' },
-                { text: 'Lengvai prisitaikau prie pakeitimų ir dažnai randu naujų būdų veiksmingai išspręsti situacijas.', letter: 'P' }
+                { text: 'Stengiuosi laikytis pirminio plano ir kiek įmanoma vengti pasikeitimų.', letter: 'J' },
+                { text: 'Lengvai prisitaikau prie pasikeitimų ir dažnai randu naujų būdų veiksmingai išspręsti situacijas.', letter: 'P' }
             ]
         }
     ];
+
+    const [subscriberData, setSubscriberData] = useState({
+        'email' : '',
+        'name': ''
+    });
+
+    const [errors, setErrors] = useState({
+        'email' : false,
+        'name' : false
+    });
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [currentVariant, setCurrentVariant] = useState(0);
@@ -247,6 +131,8 @@ function QuizRender() {
         'P': [0, 0]
     }); // To track selected answers for each question
 
+    
+
     const [dichotomy, setDichotomy] = useState([
         '',
         '',
@@ -256,6 +142,30 @@ function QuizRender() {
     const [tieBreak, setTieBreak] = useState([]);
     const [currentTieBreakQuestion, setCurrentTieBreakQuestion] = useState(0);
     const [showResultContainer, setShowResultContainer] = useState(false);
+    const [type, setType] = useState('');
+    const [isChecked, setIsChecked] = useState(true);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
+  const checkHandler = () => {
+    setIsChecked(!isChecked);
+  }
+
+  const getQuestionSet = (index) => {
+    if(quizData[index]) {
+    return quizData[index]['answers'].reduce((acc, answer) => {
+        // Add each letter as a key with an initial value of 0
+        acc[answer.letter] = 0;
+        return acc;
+    }, {});
+    }
+    return {};
+  }
+
+  const [questionsAnswered, setQuestionsAnswered] = useState({ ...getQuestionSet(currentQuestion) });
+    // Update the button's disabled state whenever the checkbox state changes
+    useEffect(() => {
+        setIsButtonDisabled(!isChecked);
+    }, [isChecked]);
     
     const handleChange = (answerLetter, points, variantIndex) => {
         setSelectedAnswers((prevAnswers) => {
@@ -265,17 +175,22 @@ function QuizRender() {
                 [answerLetter]: [sum, points] // Update only passedNumber, keep sum unchanged
             };
         });
-        setCurrentVariant((prevVariant) => 
-            variantIndex < currentVariant ? currentVariant : (prevVariant + 1) >= quizData[currentQuestion].answers.length ? currentVariant : prevVariant + 1
-        );
 
-        // const element = document.getElementById(`variant-${answerLetter}`);
-        //     if (element) {
-        //     element.scrollIntoView( true, {
-        //         behavior: 'smooth',
-        //         block: 'center',
-        //     });
-        //     }
+        setQuestionsAnswered((prevQuestionsAnswered) => {
+            const updatedQuestionsAnswered = {
+                ...prevQuestionsAnswered,
+                [answerLetter]: points,
+            };
+        
+        
+            // Set the current variant based on the updated state
+            setCurrentVariant(
+                Object.values(updatedQuestionsAnswered).findIndex((answer) => answer === 0)
+            );
+        
+            return updatedQuestionsAnswered; // Return the updated state
+        });
+
 
     };
 
@@ -293,74 +208,19 @@ function QuizRender() {
         setCurrentTieBreakQuestion(currentTieBreakQuestion + 1);
     };
 
-    // // Function to move to the next question
-    // const handleNextQuestion = () => {
-    //     setSelectedAnswers((prevAnswers) => {
-    //     const updatedAnswers = { ...prevAnswers };
-        
-    //         // Iterate over each letter and update the sums
-    //         Object.keys(updatedAnswers).forEach((letter) => {
-    //             updatedAnswers[letter][0] += updatedAnswers[letter][1]; // Add current points to the sum
-    //             updatedAnswers[letter][1] = 0; // Reset current points to 0 for the next question
-    //         });
-        
-    //     return updatedAnswers;
-    //     });
-        
-    //     if (currentQuestion < quizData.length - 1) {
-    //         setCurrentQuestion(currentQuestion + 1);
-    //         setCurrentVariant(0);
-    //         const element = document.getElementsByClassName('variant active')[0];
-    //         if (element) {
-    //         element.scrollIntoView( true, {
-    //             behavior: 'smooth',
-    //             block: 'center',
-    //         });
-    //         }
-
-    //     } else {
-    //         setCurrentQuestion(currentQuestion + 1);
-    //         setCurrentVariant(0);
-    //         const pairs = [
-    //             { key1: 'E', key2: 'I', index: 0 },
-    //             { key1: 'S', key2: 'N', index: 1 },
-    //             { key1: 'T', key2: 'F', index: 2 },
-    //             { key1: 'J', key2: 'P', index: 3 }
-    //           ];
-
-    //           pairs.forEach(({ key1, key2, index }) => {
-
-
-    //           if (selectedAnswers[key1][0] === selectedAnswers[key2][0]) {
-    //             setTieBreak((prevTieBreak) => [ ...prevTieBreak, index]);
-
-    //           }
-
-    //           });
-
-             
-
-    //         // Handle end of quiz logic, maybe show results or reset the quiz
-
-    //     }
-    // };
-
-
     useEffect(() => {
-        
         const activeElement = document.querySelector('.variant.active');
-
         if (activeElement) {
             activeElement.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center',
             });
         }
-    }, [tieBreak, currentVariant, currentQuestion, currentTieBreakQuestion]);
-
+    }, [tieBreak, currentVariant, currentQuestion, currentTieBreakQuestion, questionsAnswered]);
 
     // Function to move to the next question
     const handleNextQuestion = () => {
+
         setSelectedAnswers((prevAnswers) => {
             const updatedAnswers = { ...prevAnswers };
 
@@ -398,6 +258,7 @@ function QuizRender() {
         });
         setCurrentQuestion(currentQuestion + 1);
         setCurrentVariant(0);
+        setQuestionsAnswered({...getQuestionSet(currentQuestion+1)});
 
         if (currentQuestion === quizData.length - 1) {
             console.log('end of quiz');
@@ -410,12 +271,39 @@ function QuizRender() {
 
     const showResult = () => {
         //show partial result
+        setType(dichotomy.reduce((prev, current) => prev + current, ''));
 
         setTieBreak([]);
         setShowResultContainer(!showResultContainer);
         const dichotomyToSend = dichotomy.reduce((prev, current) => prev + current, ''); 
 
     };
+
+    const getSubscriberName = (name) => {
+        console.log(name);
+        if(validateName(name)) {
+            setErrors((prevErrors) => {
+                return {
+                    ...prevErrors,
+                    ['name'] : false
+                }
+            });
+            setSubscriberData((prevSubscriberData) => {
+                const newSubscriberData = {
+                    ...prevSubscriberData,
+                    ['name']: name
+                }
+                return newSubscriberData;
+            });
+        } else {
+            setErrors((prevErrors) => {
+                return {
+                    ...prevErrors,
+                    ['name'] : true
+                }
+            });
+        }
+    }
 
     const sendEmail = () => {
 
@@ -447,13 +335,83 @@ function QuizRender() {
 
     };
 
+    const validateEmail = (email) => {
+
+        // Test for the minimum length the email can be
+        if (email.trim().length < 6) {
+            return false;
+        }
+    
+        // Test for an @ character after the first position
+        if (email.indexOf('@', 1) < 0) {
+            return false;
+        }
+    
+        // Split out the local and domain parts
+        const parts = email.split('@', 2);
+    
+        // LOCAL PART
+        // Test for invalid characters
+        if (!parts[0].match(/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~\.-]+$/)) {
+            return false;
+        }
+    
+        // DOMAIN PART
+        // Test for sequences of periods
+        if (parts[1].match(/\.{2,}/)) {
+            return false;
+        }
+    
+        const domain = parts[1];
+        // Split the domain into subs
+        const subs = domain.split('.');
+        if (subs.length < 2) {
+            return false;
+        }
+    
+        const subsLen = subs.length;
+        for (let i = 0; i < subsLen; i++) {
+            // Test for invalid characters
+            if (!subs[i].match(/^[a-z0-9-]+$/i)) {
+                return false;
+            }
+        }
+    
+        return true;
+    };
+
+    const validateName = (name) => {
+        // Trim the input to remove extra spaces
+        const trimmedName = name.trim();
+    
+        // Check if the length is less than 2
+        if (trimmedName.length < 2) {
+            return false;
+        }
+    
+        // Regular expression to allow only letters, spaces, hyphens, and apostrophes
+        const nameRegex = /^[a-zA-ZĄČĘĖĮŠŲŪŽąčęėįšųūž\s'-]+$/;
+    
+        // Validate against the regular expression
+        if (!nameRegex.test(trimmedName)) {
+            return false;
+        }
+    
+        // Check for potential script injection (disallowing `<`, `>`, and `&`)
+        if (/[\<\>\/\\\&]/.test(trimmedName)) {
+            return false;
+        }
+    
+        return true;  // If all checks pass, the name is valid
+    }
+
 
     return (
         
         <>
 
             {quizData[currentQuestion] && quizData[currentQuestion].answers.map((answer, answerIndex) => (
-                <div className={`variant ${currentVariant !== answerIndex ? 'inactive' : 'active'}`} id={`variant-${answer.letter}`}>
+                <div className={`variant ${currentVariant === answerIndex ? 'active' : 'inactive'}`} id={`variant-${answer.letter}`} key={`variant-${answer.letter}`}>
                 <p style={{ textAlign: 'center' }} data-dichotomy={answer.letter}>
                     {answer.text}
                 </p>
@@ -487,129 +445,109 @@ function QuizRender() {
                 {tieBreak.length > 0 && tieBreak.map((q, index) => {
                     
                 return (
-                    <div id="tie-break" key={index} className='variant active'>
-                    <p>{tieBreakerQuestions[q].question}</p>
-                    
-                    {tieBreakerQuestions[q].answers.map((a, idx) => (
-                        <div class="tie-break-control">
-                            <input 
-                            type="radio" 
-                            name={`radio-${q}`} 
-                            id={`radio-${q}-${a.letter}`}
-                            value={a.letter}
-                            onChange={() => tieBreakChange(q, a.letter)}
-                            /> 
-                            <label className="tie-break-lbl" key={idx} htmlFor={`radio-${q}-${a.letter}`} >{a.text}</label>
+                    <div id="tie-break" key={index}>
+                        <div className={`variant ${currentTieBreakQuestion !== index ? 'inactive' : 'active'}`}>
+                            <p>{tieBreakerQuestions[q].question}</p>
+                            {tieBreakerQuestions[q].answers.map((a, idx) => (
+                                <div className='tie-break-control'>
+                                    <input 
+                                    type="radio" 
+                                    name={`radio-${q}`} 
+                                    id={`radio-${q}-${a.letter}`}
+                                    value={a.letter}
+                                    onChange={() => tieBreakChange(q, a.letter)}
+                                    /> 
+                                    <label className="tie-break-lbl" key={idx} htmlFor={`radio-${q}-${a.letter}`} >{a.text}</label>
+                                </div>
+                                
+                            ))}
                         </div>
-                        
-                ))}
                     </div>
                 );
                 })}
 
                 {showResultContainer && 
-                    <div>
+                <>
+                    <div className='result-container'>
                         rezultatas {dichotomy}
+                        <div className='productivity-type'>
+                            <h2>Tavo produktyvumo tipas: {quizAnswer[type]["name"]}</h2>
+                            <p>{quizAnswer[type]["oneLiner"]}</p>
+                            {quizAnswer[type]["description"].map((p) => { return <p>{p}</p> })}
+                            <h3>Tavo stiprybės:</h3>
+                            <ul>
+                                {quizAnswer[type]["strength"].map((p) => { return <li>{p}</li> })}
+                            </ul>
+                            <h3>Tavo silpnybės:</h3>
+                            <ul>
+                                {quizAnswer[type]["weakness"].map((p) => { return <li>{p}</li> })}
+                            </ul>
+
+                            <h3>Į ką atkreipti dėmesį:</h3>
+
+                        </div>
+                        <div className='productivity-overlay'></div>
                     </div>
-
+                    <div className='contact-form'>
+                        <input
+                            type="text"
+                            id="subscribe-name"
+                            onChange={(event) => getSubscriberName(event.target.value)}
+                            defaultValue="vardas"
+                            className={`${errors.name ? 'error' : ''}`}
+                        />
+                        <span className={`error ${errors.name ? '' : 'hidden'}`}>nurodykite savo vardą</span>
+                        <input
+                            type="email"
+                            id="subscribe-email"
+                            onChange={(event) => getSubscriberEmail(event.target.value)}
+                        />
+                        <div className="checkbox-container">
+                            <input 
+                            type="checkbox" 
+                            id="subscribe" 
+                            checked={isChecked}
+                            onChange={checkHandler}
+                            ></input>
+                            <label for="subscribe">sutinku prenumeruoti 12GM naujienlaiškį</label>
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        id="send-email-button"
+                        className={`send-email-button ${false ? '' : ''}`}
+                        onClick={sendEmail}
+                        disabled={isButtonDisabled}
+                    >
+                        noriu gauti išsamią ataskaitą!
+                    </button>
+                </>
                 }
-            
+
+                {!showResultContainer &&
+                <>
+                <div className="progress-bar-container"><progress max={quizData.length + tieBreak.length} value={currentQuestion + currentTieBreakQuestion}></progress></div>
+                
+                    <button
+                        type="button"
+                        id="next-question-button"
+                        className={`next-question-button ${Object.values(questionsAnswered).find((answer) => answer === 0) === undefined ? 'variant active' : ''} ${!quizData[currentQuestion] || Object.values(questionsAnswered).find((answer) => answer === 0) !== undefined ? 'hidden' : ''}`}
+                        onClick={handleNextQuestion}
+                    >
+                        Toliau {currentQuestion / quizData.length}%
+                    </button>
+                    <button
+                        type="button"
+                        id="show-answer-button"
+                        className={`show-answer-button ${!quizData[currentQuestion] && Object.values(dichotomy).find((letter) => letter === '') === undefined ? '' : 'hidden'} ${Object.values(dichotomy).find((letter) => letter === '') === undefined ? 'variant active' : ''}`}
+                        onClick={showResult}
+                    >rodyti rezultatą
+                    </button>
+                </>
+                }
 
 
-            <button
-                type="button"
-                id="next-question-button"
-                className={`next-question-button ${quizData[currentQuestion] && currentVariant + 1 >= quizData[currentQuestion].answers.length ? '' : 'hidden'}`}
-                onClick={handleNextQuestion}
-            >
-                Next Question
-            </button>
-            <button
-                type="button"
-                id="show-answer-button"
-                className={`show-answer-button ${!quizData[currentQuestion] ? '' : 'hidden'}`}
-                onClick={showResult}
-            >
-                show answer
-            </button>
-            <button
-                type="button"
-                id="send-email-button"
-                className={`send-email-button ${false ? '' : 'hidden'}`}
-                onClick={sendEmail}
-            >
-                send email
-            </button>
+
         </>
     );
 };
-
-
-
-
-const question = `<div class="qa">
-                    <div class="question-container">
-                        <h1 class="question">klausimo tekstas</h1>
-                    </div>
-
-                        <div class="variant" id="variant-<?php echo esc_attr($letter); ?>">
-                            <p style="text-align: center;" data-dichotomy="<?php echo esc_attr($letter); ?>">
-                                <?php echo esc_html($text); ?>
-                            </p>
-                            <div class="choice-slider">
-                                <?php
-                                foreach ($points as $i => $value) {
-                                    $i += 1; // Increment for unique input id
-                                ?>
-                                    <input type="radio" class="choice-input" name="points-<?php echo esc_attr($key); ?>" id="points-<?php echo esc_attr($key); ?>-<?php echo esc_attr($i); ?>" value="<?php echo esc_attr($i); ?>" required>
-                                    <label for="points-<?php echo esc_attr($key); ?>-<?php echo esc_attr($i); ?>" class="choice-label" data-points="<?php echo esc_attr($value); ?>"></label>
-                                <?php } ?>
-                                <div class="points-pos" id="points-pos-<?php echo esc_attr($key); ?>"></div>
-                            </div>
-                        </div>
-                    <?php } ?>
-                    <button type="button" class="next-question-button" style="display:none;">Next Question</button>
-                    </div>`;
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     const allQuestions = document.querySelectorAll('.qa');
-//     let currentQuestionIndex = 0;
-//     let currentVariantIndex = 0;
-
-
-
-//     // Enable scrolling through variants
-//     document.querySelectorAll('.choice-input').forEach((input, index) => {
-//         input.addEventListener('click', function () {
-//             currentVariantIndex++;
-//             // Check if it is the last variant in the current question
-//             if (currentVariantIndex < currentVariants.length) {
-//                 // Scroll to the next variant
-//                 currentVariants[currentVariantIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-//             } else {
-//                 // Enable the "Next Question" button
-//                 const nextButton = allQuestions[currentQuestionIndex].querySelector('.next-question-button');
-//                 nextButton.style.display = 'inline-block';
-//                 nextButton.addEventListener('click', function () {
-//                     // Hide current question
-//                     allQuestions[currentQuestionIndex].classList.remove('qa-active');
-//                     allQuestions[currentQuestionIndex].classList.add('qa-hidden');
-                    
-//                     // Show next question
-//                     currentQuestionIndex++;
-//                     if (currentQuestionIndex < allQuestions.length) {
-//                         allQuestions[currentQuestionIndex].classList.remove('qa-hidden');
-//                         allQuestions[currentQuestionIndex].classList.add('qa-active');
-//                         currentVariantIndex = 0; // Reset variant index for the new question
-//                         const nextVariants = allQuestions[currentQuestionIndex].querySelectorAll('.variant');
-//                         nextVariants[currentVariantIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-//                     } else {
-//                         // If no more questions, show submit button
-//                         document.querySelector('.submit-button').style.display = 'inline-block';
-//                     }
-//                 });
-//             }
-//         });
-//     });
-// });

@@ -1,0 +1,69 @@
+{
+    "name": "Delfinas",
+    "oneLiner": "Entuziastingas idėjų generatorius, kuriam reikia nuolatinės kūrybinės laisvės – ir kavos... DAUUUG kavos.",
+    "strength": [
+        "Kūrybiškumas ir entuziazmas – tavo energija ir kūrybiškumas leidžia lengvai generuoti naujas idėjas ir sprendimus.",
+        "Lankstumas – gebi puikiai prisitaikyti ir lengvai atsiveri naujoms galimybėms, priimi pokyčius ir spontaniškumą.",
+        "Empatija ir bendravimas – lengvai supranti kitų požiūrį ir gebi kurti pozityvią, bendradarbiaujančią kultūrą."
+    ],
+    "weakness": [
+        "Per greitas įsipareigojimas – dažnai viskam sakai taip ir dėl to imiesi per daug projektų. Taip vis daugėja neužbaigtų užduočių ir gali atvesti net iki perdegimo.",
+        "Gebėjimo susikaupti stoka – tau gali būti sunku išlaikyti dėmesį ilgesnį laiką ir pabaigti pradėtus projektus prieš imantis naujų.",
+        "Prokrastinacija – atidėlioji užduotis, kurios tau atrodo neįdomios, o tai gali lemti neorganizuotumą ir stresą."
+    ],
+    "focus": [
+        "Susikurk sistemą, kuri padės prioritetizuoti projektus ir laikytis įsipareigojimų, o darbus daryti po vieną vienu metu.",
+        "Ribok vienu metu įgyvendinamų projektų skaičių, kad išvengtum per didelio krūvio.",
+        "Susikurk rutiną, kuri padėtų lengviau įveikti tau mažiau įdomias užduotis ir išlaikyti bendrą produktyvumą."
+    ],
+    "avoid": [
+        "Venk imtis užduočių gerai jų neapgalvojus ir neįvertinus – tai gali atvesti į perdegimą.",
+        "Naujų idėjų be plano, kaip sėkmingai įgyvendinti ir užbaigti jau pradėtas.",
+        "Važiuoti vien ant įkvėpimo – tavo idėjoms įgyvendinti reikia ir tiesiog nuoseklaus darbo, net kai pirminis entuziazmas jau išgaravęs."
+    ],
+    "help": [
+        "Laisvė tyrinėti idėjas, bendradarbiaujanti aplinka ir kūrybiniai projektai.",
+        "Įrankiai idėjoms organizuoti ir keliems projektams valdyti vienu metu, pvz., vizualinės lentos ar skaitmeniniai planuokliai.",
+        "Laiko blokavimo technikos, leidžiančios skirti tam tikrą laiką konkretiems užduočių ar projektų etapams."
+    ],
+    "disturb": [
+        "Griežti tvarkaraščiai, pasikartojančios užduotys ir ribotos galimybės kūrybai.",
+        "Situacijos, reikalaujančios dėmesio detalėms arba ilgalaikių įsipareigojimų be įvairovės.",
+        "Aplinka, kurioje trūksta įkvėpimo, socialinių sąveikų ar tyrinėjimo galimybių."
+    ],
+    "challenge": [
+        "Per didelis įsipareigojimas – kaip pažaboti savo entuziazmą lengvai įsitraukti į daugelį naujų idėjų, kad nepatirtum perdegimo ir turėtum laiko bei energijos užbaigti pradėtiems darbams.",
+        "Sunku susikoncentruoti – kaip užbaigti pradėtus projektus, kai dėmesys natūraliai krypsta į naujas idėjas.",
+        "Sunku išlaikyti tęstinumą – kaip užtikrinti, kad pradinio susidomėjimo sumažėjimas neskatintų mesti projektų ar idėjų, jų neužbaigus."
+    ],
+    "excercise": {
+        "Prioritetai": [
+            "Sudaryk visų dabartinių tavo projektų ir idėjų sąrašą. Kiekvieną įvertink balais nuo 1 iki 5 pagal poveikį (tavo tikslams, vertybėms), įgyvendinamumą ir asmeninį suinteresuotumą. Pasirink tris svarbiausius projektus, kuriems sutelksi dėmesį per artimiausias dvi savaites, o kitus atidėk į šalį. Po dviejų savaičių peržiūrėk sąrašą ir vėl perėliok prioritetus.",
+            "Tikslas: stiprinti dėmesio sutelkimo įgūdį ir valdyti didelį įsipareigojimų (darbų) kiekį, identifikuojant ir susitelkiant į svarbiausius projektus.",
+            "Kodėl tai veikia: šis pratimas padeda objektyviai įvertinti savo įsipareigojimus ir susitelkti į mažiau, bet svarbesnių projektų, taip sumažinant perdegimo riziką ir skatinant veikti nepaisant įkvėpimo bangavimo."
+        ],
+        "Be trukdžių": [
+            "Pasirink vieną užduotį ar projektą, prie kurio dirbsi 25 minutes naudojant „Pomodoro“ techniką. Išjunk pranešimus ir paslėpk visus trukdžius (pvz., telefoną, nereikalingus naršyklės skirtukus). Po 25 minučių daryk 5 minučių pertrauką ir tą patį procesą pakartok dar du kartus. Sek, kiek padarei per šiuos tris sprintus. Svarbu: po 25 minučių būtinai atsitrauk pailsėti, net jei ir užsidegei „varyti“, o per poilsiui skirtas 5 minutes pasirink tavo emocinei ir fizinei būklei palankias veiklas.",
+            "Tikslas: didinti produktyvumą, dirbant trumpais, bet intensyviais periodais be pertraukų – ir stiprinti atsparumą įvairioms distrakcijoms.",
+            "Kodėl tai veikia: ši užduotis padeda išlaikyti dėmesį ties viena užduotimi, vengiant įprastų trukdžių, ir suteikia greito pasitenkinimo jausmą."
+        ],
+        "Atsikratyk balasto": [
+            "Kiekvienos savaitės pabaigoje peržiūrėk savo įsipareigojimus (ypač jeigu per savaitę atsirado naujų) ir identifikuok vieną, kurį galėtum deleguoti, atidėti ar visai atsisakyti. Sutaupytą laiką kitą savaitę naudok jau pradėtam, bet neužbaigtam projektui įgyvendinti.",
+            "Tikslas: palaipsniui mažinti per didelį įsipareigojimų skaičių ir pratintis sutelkti dėmesį į jau pradėtų projektų užbaigimą.",
+            "Kodėl tai veikia: ši užduotis skatina reguliariai peržiūrėti savo darbo krūvį ir ugdo ieškoti būdų, kaip atlaisvinti laiką bei erdvę, kad galėtum sutelkti dėmesį į pradėtų darbų užbaigimą."
+        ]
+    },
+    "advice": [
+        "Kas savaitę skirk laiko peržiūrėti savo prioritetus ir projektų eigą – tai padės tau likti pasirinktoje kryptyje (mažiau blaškytis tapr skirtingų idėjų) ir išvengti perdegimo.",
+        "Praktikuok riboti prisiimtų užduočių skaičių, kad galėtum geriau valdytum savo laiką ir lengviau koncentruotum savo dėmesį į tai, kas išties svarbu.",
+        "Naudok kūrybiškus planavimo įrankius, kad planavimas būtų įdomesnis."
+    ],
+    "description": [
+        "Tu esi tikras gyvybingumo ir kūrybiškumo šaltinis – žmogus, kuris į bet kokią erdvę įneša energijos, įkvėpimo ir naujovių. Tavo entuziazmas tyrinėti naujas idėjas ir galimybes padaro tave tikra:u inovatore:iumi, nuolat siekiančia:iu surasti naujus sprendimus ir būdus, kaip įkvėpti kitus. Bendradarbiavimas ir naujų galimybių ieškojimas – tai tavo tikrasis polėkis, ir tavo energija užkrečia aplinkinius, skatindama juos veikti drąsiau.",
+        "Vis dėlto, tavo neišsenkantis entuziazmas kartais gali tapti kliūtimi. Esi žmogus, kuris mėgsta viską išbandyti, todėl gali būti sunku susitelkti ties vienu prioritetu ar užbaigti pradėtus projektus. Tavo kūrybinė dvasia trokšta laisvės, bet kartais būtent ji gali tapti kliūtimi, kai reikia laikytis nuoseklaus plano.",
+        "Mano patarimas: išmok derinti savo norą tyrinėti su šiek tiek aiškesnės struktūros kūrimu. Nusistatyk kelis aiškius tikslus ir leisk sau lanksčiai veikti, tačiau nepamiršk išlaikyti ryšį su realybe. Net ir minimalus planavimas gali padėti paversti tavo gausybę idėjų realiais, apčiuopiamais rezultatais. Kai rasi balansą tarp kūrybinės laisvės ir praktiškų veiksmų, tavo inovatyvios idėjos taps ne tik įkvepiančiomis, bet ir įgyvendinamomis – ir tai bus tavo tikrasis indėlis į pasaulį."
+    ],
+    "shortDescription": [
+        "Tu esi žmogus, kuris tiesiog spinduliuoja energiją, idėjas ir norą tyrinėti įvairias sritis. Tau patinka spontaniškumas ir kūryba, o aplinka, kurioje gali laisvai išreikšti save, tau yra gyvybiškai būtina. Mėgsti dirbti su kitais ir kurti pozityvią energiją komandoje. Tačiau kartais per didelis užsidegimas gali lemti pernelyg daug pradėtų, bet nebaigtų projektų arba atidėliojimą, kai užduotys tampa per daug nuobodžios."
+    ]
+}
