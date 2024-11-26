@@ -32,7 +32,7 @@ add_action( 'init', 'sv_custom_blocks_sv_custom_blocks_block_init' );
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
 
 function sv_localize_block_scripts() {
-    wp_localize_script('sv-custom-blocks-planner-personality-quiz-script', 'sv_ajax_object', array(
+    wp_localize_script('sv-custom-blocks-planner-personality-quiz-view-script', 'sv_ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
         'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
     ));

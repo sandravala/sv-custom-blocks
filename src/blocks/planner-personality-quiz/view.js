@@ -50,17 +50,6 @@ function QuizRender() {
                     // { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais žmonėmis (komandos nariais ir pan.).', letter: 'E' },
                     { text: 'Mane dirbti labiausiai motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
                 ]
-            },
-            {
-                question: '',
-                answers: [
-                    { text: 'Geriausia dieną pradėti peržiūrėjus darbų sąrašą ir detaliai suplanavus darbotvarkę.', letter: 'J' },
-                    { text: 'Nenumatyti pasikeitimai planuose - teigiamas dalykas, nes suteikia galimybę patyrinėti naujas kryptis ir galimybes.', letter: 'N' },
-                    { text: 'Kilus problemai darbe, svarbu atsižvelgti  į komandos narių poreikius ir siekti sprendimo, kuris būtų priimtinas visiems.', letter: 'F' },
-                    // { text: 'Vertinu galimybę dirbti vienumoje ir apgalvoti sprendimus ramioje aplinkoje.', letter: 'I' },
-                    // { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais žmonėmis (komandos nariais ir pan.).', letter: 'E' },
-                    { text: 'Mane dirbti labiausiai motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
-                ]
             }
         ];
 
@@ -69,6 +58,9 @@ function QuizRender() {
    
     const [quizAnswer, setQuizAnswer] = useState(answer);
     
+    const imgFolder = require.context('./assets/img/', true, /\.(png|jpe?g|webp|svg)$/);
+    const [typeImg, setTypeImg] = useState(null);
+    const [typeMeme, setTypeMeme] = useState(null);
     const points = [
         "100% ne aš",
         "Nepanašu į mane",
@@ -271,8 +263,15 @@ function QuizRender() {
 
     const showResult = () => {
         //show partial result
-        setType(dichotomy.reduce((prev, current) => prev + current, ''));
+        const typeString = dichotomy.reduce((prev, current) => prev + current, '');
 
+        const imgPath = imgFolder(`./type-img/${typeString.toLowerCase()}.webp`);
+        const imgUrl = typeof imgPath === 'object' ? imgPath.default : imgPath; // Ensure it's a string URL
+        const memePath = imgFolder(`./type-meme/${typeString.toLowerCase()}_meme.webp`);
+        const memeUrl = typeof memePath === 'object' ? memePath.default : memePath; // Ensure it's a string URL
+        setTypeImg(imgUrl);
+        setTypeMeme(memeUrl);
+        setType(typeString);
         setTieBreak([]);
         setShowResultContainer(!showResultContainer);
         const dichotomyToSend = dichotomy.reduce((prev, current) => prev + current, ''); 
@@ -305,33 +304,62 @@ function QuizRender() {
         }
     }
 
+    const getSubscriberEmail = (email) => {
+        
+        if(validateEmail(email)) {
+            setErrors((prevErrors) => {
+                return {
+                    ...prevErrors,
+                    ['email'] : false
+                }
+            });
+            setSubscriberData((prevSubscriberData) => {
+                const newSubscriberData = {
+                    ...prevSubscriberData,
+                    ['email']: email
+                }
+                return newSubscriberData;
+            });
+        } else {
+            setErrors((prevErrors) => {
+                return {
+                    ...prevErrors,
+                    ['email'] : true
+                }
+            });
+        }
+    }
+
     const sendEmail = () => {
 
-        const dichotomyToSend = dichotomy.reduce((prev, current) => prev + current, ''); 
+        const dichotomyToSend = type.toLowerCase(); 
 
-        // jQuery(document).ready(function ($) {
+
+        jQuery(document).ready(function ($) {
                    
-        //         $.ajax({
-        //             url: sv_ajax_object.ajax_url, // AJAX URL passed from PHP
-        //             type: 'POST',
-        //             data: {
-        //                 action: 'sv_handle_ajax_request', // Action name
-        //                 nonce: sv_ajax_object.nonce,     // Nonce for security
-        //                 data: dichotomyToSend,                // Data to send
-        //             },
-        //             success: function (response) {
-        //                 if (response.success) {
-        //                     $('#ajax-response').text('Response: ' + response.data.response); // Show the response
-        //                 } else {
-        //                     $('#ajax-response').text('Error: ' + response.data);
-        //                 }
-        //             },
-        //             error: function () {
-        //                 $('#ajax-response').text('An error occurred.');
-        //             },
-        //         });
-        //     ;
-        // });
+                $.ajax({
+                    url: sv_ajax_object.ajax_url, // AJAX URL passed from PHP
+                    type: 'POST',
+                    data: {
+                        action: 'send_personality_type_by_email', // Action name
+                        nonce: sv_ajax_object.nonce,     // Nonce for security
+                        data: {type: dichotomyToSend, email: subscriberData.email, name: subscriberData.name}               // Data to send
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            console.log('Response: ');
+                            console.log(response.data.message); // Show the response
+                        } else {
+                            console.log('Error: ');
+                            console.log(response.data);
+                        }
+                    },
+                    error: function () {
+                        console.log('An error occurred.');
+                    },
+                });
+            ;
+        });
 
     };
 
@@ -469,15 +497,17 @@ function QuizRender() {
                 {showResultContainer && 
                 <>
                     <div className='result-container'>
-                        rezultatas {dichotomy}
                         <div className='productivity-type'>
-                            <h2>Tavo produktyvumo tipas: {quizAnswer[type]["name"]}</h2>
-                            <p>{quizAnswer[type]["oneLiner"]}</p>
+                        <h2 className='type-name-general'>Tavo produktyvumo tipas:</h2>
+                        <h2 className='type-name-name'><strong>{quizAnswer[type]["name"]}</strong></h2>
+                            <p className='type-one-liner'>{quizAnswer[type]["oneLiner"]}</p>
+                            <img className='type-img' src={typeImg}></img>
                             {quizAnswer[type]["description"].map((p) => { return <p>{p}</p> })}
                             <h3>Tavo stiprybės:</h3>
                             <ul>
                                 {quizAnswer[type]["strength"].map((p) => { return <li>{p}</li> })}
                             </ul>
+                            <img className='type-meme' src={typeMeme}></img>
                             <h3>Tavo silpnybės:</h3>
                             <ul>
                                 {quizAnswer[type]["weakness"].map((p) => { return <li>{p}</li> })}
@@ -501,7 +531,10 @@ function QuizRender() {
                             type="email"
                             id="subscribe-email"
                             onChange={(event) => getSubscriberEmail(event.target.value)}
+                            defaultValue='el. paštas'
+                            className={`${errors.name ? 'error' : ''}`}
                         />
+                         <span className={`error ${errors.email ? '' : 'hidden'}`}>nurodykite savo el. paštą</span>
                         <div className="checkbox-container">
                             <input 
                             type="checkbox" 
@@ -545,9 +578,6 @@ function QuizRender() {
                     </button>
                 </>
                 }
-
-
-
         </>
     );
 };

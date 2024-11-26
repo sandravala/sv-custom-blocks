@@ -43,6 +43,18 @@ module.exports = {
                 test: /\.scss$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
             },
+            {
+                test: /\.(png|jpe?g|gif|webp|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'assets/img/[name].[ext]', // Customize the output path
+                            publicPath: '/wp-content/plugins/sv-custom-blocks/build/', // Public path for accessing images
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins: [

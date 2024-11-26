@@ -1,5 +1,7 @@
 <?php
 
+// wp_add_inline_script('sv-custom-blocks-planner-personality-quiz-view-script', 'const ppqData = ' . wp_json_encode(admin_url('admin-ajax.php')) . ';', 'before');
+
 $quiz = [
     [
         'question' => 'How do you typically start your workday?',

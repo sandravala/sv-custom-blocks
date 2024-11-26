@@ -472,3 +472,30 @@ div.contact-form input#subscribe-email.error {
     pointer-events: none;
 }
 
+img.type-img {
+	margin-bottom: 2em;
+}
+
+img.type-meme {
+	margin-bottom: 0em;
+}
+
+h2.type-name-general,
+h2.type-name-name {
+	color: #ff5d2b !important;
+    text-transform: uppercase;
+    font-size: 26px;
+    margin-top: 0;
+    text-align: center;
+}
+
+h2.type-name-name {
+	font-size: 34px;
+}
+
+p.type-one-liner {
+	color: #778db5;
+    font-style: italic;
+}
+
+

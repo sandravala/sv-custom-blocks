@@ -1,21 +1,21 @@
 {
     "ESTJ": {
         "name": "Liūtas",
-        "oneLiner": "Toks žmogus, kuris net savaitgalį suplanuos minučių tikslumu ir dar bandys sudrausminti tuos, kurie mėgins plaukti pasroviui.",
+        "oneLiner": "Žmogus, kuris net savaitgalį suplanuoja minučių tikslumu ir dar bando sudrausminti tuos, kurie nori plaukti pasroviui.",
         "strength": [
             "Gebėjimas tvarkingai planuoti – sugebi sudaryti detalius planus ir grafikus, taip užtikrinant, kad visi darbai būtų atlikti laiku.",
             "Efektyvus delegavimas – žinai, kam paskirti tam tikras užduotis, kad maksimaliai išnaudotum kiekvieno komandos nario stipriąsias savybes.",
-            "Patikimumas – jeigu pažadi, tai visi gali būti 100% tikri, kad atliksi tai, kas sutarta. Tavo projektai visada vyksta pagal planą ir visos užduotys yra užbaigiamos."
+            "Patikimumas – jeigu pažadi, tai visi gali būti 100% tikri, kad atliksi tai, kas sutarta. Tavo projektai visada vyksta pagal planą ir visos užduotys yra užbaigiamos laiku."
         ],
         "weakness": [
-            "Nelankstumas – kartais gali būti sunku prisitaikyti prie netikėtų pokyčių ar naujų metodų. Gali būti sunku perlipti įpročius ar nusistovėjusias rutinas – net ir tada, kai jos tau nepadeda.",
-            "Polinkis kontroliuoti – kartais gali būti sunku paleisti kontrolę. Todėl, nors ir gebant efektyviai deleguoti, kitiems patikėtų užduočių rezultatas gali nuvilti (mikrovadyba dar niekam nepadėjo užduotį atlikti geriau).",
-            "Pernelyg didelis dėmesys efektyvumui – gali skambėti keistai, bet ne visada svarbiausia – efektyvumas. Kartais svarbu suteikti erdvės kūrybiškumui ir paieškoti inovacijų, kurios ilguoju laikotarpiu padės pasiekti aukštesnį produktyvumo lygį. Kai pernelyg siekiama efektyvumo dabar, galimybė užsitikrinti produktyvumo augimą gali būti ir pražiūrėta."
+            "Nelankstumas – tau gali būti sunku prisitaikyti prie netikėtų pokyčių ar naujų metodų / darbo priemonių. Gali būti sunku pakeisti nusistovėjusius įpročius ar rutinas – net ir tada, kai aišku, kad jie / jos tau nepadeda.",
+            "Polinkis kontroliuoti – tau gali būti sunku paleisti kontrolę. Todėl, nors ir gebi efektyviai paskirstyti užduotis, kitiems patikėtų užduočių rezultatas gali nuvilti (mikrovadyba dar niekam nepadėjo užduotį atlikti geriau).",
+            "Pernelyg didelis dėmesys efektyvumui – gali skambėti keistai, bet ne visada svarbiausia – vien tik efektyvumas. Kartais svarbu suteikti erdvės kūrybiškumui ir paieškoti inovacijų, kurios ilguoju laikotarpiu padės pasiekti aukštesnį produktyvumo lygį. Kai pernelyg siekiama efektyvumo dabar, galimybė užsitikrinti produktyvumo augimą gali būti ir pražiūrėta."
         ],
         "description": [
             "Tu esi tikras produktyvumo pamatas – žmogus, kuriam tvarka ir planavimas yra natūralios savybės. Tavo organizuotumas ir patikimumas užtikrina, kad tikslai bus pasiekti laikantis aukščiausio kokybės standarto. Klesti ten, kur gali pritaikyti savo stiprius organizacinius įgūdžius ir praktišką mąstymą, siekiant apčiuopiamų rezultatų. Tavo gebėjimas planuoti, struktūruoti ir deleguoti užduotis leidžia užtikrintai judėti į priekį ir sukurti aiškią kryptį tiek sau, tiek kitiems.",
-            "Tačiau, siekiant dar aukštesnio produktyvumo, verta pagalvoti, kaip į savo sistemą įsileisti šiek tiek lankstumo ir kūrybiškumo. Būti atvirai:am naujoms idėjoms ir netradiciniams veikimo būdams nereiškia atsisakyti savo vertybių – tai reiškia jas sustiprinti ir dar labiau praturtinti. Kartais per didelis noras kontroliuoti gali tapti iššūkiu, kai aplinkybės keičiasi, o planai turi būti peržiūrėti.",
-            "Mano patarimas: išlaikyk savo natūralų efektyvumą, bet leisk sau retkarčiais eksperimentuoti ir atvirai priimti pokyčius. Integruodama:as lankstumą ir kūrybiškumą į savo struktūruotą požiūrį, sugebėsi ne tik efektyviai įgyvendinti savo tikslus, bet ir lengviau prisitaikyti prie netikėtų situacijų. Toks balansas padės tau dar labiau sužibėti ir išlikti nenugalima:u bet kokioje aplinkoje."
+            "Tačiau siekiant dar aukštesnio produktyvumo, verta pagalvoti, kaip į savo sistemą įsileisti bent šiek tiek lankstumo ir kūrybiškumo. Gali būti atvira:as naujoms idėjoms ir netradiciniams veikimo būdams, ir tai visiškai nereiškia, kad turi atsisakyti savo vertybių. Priešingai - atvirumas naujoms idėjoms turi potencialo sustiprinti tavo vertybinę sistemą ir dar labiau praturtinti. Pernelyg stiprus noras kontroliuoti gali tapti iššūkiu, kai aplinkybėms keičiantis būtina peržiūrėti ir koreguoti pirminius planus.",
+            "Mano patarimas: išlaikyk savo natūralų efektyvumą, bet leisk sau retkarčiais eksperimentuoti ir pratinkis atvirai priimti pokyčius. Integruodama:as lankstumą ir kūrybiškumą į savo struktūruotą požiūrį, sugebėsi ne tik efektyviai įgyvendinti savo tikslus, bet ir lengviau prisitaikyti prie netikėtų situacijų. Toks balansas padės tau dar labiau sužibėti ir išlikti nenugalima:u bet kokioje aplinkoje."
         ]
     },
     "ISTJ": {
