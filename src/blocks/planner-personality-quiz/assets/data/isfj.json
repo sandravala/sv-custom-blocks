@@ -1,15 +1,15 @@
 {
-    "name": "Vėžlys",
-    "oneLiner": "Žmogus, kuris niekada nepraleidžia svarbių detalių, nepamiršta niekieno gimtadienio ir visada turi ekstra pleistrų.",
+    "name": "vėžlys",
+    "oneLiner": "Ta:as, kuri:is niekada nepraleidžia svarbių detalių, nepamiršta gimtadienių ir visada turi ekstra pleistrų.",
     "strength": [
         "Kruopštumas ir patikimumas – atkreipi dėmesį į svarbias smulkmenas, kurias kiti galbūt praleistų. Taip užtikrini, kad užduotys būtų atliktos kokybiškai ir laiku.",
-        "Palaikanti prigimtis – mėgsti padėti kitiems ir kurti harmoniją, gali netgi peržengti savo galimybių ribas, kad padėtum kolegoms ar artimiesiems.",
+        "Palaikanti prigimtis – mėgsti padėti kitiems ir kurti harmoningus santykius. Kartais gali netgi peržengti savo galimybių ribas, kad padėtum kolegoms ar artimiesiems.",
         "Nuoseklumas – tau patinka rutina ir struktūra, kurios padeda užtikrinti stabilius rezultatus tavo darbe."
     ],
     "weakness": [
         "Pokyčių baimė – tau gali būti sunku prisitaikyti prie netikėtų pokyčių, kas sukelia stresą ir sumažina efektyvumą.",
         "Per didelis atsakomybės prisiėmimas – dažnai per daug rūpiniesi kitų gerove, prisiimi svetimas atsakomybes, todėl nuolat balansuoji ant išsekimo ribos.",
-        "Sunku nustatyti ribas – kartais tau sudėtinga pasakyti „ne“, o tai gali lemti, kad spėji padėti visiems, tačiau nepakanka laiko savoms reikmėms ar saviems tikslams."
+        "Sunku nustatyti ribas – kartais tau sudėtinga pasakyti „ne“, o tai gali lemti, kad spėji padėti visiems, tačiau pritrūksti laiko savoms reikmėms ar saviems tikslams."
     ],
     "focus": [
         "Nustatyk asmenines ribas ir praktikuok „ne“ sakymą, kad neperkrautum savęs atsakomybėmis.",
@@ -17,7 +17,7 @@
         "Praktikuok smulkių pokyčių įvedimą į savo kasdienybę, kad galėtum geriau prisitaikyti prie netikėtumų."
     ],
     "avoid": [
-        "Venk prisiimti per daug atsakomybių, kad neapsikrautum užduotimis kitų naudai, bet savo produktyvumo ir gerovės sąskaita.",
+        "Venk prisiimti per daug atsakomybių, kad neapsikrautum užduotimis kitų naudai (savo produktyvumo ir gerovės sąskaita).",
         "Stebėk, kad nepaskęstum rutinoje, kas gali trukdyti tavo lankstumui ir produktyvumui.",
         "Nepakišk po kilimu neišspręstų konfliktų, nes jie ilgainiui gali sutrikdyti harmoniją, kurios sieki."
     ],
@@ -28,11 +28,11 @@
     ],
     "disturb": [
         "Chaotiška aplinka, stabilumo trūkumas ir konfliktai, kurie sukelia stresą ir diskomfortą.",
-        "Greiti pokyčiai be užtektinai laiko prie jų priprasti ar aiškių nurodymų.",
-        "Aplinka, kurioje nevertinamas tavo darbas ir įnašas."
+        "Greiti pokyčiai be užtektinai laiko prie jų priprasti ar aiškių nurodymų, kaip elgtis toliau.",
+        "Komanda, kurioje nevertinamas tavo darbas ir indėlis."
     ],
     "challenge": [
-        "Pokyčiai – kaip prisitaikyti prie netikėtų pokyčių, kad kontrolės nepaimtų stresas.",
+        "Pokyčiai – kaip prisitaikyti prie netikėtų pokyčių, kad kontrolės neperimtų stresas.",
         "Įsipareigojimų kiekis – kaip prisiimti tiek atsakomybių, kiek jų realiai gali pavežti neperdegant.",
         "Ribų brėžimas – kaip išmokti mandagiai, bet tvirtai sakyti „ne“ viskam, kas viršija krūvį ar atitraukia nuo asmeninių tikslų."
     ],
@@ -48,7 +48,7 @@
             "Kodėl tai veikia: ši užduotis padeda praktikuoti asertyvumą, tam tikrą struktūrą priimant sprendimus, kada pasakyti „ne“ ir įtvirtinti nuostatą, kad tavo poreikiai gali būti svarbesni už kitų prašymus."
         ],
         "Ačiū SAU": [
-            "Kiekvienos dienos pabaigoje skirk 10 minučių refleksijai. Užrašyk tris dalykus, kuriuos pasiekei (įvykdei), du dalykus, už kuriuos esi dėkingas, ir vieną dalyką, kurį padarysi rytoj, kad palaikytum savo tikslus ar gerovę.",
+            "Kiekvienos dienos pabaigoje skirk 10 minučių refleksijai. Užrašyk tris dalykus, kuriuos pasiekei (įvykdei), du dalykus, už kuriuos esi dėkinga:as, ir vieną dalyką, kurį padarysi rytoj, kad palaikytum savo tikslus ar gerovę.",
             "Tikslas: ugdyti savivoką ir stiprinti pusiausvyrą tarp pagalbos kitiems ir rūpinimosi savimi.",
             "Kodėl tai veikia: ši užduotis padeda išlaikyti ryšį su savo tikslais ir gerove, skatindama sveiką balansą tarp pagalbos kitiems ir asmeninio produktyvumo."
         ]
@@ -60,10 +60,13 @@
     ],
     "description": [
         "Tu esi tikras komandos stuburas – žmogus, kuriuo visi gali pasikliauti, ypač kai reikia, kad darbai būtų atlikti tiksliai ir laiku. Tavo kruopštumas ir atsakomybės jausmas yra nepakeičiami – esi ta:as, kuri:is užtikrina, kad niekas neprasprūstų pro akis, ir kad kiekviena smulkmena būtų apgalvota. Tave džiugina rūpinimasis kitais ir pagalba komandai, o tavo atsidavimas ir dėmesys detalėms dažnai tampa sėkmės garantu net ir sudėtingiausiuose projektuose.",
-        "Vis dėlto, tavo siekis, kad viskas vyktų tobulai pagal planą, gali kartais tapti iššūkiu, ypač kai situacija pasikeičia ir reikia greitai prisitaikyti. Atmink, kad net ir geriausi planai kartais susiduria su netikėtais pokyčiais – tai neišvengiama. Vietoj to, kad leistum panikai perimti kontrolę, mokykis priimti pokyčius kaip naują galimybę, o ne kaip trukdį. Ir svarbiausia, nebijok prašyti pagalbos, kai to reikia – net stipriausi komandos nariai kartais turi remtis kitų palaikymu.",
+        "Vis dėlto, tavo siekis, kad viskas vyktų tobulai pagal planą, gali kartais tapti iššūkiu, ypač kai situacija pasikeičia ir reikia greitai prisitaikyti. Atmink, kad net ir geriausi planai kartais susiduria su netikėtais pokyčiais – tai neišvengiama. Vietoj to, kad leistum panikai perimti kontrolę, mokykis priimti pokyčius kaip naują galimybę, o ne kaip trukdį. Ir svarbiausia, nebijok prašyti pagalbos, kai to reikia – net stipriausi komandos nariai kartais turi atsiremti į kitus ir priimti palaikymą.",
         "Mano patarimas: išlaikyk savo metodišką ir atsakingą požiūrį, bet leisk sau būti lankstesne:iu. Priimk, kad ne visada viskas klostysis pagal planą, ir vertink tai kaip progą augti. Derindama:as savo kruopštumą su gebėjimu prisitaikyti prie pokyčių, sukursi aplinką, kurioje ne tik pati:s klestėsi, bet ir padėsi dirbantiems kartu judėti į priekį su užtikrintu pagrindu ir pasitikėjimu."
     ],
     "shortDescription": [
         "Tu esi ta:s, kuri:s nuolat pasirūpina, kad viskas vyktų sklandžiai ir laiku. Mėgsti stabilumą ir padedi kitiems pasiekti jų tikslus. Tavo stiprybės – kruopštumas ir patikimumas, kurie leidžia nuosekliai siekti rezultatų. Tačiau kartais gali kilti sunkumų, kai reikia prisitaikyti prie pokyčių arba kai prisiimi per daug atsakomybių, rūpindamasis kitų gerove labiau nei savo."
-    ]
+    ],
+    "link": "https://12gm.lt/produktas/kaip-sakyti-ne-darbe/",
+    "linkText": "Tavo kruopštumas ir atsakomybės jausmas leidžia tau būti patikima:u komandos nare:iu, tačiau dažnai jautiesi per daug apkrauta:as, nes sunku pasakyti „ne“? Gidas „Kaip sakyti NE darbe“ padės tau išmokti nustatyti ribas ir prioritetizuoti savo poreikius, išvengiant perdegimo ir išlaikant efektyvumą. Su šiuo gidu tu galėsi mandagiai ir tvirtai atsisakyti nereikalingų įsipareigojimų, sutelkiant dėmesį į tai, kas tau iš tikrųjų svarbu!"
+
 }

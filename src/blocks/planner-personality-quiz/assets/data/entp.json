@@ -1,25 +1,25 @@
 {
-    "name": "Varnas",
+    "name": "varnas",
     "oneLiner": "Idėjų fontanas, kuriam vienos idėjos niekada negana – visada reikia bent penkių!",
     "strength": [
         "Inovatyvus mąstymas – tu nuolat ieškai kūrybiškų sprendimų, dažnai siūlai naujas, netradicines idėjas.",
         "Lankstumas – greitai prisitaikai prie naujų situacijų ir lengvai keiti kryptį, kai atsiranda naujų galimybių.",
-        "Entuziazmas mokytis – pasižymi smalsumu ir trokšti nuolat mokytis, semtis naujų žinių ir patirčių."
+        "Motyvacija mokytis – pasižymi smalsumu ir trokšti nuolat mokytis, semtis naujų žinių ir patirčių."
     ],
     "weakness": [
-        "Nuoseklumo trūkumas – nors pradedi naujus projektus su entuziazmu, gali prarasti susidomėjimą dar prieš juos užbaigiant.",
+        "Nuoseklumo trūkumas – nors pradedi naujus projektus su dideliu įkvėpimu, gali prarasti susidomėjimą dar prieš juos užbaigiant.",
         "Sunku susitelkti į rutiną – mėgsti įvairovę ir naujoves, todėl nuobodžios ar pasikartojančios užduotys tau gali tapti iššūkiu.",
-        "Per didelis įsipareigojimų kiekis – dažnai imiesi per daug projektų vienu metu, todėl gali išbarstyti save ir realiai įgyvendinti mažumą jų."
+        "Per didelis įsipareigojimų kiekis – dažnai imiesi per daug projektų vienu metu, todėl gali išbarstyti save ir realiai užbaigti įgyvendinti tik vieną - kitą."
     ],
     "focus": [
-        "Skaidyk projektus ir grandiozines idėjas į mažus veiksmus, kad išlaikytum pagreitį ir neprarastum susidomėjimo.",
+        "Skaidyk projektus ir grandiozines idėjas į mažus greitai atliekamus veiksmus, kad išlaikytum pagreitį ir neprarastum susidomėjimo.",
         "Sukurk sistemą idėjų ir projektų prioritetizavimui, kad galėtum susitelkti į tuos, kurie turi didžiausią poveikį.",
         "Nustatyk sau aiškius terminus (ir juos viešai deklaruok), kad padėtum sau užbaigti tai, ką pradėjai. Net ir tada, kai motyvacija nuslops."
     ],
     "avoid": [
         "Venk per greitai pereiti prie naujų idėjų, nebaigus pradėtų projektų.",
         "Atsargiai vertink savo galimybes (geriausia – su tam tikru „rezervu“), kad neprisiimtum per daug įsipareigojimų vienu metu, nes tai gali nuvesti į perdegimą.",
-        "Nepamiršk skirti dėmesio ne tokioms didingoms kasdienėms užduotims, kurios vis dėl to būtinos tavo idėjų įgyvendinimui."
+        "Nepamiršk skirti dėmesio ne tokioms didingoms kasdienėms užduotims, kurios yra būtinos tavo unikalių idėjų įgyvendinimui."
     ],
     "help": [
         "Lanksti aplinka, leidžianti kurti ir eksperimentuoti be griežtų ribų.",
@@ -32,7 +32,7 @@
         "Užduotys be intelektualinio stimulo, kuriose lengva greitai prarasti susidomėjimą."
     ],
     "challenge": [
-        "Užbaigti tai, ką pradėjai – entuziazmas dėl naujų idėjų dažnai priblėsta nespėjus jų pilnai įgyvendinti.",
+        "Užbaigti tai, ką pradėjai – įkvėpimas kilus naujoms idėjoms dažnai priblėsta, dar nespėjus jų pilnai įgyvendinti.",
         "Svarbių detalių pražiūrėjimas – dėmesys didelėms idėjoms gali lemti, kad pamiršti esmines detales, kurios reikalingos projektui įgyvendinti ar užbaigti.",
         "Sunku nustatyti prioritetus – nuolatinis domėjimasis keliais dalykais vienu metu gali pastūmėti į per daug projektų vienu metu ir išsiblaškymą, persidirbimą, perdegimą."
     ],
@@ -59,11 +59,13 @@
         "Kiekvieną dieną skirk bent 30 minučių rutininėms užduotims – tai padės išlaikyti tvarką ir neprarasti ryšio su praktiniu projekto įgyvendinimu."
     ],
     "description": [
-        "Tu esi tikra idėjų kibirkštis – žmogus, kuris uždega kūrybingumą ir inovacijas visur, kur tik pasirodo. Tavo mintys – tai nesibaigianti galimybių ir naujų idėjų žaidimų aikštelė. Tave traukia dinamiška aplinka, kurioje gali laisvai mąstyti, eksperimentuoti ir tyrinėti naujus kelius. Esi ta:as, kuri:is geba pažadinti kūrybiškumą tiek savyje, tiek aplinkiniuose, ir tavo energija įkvepia visus siekti daugiau.",
-        "Vis dėlto, svarbu prisiminti, kad tikroji magija vyksta tada, kai ne tik gimsta idėjos, bet ir jos paverčiamos realybe. Tavo kūrybinis polėkis kartais gali nukreipti į per daug pradėtų, bet nebaigtų projektų, todėl truputis disciplinos gali būti tavo slaptasis ginklas. Net nedidelis planavimas ir struktūros įvedimas gali padėti užbaigti tai, ką pradėjai, ir paversti tavo vizijas į apčiuopiamus rezultatus.",
-        "Mano patarimas: išlaikyk savo neišsenkantį kūrybiškumą, bet leisk sau įsivesti ir šiek tiek tvarkos. Bendradarbiavimas su kitais padės subalansuoti tavo laisvą, žaismingą mąstymą su reikalinga struktūra. Kai sujungsi savo kūrybinę energiją su disciplina, tapsi nenugalima:u – tavo idėjos ne tik uždegs aplinkinius, bet ir taps realiais pokyčiais, kuriančiais tikrą poveikį pasauliui."
+        "Tu esi žmogus, kuris uždega kūrybingumą ir inovacijas visur, kur tik pasirodo. Tavo mintys – tai nesibaigianti galimybių ir naujų idėjų žaidimų aikštelė. Tave traukia dinamiška aplinka, kurioje gali laisvai mąstyti, eksperimentuoti ir tyrinėti naujus metodus. Esi ta:as, kuri:is geba pažadinti kūrybiškumą tiek savyje, tiek aplinkiniuose, o tavo energija įkvepia visus siekti daugiau.",
+        "Vis dėlto, svarbu prisiminti, kad tikroji magija įvyks tada, kai ne tik gims idėjos, bet ir pavyks jas paversti realybe. Tavo kūrybinis polėkis kartais gali atvesti į per daug pradėtų, bet nebaigtų projektų, todėl truputis disciplinos gali būti tavo slaptasis ginklas. Truputis dėmesio planavimui ir struktūros įvedimui gali padėti tau užbaigti tai, ką pradėjai, ir paversti tavo vizijas į apčiuopiamus rezultatus.",
+        "Mano patarimas: mėgaukis savo neišsenkančiu kūrybiškumu, bet leisk sau įsivesti ir šiek tiek tvarkos. Bendradarbiavimas su kitais padės subalansuoti tavo laisvą, žaismingą mąstymą su įgyvendinimui reikalinga struktūra. Kai sujungsi savo kūrybinę energiją su disciplina, tapsi nenugalima:u – tavo idėjos ne tik uždegs aplinkinius, bet ir taps realiais ir prasmingais pokyčiais."
     ],
     "shortDescription": [
         "Esi tas žmogus, kuris tiesiog verda nuo idėjų, nuolat ieškantis naujų galimybių ir sprendimų. Tau patinka iššūkiai ir kūrybiškumas, mėgsti laisvę eksperimentuoti ir veikti be griežtų ribų. Tačiau su visais šiais talentais ateina ir iššūkių – kartais prarandi susidomėjimą dar nepradėjus projektui artėti prie pabaigos, o rutininės užduotys gali pasirodyti pernelyg nuobodžios. Vis dėlto, su tinkama strategija gali ne tik sukurti įspūdingas naujas idėjas, bet ir paversti jas realybe."
-    ]
+    ],
+    "link": "https://12gm.lt/produktas/tikslu-planavimo-gidas/",
+    "linkText": "Tavo kūrybinė energija ir smalsumas nuolat gimdo naujas idėjas, tačiau jas paversti įgyvendintais rezultatais gali būti tikras iššūkis. Tikslų planavimo gidas padės tau struktūruoti savo idėjas, suskaidyti jas į mažus, valdomus žingsnius ir išlaikyti motyvaciją iki pat pabaigos. Įsigyk šį gidą ir leisk savo inovatyvioms idėjoms tapti realiais, apčiuopiamais pasiekimais!"
 }

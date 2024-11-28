@@ -1,6 +1,6 @@
 {
     "name": "pelėda",
-    "oneLiner": "Šachmatų meistras gyvenime, kuris visada planuoja tris žingsnius į priekį. Net tada, kai eina pasiimti kavos.",
+    "oneLiner": "Šachmatų meistrė:as, kuri:is visada planuoja tris žingsnius į priekį. Net tada, kai eina pasiimti kavos.",
     "strength": [
         "Strateginis mąstymas – puikiai planuoji ilgalaikius projektus, nustatai ambicingus siekius ir išsamiai numatai, kaip juos pasiekti.",
         "Analitinis problemų sprendimas – logika ir analitinis mąstymas yra tavo stiprybės, kurios padeda, kai reikia spręsti sudėtingus klausimus ir rasti efektyviausius sprendimus.",
@@ -9,7 +9,7 @@
     "weakness": [
         "Polinkis į perfekcionizmą – kartais per daug analizuoji ir lauki tobulo sprendimo, dėl ko gali vilkintis įgyvendinimas.",
         "Trumpalaikių užduočių ignoravimas – gali praleisti pro akis paprastas kasdienes užduotis, jei per daug susitelksi į ilgalaikius tikslus.",
-        "Sunku priimti kitų nuomonę – mėgsti dirbti savarankiškai ir gali vengti bendradarbiavimo, kas truputį susiaurins tavo mąstymą ir matymą."
+        "Sunku priimti kitų nuomonę – mėgsti dirbti savarankiškai ir gali vengti bendradarbiavimo, kas susiaurina tavo mąstymą ir matymą."
     ],
     "focus": [
         "Skaidyk ilgalaikius tikslus į mažesnius veiksmus, kad užtikrintum nuoseklią pažangą.",
@@ -28,7 +28,7 @@
     ],
     "disturb": [
         "Nuolatiniai trukdžiai, neorganizuota aplinka ir neaiškūs tikslai.",
-        "Pernelyg didelis dėmesys greitiems rezultatams arba intelektualinių stimulų trūkumas.",
+        "Pernelyg didelis dėmesys greitiems rezultatams arba intelektualinio stimulo trūkumas.",
         "Situacijos, kai reikia greitų sprendimų (bet neužtenka laiko analizei)."
     ],
     "challenge": [
@@ -65,5 +65,8 @@
     ],
     "shortDescription": [
         "Tu mėgsti grandiozinius planus, strategiją ir gebi aiškiai matyti ilgalaikius tikslus. Tavo stiprybė – gebėjimas mąstyti iš tolo ir numatyti ateitį, kruopščiai planuojant kiekvieną žingsnį. Vis dėlto, kartais gali delsti pradėti veikti, nes pernelyg susitelksi į tobulą strategiją, o kasdienės užduotys tau gali atrodyti kaip bereikšmės. Tinkamai sustrategavus ir sujungus savo stiprybes su priemonėmis „pridengti“ silpnybes, gali pasiekti aukštumų."
-    ]
+    ],
+    "link": "https://12gm.lt/produktas/tikslu-planavimo-gidas/",
+    "linkText": "Tavo strateginis mąstymas ir gebėjimas planuoti ilgalaikius tikslus yra tavo stiprybė, tačiau kartais iššūkiu tampa trumpalaikės užduotys ar greiti veiksmai. „Tikslų planavimo gidas“ padės tau suskaidyti ambicingas strategijas į mažus, lengvai įgyvendinamus žingsnius, užtikrinant nuoseklų progresą ir veiksmų balansą. Įsigyk šį gidą ir paversk savo ilgalaikes vizijas apčiuopiamais rezultatais, neprarandant nei aiškumo, nei efektyvumo!"
+
 }

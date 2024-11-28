@@ -1,8 +1,8 @@
 {
-    "name": "Bitė",
-    "oneLiner": "Metodiškas meistras, kuris niekada nepaklysta – nei miške, nei lentynoje su dokumentais. Dar daugiau – tu visada žinai, kur rasti kiekvieną dokumentą ar daiktą. Ne tik darbe, bet ir garaže, spintoje ar netgi telefone!",
+    "name": "bitė",
+    "oneLiner": "Metodiška:as meistrė:as, kuri:is niekada nepaklysta – nei miške, nei lentynoje su dokumentais. Dar daugiau – tu visada žinai, kur rasti kiekvieną dokumentą ar daiktą. Ne tik darbe, bet ir garaže, spintoje ar netgi telefone!",
     "strength": [
-        "Dėmesys detalėms – gebi itin kruopščiai planuoti ir vykdyti užduotis. Tai visiems garantuoja, kad tai, ko imsies, bus tikslu ir aišku.",
+        "Dėmesys detalėms – gebi itin kruopščiai planuoti ir vykdyti užduotis. Tai visiems garantuoja, kad tai, ko imsies, bus atlikta tiksliai ir aiškiai.",
         "Nuoseklumas – įprastai tu pasikliauni sistemingomis strategijomis ir užtikrini, kad darbai būtų atliekami laiku ir patikimai.",
         "Patikimumas – jei kažkam įsipareigojai, tai ir padarysi (kad ir kas nutiktų). Dirbant su tavimi, galima drąsiai pasitikėti, kad užduotys bus užbaigtos laiku."
     ],
@@ -59,11 +59,14 @@
         "Kai susiduri su neaiškumu, nebijok užduoti daugiau klausimų – tai padės sukurti aiškesnę užduočių eigą ir išvengti nusivylimo dėl nežinomybės."
     ],
     "description": [
-        "Tu esi patikimas žmogus, tikra komandos atrama, kuri užtikrina, kad viskas vyktų sklandžiai ir pagal planą. Tavo kruopštumas, dėmesys detalėms ir įsipareigojimas tvarkai bei sistemai yra tikri sėkmės garantai. Esi ta:as, kuris vertina nuoseklumą ir atsakomybę, todėl tiek darbe, tiek asmeniniame gyvenime sieki išlaikyti stabilumą ir aiškumą.",
-        "Vis dėlto, svarbu nepamiršti, kad šiandieniniame nuolat besikeičiančiame pasaulyje vien planų nepakanka. Kartais gyvenimas meta netikėtus iššūkius, ir būtent tada lankstumas tampa tavo didžiausia stiprybe. Tavo struktūruotas požiūris suteikia tvirtą pagrindą, tačiau leisk sau retkarčiais paleisti kontrolę ir priimti pokyčius kaip naujas galimybes. Tai nereiškia atsisakyti savo vertybių – tai reiškia prisitaikyti ir augti kartu su naujomis situacijomis.",
-        "Mano patarimas: toliau remkis savo metodiškumu ir atsakingumu, bet mokykis atvirai priimti pokyčius. Net ir nedideli prisitaikymai gali padėti tau įgyvendinti savo tikslus efektyviau, o kartu ir suteikti naujų perspektyvų. Balansas tarp struktūros ir lankstumo yra tavo raktas į ilgalaikę sėkmę. Kai gebėsi prisitaikyti prie netikėtumų ir taip pat neišsimušant iš vėžių išlaikyti savo sistemingą požiūrį, tapsi ne tik patikima:u, bet ir nenugalima:u."
+        "Tu esi patikimas žmogus, tikra komandos atrama, kuris užtikrina, kad viskas vyktų sklandžiai ir pagal planą. Tavo kruopštumas, dėmesys detalėms ir įsipareigojimas tvarkai bei sistemai yra tikri sėkmės garantai. Esi ta:as, kuris vertina nuoseklumą ir atsakomybę, todėl tiek darbe, tiek asmeniniame gyvenime sieki išlaikyti stabilumą ir aiškumą.",
+        "Vis dėlto, svarbu nepamiršti, kad šiandieniniame nuolat besikeičiančiame pasaulyje vien planų nepakanka. Kartais gyvenimas meta netikėtus iššūkius, ir būtent tada lankstumas tampa tavo didžiausia stiprybe. Tavo struktūruotas požiūris suteikia tvirtą pagrindą, tačiau leisk sau retkarčiais paleisti kontrolę ir priimti pokyčius kaip naujas galimybes. Tai nereiškia atsisakyti savo vertybių – tai reiškia prisitaikyti ir augti kartu su netikėtomis ar nepatogiomis situacijomis.",
+        "Mano patarimas: toliau remkis savo metodiškumu ir atsakingumu, bet mokykis atviriau priimti pokyčius. Net ir nedideli prisitaikymai gali padėti tau įgyvendinti savo tikslus efektyviau, o kartu ir suteikti naujų perspektyvų. Balansas tarp struktūros ir lankstumo yra tavo raktas į ilgalaikę sėkmę. Kai gebėsi prisitaikyti prie netikėtumų ir taip pat neišsimušant iš vėžių išlaikyti savo sistemingą požiūrį, tapsi ne tik patikima:u, bet ir nenugalima:u."
     ],
     "shortDescription": [
         "Tu puikiai susitvarkai su užduotimis, kuriose reikalingas dėmesys detalėms, nes dievini, kai viskas vyksta pagal aiškų planą. Tačiau, kad ir kaip šauniai tvarkytumeis, be iššūkių neasieini – kaip ir visi mes. Tau greičiausiai ne itin lengva prisitaikyti prie pokyčių, o kai užduotys tampa neaiškios, gali kilti nusivylimas ar net sumažėti produktyvumas."
-    ]
+    ],
+    "link": "https://12gm.lt/produktas/tikslu-planavimo-gidas/",
+    "linkText": "Tikslų planavimo gidas skirtas tau – žmogui, kuris vertina struktūrą, patikimumą ir užtikrintą progresą. Jis padės atrasti balansą tarp detalių valdymo ir lankstaus prisitaikymo prie netikėtumų, įkvėps suskaidyti užduotis į paprastus, aiškius žingsnius, kad užtikrintai judėtum link savo tikslų. Su šiuo gidu tavo stiprybės taps dar veiksmingesnės, o iššūkiai – įveikiami. Susikurk pagrindą ilgalaikei sėkmei!"
+
 }

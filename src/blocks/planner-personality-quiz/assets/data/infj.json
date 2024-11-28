@@ -1,6 +1,6 @@
 {
-    "name": "Vilkas",
-    "oneLiner": "Tas, kuris ne tik aiškiai mato kryptį, bet ir labai stengiasi, kad visa grupė nueitų ta kryptimi – net jei dėl to reikia aukoti savo laisvą savaitgalį. Mąstydamas apie kitų gerovę, gali suplanuoti pasaulio taiką, bet dažnai pamiršta suplanuoti laiką sau.",
+    "name": "vilkas",
+    "oneLiner": "Tas, kuris ne tik aiškiai mato viziją, bet ir labai stengiasi, kad visiems pavyktų sėkmingai nueiti to tikslo link – net jei dėl to reikia paaukoti savo poilsį. Gali suplanuoti pasaulio taiką, bet pernelyg dažnai pamiršta suplanuoti laiką sau.",
     "strength": [
         "Strateginis mąstymas – puikiai numatai ilgalaikius tikslus ir gebi sukurti aiškų planą, kaip juos pasiekti.",
         "Empatija ir įžvalga – gebi iš esmės suprasti skirtingus žmones, jų motyvus ir įvairias situacijas, todėl tavo planavimas apima tiek praktinius, tiek emocinius aspektus.",
@@ -8,7 +8,7 @@
     ],
     "weakness": [
         "Perfekcionizmas – kartais gali užstrigti analizėje ir atidėlioti veiksmus, laukdama:as tobulumo.",
-        "Trumpalaikių užduočių ignoravimas – dažnai susitelki į didelį paveikslą, todėl gali praleisti trumpalaikes užduotis, kurios neskamba taip didingai.",
+        "Trumpalaikių užduočių ignoravimas – dažnai susitelki į viziją ir platų paveikslą, todėl gali ignoruoti trumpalaikes užduotis, kurios neskamba taip didingai.",
         "Per didelis atsakomybės prisiėmimas – dažnai per daug rūpiniesi kitais, dėl ko gali perdegti ar prarasti asmeninį efektyvumą."
     ],
     "focus": [
@@ -60,10 +60,13 @@
     ],
     "description": [
         "Tu esi žmogus, kuris nuolat ieško gilesnės prasmės ir siekia ilgalaikių pokyčių. Tavo vizija visada nukreipta į priekį, bet tu nesi vien tik svajotoja:s – kruopščiai planuoji, kaip pasiekti savo tikslus, neprarandant ryšio su vertybėmis. Esi ta:as, kuri:is mato ne tik galutinį rezultatą, bet ir visą kelią, vedantį į jį. Tavo gebėjimas įsigilinti į kitų poreikius leidžia kurti planus, kurie yra ne tik praktiški, bet ir jautriai atsižvelgia į emocinius aspektus bei poveikį aplinkiniams.",
-        "Tačiau būtent ši tavo aistra siekti tobulumo ir padėti kitiems gali kartais tave išvarginti. Tu nuolat stengiesi išlaikyti aukštus standartus ir neretai prisiimi per daug atsakomybės, siekdama:as užtikrinti, kad viskas vyktų kuo sklandžiau. Nors tavo atsidavimas yra nuostabus, prisimink, kad tai, kas padaryta yra geriau už, tai, kas tobula, bet taip ir liko popieriuje. Kartais svarbiausia yra tiesiog pradėti – padaryti pirmąjį žingsnį ir leisti procesui natūraliai vystytis.",
+        "Tačiau būtent ši tavo aistra siekti tobulumo ir padėti kitiems gali kartais tave išvarginti. Tu nuolat stengiesi išlaikyti aukštus standartus ir neretai prisiimi per daug atsakomybės, siekdama:as užtikrinti, kad viskas vyktų kuo sklandžiau. Nors tavo atsidavimas yra nuostabus, prisimink, kad tai, kas padaryta yra geriau už tai, kas tobula, bet taip ir liko popieriuje. Kartais svarbiausia yra tiesiog pradėti – padaryti pirmąjį žingsnį ir leisti procesui klostytis sava eiga.",
         "Mano patarimas: rūpinkis savimi taip pat, kaip rūpiniesi kitais. Leisk sau atsipalaiduoti ir priimti, kad ne viskas turi būti tobula. Suteik kitiems galimybę patiems prisiimti atsakomybę už jų veiksmus – taip ne tik apsaugosi savo energiją, bet ir suteiksi aplinkiniams galimybę augti. Kai išmoksi subalansuoti savo tobulumo siekį su savęs priėmimu, tavo įtaka taps dar stipresnė ir ilgalaikiškesnė, o įpratus veikti nelaukiant tobulumo – pasieksi labai daug."
     ],
     "shortDescription": [
         "Tu esi žmogus, kuris mąsto strategiškai ir visuomet mato didelį paveikslą, planuodamas ilgalaikius tikslus, kurie dera su tavo vertybėmis ir siekiu kurti prasmingus pokyčius. Tau svarbu ne tik praktiniai, bet ir emociniai veiksniai, todėl gebi efektyviai planuoti, atsižvelgdamas į žmones ir jų poreikius. Vis dėlto, dėl savo idealizmo ir perfekcionizmo gali kilti sunkumų, kai reikia pradėti veikti, be to, dažnai per daug rūpiniesi kitais, pamiršdama:as savo poreikius."
-    ]
+    ],
+    "link": "https://12gm.lt/produktas/tikslu-planavimo-gidas/",
+    "linkText": "Tavo strateginis mąstymas ir gebėjimas kurti prasmę suteikia tau ypatingą gebėjimą matyti tolimą viziją ir suplanuoti, kaip ją pasiekti. „Tikslų planavimo gidas“ padės tau ne tik suskaidyti dideles idėjas į mažus, kasdienius veiksmus, bet ir išlaikyti balansą tarp analizės ir veiksmų, kad neprarastum progreso laukiant tobulai tinkamo momento. Įsigyk gidą ir paversk savo planus ne tik įkvepiančiomis idėjomis, bet ir apčiuopiamais rezultatais!"
+
 }

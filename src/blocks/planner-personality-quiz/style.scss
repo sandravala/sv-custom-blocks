@@ -194,45 +194,58 @@ form {
 	font-family: inherit;
 	font-size: 1em;
 	font-weight: 600;
-	background: #fff;
-	color: #000;
-	border: 2px solid #000;
+	background: linear-gradient(0deg, rgb(140, 201, 197) 0%, rgb(171, 181, 214) 100%);
+	border-color: white;
+		color: #fff;
 	border-radius: 8px;
 	outline: 0;
 	user-select: none;
+	min-width: 50%;
 	cursor: pointer;
 	&.hidden {
 		display: none;
 	}
 	&:hover {
 		// transform: scale(1.1);
-		background: #000;
-		color: #fff;
+		background: linear-gradient(0deg, #e66465 0%, #9198e5 100%);
 		&:active {
 			transform: scale(0.9);
 		}
 	}
 	&:focus {
-		background: #4caf50;
-		border-color: #4caf50;
-		color: #fff;
-		// pointer-events: none;
-		&::before {
-			animation: spin 1s linear infinite;
-		}
-	}
-	&::before {
-		display: inline-block;
-		width: 0;
-		opacity: 0;
-		content: "\f3f4";
-		font-family: "Font Awesome 5 Pro";
-		font-weight: 900;
-		margin-right: 0;
-		transform: rotate(0deg);
+		background: linear-gradient(0deg, #e66465 0%, #9198e5 100%);
 	}
 }
 
+div.loader {
+/* HTML: <div class="loader"></div> */
+	width: 60px;
+    aspect-ratio: 10;
+    background: radial-gradient(circle closest-side, white 90%, rgba(0, 0, 0, 0)) 0 / 33.3333333333% 100% space;
+    clip-path: inset(0 100% 0 0);
+    animation: l1 1.5s steps(4) infinite;
+    margin-left: calc((100% - 60px) / 2);
+	margin-top: .3em;
+    margin-bottom: .3em;
+	&.hidden {
+		display: none;
+	}
+}
+
+@keyframes l1 {to{clip-path: inset(0 -34% 0 0)}}
+
+div.email-sent {
+	color: #ffffff;
+    padding: 20px;
+    background: linear-gradient(0deg, rgb(140, 201, 197) 0%, rgb(171, 181, 214) 100%);;
+    border-radius: 20px;
+	&.hidden {
+		display: none;
+	}
+	&.error {
+		color: red;
+	}
+}
 
 .planner-personality-type-quiz button[type='button']#next-question-button {
 	margin: 50px auto 0;
@@ -270,9 +283,6 @@ form {
 	scroll-margin-top: 60px;
 
 	.tie-break-control {
-		// font-family: system-ui, sans-serif;
-		// font-size: 2rem;
-		// font-weight: bold;
 		line-height: 1.1;
 		display: grid;
 		grid-template-columns: 1em auto;
@@ -375,14 +385,14 @@ div.progress-bar-container.hidden {
   }
 
   progress::-webkit-progress-value {
-    background-image: linear-gradient(to left, #e66465, #9198e5);; /* Inner bar color (green in this case) */
+    background-image: linear-gradient(to left, #e66465, #9198e5); /* Inner bar color (green in this case) */
     border-radius: 10px; /* Match the outer border radius */
     transition: width 0.3s ease; /* Smooth transition */
   }
 
   /* Firefox support */
   progress::-moz-progress-bar {
-    background-image: linear-gradient(to left, #e66465, #9198e5);; /* Inner bar color for Firefox */
+    background-image: linear-gradient(to left, #e66465, #9198e5); /* Inner bar color for Firefox */
     border-radius: 10px;
   }
 

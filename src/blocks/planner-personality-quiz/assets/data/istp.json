@@ -1,6 +1,6 @@
 {
-    "name": "Katė",
-    "oneLiner": "Kai viskas griūna ir kiti stresuoja \"ką daryti?!\", tu ramiai įžengi ir viską sutvarkai su šypsena, lyg tai būtų dar viena dienos pramoga.",
+    "name": "katė",
+    "oneLiner": "Kai viskas griūna ir kiti stresuoja \"ką daryti?!\", tu ramiai įžengi į įvykių epicentrą ir viską sutvarkai su šypsena, lyg tai būtų dar viena dienos pramoga.",
     "strength": [
         "Praktiškumas – puikiai randi veiksmingus sprendimus, kurie greitai sprendžia kilusias problemas.",
         "Lankstumas – greitai reaguoji į naujas situacijas ir gerai veiki dinamiškoje aplinkoje, kurioje reikia greitų sprendimų.",
@@ -33,7 +33,7 @@
     ],
     "challenge": [
         "Planavimas – kaip suderinti savo pomėgį veikti čia ir dabar ir ilgalaikį planavimą, kad išvengtum degančių paskutinės minutės užduočių ar nebaigtų projektų.",
-        "Prokrastinacija – kaip nevengti rutinos darbų, kad jiem pamažu nevirstų netvarka ir nekeltų bereikalingos painiavos.",
+        "Prokrastinacija – kaip nevengti rutinos darbų, kad jie pamažu nevirstų netvarka ir nekeltų bereikalingos painiavos.",
         "Platus matymas – kaip nepamesti ilgalaikių tikslų svarbos, kai susikoncentruoji į esamas problemas."
     ],
     "excercise": {
@@ -59,11 +59,14 @@
         "Kasdien dirbk po truputį su rutininėmis užduotimis – tai geriausias būdas išvengti perdegimo ir susikaupusių užduočių."
     ],
     "description": [
-        "Kartais apie tokius žmones kaip tu sakoma „tikras McGyveris“ – nesvarbu, kokia situacija ištinka, tu gebi sugalvoti sprendimą vietoje. Esi ta:s, kuri:s greitai prisitaiko prie pokyčių, kai viskas aplinkui dega ir reikia greito veiksmo. Tavo praktiškas mąstymas ir gebėjimas improvizuoti reiškia, kad ir su minimaliais ištekliais gali rasti išeitį net iš sudėtingiausios situacijos. Intuicija – tai tavo stiprioji pusė, ir tu ją moki puikiai išnaudoti. Nesvarbu, ar tai būtų smulki problemytė, ar rimtas iššūkis – tu tiesiog veiki.",
+        "Kartais apie tokius žmones kaip tu sakoma „tikras McGyveris“ – nesvarbu, kokia situacija ištinka, tu gebi sugalvoti sprendimą čia ir dabar, praktiškai iš nieko. Esi ta:s, kuri:s greitai prisitaiko prie pokyčių, kai viskas aplinkui dega ir reikia greito veiksmo. Tavo praktiškas mąstymas ir gebėjimas improvizuoti reiškia, kad ir su minimaliais ištekliais gali rasti išeitį net iš sudėtingiausios situacijos. Intuicija – tai tavo stiprioji pusė, ir tu ją moki puikiai išnaudoti. Nesvarbu, ar tai būtų smulki problemytė, ar rimtas iššūkis – tu tiesiog veiki.",
         "Tačiau... tokia spontaniška prigimtis turi ir savo iššūkių. Kai užduotys tampa monotoniškos arba reikalauja ilgalaikio planavimo, gali pradėti jausti, kad motyvacija slūgsta. Tavo stiprioji pusė yra greitas sprendimų priėmimas ir veiksmas „čia ir dabar“, bet ilgos, iš anksto suplanuotos strategijos – ne visada tavo arkliukas.",
         "Štai mano patarimas: išmok į savo spontanišką veiksmą įpinti šiek tiek struktūros. Nereikia planuoti visko iki smulkmenų – užtenka kelių žingsnių į priekį, kurie leis tau išlaikyti kryptį net tada, kai įprasta intuicija nesuveikia. Leisk sau veikti lanksčiai, tačiau nepamiršk integruoti ir šiek tiek sistemos – tai padės išlaikyti balansą ir neperdegti, net kai kasdienybė tampa nuobodi. Galų gale, svarbiausia – išnaudoti tavo gebėjimą greitai prisitaikyti, bet taip pat susikurti tokią rutiną, kuri ne tik remiasi tavo stiprybėmis, bet ir suteikia tau palaikymo, kai reikia veikti ten, kur esi mažiau stipri:us. Tokiu būdu išlaikysi savo natūralų tempą ir vis tiek judėsi į priekį produktyviai, net ir susidūrus su ilgalaikiais iššūkiais."
     ],
     "shortDescription": [
         "Tu gebi puikiai spręsti praktines problemas ir geriausiai veiki esant kintančioms situacijoms. Tavo stiprybė slypi gebėjime greitai prisitaikyti ir rasti veiksmingus, rankomis apčiuopiamus sprendimus. Tau labiau patinka dirbti savarankiškai, turint laisvę veikti pagal savo intuiciją. Vis dėlto, ilgalaikio planavimo ir rutinos darbai tau dažnai atrodo nuobodūs, o tai gali lemti atidėliojimą ar nebaigtus darbus."
-    ]
+    ],
+    "link": "https://12gm.lt/produktas/tikslu-planavimo-gidas/",
+    "linkText": "Žmogui, kuris klesti veiksmo sūkuryje ir puikiai reaguoja į dinamiškas situacijas, reikalingas įrankis, kuris padėtų išlaikyti dėmesį ir į spontanišką veikimą įnešti šiek tiek struktūros. Tikslų planavimo gidas skirtas tam, kad galėtum pasiekti ilgalaikius tikslus be streso. Jis sukurtas taip, kad tiktų tavo lankstumui, kartu padedant valdyti laiką, užduotis ir išvengti paskutinės minutės chaoso."
+
 }

@@ -1,6 +1,6 @@
 {
-    "name": "Gepardas",
-    "oneLiner": "Jei gyvenimas yra kinas, tu esi kaskadininkas – viską darai greitai, efektyviai ir visada su nuotykiais. Sprendi problemas tada, kai kiti dar jų nė nepastebėjo.",
+    "name": "gepardas",
+    "oneLiner": "Jei gyvenimas yra filmas, tai tu esi kaskadininkas – viską darai greitai, efektyviai ir... visada su nuotykiais. Sprendi problemas jau tada, kai kiti dar jų nė nepastebėjo.",
     "strength": [
         "Greitas sprendimų priėmimas – gali greitai įvertinti situaciją ir priimti sprendimus, net esant spaudimui ar aplinkybėms keičiantis.",
         "Praktiškas problemų sprendimas – mėgsti rasti tiesioginius sprendimus ir greitai imtis veiksmų, kad išspręstum problemas.",
@@ -13,27 +13,27 @@
     ],
     "focus": [
         "Ugdyk nuoseklumą atliekant trumpalaikes, greitas užduotis, kurios tiesiogiai siejasi su ilgalaikiais tikslais.",
-        "Naudok minimalią planavimo struktūrą, kuri padės organizuoti užduotis nesijaučiant suvaržyta:u.",
+        "Naudok minimalią planavimo struktūrą, kuri padės organizuoti ir atlikti užduotis nesijaučiant suvaržyta:u.",
         "Praktikuok refleksiją, kad apmąstytum savo sprendimus ir impulsyvius veiksmus ir geriau planuotum ateitį."
     ],
     "avoid": [
         "Venk apleisti projektus, kai jie tampa rutiniški ar praranda naujumo žavesį – rask būdų, kaip juos padaryti sau įdomesnius.",
         "Nepamiršk ilgalaikio planavimo, kad per trumpalaikius malonumus pernelyg neatitoltum nuo svarbių tikslų.",
-        "Apgalvok, kaip nepražiūrėti svarbių detalių ar rizikų, kai veršiesi nedelsiant imtis veiksmų."
+        "Apgalvok, kaip nepražiūrėti svarbių detalių ar rizikų, kai skubėsi nedelsiant imtis veiksmų."
     ],
     "help": [
-        "Aplinka, kurioje gausu įvairovės, praktinių užduočių ir galimybių greitai priimti sprendimus.",
+        "Komanda, kurioje gausu įvairovės, praktinių užduočių ir galimybių greitai priimti sprendimus.",
         "Lankstūs planavimo įrankiai, leidžiantys spontaniškai keisti planus ir juos koreguoti.",
         "Laiko blokavimas konkrečioms užduotims, kad išlaikytum susitelkimą ir palaikytum tempą ir progresą ilgalaikiuose projektuose."
     ],
     "disturb": [
-        "Griežtos tvarkos, pasikartojančios užduotys ir aplinka su per daug biurokratijos ar vėlavimų.",
+        "Griežta tvarka, pasikartojančios užduotys ir aplinka su per daug biurokratijos ar vėlavimų.",
         "Projektai, kuriuose nėra greitų rezultatų ar praktinio pritaikymo.",
         "Situacijos, kuriose reikia daug dėmesio teorijai ar ilgiems planavimo etapams be veiksmų."
     ],
     "challenge": [
-        "Ilgo laikotarpio planavimas – kaip leisti sau veikti greitai ir atlikti užduotis, kad nepaleistum iš akių ilgalaikių strategijų.",
-        "Impulsyvumas – kaip neprivelti klaidų, kai imiesi veiksmų be tinkamo planavimo.",
+        "Ilgo laikotarpio planavimas – kaip leisti sau veikti greitai ir atlikti užduotis, kad nepaleistum iš akių ilgalaikių tikslų.",
+        "Impulsyvumas – kaip neprivelti klaidų, kai imiesi veiksmų be planavimo.",
         "Nuoseklumas – kaip išlaikyti susidomėjimą projektu, kai pradinis energijos pliūpsnis išgaruoja."
     ],
     "excercise": {
@@ -65,5 +65,8 @@
     ],
     "shortDescription": [
         "Tu esi žmogus, kuris klesti dinamiškose situacijose. Dievini greitus sprendimus, veiklą „čia ir dabar“ ir praktinį problemų sprendimą. Kiekvienas iššūkis tave motyvuoja imtis veiksmų, tačiau kartais gali kilti sunkumų planuojant ilgalaikius tikslus arba išlaikant susidomėjimą projektu, kai jis praranda savo naujumo žavesį. Jei išmoktum valdyti savo impulsus veikti čia ir dabar ir kartais pagalvotum apie strateginius tikslus, tau atsivertų neriboti horizontai!"
-    ]
+    ],
+    "link": "https://12gm.lt/produktas/tikslu-planavimo-gidas/",
+    "linkText": "Tu esi veiksmo žmogus, kuris mėgaujasi greitais sprendimais ir rezultatais, tačiau kartais dėl to pritrūksta laiko planavimui ir ilgalaikių tikslų siekimui. „Tikslų planavimo gidas“ padės tau subalansuoti greitą veiksmą su paprasta struktūra – išmoksi suskaidyti ilgalaikius tikslus į mažus, pasiekiamus žingsnius, kad neprarastum motyvacijos ir užbaigtum pradėtus darbus. Įsigyk šį gidą ir paversk savo veiklumą ne tik energijos šaltiniu, bet ir garantuotu keliu į sėkmę!"
+
 }

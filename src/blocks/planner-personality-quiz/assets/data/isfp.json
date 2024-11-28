@@ -1,9 +1,9 @@
 {
-    "name": "Elnias",
+    "name": "elnias",
     "oneLiner": "Mėgsta ramybę ir meną. Ji:is mielai pasirinktų tapyti akvarele ant jūros kranto, kol kiti šokinėja per bangas.",
     "strength": [
-        "Kūrybiškumas ir lankstumas – tu gebi prisitaikyti prie naujų situacijų ir atrasti unikalius sprendimus, todėl dažnai įneši meninį požiūrį į savo darbą.",
-        "Empatija ir palaikymas – natūraliai palaikai kitus ir kuri harmoniją, padedi sukurti teigiamą atmosferą tiek darbe, tiek asmeniniame gyvenime.",
+        "Kūrybiškumas ir lankstumas – tu gebi prisitaikyti prie naujų situacijų ir atrasti unikalius sprendimus, todėl dažnai atsineši meninį požiūrį į savo darbą, kad ir koks jis būtų.",
+        "Empatija ir palaikymas – natūraliai palaikai kitus ir kuri harmoningą santykį, padedi sukurti teigiamą atmosferą tiek darbe, tiek asmeniniame gyvenime.",
         "Vertybėmis grįstas darbas – tave motyvuoja asmeninės vertybės ir aistra tam, ką darai, todėl dirbi neskaičiuojant valandų ir jėgų su tais projektais, kurie tau yra svarbūs."
     ],
     "weakness": [
@@ -17,7 +17,7 @@
         "Suskaidyk didesnes nemalonias ar nuobodžias užduotis į mažus, lengvai pasiekiamus žingsnius, kad sumažintum vidinį pasipriešinimą ir padidintum produktyvumą."
     ],
     "avoid": [
-        "Nepamiršk savo asmeninių tikslų ir poreikių, norėdama:as visiems padėti ar išlaikyti harmoniją.",
+        "Nepamiršk savo asmeninių tikslų ir poreikių, norėdama:as visiems padėti ar išlaikyti teigiamą atmosferą.",
         "Venk atidėlioti būtinas, bet mažiau įdomias užduotis – tai gali sukelti stresą ir chaosą.",
         "Nepakišinėk po kilimu konfliktų ar sunkių pokalbių, nes tai gali užauginti dideles problemas ilgalaikėje perspektyvoje."
     ],
@@ -38,7 +38,7 @@
     ],
     "excercise": {
         "Kūrybiška rutina": [
-            "Pasirink vieną rutininę užduotį, kurios dažniausiai vengi (pvz., failų tvarkymas, tvarkaraščio sudarymas, ataskaitos ir pan.). Paversk ją malonesne, įtraukiant kūrybinį elementą. Pvz., jei tvarkai failus, naudok estetiškai patrauklius šablonus. Skirk bent 15 minučių per dieną tokioms užduotims ir po jų atlikimo apdovanok save kūrybine pertrauka (pvz., piešimu ar rašymu). Svarbu: kūrybinis elementas (dimensija) turi būti pritaikomas paprastai ir jokiais būdais negali tapti patogia atidėliojimo priežastimi. Naudokis tuo, ką jau turi arba kas yra lengvai prieinama.",
+            "Pasirink vieną rutininę užduotį, kurios dažniausiai vengi (pvz., failų tvarkymas, plano ar darbotvarkės sudarymas, ataskaitos ir pan.). Paversk ją malonesne, įtraukiant kūrybinį elementą. Pvz., jei tvarkai failus, naudok estetiškai patrauklius šablonus. Skirk bent 15 minučių per dieną tokioms užduotims ir po jų atlikimo apdovanok save kūrybine pertrauka (pvz., piešimu ar rašymu). Svarbu: kūrybinis elementas (dimensija) turi būti pritaikomas paprastai ir jokiais būdais negali tapti patogia atidėliojimo priežastimi. Naudokis tuo, ką jau turi arba kas yra lengvai prieinama.",
             "Tikslas: paversti rutinines užduotis malonesnėmis, kad jos skatintų dirbti nuosekliai.",
             "Kodėl tai veikia: šis pratimas leidžia tau panaudoti kūrybiškumą, kad kasdienės veiklos būtų estetiškai patrauklesnės ir asmeniškai įdomesnės, mažina rutininių užduočių monotoniją ir skatina reguliariai skirti joms laiko."
         ],
@@ -65,5 +65,7 @@
     ],
     "shortDescription": [
         "Tu vertini harmoniją, kūrybiškumą ir mėgsti dirbti spontaniškai. Tavo stiprybės slypi gebėjime kurti šiltą aplinką ir padėti kitiems, dažnai dirbant tyliai ir užkulisiuose. Tau svarbu, kad darbas atspindėtų tavo asmenines vertybes, bet kartais dėl to gali būti sunku nustatyti ribas ir rūpintis savo poreikiais. Be to, gali vengti rutinos ar nepatogių užduočių, nes jos atrodo per daug struktūruotos ir neįdomios."
-    ]
+    ] ,
+    "link": "https://12gm.lt/produktas/tikslu-planavimo-gidas/",
+    "linkText": "Tikslų planavimo gidas tau padės įveikti chaosą ir atidėliojimą be spaudimo ar apribojimų tavo kūrybiškumui. Jis pasiūlys lankstų, vizualų ir praktišką būdą susitvarkyti su kasdienėmis užduotimis, prioritetizuoti svarbiausius tikslus bei atrasti balansą tarp intuicijos ir struktūros. Su šiuo gidu tu galėsi ne tik kurti nuostabias idėjas, bet ir paversti jas realybe!"
 }

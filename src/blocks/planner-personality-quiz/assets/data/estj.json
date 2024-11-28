@@ -1,15 +1,15 @@
 {
-    "name": "Liūtas",
-    "oneLiner": "Toks žmogus, kuris net savaitgalį suplanuos minučių tikslumu ir dar bandys sudrausminti tuos, kurie mėgins plaukti pasroviui.",
+    "name": "liūtas",
+    "oneLiner": "Tas, kuris net savaitgalį suplanuos minučių tikslumu ir dar sudrausmins tuos, kurie mėgins atsipalaiduoti ir plaukti pasroviui („jei nieko nesuplanuosi, tai nieko ir nepadarysi“).",
     "strength": [
-        "Gebėjimas tvarkingai planuoti – sugebi sudaryti detalius planus ir grafikus, taip užtikrinant, kad visi darbai būtų atlikti laiku.",
-        "Efektyvus delegavimas – žinai, kam paskirti tam tikras užduotis, kad maksimaliai išnaudotum kiekvieno komandos nario stipriąsias savybes.",
-        "Patikimumas – jeigu pažadi, tai visi gali būti 100% tikri, kad atliksi tai, kas sutarta. Tavo projektai visada vyksta pagal planą ir visos užduotys yra užbaigiamos."
+        "Gebėjimas struktūruoti ir planuoti – sugebi sudaryti detalius planus ir grafikus, taip užtikrinant, kad visi darbai būtų atlikti laiku.",
+        "Efektyvus organizavimas – žinai, kam paskirti tam tikras užduotis, kad maksimaliai išnaudotum kiekvieno komandos nario stipriąsias savybes.",
+        "Patikimumas – jeigu pažadi, tai visi gali būti 100% tikri, kad atliksi tai, kas sutarta. Tavo projektai visada vyksta pagal planą ir visos užduotys yra užbaigiamos laiku."
     ],
     "weakness": [
         "Nelankstumas – kartais gali būti sunku prisitaikyti prie netikėtų pokyčių ar naujų metodų. Gali būti sunku perlipti įpročius ar nusistovėjusias rutinas – net ir tada, kai jos tau nepadeda.",
-        "Polinkis kontroliuoti – kartais gali būti sunku paleisti kontrolę. Todėl, nors ir gebant efektyviai deleguoti, kitiems patikėtų užduočių rezultatas gali nuvilti (mikrovadyba dar niekam nepadėjo užduotį atlikti geriau).",
-        "Pernelyg didelis dėmesys efektyvumui – gali skambėti keistai, bet ne visada svarbiausia – efektyvumas. Kartais svarbu suteikti erdvės kūrybiškumui ir paieškoti inovacijų, kurios ilguoju laikotarpiu padės pasiekti aukštesnį produktyvumo lygį. Kai pernelyg siekiama efektyvumo dabar, galimybė užsitikrinti produktyvumo augimą gali būti ir pražiūrėta."
+        "Polinkis kontroliuoti – kartais gali būti sunku paleisti kontrolę. Todėl, nors ir gebant efektyviai paskirstyti užduotis, kitiems patikėtų užduočių rezultatas gali nuvilti (mikrovadyba dar niekam nepadėjo užduotį atlikti geriau).",
+        "Pernelyg didelis dėmesys efektyvumui – gali skambėti keistai, bet ne visada svarbiausia – efektyvumas. Kartais svarbu suteikti erdvės kūrybiškumui ir paieškoti inovacijų, kurios ilguoju laikotarpiu padės pasiekti dar aukštesnį produktyvumo lygį. Kai pernelyg siekiama efektyvumo dabar, galimybė užsitikrinti produktyvumo augimą ateityje gali būti ir pražiūrėta."
     ],
     "focus": [
         "Ugdyk lankstumą, kad pokyčiai nesugriautų tavo planų ir gebėjimo veikti efektyviai.",
@@ -54,16 +54,19 @@
         ]
     },
     "advice": [
-        "Kiekvieną savaitę susiplanuok laiko „idėjų sesijoms“. Tai leis ne tik susikoncentruoti į strateginius sprendimus, bet ir apgalvoti alternatyvius būdus.",
+        "Kiekvieną savaitę susiplanuok laiko „idėjų sesijoms“. Tai leis ne tik susikoncentruoti į strateginius sprendimus, bet ir apgalvoti alternatyvius būdus eiti link tikslų.",
         "Stenkis bent kartą per mėnesį deleguoti užduotį, kurios įprastai niekam nepatikėtum – tai ne tik sumažins tavo darbo krūvį, bet ir leis ugdytis darbo komandoje įgūdžius.",
         "Krizės atveju – visada turėk paruoštą „planą B“ (t.y. planuojant nepraleisk rizikų valdymo dalies). Tai padės lengviau reaguoti į įvairius netikėtumus ir greičiau prisitaikyti."
     ],
     "description": [
-        "Tu esi tikras produktyvumo pamatas – žmogus, kuriam tvarka ir planavimas yra natūralios savybės. Tavo organizuotumas ir patikimumas užtikrina, kad tikslai bus pasiekti laikantis aukščiausio kokybės standarto. Klesti ten, kur gali pritaikyti savo stiprius organizacinius įgūdžius ir praktišką mąstymą, siekiant apčiuopiamų rezultatų. Tavo gebėjimas planuoti, struktūruoti ir deleguoti užduotis leidžia užtikrintai judėti į priekį ir sukurti aiškią kryptį tiek sau, tiek kitiems.",
-        "Tačiau, siekiant dar aukštesnio produktyvumo, verta pagalvoti, kaip į savo sistemą įsileisti šiek tiek lankstumo ir kūrybiškumo. Būti atvirai:am naujoms idėjoms ir netradiciniams veikimo būdams nereiškia atsisakyti savo vertybių – tai reiškia jas sustiprinti ir dar labiau praturtinti. Kartais per didelis noras kontroliuoti gali tapti iššūkiu, kai aplinkybės keičiasi, o planai turi būti peržiūrėti.",
+        "Tu esi tikras produktyvumo pagrindas – žmogus, kuriam tvarka ir planavimas yra natūralios savybės. Tavo organizuotumas ir patikimumas užtikrina, kad tikslai bus pasiekti laikantis aukščiausio kokybės standarto. Klesti ten, kur gali pritaikyti savo stiprius organizacinius įgūdžius ir praktišką mąstymą, siekiant apčiuopiamų rezultatų. Tavo gebėjimas planuoti, struktūruoti ir paskirstyti užduotis leidžia užtikrintai judėti į priekį ir sukurti aiškią kryptį tiek sau, tiek kitiems.",
+        "Tačiau, siekiant dar aukštesnio produktyvumo, verta pagalvoti, kaip į savo sistemą įsileisti šiek tiek lankstumo ir kūrybiškumo. Būti atvirai:am naujoms idėjoms ir netradiciniams veikimo būdams nereiškia atsisakyti savo vertybių – tai reiškia jas sustiprinti ir dar labiau praturtinti. Kartais per didelis noras kontroliuoti gali tapti iššūkiu, kai aplinkybėms keičiantis, reikia adaptuoti ir planus.",
         "Mano patarimas: išlaikyk savo natūralų efektyvumą, bet leisk sau retkarčiais eksperimentuoti ir atvirai priimti pokyčius. Integruodama:as lankstumą ir kūrybiškumą į savo struktūruotą požiūrį, sugebėsi ne tik efektyviai įgyvendinti savo tikslus, bet ir lengviau prisitaikyti prie netikėtų situacijų. Toks balansas padės tau dar labiau sužibėti ir išlikti nenugalima:u bet kokioje aplinkoje."
     ],
     "shortDescription": [
         "Tu esi žmogus, kuriam tvarka ir planavimas – neatsiejama kasdienybės dalis. Tau labiausiai patinka, kai viskas vyksta pagal aiškų planą. Detalūs grafikai, užduočių paskirstymas, atsakomybių aiškumas – tai tavo stiprioji pusė. Ir nors sugebi puikiai organizuot ir planuot įvairius reikalus, kartais gali kilti iššūkių, kai gyvenimas pamėtėja pokyčių ar reikia pasitikėti kitais (be nuolatinės priežiūros)."
-    ]
+    ],
+    "link": "https://12gm.lt/produktas/tikslu-planavimo-gidas/",
+    "linkText": "Tavo gebėjimas planuoti ir organizuoti daro tave tikru produktyvumo garantu, tačiau kartais per daug dėmesio efektyvumui ar kontrolės siekis gali riboti galimybes. „Tikslų planavimo gidas“ padės tau sukurti struktūrą, kuri išlaiko tvarką, bet taip pat leidžia įsileisti lankstumą ir kūrybiškumą, reikalingą prisitaikyti prie pokyčių. Įsigyk gidą ir sustiprink savo planavimo įgūdžius, kad galėtum ne tik efektyviai valdyti projektus, bet ir išnaudoti visas atsirandančias galimybes!"
+
 }

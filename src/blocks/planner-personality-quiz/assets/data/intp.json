@@ -1,5 +1,5 @@
 {
-    "name": "Meškėnas",
+    "name": "meškėnas",
     "oneLiner": "Protas, kuris analizuoja viską – nuo juodųjų skylių iki kavos pupelių sudėties. Praktika? Čia jau kita istorija...",
     "strength": [
         "Analitinis mąstymas – sugebi lengvai išnarplioti sudėtingas problemas ir atrasti jų esminius ryšius bei modelius.",
@@ -7,9 +7,9 @@
         "Intelektinis smalsumas – mėgsti mokytis naujų dalykų, dažnai gilinantis į tau įdomias temas."
     ],
     "weakness": [
-        "Sunku įgyvendinti praktiškai – dažnai pasineri į teorijas ir idėjas, todėl gali kilti sunkumų perkelti jas į konkrečius veiksmus.",
+        "Sunku įgyvendinti praktiškai – dažnai pasineri į teorijas ir idėjas, todėl gali kilti sunkumų perkeliant jas į konkrečius veiksmus.",
         "Atidėliojimas ir perfekcionizmas – dėl noro pasiekti tobulumą gali vilkinti projektų pradžią arba pabaigą.",
-        "Nepaisyti rutinos – nemėgsti pasikartojančių ar nuobodžių užduočių, o tai gali didinti neorganizuotumą ir mesti darbus jų neužbaigus."
+        "Nepaisyti rutinos – nemėgsti pasikartojančių ar nuobodžių užduočių, o tai gali didinti neorganizuotumą ir skatina mesti darbus jų neužbaigus."
     ],
     "focus": [
         "Suskaidyk sudėtingas idėjas į mažus, konkrečius veiksmus, kad lengviau nuo idėjos pereitum į praktinį jos įgyvendinimą.",
@@ -17,14 +17,14 @@
         "Susikurk paprastą sistemą, kuri padėtų valdyti (ir atlikti) kasdienes užduotis ir neleistų joms kauptis."
     ],
     "avoid": [
-        "Venk įstrigti teorijose, neatliekant veiksmų, kurie padėtų išbandyti tavo idėjas praktikoje.",
-        "Nepasiduok atidėliojimui dėl per didelio dėmesio analizės arba netobulumo baimės.",
-        "Nepamiršk praktinių detalių, kol susitelki į intelektinius užsiėmimus."
+        "Venk įstrigti vien teorinėse idėjos be veiksmų, kurie padėtų išbandyti tavo idėjas praktikoje.",
+        "Nepasiduok atidėliojimui dėl per didelio dėmesio analizei ar baimės ką nos padaryti tik pusiau gerai.",
+        "Nepamiršk praktinių detalių, kol susitelki į intelektinius svarstymus."
     ],
     "help": [
         "Rami ir susikaupti leidžianti aplinka, kurioje gali giliai apmąstyti ir tyrinėti idėjas.",
         "Įrankiai, skirti organizuoti mintis ir sekti progresą, pvz., minčių žemėlapiai, projektų valdymo programos ar užrašai.",
-        "Lankstus tvarkaraštis, kuris leidžia susikoncentruoti ir tyrinėti intensyviai, kai pagauni įkvėpimą."
+        "Lankstus tvarkaraštis, kuris leidžia susikoncentruoti ir skirti laiko analizei, kai pagauni įkvėpimą."
     ],
     "disturb": [
         "Griežta rutina, per daug socialumo (t.y. darbo su žmonėmis) ir aplinka, kuri nuolat pertraukia tavo susikaupimą.",
@@ -48,7 +48,7 @@
             "Kodėl tai veikia: pratimas padeda išlaikyti susidomėjimą ir išvengti atidėliojimo rutininėse užduotyse, tuo pačiu pasidarant laiko ir kūrybiškesnei veiklai."
         ],
         "Apsispręsk ir judėk toliau": [
-            "Vienam klausimui, apie kurį ilgai galvoji (pvz., kokią programą naudoti projektui arba ar pradėti naują projektą, arba kaip išspręsti vieną ar kitą klausimą savo projekte), apsibrėžk du galimus pasirinkimus. Nustatyk 30 minučių laikmatį ir priimk sprendimą per tą laiką. Prisimink: sprendimus gerais ar blogais padarome mes (tai reiškia, kad tavo rankose galia bet kokį sprendimą padaryti naudingu tau).",
+            "Vienam klausimui, apie kurį ilgai galvoji (pvz., kokią programą naudoti projektui arba ar pradėti naują projektą, arba kaip išspręsti vieną ar kitą klausimą savo projekte), apsibrėžk du galimus pasirinkimus. Nustatyk 30 minučių laikmatį ir priimk sprendimą per tą laiką. Prisimink: nėra blogų ar gerų sprendimų. Juos tokiais padarome mes (tai reiškia, kad tavo rankose galia bet kokį sprendimą padaryti naudingu tau).",
             "Tikslas: sumažinti analizės paralyžių ir stiprinti sprendimų priėmimo įgūdį.",
             "Kodėl tai veikia: šis pratimas skatina greičiau priimti sprendimus, apribojant galimybes ir skatinant apsispręsti per ribotą laiką, nepastringant perteklinėje analizėje."
         ]
@@ -60,10 +60,13 @@
     ],
     "description": [
         "Tu esi tikra:as intelektualė:as – pirmūnė:as, kuri:is nuolat siekia perprasti pasaulio sudėtingumą, narplioja paslaptis ir ieško gilesnės prasmės. Tavo loginis, analitinis mąstymas ir aistra tyrinėti abstrakčias koncepcijas išskiria tave kaip mąstytoją, kuri:is sugeba pažvelgti giliau, nei paviršius. Tave traukia sudėtingos sistemos ir teorijos, kurios leidžia tau laisvai tyrinėti, teoretizuoti ir spręsti iššūkius savo sąlygomis.",
-        "Vis dėlto, būnant inovatore:iumi, pereiti nuo idėjų prie praktinio įgyvendinimo gali būti iššūkis. Tavo protas dažnai sklando aukštai, kur gimsta genialios idėjos, tačiau jas įgyvendinti realybėje kartais pritrūksta struktūros ar konkrečių žingsnių. Kad būtų lengviau nutiesti tiltą tarp teorijos ir praktikos, pabandyk suskaidyti savo ambicingas idėjas į mažus, aiškius tikslus – tai padės tau judėti į priekį nuosekliau ir greičiau.",
-        "Mano patarimas: išlaikyk savo aistrą tyrinėti ir gilintis į teorijas, tačiau nepamiršk įtraukti šiek tiek planavimo ir struktūros. Skirk laiko ne tik apmąstyti idėjas, bet ir suplanuoti konkrečius veiksmus jų įgyvendinimui. Atradus balansą tarp gilaus mąstymo ir praktinių žingsnių, galėsi paversti savo vizionieriškas idėjas realybe ir padaryti tikrą pokytį."
+        "Vis dėlto, būnant inovatore:iumi, pereiti nuo idėjų prie praktinio įgyvendinimo gali būti iššūkis. Tavo protas dažnai sklando aukštai, kur gimsta genialios idėjos, tačiau jas įgyvendinant realybėje kartais pritrūksta struktūros ar konkrečių žingsnių. Kad būtų lengviau nutiesti tiltą tarp teorijos ir praktikos, pabandyk suskaidyti savo ambicingas idėjas į mažus, aiškius tikslus – tai padės tau judėti į priekį nuosekliau ir greičiau.",
+        "Mano patarimas: išlaikyk savo aistrą tyrinėti ir gilintis į teoriją, tačiau nepamiršk integruoti ir šiek tiek planavimo ir struktūros. Skirk laiko ne tik apmąstyti idėjas, bet ir suplanuoti konkrečius veiksmus jų įgyvendinimui. Atradus balansą tarp gilaus mąstymo ir praktinių žingsnių, galėsi paversti savo vizionieriškas idėjas realybe ir padaryti tikrą pokytį."
     ],
     "shortDescription": [
         "Tu esi tas žmogus, kuris mėgsta analizuoti sudėtingas problemas, gilintis į abstrakčias idėjas ir ieškoti kūrybiškų sprendimų, esi įžvalgi:us strategė:as. Tau patinka intelektualūs iššūkiai, tačiau kartais gali būti sunku įgyvendinti savo idėjas praktiškai. Be to, rutininės užduotys ar pasikartojantys darbai tau dažnai atrodo nuobodūs ir trukdo veikti produktyviai."
-    ]
+    ],
+    "link": "https://12gm.lt/produktas/tikslu-planavimo-gidas/",
+    "linkText": "Tavo analitinis mąstymas ir kūrybiškumas leidžia generuoti įspūdingas idėjas, tačiau kartais jas įgyvendinti praktikoje tampa iššūkiu. „Tikslų planavimo gidas“ padės tau suskaidyti sudėtingas koncepcijas į mažus, konkrečius veiksmus, kuriuos lengva įgyvendinti, išlaikant nuoseklumą ir produktyvumą. Įsigyk gidą ir paversk savo teorines idėjas realiais pasiekimais!"
+
 }

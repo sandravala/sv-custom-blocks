@@ -17,6 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
+require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/key-encryption.php';
+require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/settings-page.php';
+
+require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
@@ -29,7 +35,21 @@ function sv_custom_blocks_sv_custom_blocks_block_init() {
 }
 add_action( 'init', 'sv_custom_blocks_sv_custom_blocks_block_init' );
 
-require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
+// Hook to add the menu
+add_action('admin_menu', 'sv_custom_blocks_add_menu');
+
+// Function to add the menu item
+function sv_custom_blocks_add_menu() {
+    add_menu_page(
+        'SV custom blocks',          // Page title
+        'SV custom blocks',               // Menu title
+        'manage_options',          // Capability
+        'sv-custom-blocks',          // Menu slug
+        'sv_custom_blocks_render_menu',   // Callback function
+        'dashicons-pets', // Icon (optional)
+        25                         // Position (optional)
+    );
+}
 
 function sv_localize_block_scripts() {
     wp_localize_script('sv-custom-blocks-planner-personality-quiz-view-script', 'sv_ajax_object', array(

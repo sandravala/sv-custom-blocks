@@ -39,28 +39,31 @@ function renderForm() {
 
 function QuizRender() {
 
-    const quizData = [
-            {
-                question: '',
-                answers: [
-                    { text: 'Geriausia dieną pradėti peržiūrėjus darbų sąrašą ir detaliai suplanavus darbotvarkę.', letter: 'J' },
-                    { text: 'Nenumatyti pasikeitimai planuose - teigiamas dalykas, nes suteikia galimybę patyrinėti naujas kryptis ir galimybes.', letter: 'N' },
-                    { text: 'Kilus problemai darbe, svarbu atsižvelgti  į komandos narių poreikius ir siekti sprendimo, kuris būtų priimtinas visiems.', letter: 'F' },
-                    // { text: 'Vertinu galimybę dirbti vienumoje ir apgalvoti sprendimus ramioje aplinkoje.', letter: 'I' },
-                    // { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais žmonėmis (komandos nariais ir pan.).', letter: 'E' },
-                    { text: 'Mane dirbti labiausiai motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
-                ]
-            }
-        ];
+    // const quizData = [
+    //         {
+    //             question: '',
+    //             answers: [
+    //                 { text: 'Geriausia dieną pradėti peržiūrėjus darbų sąrašą ir detaliai suplanavus darbotvarkę.', letter: 'J' },
+    //                 { text: 'Nenumatyti pasikeitimai planuose - teigiamas dalykas, nes suteikia galimybę patyrinėti naujas kryptis ir galimybes.', letter: 'N' },
+    //                 { text: 'Kilus problemai darbe, svarbu atsižvelgti  į komandos narių poreikius ir siekti sprendimo, kuris būtų priimtinas visiems.', letter: 'F' },
+    //                 // { text: 'Vertinu galimybę dirbti vienumoje ir apgalvoti sprendimus ramioje aplinkoje.', letter: 'I' },
+    //                 // { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais žmonėmis (komandos nariais ir pan.).', letter: 'E' },
+    //                 { text: 'Mane dirbti labiausiai motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
+    //             ]
+    //         }
+    //     ];
 
 
-    //const [quizData, setQuizData] = useState(quiz);    
+    const [quizData, setQuizData] = useState(quiz);    
    
     const [quizAnswer, setQuizAnswer] = useState(answer);
     
     const imgFolder = require.context('./assets/img/', true, /\.(png|jpe?g|webp|svg)$/);
     const [typeImg, setTypeImg] = useState(null);
     const [typeMeme, setTypeMeme] = useState(null);
+    const [emailSent, setEmailSent] = useState(false);
+    const [sending, setSending] = useState(false);
+    const [emailError, setEmailError] = useState(false);
     const points = [
         "100% ne aš",
         "Nepanašu į mane",
@@ -332,8 +335,40 @@ function QuizRender() {
 
     const sendEmail = () => {
 
+        if (!validateEmail(subscriberData.email) || !validateName(subscriberData.name)) {
+            if(!validateName(subscriberData.name)) {
+                setErrors((prevErrors) => {
+                    return {
+                        ...prevErrors,
+                        ['name'] : true
+                    }
+                });
+            };
+
+            if(!validateEmail(subscriberData.email)) {
+                setErrors((prevErrors) => {
+                    return {
+                        ...prevErrors,
+                        ['email'] : true
+                    }
+                });
+            };
+
+            return;
+        }
+
+        setSending(true);
         const dichotomyToSend = type.toLowerCase(); 
 
+        const dataToSend = {
+            type: dichotomyToSend, 
+            email: subscriberData.email, 
+            name: subscriberData.name
+        };
+
+        if(isChecked) {
+            dataToSend['subscribe'] = 'yes';
+        }
 
         jQuery(document).ready(function ($) {
                    
@@ -343,18 +378,22 @@ function QuizRender() {
                     data: {
                         action: 'send_personality_type_by_email', // Action name
                         nonce: sv_ajax_object.nonce,     // Nonce for security
-                        data: {type: dichotomyToSend, email: subscriberData.email, name: subscriberData.name}               // Data to send
+                        data: dataToSend
                     },
                     success: function (response) {
                         if (response.success) {
-                            console.log('Response: ');
-                            console.log(response.data.message); // Show the response
+                            setEmailSent(true);
                         } else {
-                            console.log('Error: ');
+                            setEmailSent(false);
+                            setSending(false);
+                            setEmailError(true);   
                             console.log(response.data);
                         }
                     },
                     error: function () {
+                        setEmailSent(false);
+                        setSending(false);
+                        setEmailError(true);
                         console.log('An error occurred.');
                     },
                 });
@@ -470,36 +509,36 @@ function QuizRender() {
 
             ))}
 
-                {tieBreak.length > 0 && tieBreak.map((q, index) => {
-                    
+            {tieBreak.length > 0 && tieBreak.map((q, index) => {
+
                 return (
                     <div id="tie-break" key={index}>
                         <div className={`variant ${currentTieBreakQuestion !== index ? 'inactive' : 'active'}`}>
                             <p>{tieBreakerQuestions[q].question}</p>
                             {tieBreakerQuestions[q].answers.map((a, idx) => (
                                 <div className='tie-break-control'>
-                                    <input 
-                                    type="radio" 
-                                    name={`radio-${q}`} 
-                                    id={`radio-${q}-${a.letter}`}
-                                    value={a.letter}
-                                    onChange={() => tieBreakChange(q, a.letter)}
-                                    /> 
+                                    <input
+                                        type="radio"
+                                        name={`radio-${q}`}
+                                        id={`radio-${q}-${a.letter}`}
+                                        value={a.letter}
+                                        onChange={() => tieBreakChange(q, a.letter)}
+                                    />
                                     <label className="tie-break-lbl" key={idx} htmlFor={`radio-${q}-${a.letter}`} >{a.text}</label>
                                 </div>
-                                
+
                             ))}
                         </div>
                     </div>
                 );
-                })}
+            })}
 
-                {showResultContainer && 
+            {showResultContainer &&
                 <>
                     <div className='result-container'>
                         <div className='productivity-type'>
-                        <h2 className='type-name-general'>Tavo produktyvumo tipas:</h2>
-                        <h2 className='type-name-name'><strong>{quizAnswer[type]["name"]}</strong></h2>
+                            <h2 className='type-name-general'>Tavo produktyvumo tipas:</h2>
+                            <h2 className='type-name-name'><strong>{quizAnswer[type]["name"]}</strong></h2>
                             <p className='type-one-liner'>{quizAnswer[type]["oneLiner"]}</p>
                             <img className='type-img' src={typeImg}></img>
                             {quizAnswer[type]["description"].map((p) => { return <p>{p}</p> })}
@@ -518,44 +557,54 @@ function QuizRender() {
                         </div>
                         <div className='productivity-overlay'></div>
                     </div>
-                    <div className='contact-form'>
-                        <input
-                            type="text"
-                            id="subscribe-name"
-                            onChange={(event) => getSubscriberName(event.target.value)}
-                            defaultValue="vardas"
-                            className={`${errors.name ? 'error' : ''}`}
-                        />
-                        <span className={`error ${errors.name ? '' : 'hidden'}`}>nurodykite savo vardą</span>
-                        <input
-                            type="email"
-                            id="subscribe-email"
-                            onChange={(event) => getSubscriberEmail(event.target.value)}
-                            defaultValue='el. paštas'
-                            className={`${errors.name ? 'error' : ''}`}
-                        />
-                         <span className={`error ${errors.email ? '' : 'hidden'}`}>nurodykite savo el. paštą</span>
-                        <div className="checkbox-container">
-                            <input 
-                            type="checkbox" 
-                            id="subscribe" 
-                            checked={isChecked}
-                            onChange={checkHandler}
-                            ></input>
-                            <label for="subscribe">sutinku prenumeruoti 12GM naujienlaiškį</label>
-                        </div>
-                    </div>
-                    <button
-                        type="button"
-                        id="send-email-button"
-                        className={`send-email-button ${false ? '' : ''}`}
-                        onClick={sendEmail}
-                        disabled={isButtonDisabled}
-                    >
-                        noriu gauti išsamią ataskaitą!
-                    </button>
+                    {!emailSent &&
+                        <>
+                            <div className='contact-form'>
+                                <input
+                                    type="text"
+                                    id="subscribe-name"
+                                    onChange={(event) => getSubscriberName(event.target.value)}
+                                    defaultValue="vardas"
+                                    className={`${errors.name ? 'error' : ''}`}
+                                />
+                                <span className={`error ${errors.name ? '' : 'hidden'}`}>nurodykite savo vardą</span>
+                                <input
+                                    type="email"
+                                    id="subscribe-email"
+                                    onChange={(event) => getSubscriberEmail(event.target.value)}
+                                    defaultValue='el. paštas'
+                                    className={`${errors.name ? 'error' : ''}`}
+                                />
+                                <span className={`error ${errors.email ? '' : 'hidden'}`}>nurodykite savo el. paštą</span>
+                                <div className="checkbox-container">
+                                    <input
+                                        type="checkbox"
+                                        id="subscribe"
+                                        checked={isChecked}
+                                        onChange={checkHandler}
+                                    ></input>
+                                    <label for="subscribe">sutinku prenumeruoti 12GM naujienlaiškį</label>
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                id="send-email-button"
+                                className={`send-email-button ${false ? '' : ''}`}
+                                onClick={sendEmail}
+                                disabled={isButtonDisabled}
+                            >
+                                {sending ? 'siunčiama' : 'noriu gauti išsamią ataskaitą!'}
+                                {sending && <div className="loader" id='loader'></div>}
+                            </button>
+                        </>
+
+                    }
+                    {emailSent && !emailError && <div className='email-sent'>Puiku! Pasitikrink el. paštą (jei nerandi laiško, peržiūrėk ir spam aplanką)</div>}
+                    {emailError && <div className='email-sent error' id='email-sent-error'>Laiško siuntimas nepavyko. Pranešk apie tai sandra@12gm.lt</div>}
                 </>
                 }
+
+
 
                 {!showResultContainer &&
                 <>
@@ -567,7 +616,7 @@ function QuizRender() {
                         className={`next-question-button ${Object.values(questionsAnswered).find((answer) => answer === 0) === undefined ? 'variant active' : ''} ${!quizData[currentQuestion] || Object.values(questionsAnswered).find((answer) => answer === 0) !== undefined ? 'hidden' : ''}`}
                         onClick={handleNextQuestion}
                     >
-                        Toliau {currentQuestion / quizData.length}%
+                        Toliau
                     </button>
                     <button
                         type="button"
