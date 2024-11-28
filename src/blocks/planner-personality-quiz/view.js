@@ -24,6 +24,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import quiz from './assets/data/quizData.json';
 import answer from './assets/data/quizAnswer.json';
+import loaderGif from './assets/img/calculating-puzzled.gif';
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -254,35 +255,30 @@ function QuizRender() {
         setCurrentQuestion(currentQuestion + 1);
         setCurrentVariant(0);
         setQuestionsAnswered({...getQuestionSet(currentQuestion+1)});
-
-        if (currentQuestion === quizData.length - 1) {
-            console.log('end of quiz');
-            console.log(currentTieBreakQuestion);
-            
-            // Handle end of quiz logic
-            // 
-        }
     };
 
-    const showResult = () => {
-        //show partial result
-        const typeString = dichotomy.reduce((prev, current) => prev + current, '');
+    useEffect(() => {
+        if (Object.values(dichotomy).find((letter) => letter === '') === undefined) {
+            const typeString = dichotomy.reduce((prev, current) => prev + current, '');
 
-        const imgPath = imgFolder(`./type-img/${typeString.toLowerCase()}.webp`);
-        const imgUrl = typeof imgPath === 'object' ? imgPath.default : imgPath; // Ensure it's a string URL
-        const memePath = imgFolder(`./type-meme/${typeString.toLowerCase()}_meme.webp`);
-        const memeUrl = typeof memePath === 'object' ? memePath.default : memePath; // Ensure it's a string URL
-        setTypeImg(imgUrl);
-        setTypeMeme(memeUrl);
-        setType(typeString);
-        setTieBreak([]);
+            const imgPath = imgFolder(`./type-img/${typeString.toLowerCase()}.webp`);
+            const imgUrl = typeof imgPath === 'object' ? imgPath.default : imgPath; // Ensure it's a string URL
+            const memePath = imgFolder(`./type-meme/${typeString.toLowerCase()}_meme.webp`);
+            const memeUrl = typeof memePath === 'object' ? memePath.default : memePath; // Ensure it's a string URL
+            setTypeImg(imgUrl);
+            setTypeMeme(memeUrl);
+            setType(typeString);
+            setTieBreak([]);
+        }
+    }, [dichotomy]);
+
+    const showResult = () => {
+
         setShowResultContainer(!showResultContainer);
-        const dichotomyToSend = dichotomy.reduce((prev, current) => prev + current, ''); 
 
     };
 
     const getSubscriberName = (name) => {
-        console.log(name);
         if(validateName(name)) {
             setErrors((prevErrors) => {
                 return {
@@ -404,47 +400,8 @@ function QuizRender() {
 
     const validateEmail = (email) => {
 
-        // Test for the minimum length the email can be
-        if (email.trim().length < 6) {
-            return false;
-        }
-    
-        // Test for an @ character after the first position
-        if (email.indexOf('@', 1) < 0) {
-            return false;
-        }
-    
-        // Split out the local and domain parts
-        const parts = email.split('@', 2);
-    
-        // LOCAL PART
-        // Test for invalid characters
-        if (!parts[0].match(/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~\.-]+$/)) {
-            return false;
-        }
-    
-        // DOMAIN PART
-        // Test for sequences of periods
-        if (parts[1].match(/\.{2,}/)) {
-            return false;
-        }
-    
-        const domain = parts[1];
-        // Split the domain into subs
-        const subs = domain.split('.');
-        if (subs.length < 2) {
-            return false;
-        }
-    
-        const subsLen = subs.length;
-        for (let i = 0; i < subsLen; i++) {
-            // Test for invalid characters
-            if (!subs[i].match(/^[a-z0-9-]+$/i)) {
-                return false;
-            }
-        }
-    
-        return true;
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email.trim());
     };
 
     const validateName = (name) => {
@@ -532,6 +489,13 @@ function QuizRender() {
                     </div>
                 );
             })}
+                        
+            <div>
+                <img style={{ display: !tieBreak.length > 0 && !quizData[currentQuestion] && Object.values(dichotomy).find((letter) => letter === '') === undefined && !showResultContainer ? 'block' : 'none' }} src={loaderGif} alt="calculating..." />
+            </div>
+
+
+            {typeImg && <img style="display:none;" className='type-img' src={typeImg}></img>}
 
             {showResultContainer &&
                 <>
@@ -593,7 +557,7 @@ function QuizRender() {
                                 onClick={sendEmail}
                                 disabled={isButtonDisabled}
                             >
-                                {sending ? 'siunčiama' : 'noriu gauti išsamią ataskaitą!'}
+                                {sending ? 'siunčiama' : 'noriu gauti išsamų aprašymą!'}
                                 {sending && <div className="loader" id='loader'></div>}
                             </button>
                         </>

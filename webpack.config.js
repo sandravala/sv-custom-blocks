@@ -49,8 +49,9 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'assets/img/[name].[ext]', // Customize the output path
-                            publicPath: '/wp-content/plugins/sv-custom-blocks/build/', // Public path for accessing images
+                            name: 'blocks/[path][name].[ext]',
+                            context: 'src/blocks', // Removes 'src/blocks' from the path
+                            publicPath: '/wp-content/plugins/sv-custom-blocks/build/',
                         },
                     },
                 ],
@@ -65,8 +66,8 @@ module.exports = {
             patterns: [
                 // Dynamically copy all files and subfolders from src/blocks
                 {
-                    from: path.resolve(__dirname, 'src/blocks/planner-personality-quiz'),
-                    to: 'blocks/planner-personality-quiz',
+                    from: path.resolve(__dirname, 'src/blocks'),
+                    to: 'blocks',
                     globOptions: {
                         ignore: ['**/*.js', '**/*.scss'], // Exclude files that Webpack already processes
                     },

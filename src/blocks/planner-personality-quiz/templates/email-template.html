@@ -8,8 +8,8 @@
         body {
             font-family: 'Inter', sans-serif;
             color: #000000;
+            text-align: justify;
         }
-
         h1 {
             font-size: 20px;
             line-height: 125%;
@@ -18,6 +18,7 @@
             text-decoration: none;
             margin-bottom: 10px;
             text-align: center;
+            color: #ff5e31;
         }
 
         td {
@@ -40,13 +41,18 @@
             </tr>
             <tr>
                 <td>
-                    <h1>TAVO PRODUDKTYVUMO TIPAS:</h1>
-                    <h1>{{name}}</h1>
+                    <h1 style="font-weight: normal;">TAVO PRODUKTYVUMO TIPAS:</h1>
+                    <h1 style="text-transform: uppercase;">{{name}}</h1>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p> {{oneLiner}}</p>
+                    <p style="color: #778db5;font-style: italic;"> {{oneLiner}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="{{typeImg}}" alt="{{name}}" style="width: 100%;">
                 </td>
             </tr>
             <tr>
@@ -116,6 +122,11 @@
             </tr>
             <tr>
                 <td>
+                    <img src="{{typeGif}}" alt="{{name}}" style="width: 100%;">
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <h1>IŠŠŪKIAI, SU KURIAIS SUSIDURI PLANUOJANT</h1>
                 </td>
             </tr>
@@ -149,7 +160,7 @@
             </tr>
             <tr>
                 <td>
-                    <h1>PAPILDOMI PATARIMAI TAU</h1>
+                    <h1>PAPILDOMI PATARIMAI</h1>
                 </td>
             </tr>
             <tr>
@@ -164,7 +175,7 @@
             </tr>
             <tr>
                 <td>
-                    <p>{{linkText}}</p>
+                    <p style="padding-bottom: 2em;">{{linkText}}</p>
                 </td>
             </tr>
             <tr>
@@ -174,7 +185,7 @@
             </tr>
             <tr>
                 <td style="text-align: center;">
-                    <a href="{{link}}" style="margin-top: 3em; background-color: #ff5e31; color: white; padding: 1em 1.5em; text-decoration: none; border-radius: 1em;">PERŽIŪRĖTI</a>
+                    <a href="{{link}}" target="_blank" style="background-color: #ff5e31; color: white; padding: 1em 1.5em; text-decoration: none; border-radius: 1em;">PERŽIŪRĖTI</a>
                 </td>
             </tr>
             <tr>
@@ -183,15 +194,15 @@
                     <table cellpadding="0" cellspacing="0">
                         <tbody>
                             <tr>
-                                <td style="padding:0 5px 0 0; text-align: center; width: 18px;">
+                                <td style="padding:0 25px 0 0; text-align: center; width: 18px; margin: 0 1em;">
                                     <a href="https://facebook.com/12gerumenesiu" style="text-decoration:none;"
                                         target="_blank">
-                                        <img src="{{plugin_url}}assets/img/fb.png" alt="facebook" style="width: 18px;">
+                                        <img src="{{plugin_url}}assets/img/fb.png" alt="facebook" style="width: 30px;">
                                     </a>
                                 </td>
-                                <td style="padding:0 5px 0 0; text-align: center; width: 18px;">
+                                <td style="padding:0 0 0 0; text-align: center; width: 18px;">
                                     <a href="https://instagram.com/12gerumenesiu" style="text-decoration:none;" target="_blank">
-                                        <img src="{{plugin_url}}assets/img/insta.png" alt="instagram" style="width: 18px;">
+                                        <img src="{{plugin_url}}assets/img/insta.png" alt="instagram" style="width: 30px;">
                                     </a>
                                 </td>
                             </tr>
@@ -238,7 +249,7 @@
                     <hr style="height: 1px; border-style: none; background-color: #e5e5e5; margin-bottom: 2em;">
                     <div><h5 style="font-family:'Inter',sans-serif;color:#000000;font-size:15px;line-height:125%;font-weight:bold;font-style:normal;text-decoration:none;margin-bottom:6px">12GM</h5></div>
                     <div><p style="font-family:'Inter',sans-serif;color:#515856;font-size:14px;line-height:150%;display:inline-block;margin-bottom:0;margin-block-start: 0;">Kęstučio g. 3, Kaunas<br>Lietuva</p></div>
-                    <div><p style="font-family:'Inter',sans-serif;color:#515856;font-size:12px;line-height:150%;display:inline-block;margin-bottom:0;margin-block-start: 2em;">Gavai šį laišką, nes atlikai planuotojo tipo testą 12GM tinklapyje</p></div>
+                    <div><p style="font-family:'Inter',sans-serif;color:#515856;font-size:12px;line-height:150%;display:inline-block;margin-bottom:0;margin-block-start: 2em;">Gavai šį laišką, nes atlikai produktyvumo tipo testą 12GM tinklapyje</p></div>
             </td>
             </tr>
 

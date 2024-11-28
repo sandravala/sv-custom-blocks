@@ -32,6 +32,8 @@ function send_personality_type_by_email() {
         return;
     }
 
+    $type_data['typeImg'] = plugin_dir_url(dirname(__FILE__)) . 'assets/img/type-img/' . strtolower($type) . '.jpg';
+    $type_data['typeGif'] = plugin_dir_url(dirname(__FILE__)) . 'assets/img/type-meme/' . strtolower($type) . '.gif';
     // Prepare the email subject
     $subject = 'Kas tu per žvėris?';
 
@@ -55,9 +57,6 @@ function send_personality_type_by_email() {
         'message' => 'Data processed successfully'
     ]);
 
-        // wp_send_json_success(array(
-        //     'response' => $response,
-        // ));
 }
 
 function send_email($to, $subject, $message) {
@@ -121,7 +120,7 @@ function subscribeToMailerlite ( $sanitizedContactInfo ) {
         'email' => $sanitizedContactInfo['email'],
         "fields" => [
             "name" => isset($sanitizedContactInfo['firstName']) ? $sanitizedContactInfo['firstName'] : null,
-            "tag" => isset($sanitizedContactInfo['type']) ? $sanitizedContactInfo['type'] : null
+            "tags" => isset($sanitizedContactInfo['type']) ? $sanitizedContactInfo['type'] : null
         ]
     ];
 
