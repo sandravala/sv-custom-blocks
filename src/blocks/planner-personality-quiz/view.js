@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
         renderForm();
 });
 
-
 function renderForm() {
     const quizDiv = document.getElementById('planner-personality-type-quiz').getElementsByClassName('qa-container')[0];
     const root = createRoot(quizDiv);
@@ -39,21 +38,6 @@ function renderForm() {
 }
 
 function QuizRender() {
-
-    // const quizData = [
-    //         {
-    //             question: '',
-    //             answers: [
-    //                 { text: 'Geriausia dieną pradėti peržiūrėjus darbų sąrašą ir detaliai suplanavus darbotvarkę.', letter: 'J' },
-    //                 { text: 'Nenumatyti pasikeitimai planuose - teigiamas dalykas, nes suteikia galimybę patyrinėti naujas kryptis ir galimybes.', letter: 'N' },
-    //                 { text: 'Kilus problemai darbe, svarbu atsižvelgti  į komandos narių poreikius ir siekti sprendimo, kuris būtų priimtinas visiems.', letter: 'F' },
-    //                 // { text: 'Vertinu galimybę dirbti vienumoje ir apgalvoti sprendimus ramioje aplinkoje.', letter: 'I' },
-    //                 // { text: 'Mėgstu bendrauti ir dalintis idėjomis su kitais žmonėmis (komandos nariais ir pan.).', letter: 'E' },
-    //                 { text: 'Mane dirbti labiausiai motyvuoja praktinė užduoties nauda ir apčiuopiami darbo rezultatai.', letter: 'S' },
-    //             ]
-    //         }
-    //     ];
-
 
     const [quizData, setQuizData] = useState(quiz);    
    
@@ -494,8 +478,7 @@ function QuizRender() {
                 <img style={{ display: !tieBreak.length > 0 && !quizData[currentQuestion] && Object.values(dichotomy).find((letter) => letter === '') === undefined && !showResultContainer ? 'block' : 'none' }} src={loaderGif} alt="calculating..." />
             </div>
 
-
-            {typeImg && <img style="display:none;" className='type-img' src={typeImg}></img>}
+            {typeImg && <img style={{display: 'none'}} className='type-img' src={typeImg}></img>}
 
             {showResultContainer &&
                 <>
@@ -536,7 +519,7 @@ function QuizRender() {
                                     type="email"
                                     id="subscribe-email"
                                     onChange={(event) => getSubscriberEmail(event.target.value)}
-                                    defaultValue='el. paštas'
+                                    defaultValue='email@gmail.com'
                                     className={`${errors.name ? 'error' : ''}`}
                                 />
                                 <span className={`error ${errors.email ? '' : 'hidden'}`}>nurodykite savo el. paštą</span>
