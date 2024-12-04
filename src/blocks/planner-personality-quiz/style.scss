@@ -484,10 +484,12 @@ div.contact-form input#subscribe-email.error {
 
 img.type-img {
 	margin-bottom: 2em;
+	max-width: -webkit-fill-available;
 }
 
 img.type-meme {
 	margin-bottom: 0em;
+	max-width: -webkit-fill-available;
 }
 
 h2.type-name-general,

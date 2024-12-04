@@ -1,1 +1,2 @@
 (()=>{"use strict";const e=wp.blocks,t=wp.i18n,n=wp.blockEditor,r=JSON.parse('{"UU":"sv-custom-blocks/planner-personality-quiz"}');(0,e.registerBlockType)(r.UU,{edit:function(){return React.createElement(React.Fragment,null,React.createElement("p",(0,n.useBlockProps)(),(0,t.__)("Planner personality quiz – hello from the editor!","planner-personality-quiz")))},save:function(){return null}})})();
+//# sourceMappingURL=index.js.map

@@ -28,7 +28,7 @@ import loaderGif from './assets/img/calculating-puzzled.gif';
 
 
 document.addEventListener('DOMContentLoaded', function () {
-        renderForm();
+    renderForm();
 });
 
 function renderForm() {
@@ -39,13 +39,45 @@ function renderForm() {
 
 function QuizRender() {
 
-    const [quizData, setQuizData] = useState(quiz);    
-   
+    const c = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith('productivityType='));
+
+    const cookieSet = () => {
+        
+        if (c) {
+            console.log('cookie found');
+            console.log(quizData.length);
+            return quizData.length;
+        } else {
+            console.log('cookie not found');
+            return 0;
+        }
+    };
+
+    const isFirstRender = useRef(true);
+    const [quizData, setQuizData] = useState(quiz);
+
     const [quizAnswer, setQuizAnswer] = useState(answer);
-    
+
+
     const imgFolder = require.context('./assets/img/', true, /\.(png|jpe?g|webp|svg)$/);
-    const [typeImg, setTypeImg] = useState(null);
-    const [typeMeme, setTypeMeme] = useState(null);
+    const [typeImg, setTypeImg] = useState(() => {
+        // Ensure `c` is defined and has the expected structure
+        if (c && c.includes('=')) {
+            const value = c.split('=')[1]?.toLowerCase(); // Safely get the value after '='
+            return imgFolder(`./type-img/${value}.webp`).default;
+        }
+        return null; // Fallback in case `c` is undefined or invalid
+    });
+    const [typeMeme, setTypeMeme] = useState(() => {
+        // Ensure `c` is defined and has the expected structure
+        if (c && c.includes('=')) {
+            const value = c.split('=')[1]?.toLowerCase(); // Safely get the value after '='
+            return imgFolder(`./type-meme/${value}_meme.webp`).default;
+        }
+        return null; // Fallback in case `c` is undefined or invalid
+    });
     const [emailSent, setEmailSent] = useState(false);
     const [sending, setSending] = useState(false);
     const [emailError, setEmailError] = useState(false);
@@ -89,16 +121,16 @@ function QuizRender() {
     ];
 
     const [subscriberData, setSubscriberData] = useState({
-        'email' : '',
+        'email': '',
         'name': ''
     });
 
     const [errors, setErrors] = useState({
-        'email' : false,
-        'name' : false
+        'email': false,
+        'name': false
     });
 
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [currentQuestion, setCurrentQuestion] = useState(cookieSet());
     const [currentVariant, setCurrentVariant] = useState(0);
     const [selectedAnswers, setSelectedAnswers] = useState({
         'E': [0, 0],
@@ -111,7 +143,12 @@ function QuizRender() {
         'P': [0, 0]
     }); // To track selected answers for each question
 
-    
+    const pairs = [
+        { key1: 'E', key2: 'I', index: 0 },
+        { key1: 'S', key2: 'N', index: 1 },
+        { key1: 'T', key2: 'F', index: 2 },
+        { key1: 'J', key2: 'P', index: 3 }
+    ];
 
     const [dichotomy, setDichotomy] = useState([
         '',
@@ -121,32 +158,38 @@ function QuizRender() {
     ]);
     const [tieBreak, setTieBreak] = useState([]);
     const [currentTieBreakQuestion, setCurrentTieBreakQuestion] = useState(0);
-    const [showResultContainer, setShowResultContainer] = useState(false);
-    const [type, setType] = useState('');
+    const [showResultContainer, setShowResultContainer] = useState(cookieSet() > 0);
+    const [type, setType] = useState(() => {
+
+        if (c && c.includes('=')) {
+            return c.split("=")[1]
+        }
+        return '';
+    });
     const [isChecked, setIsChecked] = useState(true);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
-  const checkHandler = () => {
-    setIsChecked(!isChecked);
-  }
-
-  const getQuestionSet = (index) => {
-    if(quizData[index]) {
-    return quizData[index]['answers'].reduce((acc, answer) => {
-        // Add each letter as a key with an initial value of 0
-        acc[answer.letter] = 0;
-        return acc;
-    }, {});
+    const checkHandler = () => {
+        setIsChecked(!isChecked);
     }
-    return {};
-  }
 
-  const [questionsAnswered, setQuestionsAnswered] = useState({ ...getQuestionSet(currentQuestion) });
+    const getQuestionSet = (index) => {
+        if (quizData[index]) {
+            return quizData[index]['answers'].reduce((acc, answer) => {
+                // Add each letter as a key with an initial value of 0
+                acc[answer.letter] = 0;
+                return acc;
+            }, {});
+        }
+        return {};
+    }
+
+    const [questionsAnswered, setQuestionsAnswered] = useState({ ...getQuestionSet(currentQuestion) });
     // Update the button's disabled state whenever the checkbox state changes
     useEffect(() => {
         setIsButtonDisabled(!isChecked);
     }, [isChecked]);
-    
+
     const handleChange = (answerLetter, points, variantIndex) => {
         setSelectedAnswers((prevAnswers) => {
             const [sum] = prevAnswers[answerLetter]; // Destructure the sum from the array
@@ -161,13 +204,13 @@ function QuizRender() {
                 ...prevQuestionsAnswered,
                 [answerLetter]: points,
             };
-        
-        
+
+
             // Set the current variant based on the updated state
             setCurrentVariant(
                 Object.values(updatedQuestionsAnswered).findIndex((answer) => answer === 0)
             );
-        
+
             return updatedQuestionsAnswered; // Return the updated state
         });
 
@@ -176,14 +219,14 @@ function QuizRender() {
 
     const tieBreakChange = (questionIndex, answerLetter) => {
         setDichotomy((prevDichotomy) => {
-          // Create a copy of the array
-          const updatedDichotomy = [...prevDichotomy];
-          
-          // Update the specific index with the new value
-          updatedDichotomy[questionIndex] = answerLetter;
-          
-          // Return the updated array
-          return updatedDichotomy;
+            // Create a copy of the array
+            const updatedDichotomy = [...prevDichotomy];
+
+            // Update the specific index with the new value
+            updatedDichotomy[questionIndex] = answerLetter;
+
+            // Return the updated array
+            return updatedDichotomy;
         });
         setCurrentTieBreakQuestion(currentTieBreakQuestion + 1);
     };
@@ -196,10 +239,12 @@ function QuizRender() {
                 block: 'center',
             });
         }
+
     }, [tieBreak, currentVariant, currentQuestion, currentTieBreakQuestion, questionsAnswered]);
 
     // Function to move to the next question
     const handleNextQuestion = () => {
+
 
         setSelectedAnswers((prevAnswers) => {
             const updatedAnswers = { ...prevAnswers };
@@ -212,39 +257,42 @@ function QuizRender() {
 
             // Tie-breaker logic
             if (currentQuestion === quizData.length - 1) {
-                const pairs = [
-                    { key1: 'E', key2: 'I', index: 0 },
-                    { key1: 'S', key2: 'N', index: 1 },
-                    { key1: 'T', key2: 'F', index: 2 },
-                    { key1: 'J', key2: 'P', index: 3 }
-                ];
 
                 pairs.forEach(({ key1, key2, index }) => {
                     if (updatedAnswers[key1][0] === updatedAnswers[key2][0]) {
                         setTieBreak((prevTieBreak) => [...prevTieBreak, index]);
                     } else {
-                        
+
                         setDichotomy((prevDichotomy) => {
-                            const updatedDichotomy = prevDichotomy;
+                            const updatedDichotomy = [...prevDichotomy];
                             updatedDichotomy[index] = updatedAnswers[key1][0] > updatedAnswers[key2][0] ? key1 : key2;
 
                             return updatedDichotomy;
                         })
                     }
                 });
+
+
             }
 
             return updatedAnswers;
         });
         setCurrentQuestion(currentQuestion + 1);
         setCurrentVariant(0);
-        setQuestionsAnswered({...getQuestionSet(currentQuestion+1)});
+        setQuestionsAnswered({ ...getQuestionSet(currentQuestion + 1) });
     };
 
     useEffect(() => {
+
+        if (isFirstRender.current) {
+            isFirstRender.current = false; // Mark the initial render as done
+            return; // Exit early to skip the effect on the initial render
+        }
+
+
+
         if (Object.values(dichotomy).find((letter) => letter === '') === undefined) {
             const typeString = dichotomy.reduce((prev, current) => prev + current, '');
-
             const imgPath = imgFolder(`./type-img/${typeString.toLowerCase()}.webp`);
             const imgUrl = typeof imgPath === 'object' ? imgPath.default : imgPath; // Ensure it's a string URL
             const memePath = imgFolder(`./type-meme/${typeString.toLowerCase()}_meme.webp`);
@@ -253,21 +301,40 @@ function QuizRender() {
             setTypeMeme(memeUrl);
             setType(typeString);
             setTieBreak([]);
+        } else {
+            console.log('dichotomy not full');
+            console.log(dichotomy);
+            
+            // if (tieBreak.length > 0) {
+            //     return;
+            // }
+
+            // pairs.forEach(({ key1, key2, index }) => {
+
+            //     if (dichotomy[index] === '') {
+            //         setTieBreak((prevTieBreak) => [...prevTieBreak, index]);
+            //     }
+            // });
         }
     }, [dichotomy]);
 
     const showResult = () => {
 
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 7);
+        document.cookie = `productivityType=${dichotomy.reduce((prev, current) => prev + current, '')}; expires=${expirationDate.toUTCString()}; SameSite=Strict; path=/`;
+        console.log(type);
+        console.log(dichotomy);
         setShowResultContainer(!showResultContainer);
 
     };
 
     const getSubscriberName = (name) => {
-        if(validateName(name)) {
+        if (validateName(name)) {
             setErrors((prevErrors) => {
                 return {
                     ...prevErrors,
-                    ['name'] : false
+                    ['name']: false
                 }
             });
             setSubscriberData((prevSubscriberData) => {
@@ -281,19 +348,19 @@ function QuizRender() {
             setErrors((prevErrors) => {
                 return {
                     ...prevErrors,
-                    ['name'] : true
+                    ['name']: true
                 }
             });
         }
     }
 
     const getSubscriberEmail = (email) => {
-        
-        if(validateEmail(email)) {
+
+        if (validateEmail(email)) {
             setErrors((prevErrors) => {
                 return {
                     ...prevErrors,
-                    ['email'] : false
+                    ['email']: false
                 }
             });
             setSubscriberData((prevSubscriberData) => {
@@ -307,7 +374,7 @@ function QuizRender() {
             setErrors((prevErrors) => {
                 return {
                     ...prevErrors,
-                    ['email'] : true
+                    ['email']: true
                 }
             });
         }
@@ -316,20 +383,20 @@ function QuizRender() {
     const sendEmail = () => {
 
         if (!validateEmail(subscriberData.email) || !validateName(subscriberData.name)) {
-            if(!validateName(subscriberData.name)) {
+            if (!validateName(subscriberData.name)) {
                 setErrors((prevErrors) => {
                     return {
                         ...prevErrors,
-                        ['name'] : true
+                        ['name']: true
                     }
                 });
             };
 
-            if(!validateEmail(subscriberData.email)) {
+            if (!validateEmail(subscriberData.email)) {
                 setErrors((prevErrors) => {
                     return {
                         ...prevErrors,
-                        ['email'] : true
+                        ['email']: true
                     }
                 });
             };
@@ -338,45 +405,45 @@ function QuizRender() {
         }
 
         setSending(true);
-        const dichotomyToSend = type.toLowerCase(); 
+        const dichotomyToSend = type.toLowerCase();
 
         const dataToSend = {
-            type: dichotomyToSend, 
-            email: subscriberData.email, 
+            type: dichotomyToSend,
+            email: subscriberData.email,
             name: subscriberData.name
         };
 
-        if(isChecked) {
+        if (isChecked) {
             dataToSend['subscribe'] = 'yes';
         }
 
         jQuery(document).ready(function ($) {
-                   
-                $.ajax({
-                    url: sv_ajax_object.ajax_url, // AJAX URL passed from PHP
-                    type: 'POST',
-                    data: {
-                        action: 'send_personality_type_by_email', // Action name
-                        nonce: sv_ajax_object.nonce,     // Nonce for security
-                        data: dataToSend
-                    },
-                    success: function (response) {
-                        if (response.success) {
-                            setEmailSent(true);
-                        } else {
-                            setEmailSent(false);
-                            setSending(false);
-                            setEmailError(true);   
-                            console.log(response.data);
-                        }
-                    },
-                    error: function () {
+
+            $.ajax({
+                url: sv_ajax_object.ajax_url, // AJAX URL passed from PHP
+                type: 'POST',
+                data: {
+                    action: 'send_personality_type_by_email', // Action name
+                    nonce: sv_ajax_object.nonce,     // Nonce for security
+                    data: dataToSend
+                },
+                success: function (response) {
+                    if (response.success) {
+                        setEmailSent(true);
+                    } else {
                         setEmailSent(false);
                         setSending(false);
                         setEmailError(true);
-                        console.log('An error occurred.');
-                    },
-                });
+                        console.log(response.data);
+                    }
+                },
+                error: function () {
+                    setEmailSent(false);
+                    setSending(false);
+                    setEmailError(true);
+                    console.log('An error occurred.');
+                },
+            });
             ;
         });
 
@@ -391,62 +458,64 @@ function QuizRender() {
     const validateName = (name) => {
         // Trim the input to remove extra spaces
         const trimmedName = name.trim();
-    
+
         // Check if the length is less than 2
         if (trimmedName.length < 2) {
             return false;
         }
-    
+
         // Regular expression to allow only letters, spaces, hyphens, and apostrophes
         const nameRegex = /^[a-zA-ZĄČĘĖĮŠŲŪŽąčęėįšųūž\s'-]+$/;
-    
+
         // Validate against the regular expression
         if (!nameRegex.test(trimmedName)) {
             return false;
         }
-    
+
         // Check for potential script injection (disallowing `<`, `>`, and `&`)
         if (/[\<\>\/\\\&]/.test(trimmedName)) {
             return false;
         }
-    
+
         return true;  // If all checks pass, the name is valid
     }
 
 
     return (
-        
+
         <>
 
             {quizData[currentQuestion] && quizData[currentQuestion].answers.map((answer, answerIndex) => (
                 <div className={`variant ${currentVariant === answerIndex ? 'active' : 'inactive'}`} id={`variant-${answer.letter}`} key={`variant-${answer.letter}`}>
-                <p style={{ textAlign: 'center' }} data-dichotomy={answer.letter}>
-                    {answer.text}
-                </p>
-                <div className="choice-slider">
-                    {points.map((point, pointIndex) => {
-                        const points = pointIndex + 1;
-                         return (<>
-                            <input
-                                type="radio"
-                                className="choice-input"
-                                name={`points-${answer.letter}`}
-                                id={`points-${answer.letter}-${points}`}
-                                value={points}
-                                onChange={() => handleChange(answer.letter, points, answerIndex)}
-                                checked={selectedAnswers[answer.letter][1] === points}
-                                required
-                            />
-                            <label
-                                htmlFor={`points-${answer.letter}-${points}`}
-                                className="choice-label"
-                                data-points={point}
-                            ></label>
-                        </>)
-                    })}
-                    <div className="points-pos" id={`points-pos-${answer.letter}`}></div>
+                    <p key={`q-${answer.letter}`} style={{ textAlign: 'center' }} data-dichotomy={answer.letter}>
+                        {answer.text}
+                    </p>
+                    <div key={`slider-${answer.letter}`} className="choice-slider">
+                        {points.map((point, pointIndex) => {
+                            const points = pointIndex + 1;
+                            return (<>
+                                <input
+                                    type="radio"
+                                    className="choice-input"
+                                    name={`points-${answer.letter}`}
+                                    id={`points-${answer.letter}-${points}`}
+                                    value={points}
+                                    onChange={() => handleChange(answer.letter, points, answerIndex)}
+                                    checked={selectedAnswers[answer.letter][1] === points}
+                                    required
+                                    key={`points-${answer.letter}`}
+                                />
+                                <label
+                                    htmlFor={`points-${answer.letter}-${points}`}
+                                    className="choice-label"
+                                    data-points={point}
+                                    key={`label-${answer.letter}-${points}`}
+                                ></label>
+                            </>)
+                        })}
+                        <div className="points-pos" id={`points-pos-${answer.letter}`}></div>
+                    </div>
                 </div>
-            </div>
 
             ))}
 
@@ -473,38 +542,52 @@ function QuizRender() {
                     </div>
                 );
             })}
-                        
+
             <div>
                 <img style={{ display: !tieBreak.length > 0 && !quizData[currentQuestion] && Object.values(dichotomy).find((letter) => letter === '') === undefined && !showResultContainer ? 'block' : 'none' }} src={loaderGif} alt="calculating..." />
             </div>
 
-            {typeImg && <img style={{display: 'none'}} className='type-img' src={typeImg}></img>}
+            {typeImg && <img style={{ display: 'none' }} className='type-img' src={typeImg}></img>}
 
             {showResultContainer &&
                 <>
                     <div className='result-container'>
-                        <div className='productivity-type'>
-                            <h2 className='type-name-general'>Tavo produktyvumo tipas:</h2>
-                            <h2 className='type-name-name'><strong>{quizAnswer[type]["name"]}</strong></h2>
-                            <p className='type-one-liner'>{quizAnswer[type]["oneLiner"]}</p>
-                            <img className='type-img' src={typeImg}></img>
-                            {quizAnswer[type]["description"].map((p) => { return <p>{p}</p> })}
-                            <h3>Tavo stiprybės:</h3>
-                            <ul>
-                                {quizAnswer[type]["strength"].map((p) => { return <li>{p}</li> })}
-                            </ul>
-                            <img className='type-meme' src={typeMeme}></img>
-                            <h3>Tavo silpnybės:</h3>
-                            <ul>
-                                {quizAnswer[type]["weakness"].map((p) => { return <li>{p}</li> })}
-                            </ul>
+                        {!type || !quizAnswer[type] ? (
+                            <div>
+                                <p>Skaičiuojamas rezultatas...</p>
+                                <p>Jei puslapis automatiškai neatsinaujino, atnaujinkite rankiniu būdu</p>
+                            </div>
+                            
+                        ) : (
+                            <div className='productivity-type'>
+                                <h2 className='type-name-general'>Tavo produktyvumo tipas:</h2>
+                                <h2 className='type-name-name'><strong>{quizAnswer[type]["name"]}</strong></h2>
+                                <p className='type-one-liner'>{quizAnswer[type]["oneLiner"]}</p>
+                                <img className='type-img' src={typeImg} alt="Type Image" />
+                                {quizAnswer[type]["description"].map((p, index) => (
+                                    <p key={index}>{p}</p>
+                                ))}
+                                <h3>Tavo stiprybės:</h3>
+                                <ul>
+                                    {quizAnswer[type]["strength"].map((p, index) => (
+                                        <li key={index}>{p}</li>
+                                    ))}
+                                </ul>
+                                <img className='type-meme' src={typeMeme} alt="Meme Image" />
+                                <h3>Tavo silpnybės:</h3>
+                                <ul>
+                                    {quizAnswer[type]["weakness"].map((p, index) => (
+                                        <li key={index}>{p}</li>
+                                    ))}
+                                </ul>
 
-                            <h3>Į ką atkreipti dėmesį:</h3>
-
-                        </div>
+                                <h3>Į ką atkreipti dėmesį:</h3>
+                            </div>
+                        )}
                         <div className='productivity-overlay'></div>
                     </div>
-                    {!emailSent &&
+
+                    {!emailSent && (
                         <>
                             <div className='contact-form'>
                                 <input
@@ -530,7 +613,7 @@ function QuizRender() {
                                         checked={isChecked}
                                         onChange={checkHandler}
                                     ></input>
-                                    <label for="subscribe">sutinku prenumeruoti 12GM naujienlaiškį</label>
+                                    <label htmlFor="subscribe">sutinku prenumeruoti 12GM naujienlaiškį</label>
                                 </div>
                             </div>
                             <button
@@ -544,19 +627,25 @@ function QuizRender() {
                                 {sending && <div className="loader" id='loader'></div>}
                             </button>
                         </>
-
-                    }
-                    {emailSent && !emailError && <div className='email-sent'>Puiku! Pasitikrink el. paštą (jei nerandi laiško, peržiūrėk ir spam aplanką)</div>}
-                    {emailError && <div className='email-sent error' id='email-sent-error'>Laiško siuntimas nepavyko. Pranešk apie tai sandra@12gm.lt</div>}
+                    )}
+                    {emailSent && !emailError && (
+                        <div className='email-sent'>Puiku! Pasitikrink el. paštą (jei nerandi laiško, peržiūrėk ir spam aplanką)</div>
+                    )}
+                    {emailError && (
+                        <div className='email-sent error' id='email-sent-error'>
+                            Laiško siuntimas nepavyko. Pranešk apie tai sandra@12gm.lt
+                        </div>
+                    )}
                 </>
-                }
+            }
 
 
 
-                {!showResultContainer &&
+
+            {!showResultContainer &&
                 <>
-                <div className="progress-bar-container"><progress max={quizData.length + tieBreak.length} value={currentQuestion + currentTieBreakQuestion}></progress></div>
-                
+                    <div className="progress-bar-container"><progress max={quizData.length + tieBreak.length} value={currentQuestion + currentTieBreakQuestion}></progress></div>
+
                     <button
                         type="button"
                         id="next-question-button"
@@ -573,7 +662,7 @@ function QuizRender() {
                     >rodyti rezultatą
                     </button>
                 </>
-                }
+            }
         </>
     );
 };

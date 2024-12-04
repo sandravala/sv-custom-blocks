@@ -2,11 +2,11 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "sv-custom-blocks/planner-personality-quiz",
-	"version": "0.1.0",
+	"version": "0.1.4",
 	"title": "Planner personality quiz",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Productivity personality type quiz",
 	"example": {},
 	"supports": {
 		"html": false

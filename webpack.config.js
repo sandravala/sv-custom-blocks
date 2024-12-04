@@ -78,5 +78,9 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.scss'],
     },
-    mode: 'production',
+    mode: 'development',
+    devtool: 'source-map', // Include source maps for easier debugging
+    optimization: {
+        minimize: false, // Disable minification for testing
+    },
 };
