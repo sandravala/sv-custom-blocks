@@ -1,0 +1,36 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+div#chartdiv {
+	height: auto;
+	max-width: 700px;
+	//height: auto;
+}
+
+@media screen and (max-width: 600px) {
+	div#chartdiv {
+	  height: 500px; /* container takes 90% of viewport width */
+	  //height: auto;
+	}
+  }
+
+  @media screen and (max-width: 600px) {
+	/* Shrink the table and its cell contents on small screens */
+	.wheel-of-life-widget {
+		overflow-x: scroll;
+	}
+	.wheel-of-life-widget table.wheel-inputs {
+	  width: 100%; /* or any desired percentage */
+	  font-size: 0.8em;
+	}
+	.wheel-of-life-widget table.wheel-inputs td,
+	.wheel-of-life-widget table.wheel-inputs input {
+	  font-size: 0.7em;  /* smaller text */
+	  padding: 0.2em;    /* less padding */
+	  width: auto;       /* allow inputs to shrink */
+	}
+  }

@@ -483,8 +483,10 @@ div.contact-form input#subscribe-email.error {
 }
 
 img.type-img {
-	margin-bottom: 2em;
-	max-width: -webkit-fill-available;
+    margin-bottom: 2em;
+    max-width: 100%; /* Avoid using -webkit-fill-available */
+    height: auto;    /* Ensure the height adjusts to the width */
+    object-fit: contain; /* Maintain the aspect ratio without cropping */
 }
 
 img.type-meme {

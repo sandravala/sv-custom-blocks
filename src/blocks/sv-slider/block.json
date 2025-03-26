@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sv-custom-blocks/sv-slider",
+	"version": "0.1.1.",
+	"title": "Slider",
+	"category": "widgets",
+	"icon": "slides",
+	"description": "Slider",
+	"allowedBlocks": [ "core/group" ],
+	"attributes": {
+		"autoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"timeframe": {
+			"type": "number",
+			"default": 3000
+		},
+		"fixedHeight": {
+			"type": "boolean",
+			"default": false
+		},
+		"height": {
+			"type": "number",
+			"default": 30
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sv-custom-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+
+}

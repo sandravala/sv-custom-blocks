@@ -1,0 +1,95 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-sv-custom-blocks-sv-slider {
+    position: relative; /* Stack slides */
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Active slide sliding in */
+.wp-block-sv-custom-blocks-sv-slider .slide-in {
+    opacity: 1;
+    transform: translateX(0); /* Move into view */
+    z-index: 2;
+    animation: slideIn 2s ease 0s 1 normal forwards; /* Adjust timing and remove delay */
+    display: block;
+}
+
+.wp-block-sv-custom-blocks-sv-slider .initial {
+    display: none;
+}
+
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(250px); /* Start off-screen to the right */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Fully visible in position */
+        display: block;
+    }
+}
+
+/* Immediate previous slide sliding out */
+.wp-block-sv-custom-blocks-sv-slider .slide-out {
+    opacity: 0;
+    transform: translateX(-250px); /* Move out to the left */
+    z-index: 1;
+    animation: slideOut 2s ease 0s 1 normal forwards; /* Adjust timing and remove delay */
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0); /* Fully visible */
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-250px); /* Slide out to the left */
+        display: none;
+    }
+}
+
+.slider-container {
+    position: relative;
+    display: flex;
+}
+
+.slider-container .slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgb(12 86 98 / 50%);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 3;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.slider-container .slider-nav:hover {
+    opacity: 1;
+}
+
+.slider-container .slider-nav.prev {
+    left: 10px; /* Position to the left of the container */
+}
+
+.slider-container .slider-nav.next {
+    right: 10px; /* Position to the right of the container */
+}

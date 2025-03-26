@@ -4,7 +4,7 @@
  * Description:       Example block scaffolded with Create Block tool.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.1.4
+ * Version:           0.2.12
  * Author:            The WordPress Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -23,6 +23,8 @@ require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/
 
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
 
+
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
@@ -34,6 +36,43 @@ function sv_custom_blocks_sv_custom_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/planner-personality-quiz' );
 }
 add_action( 'init', 'sv_custom_blocks_sv_custom_blocks_block_init' );
+
+function sv_slider_init() {
+	register_block_type( __DIR__ . '/build/blocks/sv-slider' );
+}
+add_action( 'init', 'sv_slider_init' );
+
+function pie_of_life_init() {
+	register_block_type( __DIR__ . '/build/blocks/pie-of-life' );
+}
+add_action( 'init', 'pie_of_life_init' );
+
+function countdown_workdays_init() {
+	register_block_type( __DIR__ . '/build/blocks/countdown-workdays' );
+}
+add_action( 'init', 'countdown_workdays_init' );
+
+function sv_enqueue_chart_scripts() {
+    // Enqueue Chart.js from a CDN
+    wp_enqueue_script(
+        'chart-js',
+        'https://cdn.jsdelivr.net/npm/chart.js',
+        array(), // No dependencies
+        '3.7.1', // Example version
+        true     // Load in footer
+    );
+    
+    // Enqueue your custom view script and declare Chart.js as a dependency
+    wp_enqueue_script(
+        'sv-custom-blocks-pie-of-life-view',
+        plugins_url( '/build/blocks/pie-of-life/view.js', __FILE__ ),
+        array( 'chart-js' ),
+        '1.0',
+        true
+    );
+}
+add_action( 'wp_enqueue_scripts', 'sv_enqueue_chart_scripts' );
+
 
 // Hook to add the menu
 add_action('admin_menu', 'sv_custom_blocks_add_menu');

@@ -13,7 +13,7 @@
 	],
 	"scripts": {
 		"build": "webpack --config webpack.prod.js",
-  		"build:dev": "webpack --config webpack.dev.js",
+		"build:dev": "webpack --config webpack.dev.js",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
@@ -38,5 +38,8 @@
 		"style-loader": "^4.0.0",
 		"webpack": "^5.96.1",
 		"webpack-cli": "^5.1.4"
+	},
+	"dependencies": {
+		"@wordpress/components": "^29.0.0"
 	}
 }
