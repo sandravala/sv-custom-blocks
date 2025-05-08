@@ -6,6 +6,136 @@
  */
 
  /* timeblock-builder core styles */
+ :root {
+  --primary: #FF5E31;
+  --accent: #FFF111;
+  --dark: #212121;
+  --purple: #351F44;
+  --teal: #8CC9C5;
+  --lavender: #ABB5D6;
+  
+  /* Lighter variants for backgrounds */
+  --primary-light: rgba(255, 94, 49, 0.5);
+  --accent-light: rgba(255, 241, 17, 0.5);
+  --teal-light: rgba(140, 201, 197, 0.5);
+  --lavender-light: rgba(171, 181, 214, 0.5);
+  --purple-light: rgba(53, 31, 68, 0.5);
+    /* Light background colors (10% opacity) */
+    --process-orange-light: rgba(255, 94, 49, 0.1);
+    --process-teal-light: rgba(140, 201, 197, 0.1);
+    --process-yellow-light: rgba(255, 241, 17, 0.1);
+    --process-purple-light: rgba(53, 31, 68, 0.1);
+    --process-lavender-light: rgba(171, 181, 214, 0.1);
+    --process-emerald-light: rgba(46, 204, 113, 0.1);
+    --process-sky-light: rgba(52, 152, 219, 0.1);
+}
+
+.task-edit-modal {
+  border: 1px solid black;
+}
+
+.timeblock-builder h3 {
+  text-transform: uppercase;
+}
+
+.button.cancel,
+.button.delete-schedule {
+  border: 2px solid var(--bt-color-button-border, #212121);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: linear-gradient(180deg, rgb(192, 169, 226) 5%, rgb(171, 181, 214) 95%);
+    border:none;
+    color: var(--bt-color-button, #FFF);
+    cursor: pointer;
+    display: inline-block;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    height: auto;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--bt-letter-spacing-button, 0px);
+    font-size: var(--bt-font-size-button, 14px);
+}
+.button.add-task:hover,
+.button.cancel:hover,
+.button.delete-schedule:hover,
+.button:hover {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    transform: scale(1.1);
+}
+/* Process card background classes */
+.process-1 {
+  background-color: rgb(38 70 83 / 20%);
+}
+
+.process-2 {
+  background-color: rgb(42 157 143 / 20%);
+}
+
+.process-3 {
+  background-color: rgb(233 196 106 / 20%);
+}
+
+.process-4 {
+  background-color: rgb(231 111 81 / 20%);
+}
+
+.process-5 {
+  background-color: rgb(229 193 133 / 41%);
+}
+
+.process-6 {
+  background-color: rgb(243 245 32 / 18%);
+}
+
+.process-7 {
+  background-color: rgba(134, 60, 186, 0.2);
+}
+/* Process card styling with progress bar at bottom */
+.process-card {
+  border-radius: 0.75rem;
+  padding: 1rem;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card content (everything except progress bar) */
+.process-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Process name - at the top */
+.process-card-content .font-medium {
+  margin-bottom: auto; /* This pushes everything else down */
+}
+
+/* Hours container - now at the bottom of content */
+.process-card-content .flex {
+  margin: auto 0.2rem 0.5rem 0.2rem;
+}
+/* Progress bar container - at bottom */
+.progress-container {
+  margin-top: auto;
+  width: 100%;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Progress bar fill */
+.process-progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  background-color: var(--primary);
+}
+ 
 .w-full {
 	width: 100%;
   }
@@ -22,6 +152,9 @@
   .bg-white {
 	background-color: #ffffff;
   }
+  .bg-white-50{
+    background: #ffffff8c;
+}
   .rounded-lg {
 	border-radius: 0.5rem;
   }
@@ -32,6 +165,12 @@
   /* Layout and structure */
   .flex {
 	display: flex;
+  }
+  .flex-wrap {
+  flex-wrap: wrap;
+  }
+  .flex-column {
+  flex-direction: column;
   }
   .grid {
 	display: grid;
@@ -45,6 +184,9 @@
   .grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
   .min-h-full {
 	min-height: 100%;
   }
@@ -161,6 +303,9 @@
   }
   .gap-4 {
 	gap: 1rem;
+  }
+  .gap-5 {
+    gap: 1.5rem;
   }
   
   /* Typography */
@@ -306,6 +451,24 @@
   .text-white {
 	color: #ffffff;
   }
+  .text-primary {
+  color: var(--primary);
+  }
+  .text-accent {
+  color: var(--accent);
+  }
+  .text-dark {
+  color: var(--dark);
+  }
+  .text-purple {
+  color: var(--purple);
+  }
+  .text-teal {
+  color: var(--teal);
+  }
+  .text-lavender {
+  color: var(--lavender);
+  }
   
   /* Borders */
   .border {
@@ -405,6 +568,9 @@
   .z-50 {
 	z-index: 50;
   }
+  .z-40 {
+    z-index: 40;
+    }
   
   /* Opacity */
   .opacity-50 {
@@ -481,11 +647,17 @@
 	.md\:grid-cols-5 {
 	  grid-template-columns: repeat(5, minmax(0, 1fr));
 	}
+  .md\:grid-cols-7 {
+	  grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
   }
   
   @media (min-width: 1024px) {
 	.lg\:grid-cols-3 {
 	  grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+  .md\:grid-cols-7 {
+	  grid-template-columns: repeat(7, minmax(0, 1fr));
 	}
   }
   
@@ -584,4 +756,15 @@
   }
   .min-h-full {
 	min-height: 100%;
+  }
+
+  button.close {
+    background-color: transparent;
+    border: none;
+    font-size: large;
+    font-weight: bold;
+    color: var(--primary-light);
+  }
+  button.close:hover {
+    color: var(--primary);
   }
