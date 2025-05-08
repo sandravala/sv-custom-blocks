@@ -76,7 +76,6 @@ function sv_custom_blocks_render_menu() {
     <h2>Mailerlite nustatymai</h2>
         <?php
 
-
             if (!current_user_can('edit_theme_options')) {
                 wp_die("You do not have permission to view this page.");
             }

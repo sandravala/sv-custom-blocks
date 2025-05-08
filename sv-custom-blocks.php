@@ -23,8 +23,6 @@ require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/
 
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
 
-
-
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
@@ -42,37 +40,10 @@ function sv_slider_init() {
 }
 add_action( 'init', 'sv_slider_init' );
 
-function pie_of_life_init() {
-	register_block_type( __DIR__ . '/build/blocks/pie-of-life' );
+function sv_timeblock_init() {
+	register_block_type( __DIR__ . '/build/blocks/timeblock-builder' );
 }
-add_action( 'init', 'pie_of_life_init' );
-
-function countdown_workdays_init() {
-	register_block_type( __DIR__ . '/build/blocks/countdown-workdays' );
-}
-add_action( 'init', 'countdown_workdays_init' );
-
-function sv_enqueue_chart_scripts() {
-    // Enqueue Chart.js from a CDN
-    wp_enqueue_script(
-        'chart-js',
-        'https://cdn.jsdelivr.net/npm/chart.js',
-        array(), // No dependencies
-        '3.7.1', // Example version
-        true     // Load in footer
-    );
-    
-    // Enqueue your custom view script and declare Chart.js as a dependency
-    wp_enqueue_script(
-        'sv-custom-blocks-pie-of-life-view',
-        plugins_url( '/build/blocks/pie-of-life/view.js', __FILE__ ),
-        array( 'chart-js' ),
-        '1.0',
-        true
-    );
-}
-add_action( 'wp_enqueue_scripts', 'sv_enqueue_chart_scripts' );
-
+add_action( 'init', 'sv_timeblock_init' );
 
 // Hook to add the menu
 add_action('admin_menu', 'sv_custom_blocks_add_menu');
