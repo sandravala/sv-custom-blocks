@@ -328,15 +328,17 @@ const ScheduleBuilder = () => {
 	// Handle drag over a block in the third row to create alternative
 	const handleDragOverBlock = (e, existingBlock) => {
 		// Only allow alternatives in row 3
-		if (!existingBlock.day.endsWith("-3")) return;
+		if (!existingBlock.day.endsWith("-3")) {
+			return;
+		}
 
 		// Only allow alternatives on primary blocks (not on alternatives)
-		if (existingBlock.alternativeGroupId) return;
+		if (existingBlock.alternativeGroupId) {
+			return;
+		}
 
 		e.preventDefault();
 		e.stopPropagation();
-
-		// Add visual feedback
 		e.currentTarget.classList.add("drag-over-block");
 
 		setCreatingAlternative(true);
@@ -405,6 +407,7 @@ const ScheduleBuilder = () => {
 				day,
 				alternativeGroupId: undefined, // clear if it's being treated as a normal block now
 			};
+
 			const filtered = scheduleBlocks.filter((b) => b.id !== blockToUse.id);
 			setScheduleBlocks([...filtered, moved]);
 		} else {
@@ -416,6 +419,7 @@ const ScheduleBuilder = () => {
 				process: blockToUse.process,
 				day,
 			};
+
 			setScheduleBlocks([...scheduleBlocks, added]);
 		}
 
@@ -498,14 +502,7 @@ const ScheduleBuilder = () => {
 				);
 				return;
 			}
-		} else {
-			// For direct schedule blocks, just validate hours > 0
-			const newHours = parseFloat(editingBlock.hours) || 0;
-			if (newHours <= 0) {
-				alert("Valandų turi būti daugiau už 0");
-				return;
-			}
-		}
+		} 
 
 		// Check if this is part of an alternative group
 		if (editingBlock.alternativeGroupId) {
@@ -530,7 +527,6 @@ const ScheduleBuilder = () => {
 						const alternatives = scheduleBlocks.filter(
 							(block) => block.alternativeGroupId === editingBlock.id,
 						);
-
 						if (alternatives.length > 0) {
 							// Check if any alternative has more hours than the new primary hours
 							const alternativesWithMoreHours = alternatives.filter(
@@ -541,7 +537,7 @@ const ScheduleBuilder = () => {
 								// Ask user if they want to update all alternatives
 								if (
 									confirm(
-										`Some alternatives have more hours than your new value (${newHours}). Update all alternatives to match?`,
+										`Kai kurios alternatyvios užduotys turi daugiau h, nei ${newHours}. Pakoreguoti ir alternatyvias užduotis?`,
 									)
 								) {
 									// Update all alternatives to the new primary hours
@@ -619,7 +615,7 @@ const ScheduleBuilder = () => {
 						// Check if hours are valid (can't be more than primary)
 						if (newHours > primaryBlock.hours) {
 							alert(
-								`Alternative hours cannot exceed primary task hours (${primaryBlock.hours} hours)`,
+								`Alternatyvioms užduotims negalima planuoti daugiau už pirminę užduotį (${primaryBlock.hours} h)`,
 							);
 							return;
 						}
@@ -638,6 +634,32 @@ const ScheduleBuilder = () => {
 					}
 				}
 			}
+		} else {
+			
+			// Add logic for handling primary blocks here
+			const newHours = parseFloat(editingBlock.hours);
+			
+			// Find all alternatives for this primary block
+			const alternatives = scheduleBlocks.filter(
+				(block) => block.alternativeGroupId === editingBlock.id,
+			);
+			
+			// Update logic for primary block and alternatives
+			const updatedBlocks = scheduleBlocks.map((block) => {
+				if (block.id === editingBlock.id) {
+					return { ...block, hours: newHours, title: editingBlock.title };
+				} else if (
+					block.alternativeGroupId === editingBlock.id &&
+					block.hours > newHours
+				) {
+					return { ...block, hours: newHours }; // Adjust alternative hours
+				}
+				return block;
+			});
+
+			setScheduleBlocks(updatedBlocks);
+			setEditingBlock(null);
+			return;
 		}
 
 		// Update the block normally
@@ -806,7 +828,6 @@ const ScheduleBuilder = () => {
 
 				{/* New task form */}
 				{showForm && (
-          
 					<div className="task-edit-modal mb-4 p-4 border rounded">
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
 							{/* Task Name */}
@@ -1220,12 +1241,16 @@ const ScheduleBuilder = () => {
 											key={dayAndRow}
 											className="border p-2 align-top h-32 ne-kiekviena-savaite-cell"
 											onDragOver={(e) => {
-												e.preventDefault();
-												e.currentTarget.classList.add("bg-green-100");
+												handleDragOver(e);
 											}}
-											onDragLeave={(e) => {
-												e.currentTarget.classList.remove("bg-green-100");
-											}}
+											// onDragEnter={(e) => {
+											// 	e.currentTarget.classList.add("drag-over");
+											// 	e.currentTarget.classList.add("drag-over-block");
+											// }}
+											// onDragLeave={(e) => {
+											// 	e.currentTarget.classList.remove("drag-over");
+											// 	e.currentTarget.classList.remove("drag-over-block");
+											// }}
 											onDrop={(e) => handleDrop(e, dayAndRow)}
 										>
 											<div className="min-h-full">
@@ -1271,7 +1296,9 @@ const ScheduleBuilder = () => {
 																			groups[groupId][0],
 																		)
 																	}
-																	onDragOver={(e) => e.preventDefault()}
+																	onDragOver={(e) => {
+																		handleDragOverBlock(e, groups[groupId][0]);
+																	}}
 																	onClick={() =>
 																		handleStartEdit(groups[groupId][0])
 																	}
@@ -1415,7 +1442,9 @@ const ScheduleBuilder = () => {
 									/>
 								</div>
 								<div>
-									<label className="block text-sm font-medium mb-1">darbo laikas, h</label>
+									<label className="block text-sm font-medium mb-1">
+										darbo laikas, h
+									</label>
 									<input
 										type="number"
 										min="0.25"
