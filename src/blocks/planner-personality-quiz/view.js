@@ -652,7 +652,7 @@ function QuizRender() {
                                     defaultValue="vardas"
                                     className={`${errors.name ? 'error' : ''}`}
                                 />
-                                <span className={`error ${errors.name ? '' : 'hidden'}`}>nurodykite savo vardą</span>
+                                <span className={`error ${errors.name ? '' : 'hidden'}`}>nurodyk savo vardą</span>
                                 <input
                                     type="email"
                                     id="subscribe-email"
@@ -660,7 +660,7 @@ function QuizRender() {
                                     defaultValue='email@gmail.com'
                                     className={`${errors.name ? 'error' : ''}`}
                                 />
-                                <span className={`error ${errors.email ? '' : 'hidden'}`}>nurodykite savo el. paštą</span>
+                                <span className={`error ${errors.email ? '' : 'hidden'}`}>nurodyk savo el. paštą</span>
                                 <div className="checkbox-container">
                                     <input
                                         type="checkbox"
@@ -678,7 +678,7 @@ function QuizRender() {
                                 onClick={sendEmail}
                                 disabled={isButtonDisabled}
                             >
-                                {sending ? 'siunčiama' : 'noriu gauti išsamų aprašymą!'}
+                                {sending ? 'Siunčiama...' : 'Noriu visos tiesos apie savo tipą!'}
                                 {sending && <div className="loader" id='loader'></div>}
                             </button>
                         </>
@@ -688,14 +688,11 @@ function QuizRender() {
                     )}
                     {emailError && (
                         <div className='email-sent error' id='email-sent-error'>
-                            Laiško siuntimas nepavyko. Pranešk apie tai sandra@12gm.lt
+                            Laiško siuntimas nepavyko. Parašyk sandra@12gm.lt ir atsiųsiu rankiniu būdu.
                         </div>
                     )}
                 </>
             }
-
-
-
 
             {!showResultContainer &&
                 <>
@@ -714,7 +711,7 @@ function QuizRender() {
                         id="show-answer-button"
                         className={`show-answer-button ${!quizData[currentQuestion] && Object.values(dichotomy).find((letter) => letter === '') === undefined ? '' : 'hidden'} ${Object.values(dichotomy).find((letter) => letter === '') === undefined ? 'variant active pulse' : ''}`}
                         onClick={showResult}
-                    >rodyti rezultatą
+                    >noriu greičiau pamatyti rezultatą!
                     </button>
                 </>
             }
