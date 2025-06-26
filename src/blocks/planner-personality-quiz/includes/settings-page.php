@@ -110,6 +110,40 @@ function sv_custom_blocks_render_menu() {
             <button type="submit" name="submit_form" id="submit_form">Išsaugoti</button>
         </form>
 
+        <hr style="margin: 30px 0;">
+        
+        <h2>Quiz statistikos</h2>
+        
+        <?php
+        $stats = get_quiz_stats();
+        if ($stats && !empty($stats)) {
+            $stat_labels = array(
+                'show_answer_clicks' => 'Paspaudimai "Rodyti rezultatą"',
+                'send_email_clicks' => 'Paspaudimai "Noriu gauti išsamų aprašymą"',
+                'first_radio_clicks' => 'Pradėję pildyti quiz (pirmasis pasirinkimas)'
+            );
+            ?>
+            <table class="widefat" style="max-width: 600px;">
+                <thead>
+                    <tr>
+                        <th>Veiksmas</th>
+                        <th>Skaičius</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($stats as $stat): ?>
+                        <tr>
+                            <td><?php echo esc_html($stat_labels[$stat->stat_type] ?? $stat->stat_type); ?></td>
+                            <td><strong><?php echo esc_html($stat->count); ?></strong></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            <?php
+        } else {
+            echo '<p>Statistikos duomenų dar nėra.</p>';
+        }
+        ?>
 
     <?php
 

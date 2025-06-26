@@ -29,7 +29,24 @@ $number-of-options: 5;
     display: block;
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 #ff5e31;
+    }
+    70% {
+        transform: scale(1.15);
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
 
+.pulse {
+    animation: pulse 3s infinite;
+}
 
 .form-wrapper {
 	width: 100%;
@@ -215,6 +232,15 @@ form {
 	&:focus {
 		background: linear-gradient(0deg, #e66465 0%, #9198e5 100%);
 	}
+}
+
+.planner-personality-type-quiz button[type='button']#show-answer-button {
+	background: #ff5e31;
+	margin-top: 2em;
+}
+
+.planner-personality-type-quiz button[type='button']#send-email-button {
+	background: #ff5e31;
 }
 
 div.loader {
@@ -490,8 +516,10 @@ img.type-img {
 }
 
 img.type-meme {
-	margin-bottom: 0em;
-	max-width: -webkit-fill-available;
+    margin-bottom: 0em;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 h2.type-name-general,

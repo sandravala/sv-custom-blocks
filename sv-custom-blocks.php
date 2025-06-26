@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/key-encryption.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/settings-page.php';
+require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/stats-tracking.php';
 
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
 

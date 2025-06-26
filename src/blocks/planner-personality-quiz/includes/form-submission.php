@@ -14,6 +14,10 @@ function send_personality_type_by_email() {
     $userName = isset($_POST['data']['name']) ? sanitize_text_field(wp_unslash($_POST['data']['name'])) : '';
     $subscribe = isset($_POST['data']['subscribe']) ? true : false;
 
+    // EMAIL SENDING DISABLED - Only MailerLite subscription is active
+    // Uncomment the code below to re-enable email sending
+    
+    /*
     // Construct the path to the JSON file
     $data_path = plugin_dir_path(__FILE__) . '../assets/data/' . strtolower($type) . '.json';
 
@@ -42,6 +46,7 @@ function send_personality_type_by_email() {
     $message = fill_email_template($template_path, $type_data);
 
     send_email($userEmail, $subject, $message);
+    */
 
     $sanitizedContactInfo = array();
     $sanitizedContactInfo['email'] = $userEmail;
@@ -49,7 +54,11 @@ function send_personality_type_by_email() {
     $sanitizedContactInfo['type'] = $type;
 
     if($subscribe) {
-        subscribeToMailerlite($sanitizedContactInfo);
+        $subscription_result = subscribeToMailerlite($sanitizedContactInfo);
+        if (!$subscription_result) {
+            wp_send_json_error('Subscription failed. Please try again or contact support.');
+            return;
+        }
     }
 
     // Respond with success

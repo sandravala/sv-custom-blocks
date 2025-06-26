@@ -168,6 +168,7 @@ function QuizRender() {
     });
     const [isChecked, setIsChecked] = useState(true);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [firstRadioClicked, setFirstRadioClicked] = useState(false);
 
     const checkHandler = () => {
         setIsChecked(!isChecked);
@@ -191,6 +192,23 @@ function QuizRender() {
     }, [isChecked]);
 
     const handleChange = (answerLetter, points, variantIndex) => {
+        // Track first radio button click (async, no waiting)
+        if (!firstRadioClicked) {
+            setFirstRadioClicked(true);
+            jQuery(document).ready(function ($) {
+                $.ajax({
+                    url: sv_ajax_object.ajax_url,
+                    type: 'POST',
+                    data: {
+                        action: 'record_quiz_stat',
+                        nonce: sv_ajax_object.nonce,
+                        stat_type: 'first_radio_clicks'
+                    },
+                    async: true
+                });
+            });
+        }
+
         setSelectedAnswers((prevAnswers) => {
             const [sum] = prevAnswers[answerLetter]; // Destructure the sum from the array
             return {
@@ -319,6 +337,19 @@ function QuizRender() {
     }, [dichotomy]);
 
     const showResult = () => {
+        // Track show answer button click (async, no waiting)
+        jQuery(document).ready(function ($) {
+            $.ajax({
+                url: sv_ajax_object.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'record_quiz_stat',
+                    nonce: sv_ajax_object.nonce,
+                    stat_type: 'show_answer_clicks'
+                },
+                async: true
+            });
+        });
 
         const expirationDate = new Date();
         expirationDate.setDate(expirationDate.getDate() + 7);
@@ -381,6 +412,19 @@ function QuizRender() {
     }
 
     const sendEmail = () => {
+        // Track send email button click (async, no waiting)
+        jQuery(document).ready(function ($) {
+            $.ajax({
+                url: sv_ajax_object.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'record_quiz_stat',
+                    nonce: sv_ajax_object.nonce,
+                    stat_type: 'send_email_clicks'
+                },
+                async: true
+            });
+        });
 
         if (!validateEmail(subscriberData.email) || !validateName(subscriberData.name)) {
             if (!validateName(subscriberData.name)) {
@@ -590,6 +634,17 @@ function QuizRender() {
                     {!emailSent && (
                         <>
                             <div className='contact-form'>
+                                <div>
+                                    <strong>UPS!</strong>Apie tavo produktyvumo tipą dar tiek galima papasakoti, bet man baisu, kas 12GM svetainė gali neatlaikyti tokio informacijos kiekio 😅
+                                    <br />
+                                    <strong>Žinai ką? Padarykime paprasčiau:</strong> įvesk savo el. paštą ir atsiųsiu tau išsamų aprašymą PDF formatu, kuriame:
+                                    <br />
+                                    <ul>
+                                        <li>Sužinosi dar daugiau apie savo elgesio modelius</li>
+                                        <li>Gausi konkrečių patarimų, kaip keisti savo elgesį, kad taptum produktyvesnis</li>
+                                        <li>O kituose laiškuose atkeliaus ir tau asmeniškai pritaikytas gidas, kuris padės tai įgyvendinti praktiškai</li>
+                                    </ul>
+                                </div>
                                 <input
                                     type="text"
                                     id="subscribe-name"
@@ -644,7 +699,7 @@ function QuizRender() {
 
             {!showResultContainer &&
                 <>
-                    <div className="progress-bar-container"><progress max={quizData.length + tieBreak.length} value={currentQuestion + currentTieBreakQuestion}></progress></div>
+                    <div className={`progress-bar-container ${Object.values(dichotomy).find((letter) => letter === '') === undefined ? 'hidden' : ''}`}><progress max={quizData.length + tieBreak.length} value={currentQuestion + currentTieBreakQuestion}></progress></div>
 
                     <button
                         type="button"
@@ -657,7 +712,7 @@ function QuizRender() {
                     <button
                         type="button"
                         id="show-answer-button"
-                        className={`show-answer-button ${!quizData[currentQuestion] && Object.values(dichotomy).find((letter) => letter === '') === undefined ? '' : 'hidden'} ${Object.values(dichotomy).find((letter) => letter === '') === undefined ? 'variant active' : ''}`}
+                        className={`show-answer-button ${!quizData[currentQuestion] && Object.values(dichotomy).find((letter) => letter === '') === undefined ? '' : 'hidden'} ${Object.values(dichotomy).find((letter) => letter === '') === undefined ? 'variant active pulse' : ''}`}
                         onClick={showResult}
                     >rodyti rezultatą
                     </button>
