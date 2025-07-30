@@ -118,9 +118,9 @@ function sv_custom_blocks_render_menu() {
         $stats = get_quiz_stats();
         if ($stats && !empty($stats)) {
             $stat_labels = array(
-                'show_answer_clicks' => 'Paspaudimai "Rodyti rezultatą"',
-                'send_email_clicks' => 'Paspaudimai "Noriu gauti išsamų aprašymą"',
-                'first_radio_clicks' => 'Pradėję pildyti quiz (pirmasis pasirinkimas)'
+                'show_answer_clicks' => 'Užbaigė testą iki rezultato parodymo',
+                'send_email_clicks' => 'Įvedė el. paštą',
+                'first_radio_clicks' => 'Pradėjo testą'
             );
             ?>
             <table class="widefat" style="max-width: 600px;">

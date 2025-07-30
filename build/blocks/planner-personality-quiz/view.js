@@ -34697,25 +34697,25 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   renderForm();
 });
 function renderForm() {
-  var quizDiv = document.getElementById('planner-personality-type-quiz').getElementsByClassName('qa-container')[0];
+  var quizDiv = document.getElementById("planner-personality-type-quiz").getElementsByClassName("qa-container")[0];
   var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(quizDiv);
   root.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(QuizRender, null));
 }
 function QuizRender() {
   var c = document.cookie.split("; ").find(function (row) {
-    return row.startsWith('productivityType=');
+    return row.startsWith("productivityType=");
   });
   var cookieSet = function cookieSet() {
     if (c) {
-      console.log('cookie found');
+      console.log("cookie found");
       console.log(quizData.length);
       return quizData.length;
     } else {
-      console.log('cookie not found');
+      console.log("cookie not found");
       return 0;
     }
   };
@@ -34731,9 +34731,9 @@ function QuizRender() {
   var imgFolder = __webpack_require__("./src/blocks/planner-personality-quiz/assets/img sync recursive \\.(png%7Cjpe?g%7Cwebp%7Csvg)$");
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
       // Ensure `c` is defined and has the expected structure
-      if (c && c.includes('=')) {
+      if (c && c.includes("=")) {
         var _c$split$;
-        var value = (_c$split$ = c.split('=')[1]) === null || _c$split$ === void 0 ? void 0 : _c$split$.toLowerCase(); // Safely get the value after '='
+        var value = (_c$split$ = c.split("=")[1]) === null || _c$split$ === void 0 ? void 0 : _c$split$.toLowerCase(); // Safely get the value after '='
         return imgFolder("./type-img/".concat(value, ".webp"))["default"];
       }
       return null; // Fallback in case `c` is undefined or invalid
@@ -34743,9 +34743,9 @@ function QuizRender() {
     setTypeImg = _useState6[1];
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
       // Ensure `c` is defined and has the expected structure
-      if (c && c.includes('=')) {
+      if (c && c.includes("=")) {
         var _c$split$2;
-        var value = (_c$split$2 = c.split('=')[1]) === null || _c$split$2 === void 0 ? void 0 : _c$split$2.toLowerCase(); // Safely get the value after '='
+        var value = (_c$split$2 = c.split("=")[1]) === null || _c$split$2 === void 0 ? void 0 : _c$split$2.toLowerCase(); // Safely get the value after '='
         return imgFolder("./type-meme/".concat(value, "_meme.webp"))["default"];
       }
       return null; // Fallback in case `c` is undefined or invalid
@@ -34767,52 +34767,52 @@ function QuizRender() {
     setEmailError = _useState14[1];
   var points = ["100% ne aš", "Nepanašu į mane", "Gaaaal kartais", "Skamba panašiai", "100% AŠ!"];
   var tieBreakerQuestions = [{
-    question: 'Kai turi išspręsti svarbų klausimą, kaip renkiesi ieškoti sprendimo?',
+    question: "Kai turi išspręsti svarbų klausimą, kaip renkiesi ieškoti sprendimo?",
     answers: [{
-      text: 'Man patinka pasitarti su kolegomis ir kartu aptarti galimus sprendimus.',
-      letter: 'E'
+      text: "Man patinka pasitarti su kolegomis ir kartu aptarti galimus sprendimus.",
+      letter: "E"
     }, {
-      text: 'Mėgstu ramiai apmąstyti galimus sprendimus vienumoje, prieš pasidalinant su kitais.',
-      letter: 'I'
+      text: "Mėgstu ramiai apmąstyti galimus sprendimus vienumoje, prieš pasidalinant su kitais.",
+      letter: "I"
     }]
   }, {
-    question: 'Kaip geriau planuoti ilgalaikį projektą?',
+    question: "Kaip geriau planuoti ilgalaikį projektą?",
     answers: [{
-      text: 'Pasikliauti konkrečiais faktais, ankstesne patirtimi ir sudaryti reikalingų žingsnių planą.',
-      letter: 'S'
+      text: "Pasikliauti konkrečiais faktais, ankstesne patirtimi ir sudaryti reikalingų žingsnių planą.",
+      letter: "S"
     }, {
-      text: 'Pradėti nuo vizijos kūrimo ir ieškoti, kaip galima būtų tą viziją įgyvendinti (pageidautina - kūrybiškai).',
-      letter: 'N'
+      text: "Pradėti nuo vizijos kūrimo ir ieškoti, kaip galima būtų tą viziją įgyvendinti (pageidautina - kūrybiškai).",
+      letter: "N"
     }]
   }, {
-    question: 'Kaip geriau įvertinti komandos nario veiklą?',
+    question: "Kaip geriau įvertinti komandos nario veiklą?",
     answers: [{
-      text: 'Pagal objektyvius rezultatus ir veiklos efektyvumą.',
-      letter: 'T'
+      text: "Pagal objektyvius rezultatus ir veiklos efektyvumą.",
+      letter: "T"
     }, {
-      text: 'Atsižvelgiant į įdėtas pastangas ir tai, kaip vertinimas paveiks jo tolesnę motyvaciją.',
-      letter: 'F'
+      text: "Atsižvelgiant į įdėtas pastangas ir tai, kaip vertinimas paveiks jo tolesnę motyvaciją.",
+      letter: "F"
     }]
   }, {
-    question: 'Kaip vertini nenumatytus pasikeitimus (projektuose, užduotyse, planuose)?',
+    question: "Kaip vertini nenumatytus pasikeitimus (projektuose, užduotyse, planuose)?",
     answers: [{
-      text: 'Stengiuosi laikytis pirminio plano ir kiek įmanoma vengti pasikeitimų.',
-      letter: 'J'
+      text: "Stengiuosi laikytis pirminio plano ir kiek įmanoma vengti pasikeitimų.",
+      letter: "J"
     }, {
-      text: 'Lengvai prisitaikau prie pasikeitimų ir dažnai randu naujų būdų veiksmingai išspręsti situacijas.',
-      letter: 'P'
+      text: "Lengvai prisitaikau prie pasikeitimų ir dažnai randu naujų būdų veiksmingai išspręsti situacijas.",
+      letter: "P"
     }]
   }];
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      'email': '',
-      'name': ''
+      email: "",
+      name: ""
     }),
     _useState16 = _slicedToArray(_useState15, 2),
     subscriberData = _useState16[0],
     setSubscriberData = _useState16[1];
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      'email': false,
-      'name': false
+      email: false,
+      name: false
     }),
     _useState18 = _slicedToArray(_useState17, 2),
     errors = _useState18[0],
@@ -34826,37 +34826,37 @@ function QuizRender() {
     currentVariant = _useState22[0],
     setCurrentVariant = _useState22[1];
   var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      'E': [0, 0],
-      'I': [0, 0],
-      'S': [0, 0],
-      'N': [0, 0],
-      'T': [0, 0],
-      'F': [0, 0],
-      'J': [0, 0],
-      'P': [0, 0]
+      E: [0, 0],
+      I: [0, 0],
+      S: [0, 0],
+      N: [0, 0],
+      T: [0, 0],
+      F: [0, 0],
+      J: [0, 0],
+      P: [0, 0]
     }),
     _useState24 = _slicedToArray(_useState23, 2),
     selectedAnswers = _useState24[0],
     setSelectedAnswers = _useState24[1]; // To track selected answers for each question
 
   var pairs = [{
-    key1: 'E',
-    key2: 'I',
+    key1: "E",
+    key2: "I",
     index: 0
   }, {
-    key1: 'S',
-    key2: 'N',
+    key1: "S",
+    key2: "N",
     index: 1
   }, {
-    key1: 'T',
-    key2: 'F',
+    key1: "T",
+    key2: "F",
     index: 2
   }, {
-    key1: 'J',
-    key2: 'P',
+    key1: "J",
+    key2: "P",
     index: 3
   }];
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(['', '', '', '']),
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["", "", "", ""]),
     _useState26 = _slicedToArray(_useState25, 2),
     dichotomy = _useState26[0],
     setDichotomy = _useState26[1];
@@ -34873,10 +34873,10 @@ function QuizRender() {
     showResultContainer = _useState32[0],
     setShowResultContainer = _useState32[1];
   var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
-      if (c && c.includes('=')) {
+      if (c && c.includes("=")) {
         return c.split("=")[1];
       }
-      return '';
+      return "";
     }),
     _useState34 = _slicedToArray(_useState33, 2),
     type = _useState34[0],
@@ -34898,7 +34898,7 @@ function QuizRender() {
   };
   var getQuestionSet = function getQuestionSet(index) {
     if (quizData[index]) {
-      return quizData[index]['answers'].reduce(function (acc, answer) {
+      return quizData[index]["answers"].reduce(function (acc, answer) {
         // Add each letter as a key with an initial value of 0
         acc[answer.letter] = 0;
         return acc;
@@ -34921,11 +34921,11 @@ function QuizRender() {
       jQuery(document).ready(function ($) {
         $.ajax({
           url: sv_ajax_object.ajax_url,
-          type: 'POST',
+          type: "POST",
           data: {
-            action: 'record_quiz_stat',
+            action: "record_quiz_stat",
             nonce: sv_ajax_object.nonce,
-            stat_type: 'first_radio_clicks'
+            stat_type: "first_radio_clicks"
           },
           async: true
         });
@@ -34960,11 +34960,11 @@ function QuizRender() {
     setCurrentTieBreakQuestion(currentTieBreakQuestion + 1);
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var activeElement = document.querySelector('.variant.active');
+    var activeElement = document.querySelector(".variant.active");
     if (activeElement) {
       activeElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
+        behavior: "smooth",
+        block: "center"
       });
     }
   }, [tieBreak, currentVariant, currentQuestion, currentTieBreakQuestion, questionsAnswered]);
@@ -35011,21 +35011,21 @@ function QuizRender() {
       return; // Exit early to skip the effect on the initial render
     }
     if (Object.values(dichotomy).find(function (letter) {
-      return letter === '';
+      return letter === "";
     }) === undefined) {
       var typeString = dichotomy.reduce(function (prev, current) {
         return prev + current;
-      }, '');
+      }, "");
       var imgPath = imgFolder("./type-img/".concat(typeString.toLowerCase(), ".webp"));
-      var imgUrl = _typeof(imgPath) === 'object' ? imgPath["default"] : imgPath; // Ensure it's a string URL
+      var imgUrl = _typeof(imgPath) === "object" ? imgPath["default"] : imgPath; // Ensure it's a string URL
       var memePath = imgFolder("./type-meme/".concat(typeString.toLowerCase(), "_meme.webp"));
-      var memeUrl = _typeof(memePath) === 'object' ? memePath["default"] : memePath; // Ensure it's a string URL
+      var memeUrl = _typeof(memePath) === "object" ? memePath["default"] : memePath; // Ensure it's a string URL
       setTypeImg(imgUrl);
       setTypeMeme(memeUrl);
       setType(typeString);
       setTieBreak([]);
     } else {
-      console.log('dichotomy not full');
+      console.log("dichotomy not full");
       console.log(dichotomy);
 
       // if (tieBreak.length > 0) {
@@ -35045,11 +35045,11 @@ function QuizRender() {
     jQuery(document).ready(function ($) {
       $.ajax({
         url: sv_ajax_object.ajax_url,
-        type: 'POST',
+        type: "POST",
         data: {
-          action: 'record_quiz_stat',
+          action: "record_quiz_stat",
           nonce: sv_ajax_object.nonce,
-          stat_type: 'show_answer_clicks'
+          stat_type: "show_answer_clicks"
         },
         async: true
       });
@@ -35058,38 +35058,39 @@ function QuizRender() {
     expirationDate.setDate(expirationDate.getDate() + 7);
     document.cookie = "productivityType=".concat(dichotomy.reduce(function (prev, current) {
       return prev + current;
-    }, ''), "; expires=").concat(expirationDate.toUTCString(), "; SameSite=Strict; path=/");
+    }, ""), "; expires=").concat(expirationDate.toUTCString(), "; SameSite=Strict; path=/");
     console.log(type);
     console.log(dichotomy);
+    document.querySelector(".test-intro").classList.add("hidden");
     setShowResultContainer(!showResultContainer);
   };
   var getSubscriberName = function getSubscriberName(name) {
     if (validateName(name)) {
       setErrors(function (prevErrors) {
-        return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, 'name', false));
+        return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, "name", false));
       });
       setSubscriberData(function (prevSubscriberData) {
-        var newSubscriberData = _objectSpread(_objectSpread({}, prevSubscriberData), {}, _defineProperty({}, 'name', name));
+        var newSubscriberData = _objectSpread(_objectSpread({}, prevSubscriberData), {}, _defineProperty({}, "name", name));
         return newSubscriberData;
       });
     } else {
       setErrors(function (prevErrors) {
-        return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, 'name', true));
+        return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, "name", true));
       });
     }
   };
   var getSubscriberEmail = function getSubscriberEmail(email) {
     if (validateEmail(email)) {
       setErrors(function (prevErrors) {
-        return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, 'email', false));
+        return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, "email", false));
       });
       setSubscriberData(function (prevSubscriberData) {
-        var newSubscriberData = _objectSpread(_objectSpread({}, prevSubscriberData), {}, _defineProperty({}, 'email', email));
+        var newSubscriberData = _objectSpread(_objectSpread({}, prevSubscriberData), {}, _defineProperty({}, "email", email));
         return newSubscriberData;
       });
     } else {
       setErrors(function (prevErrors) {
-        return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, 'email', true));
+        return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, "email", true));
       });
     }
   };
@@ -35098,11 +35099,11 @@ function QuizRender() {
     jQuery(document).ready(function ($) {
       $.ajax({
         url: sv_ajax_object.ajax_url,
-        type: 'POST',
+        type: "POST",
         data: {
-          action: 'record_quiz_stat',
+          action: "record_quiz_stat",
           nonce: sv_ajax_object.nonce,
-          stat_type: 'send_email_clicks'
+          stat_type: "send_email_clicks"
         },
         async: true
       });
@@ -35110,16 +35111,14 @@ function QuizRender() {
     if (!validateEmail(subscriberData.email) || !validateName(subscriberData.name)) {
       if (!validateName(subscriberData.name)) {
         setErrors(function (prevErrors) {
-          return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, 'name', true));
+          return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, "name", true));
         });
       }
-      ;
       if (!validateEmail(subscriberData.email)) {
         setErrors(function (prevErrors) {
-          return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, 'email', true));
+          return _objectSpread(_objectSpread({}, prevErrors), {}, _defineProperty({}, "email", true));
         });
       }
-      ;
       return;
     }
     setSending(true);
@@ -35130,15 +35129,15 @@ function QuizRender() {
       name: subscriberData.name
     };
     if (isChecked) {
-      dataToSend['subscribe'] = 'yes';
+      dataToSend["subscribe"] = "yes";
     }
     jQuery(document).ready(function ($) {
       $.ajax({
         url: sv_ajax_object.ajax_url,
         // AJAX URL passed from PHP
-        type: 'POST',
+        type: "POST",
         data: {
-          action: 'send_personality_type_by_email',
+          action: "send_personality_type_by_email",
           // Action name
           nonce: sv_ajax_object.nonce,
           // Nonce for security
@@ -35158,10 +35157,9 @@ function QuizRender() {
           setEmailSent(false);
           setSending(false);
           setEmailError(true);
-          console.log('An error occurred.');
+          console.log("An error occurred.");
         }
       });
-      ;
     });
   };
   var validateEmail = function validateEmail(email) {
@@ -35193,13 +35191,13 @@ function QuizRender() {
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, quizData[currentQuestion] && quizData[currentQuestion].answers.map(function (answer, answerIndex) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "variant ".concat(currentVariant === answerIndex ? 'active' : 'inactive'),
+      className: "variant ".concat(currentVariant === answerIndex ? "active" : "inactive"),
       id: "variant-".concat(answer.letter),
       key: "variant-".concat(answer.letter)
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
       key: "q-".concat(answer.letter),
       style: {
-        textAlign: 'center'
+        textAlign: "center"
       },
       "data-dichotomy": answer.letter
     }, answer.text), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -35234,7 +35232,7 @@ function QuizRender() {
       id: "tie-break",
       key: index
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "variant ".concat(currentTieBreakQuestion !== index ? 'inactive' : 'active')
+      className: "variant ".concat(currentTieBreakQuestion !== index ? "inactive" : "active")
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, tieBreakerQuestions[q].question), tieBreakerQuestions[q].answers.map(function (a, idx) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         className: "tie-break-control"
@@ -35255,14 +35253,14 @@ function QuizRender() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     style: {
       display: !tieBreak.length > 0 && !quizData[currentQuestion] && Object.values(dichotomy).find(function (letter) {
-        return letter === '';
-      }) === undefined && !showResultContainer ? 'block' : 'none'
+        return letter === "";
+      }) === undefined && !showResultContainer ? "block" : "none"
     },
     src: _assets_img_calculating_puzzled_gif__WEBPACK_IMPORTED_MODULE_4__["default"],
     alt: "calculating..."
   })), typeImg && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     style: {
-      display: 'none'
+      display: "none"
     },
     className: "type-img",
     src: typeImg
@@ -35280,11 +35278,7 @@ function QuizRender() {
     className: "type-img",
     src: typeImg,
     alt: "Type Image"
-  }), quizAnswer[type]["description"].map(function (p, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-      key: index
-    }, p);
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Tavo stipryb\u0117s:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, quizAnswer[type]["strength"].map(function (p, index) {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, quizAnswer[type]["description"][0]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Tavo stipryb\u0117s:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, quizAnswer[type]["strength"].map(function (p, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
       key: index
     }, p);
@@ -35300,16 +35294,16 @@ function QuizRender() {
     className: "productivity-overlay"
   })), !emailSent && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "contact-form"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "UPS!"), "Apie tavo produktyvumo tip\u0105 dar tiek galima papasakoti, bet man baisu, kas 12GM svetain\u0117 gali neatlaikyti tokio informacijos kiekio \uD83D\uDE05", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "\u017Dinai k\u0105? Padarykime papras\u010Diau:"), " \u012Fvesk savo el. pa\u0161t\u0105 ir atsi\u0173siu tau i\u0161sam\u0173 apra\u0161ym\u0105 PDF formatu, kuriame:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Su\u017Einosi dar daugiau apie savo elgesio modelius"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Gausi konkre\u010Di\u0173 patarim\u0173, kaip keisti savo elges\u012F, kad taptum produktyvesnis"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "O kituose lai\u0161kuose atkeliaus ir tau asmeni\u0161kai pritaikytas gidas, kuris pad\u0117s tai \u012Fgyvendinti prakti\u0161kai"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "OHO! "), "Apie tavo produktyvumo tip\u0105 dar tieeeeek galima papasakoti, kad net \u012F puslap\u012F netelpa \uD83D\uDE05 \u012Esivaizduoji?!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "\u017Dinai k\u0105? Padarykime papras\u010Diau:"), " \u012Fvesk savo el. pa\u0161t\u0105 ir atsi\u0173siu tau i\u0161sam\u0173 apra\u0161ym\u0105, kuriame:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Su\u017Einosi dar daugiau apie savo ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "elgesio modelius")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Gausi konkre\u010Di\u0173 patarim\u0173, kaip keisti savo elges\u012F, kad ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, " veiktum produktyviau")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "O kituose lai\u0161kuose atkeliaus ir tau asmeni\u0161kai pritaikytas (", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "nemokamas!"), ") gidas, kuris pad\u0117s visa tai  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("strong", null, "\u012Fgyvendinti prakti\u0161kai")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "text",
     id: "subscribe-name",
     onChange: function onChange(event) {
       return getSubscriberName(event.target.value);
     },
     defaultValue: "vardas",
-    className: "".concat(errors.name ? 'error' : '')
+    className: "".concat(errors.name ? "error" : "")
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "error ".concat(errors.name ? '' : 'hidden')
+    className: "error ".concat(errors.name ? "" : "hidden")
   }, "nurodyk savo vard\u0105"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "email",
     id: "subscribe-email",
@@ -35317,9 +35311,9 @@ function QuizRender() {
       return getSubscriberEmail(event.target.value);
     },
     defaultValue: "email@gmail.com",
-    className: "".concat(errors.name ? 'error' : '')
+    className: "".concat(errors.name ? "error" : "")
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "error ".concat(errors.email ? '' : 'hidden')
+    className: "error ".concat(errors.email ? "" : "hidden")
   }, "nurodyk savo el. pa\u0161t\u0105"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "checkbox-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
@@ -35332,10 +35326,10 @@ function QuizRender() {
   }, "sutinku prenumeruoti 12GM naujienlai\u0161k\u012F"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
     id: "send-email-button",
-    className: "send-email-button ".concat( false ? 0 : ''),
+    className: "send-email-button ".concat( false ? 0 : ""),
     onClick: sendEmail,
     disabled: isButtonDisabled
-  }, sending ? 'Siunčiama...' : 'Noriu visos tiesos apie savo tipą!', sending && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, sending ? "Siunčiama..." : "Noriu visos tiesos apie savo produktyvumo tipą!", sending && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "loader",
     id: "loader"
   }))), emailSent && !emailError && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -35345,8 +35339,8 @@ function QuizRender() {
     id: "email-sent-error"
   }, "Lai\u0161ko siuntimas nepavyko. Para\u0161yk sandra@12gm.lt ir atsi\u0173siu rankiniu b\u016Bdu.")), !showResultContainer && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "progress-bar-container ".concat(Object.values(dichotomy).find(function (letter) {
-      return letter === '';
-    }) === undefined ? 'hidden' : '')
+      return letter === "";
+    }) === undefined ? "hidden" : "")
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("progress", {
     max: quizData.length + tieBreak.length,
     value: currentQuestion + currentTieBreakQuestion
@@ -35355,22 +35349,21 @@ function QuizRender() {
     id: "next-question-button",
     className: "next-question-button ".concat(Object.values(questionsAnswered).find(function (answer) {
       return answer === 0;
-    }) === undefined ? 'variant active' : '', " ").concat(!quizData[currentQuestion] || Object.values(questionsAnswered).find(function (answer) {
+    }) === undefined ? "variant active" : "", " ").concat(!quizData[currentQuestion] || Object.values(questionsAnswered).find(function (answer) {
       return answer === 0;
-    }) !== undefined ? 'hidden' : ''),
+    }) !== undefined ? "hidden" : ""),
     onClick: handleNextQuestion
   }, "Toliau"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
     id: "show-answer-button",
     className: "show-answer-button ".concat(!quizData[currentQuestion] && Object.values(dichotomy).find(function (letter) {
-      return letter === '';
-    }) === undefined ? '' : 'hidden', " ").concat(Object.values(dichotomy).find(function (letter) {
-      return letter === '';
-    }) === undefined ? 'variant active pulse' : ''),
+      return letter === "";
+    }) === undefined ? "" : "hidden", " ").concat(Object.values(dichotomy).find(function (letter) {
+      return letter === "";
+    }) === undefined ? "variant active pulse" : ""),
     onClick: showResult
   }, "noriu grei\u010Diau pamatyti rezultat\u0105!")));
 }
-;
 })();
 
 /******/ })()

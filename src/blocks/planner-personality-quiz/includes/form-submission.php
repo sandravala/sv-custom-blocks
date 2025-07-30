@@ -17,7 +17,7 @@ function send_personality_type_by_email() {
     // EMAIL SENDING DISABLED - Only MailerLite subscription is active
     // Uncomment the code below to re-enable email sending
     
-    /*
+    
     // Construct the path to the JSON file
     $data_path = plugin_dir_path(__FILE__) . '../assets/data/' . strtolower($type) . '.json';
 
@@ -32,7 +32,7 @@ function send_personality_type_by_email() {
     $type_data = json_decode($type_data_json, true); // Decode as an associative array
 
     if (json_last_error() !== JSON_ERROR_NONE) {
-        wp_send_json_error('Failed to decode JSON data: ' . json_last_error_msg());
+        wp_send_json_error('Failed to decode type JSON data: ' . json_last_error_msg());
         return;
     }
 
@@ -46,12 +46,32 @@ function send_personality_type_by_email() {
     $message = fill_email_template($template_path, $type_data);
 
     send_email($userEmail, $subject, $message);
-    */
+    
+    // Construct the path to the JSON file with type group data
+    $group_data_path = plugin_dir_path(__FILE__) . '../assets/data/typeGroups.json';
+
+    // Check if the file exists
+    if (!file_exists($group_data_path)) {
+        wp_send_json_error('Group file not found for the given type.');
+        return;
+    }
+
+    // Read and decode the JSON file
+    $group_data_json = file_get_contents($group_data_path);
+    $group_data = json_decode($group_data_json, true); // Decode as an associative array
+
+    error_log('Group data: ' . print_r($group_data, true));
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        wp_send_json_error('Failed to decode type group JSON data: ' . json_last_error_msg());
+        return;
+    }
 
     $sanitizedContactInfo = array();
     $sanitizedContactInfo['email'] = $userEmail;
     $sanitizedContactInfo['firstName'] = $userName;
     $sanitizedContactInfo['type'] = $type;
+    $sanitizedContactInfo['typeGroup'] = $group_data[$type];
+    error_log('Type Group: ' . $sanitizedContactInfo['typeGroup']);
 
     if($subscribe) {
         $subscription_result = subscribeToMailerlite($sanitizedContactInfo);
@@ -129,7 +149,7 @@ function subscribeToMailerlite ( $sanitizedContactInfo ) {
         'email' => $sanitizedContactInfo['email'],
         "fields" => [
             "name" => isset($sanitizedContactInfo['firstName']) ? $sanitizedContactInfo['firstName'] : null,
-            "tags" => isset($sanitizedContactInfo['type']) ? $sanitizedContactInfo['type'] : null
+            "tags" => [isset($sanitizedContactInfo['type']) ? $sanitizedContactInfo['type'] : null, isset($sanitizedContactInfo['typeGroup']) ? $sanitizedContactInfo['typeGroup'] : null]
         ]
     ];
 

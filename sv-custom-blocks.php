@@ -4,7 +4,7 @@
  * Description:       Example block scaffolded with Create Block tool.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.3.1
+ * Version:           0.4.0
  * Author:            The WordPress Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,6 @@ require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/key-encryption.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/settings-page.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/stats-tracking.php';
-
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
 
 /**

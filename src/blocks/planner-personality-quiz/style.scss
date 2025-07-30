@@ -6,6 +6,9 @@
  */
 
 $number-of-options: 5;
+.test-intro.hidden {
+	display: none;
+}
 .planner-personality-type-quiz {
 	width: 100%;
 	height: 100%;
