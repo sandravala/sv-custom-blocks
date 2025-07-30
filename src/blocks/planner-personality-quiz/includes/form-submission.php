@@ -60,7 +60,6 @@ function send_personality_type_by_email() {
     $group_data_json = file_get_contents($group_data_path);
     $group_data = json_decode($group_data_json, true); // Decode as an associative array
 
-    error_log('Group data: ' . print_r($group_data, true));
     if (json_last_error() !== JSON_ERROR_NONE) {
         wp_send_json_error('Failed to decode type group JSON data: ' . json_last_error_msg());
         return;
@@ -71,7 +70,6 @@ function send_personality_type_by_email() {
     $sanitizedContactInfo['firstName'] = $userName;
     $sanitizedContactInfo['type'] = $type;
     $sanitizedContactInfo['typeGroup'] = $group_data[$type];
-    error_log('Type Group: ' . $sanitizedContactInfo['typeGroup']);
 
     if($subscribe) {
         $subscription_result = subscribeToMailerlite($sanitizedContactInfo);
