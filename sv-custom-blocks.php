@@ -22,6 +22,7 @@ require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/settings-page.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/stats-tracking.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
+require_once plugin_dir_path(__FILE__) . 'build/blocks/routine-tasks-generator/includes/openai-handler.php';
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
@@ -45,6 +46,11 @@ function sv_timeblock_init() {
 }
 add_action( 'init', 'sv_timeblock_init' );
 
+function sv_routine_tasks_init() {
+	register_block_type( __DIR__ . '/build/blocks/routine-tasks-generator' );
+}
+add_action( 'init', 'sv_routine_tasks_init' );
+
 // Hook to add the menu
 add_action('admin_menu', 'sv_custom_blocks_add_menu');
 
@@ -63,6 +69,10 @@ function sv_custom_blocks_add_menu() {
 
 function sv_localize_block_scripts() {
     wp_localize_script('sv-custom-blocks-planner-personality-quiz-view-script', 'sv_ajax_object', array(
+        'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
+        'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
+    ));
+    wp_localize_script('sv-custom-blocks-routine-tasks-generator-view-script', 'sv_ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
         'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
     ));

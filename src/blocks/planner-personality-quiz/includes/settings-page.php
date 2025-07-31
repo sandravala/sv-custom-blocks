@@ -48,6 +48,22 @@ function sv_custom_blocks_submit_settings(){
         }
     }
 
+    if (isset($_POST['sv_openai_api_key'])) {
+
+        $data_encryption = new BC_Data_Encryption();
+        $submitted_openai_key = sanitize_text_field($_POST['sv_openai_api_key']);
+
+        $openai_key = $data_encryption->encrypt($submitted_openai_key);
+
+        $openai_exists = get_option('sv_openai_api_key');
+
+        if (!empty($openai_key) && !empty($openai_exists)) {
+            update_option('sv_openai_api_key', $openai_key);
+        } else {
+            add_option('sv_openai_api_key', $openai_key);
+        }
+    }
+
 
     // Redirect to same page with status=1 to show our options updated banner
     wp_redirect($_SERVER['HTTP_REFERER'] . '&ml_status=1');
@@ -64,10 +80,14 @@ function sv_custom_blocks_render_menu() {
 
     $data_encryption = new BC_Data_Encryption();
     $api_key = get_option('sv_ml_api_key');
-
+    $openai_key = get_option('sv_openai_api_key');
 
     if ($api_key) {
         $api_key = $data_encryption->decrypt(get_option('sv_ml_api_key'));
+    }
+
+    if ($openai_key) {
+        $openai_key = $data_encryption->decrypt(get_option('sv_openai_api_key'));
     }
 
     ?>
@@ -105,6 +125,10 @@ function sv_custom_blocks_render_menu() {
                 <input type="password" id="sv_ml_api_key" name="sv_ml_api_key" placeholder="Įveskite Mailerlite API key" value="<?php echo $api_key ? esc_attr($api_key) : ''; ?>">
             </div>
 
+            <div class="sv-settings-ml-form">
+                <label for="sv_openai_api_key">OpenAI API Key</label>
+                <input type="password" id="sv_openai_api_key" name="sv_openai_api_key" placeholder="Įveskite OpenAI API key" value="<?php echo $openai_key ? esc_attr($openai_key) : ''; ?>">
+            </div>
 
             <input type="hidden" name="action" value="sv_custom_blocks_submit_settings">
             <button type="submit" name="submit_form" id="submit_form">Išsaugoti</button>
