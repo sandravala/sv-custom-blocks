@@ -183,7 +183,7 @@ class SV_Plugin_Settings
         <div class="wrap">
             <h1>Quiz Statistics</h1>
             <?php
-            $stats = get_quiz_stats();
+            $stats = $this->get_quiz_stats();
             if ($stats && !empty($stats)) {
                 $stat_labels = array(
                     'show_answer_clicks' => 'Completed quiz to result',

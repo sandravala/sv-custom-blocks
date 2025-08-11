@@ -23,6 +23,7 @@ require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 // Load shared includes
 require_once plugin_dir_path(__FILE__) . 'includes/class-data-encryption.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-plugin-settings.php';
+require_once plugin_dir_path(__FILE__) . 'includes/openai-assistant-handler.php';
 
 // Initialize plugin settings
 SV_Plugin_Settings::get_instance();
@@ -30,7 +31,6 @@ SV_Plugin_Settings::get_instance();
 // Load block-specific includes (from BUILD directory)
 
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
-require_once plugin_dir_path(__FILE__) . 'build/blocks/routine-tasks-generator/includes/openai-handler.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/time-calculator/includes/ajax-handlers.php';
 
 /**
@@ -40,6 +40,33 @@ require_once plugin_dir_path(__FILE__) . 'build/blocks/time-calculator/includes/
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
+
+// Register all assistant-based blocks
+function sv_register_assistant_blocks() {
+    $blocks = [
+        'routine-tasks-generator',
+        'smart-goal-generator'
+    ];
+    
+    foreach ($blocks as $block) {
+        register_block_type(__DIR__ . '/build/blocks/' . $block);
+        
+        // Include block-specific AJAX handlers
+        $handler_file = plugin_dir_path(__FILE__) . 'src/blocks/' . $block . '/includes/ajax-handlers.php';
+        if (file_exists($handler_file)) {
+            require_once $handler_file;
+        }
+    }
+}
+add_action('init', 'sv_register_assistant_blocks');
+
+// Create tables on activation
+function sv_create_assistant_tables() {
+    // Tables will be created on-demand by the trait
+    // But you can pre-create them here if preferred
+}
+register_activation_hook(__FILE__, 'sv_create_assistant_tables');
+
 function sv_custom_blocks_sv_custom_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/planner-personality-quiz' );
 }
@@ -64,22 +91,6 @@ function sv_time_calc_init() {
 	register_block_type( __DIR__ . '/build/blocks/time-calculator' );
 }
 add_action( 'init', 'sv_time_calc_init' );
-
-// Hook to add the menu
-add_action('admin_menu', 'sv_custom_blocks_add_menu');
-
-// Function to add the menu item
-function sv_custom_blocks_add_menu() {
-    add_menu_page(
-        'SV custom blocks',          // Page title
-        'SV custom blocks',               // Menu title
-        'manage_options',          // Capability
-        'sv-custom-blocks',          // Menu slug
-        'sv_custom_blocks_render_menu',   // Callback function
-        'dashicons-pets', // Icon (optional)
-        25                         // Position (optional)
-    );
-}
 
 function sv_localize_block_scripts() {
     wp_localize_script('sv-custom-blocks-planner-personality-quiz-view-script', 'sv_ajax_object', array(

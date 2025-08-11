@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sv-custom-blocks/smart-goal-generator",
+	"version": "0.1.0",
+	"title": "Smart Goal Generator",
+	"category": "widgets",
+	"icon": "star-filled",
+	"description": "Generate smart goals based on user input.",
+	"attributes": {
+		"assistantId": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sv-custom-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
