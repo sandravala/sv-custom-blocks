@@ -241,7 +241,7 @@ function SmartGoalGenerator({ assistantId }) {
 					</div>
 				))}
 
-					<div className="ai-blob" style={{ "--ai-size": "220px" }}>
+					<div className="ai-blob" style={{ "--ai-size": "350px" }}>
 						<span className="ai-blob__orb" />
 						<span className="ai-blob__orb ai-blob__orb--slow" />
 						<span className="ai-blob__text">Generuoja…</span>
