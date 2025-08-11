@@ -17,10 +17,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+// Load vendor
 require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
-require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/key-encryption.php';
-require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/settings-page.php';
-require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/stats-tracking.php';
+
+// Load shared includes
+require_once plugin_dir_path(__FILE__) . 'includes/class-data-encryption.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-plugin-settings.php';
+
+// Initialize plugin settings
+SV_Plugin_Settings::get_instance();
+
+// Load block-specific includes (from BUILD directory)
+
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/routine-tasks-generator/includes/openai-handler.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/time-calculator/includes/ajax-handlers.php';
