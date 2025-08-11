@@ -34,6 +34,16 @@
 		max-width: 400px;
 		line-height: 1.5;
 	}
+
+	.editor-mode-indicator {
+		margin-top: 8px;
+		padding: 8px 16px;
+		background: #e0f2fe;
+		border: 1px solid #b3e5fc;
+		border-radius: 6px;
+		color: #0277bd;
+		font-size: 12px;
+	}
 }
 
 // Block editor specific adjustments

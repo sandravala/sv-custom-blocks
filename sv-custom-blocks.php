@@ -23,6 +23,7 @@ require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/stats-tracking.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/routine-tasks-generator/includes/openai-handler.php';
+require_once plugin_dir_path(__FILE__) . 'build/blocks/time-calculator/includes/ajax-handlers.php';
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.

@@ -8,6 +8,12 @@
 	"icon": "calculator",
 	"description": "Calculates available working hours per year based on user inputs",
 	"example": {},
+	"attributes": {
+		"calculationMode": {
+			"type": "string",
+			"default": "yearly"
+		}
+	},
 	"supports": {
 		"html": false
 	},
