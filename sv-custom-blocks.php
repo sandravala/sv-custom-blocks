@@ -51,6 +51,11 @@ function sv_routine_tasks_init() {
 }
 add_action( 'init', 'sv_routine_tasks_init' );
 
+function sv_time_calc_init() {
+	register_block_type( __DIR__ . '/build/blocks/time-calculator' );
+}
+add_action( 'init', 'sv_time_calc_init' );
+
 // Hook to add the menu
 add_action('admin_menu', 'sv_custom_blocks_add_menu');
 

@@ -1,0 +1,44 @@
+/**
+ * Editor-only styles for the Time Calculator block
+ * These styles are only applied in the block editor
+ */
+
+.time-calculator-editor-placeholder {
+	background: #f8fafc;
+	border: 2px dashed #cbd5e1;
+	border-radius: 8px;
+	padding: 40px 20px;
+	text-align: center;
+	color: #64748b;
+	min-height: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+
+	.time-calculator-icon {
+		opacity: 0.6;
+	}
+
+	h3 {
+		margin: 0;
+		font-size: 20px;
+		font-weight: 600;
+		color: #374151;
+	}
+
+	p {
+		margin: 0;
+		font-size: 14px;
+		max-width: 400px;
+		line-height: 1.5;
+	}
+}
+
+// Block editor specific adjustments
+.editor-styles-wrapper {
+	.time-calculator-editor-placeholder {
+		font-family: inherit;
+	}
+}

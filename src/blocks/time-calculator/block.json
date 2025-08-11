@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sv-custom-blocks/time-calculator",
+	"version": "0.1.0",
+	"title": "Laiko skaičiuoklė",
+	"category": "widgets",
+	"icon": "calculator",
+	"description": "Calculates available working hours per year based on user inputs",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sv-custom-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
