@@ -24,6 +24,7 @@ require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-data-encryption.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-plugin-settings.php';
 require_once plugin_dir_path(__FILE__) . 'includes/openai-assistant-handler.php';
+require_once plugin_dir_path(__FILE__) . 'includes/openai-responses-handler.php';
 
 // Initialize plugin settings
 SV_Plugin_Settings::get_instance();
@@ -45,7 +46,8 @@ require_once plugin_dir_path(__FILE__) . 'build/blocks/time-calculator/includes/
 function sv_register_assistant_blocks() {
     $blocks = [
         'routine-tasks-generator',
-        'smart-goal-generator'
+        'smart-goal-generator',
+        'quarterly-goals-generator'
     ];
     
     foreach ($blocks as $block) {
@@ -66,6 +68,13 @@ function sv_create_assistant_tables() {
     // But you can pre-create them here if preferred
 }
 register_activation_hook(__FILE__, 'sv_create_assistant_tables');
+
+// Register settings for AI Blocks to use in ajax (response api options)
+register_setting('general', 'sv_ai_blocks_options', [
+'type' => 'object',
+'show_in_rest' => true,
+'default' => [],
+]);
 
 function sv_custom_blocks_sv_custom_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/planner-personality-quiz' );

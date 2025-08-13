@@ -16,11 +16,13 @@ function renderForm() {
 		.getElementsByClassName("input-container")[0];
 	const smartGoalContainer = document.getElementById("smart-goal-generator");
 	const assistantId = smartGoalContainer.getAttribute("data-assistant-id");
+	const blockId = smartGoalContainer.getAttribute("data-block-id");
+	const useResponsesApi = smartGoalContainer.getAttribute("data-use-responses-api") === "true";
 	const root = createRoot(smartGoalDiv);
-	root.render(<SmartGoalGenerator assistantId={assistantId} />);
+	root.render(<SmartGoalGenerator assistantId={assistantId} blockId={blockId} useResponsesApi={useResponsesApi} />);
 }
 
-function SmartGoalGenerator({ assistantId }) {
+function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 	const [formData, setFormData] = useState({
 		specific: "",
 		measurable: "",
@@ -61,25 +63,33 @@ function SmartGoalGenerator({ assistantId }) {
 
 	// Load saved data on component mount
 	useEffect(() => {
-		if (assistantId) {
+		if ((useResponsesApi && blockId) || (!useResponsesApi && assistantId)) {
 			loadSavedData();
 		} else {
 			setLoadingSaved(false);
 		}
-	}, [assistantId]);
+	}, [assistantId, blockId, useResponsesApi]);
 
 	const loadSavedData = async () => {
 		try {
+			const params = {
+				action: "load_smart_goals",
+				nonce: sv_ajax_object.nonce,
+			};
+			
+			// Use appropriate parameter based on API type
+			if (useResponsesApi) {
+				params.block_id = blockId;
+			} else {
+				params.assistant_id = assistantId;
+			}
+			
 			const response = await fetch(sv_ajax_object.ajax_url, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
 				},
-				body: new URLSearchParams({
-					action: "load_smart_goals",
-					nonce: sv_ajax_object.nonce,
-					assistant_id: assistantId,
-				}),
+				body: new URLSearchParams(params),
 			});
 
 			const result = await response.json();
@@ -141,7 +151,12 @@ function SmartGoalGenerator({ assistantId }) {
 			return;
 		}
 
-		if (!assistantId) {
+		if (useResponsesApi && !blockId) {
+			setError(
+				"Block configuration not found. Please refresh the page.",
+			);
+			return;
+		} else if (!useResponsesApi && !assistantId) {
 			setError(
 				"OpenAI Assistant ID nenustatytas. Susisiekite su administratoriumi.",
 			);
@@ -152,21 +167,29 @@ function SmartGoalGenerator({ assistantId }) {
 		setError("");
 
 		try {
+			const params = {
+				action: "generate_smart_goals",
+				nonce: sv_ajax_object.nonce,
+				specific: formData.specific,
+				measurable: formData.measurable,
+				achievable: formData.achievable,
+				relevant: formData.relevant,
+				time_bound: formData.timeBound,
+			};
+			
+			// Use appropriate parameter based on API type
+			if (useResponsesApi) {
+				params.block_id = blockId;
+			} else {
+				params.assistant_id = assistantId;
+			}
+			
 			const response = await fetch(sv_ajax_object.ajax_url, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
 				},
-				body: new URLSearchParams({
-					action: "generate_smart_goals",
-					nonce: sv_ajax_object.nonce,
-					assistant_id: assistantId,
-					specific: formData.specific,
-					measurable: formData.measurable,
-					achievable: formData.achievable,
-					relevant: formData.relevant,
-					time_bound: "this year",
-				}),
+				body: new URLSearchParams(params),
 			});
 
 			const result = await response.json();

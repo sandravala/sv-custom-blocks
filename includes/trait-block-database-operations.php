@@ -87,6 +87,152 @@ trait SV_Block_Database_Operations {
     }
     
     /**
+     * Update response data for existing record
+     * 
+     * @param string $table_suffix The table name suffix
+     * @param int $user_id User ID
+     * @param string $assistant_id Assistant ID
+     * @param array $updated_response_data Updated response data
+     * @return bool Success status
+     */
+    protected function update_response_data($table_suffix, $user_id, $assistant_id, $updated_response_data) {
+        global $wpdb;
+        
+        $table_name = $wpdb->prefix . $table_suffix;
+        
+        $result = $wpdb->update(
+            $table_name,
+            [
+                'response_data' => json_encode($updated_response_data),
+                'updated_at' => current_time('mysql')
+            ],
+            [
+                'user_id' => $user_id,
+                'assistant_id' => $assistant_id
+            ],
+            ['%s', '%s'],
+            ['%d', '%s']
+        );
+        
+        return $result !== false;
+    }
+    
+    /**
+     * Update both input and response data for existing record
+     * 
+     * @param string $table_suffix The table name suffix
+     * @param int $user_id User ID
+     * @param string $assistant_id Assistant ID
+     * @param array $updated_input_data Updated input data (optional)
+     * @param array $updated_response_data Updated response data
+     * @return bool Success status
+     */
+    protected function update_assistant_data($table_suffix, $user_id, $assistant_id, $updated_input_data = null, $updated_response_data = null) {
+        global $wpdb;
+        
+        $table_name = $wpdb->prefix . $table_suffix;
+        
+        $update_data = ['updated_at' => current_time('mysql')];
+        $format = ['%s'];
+        
+        if ($updated_input_data !== null) {
+            $update_data['input_data'] = json_encode($updated_input_data);
+            $format[] = '%s';
+        }
+        
+        if ($updated_response_data !== null) {
+            $update_data['response_data'] = json_encode($updated_response_data);
+            $format[] = '%s';
+        }
+        
+        if (count($update_data) === 1) {
+            // Only timestamp to update, nothing to do
+            return true;
+        }
+        
+        $result = $wpdb->update(
+            $table_name,
+            $update_data,
+            [
+                'user_id' => $user_id,
+                'assistant_id' => $assistant_id
+            ],
+            $format,
+            ['%d', '%s']
+        );
+        
+        return $result !== false;
+    }
+    
+    /**
+     * Delete assistant data
+     * 
+     * @param string $table_suffix The table name suffix
+     * @param int $user_id User ID
+     * @param string $assistant_id Assistant ID (optional - if empty, deletes all for user)
+     * @return bool Success status
+     */
+    protected function delete_assistant_data($table_suffix, $user_id, $assistant_id = null) {
+        global $wpdb;
+        
+        $table_name = $wpdb->prefix . $table_suffix;
+        
+        $where = ['user_id' => $user_id];
+        $where_format = ['%d'];
+        
+        if ($assistant_id !== null) {
+            $where['assistant_id'] = $assistant_id;
+            $where_format[] = '%s';
+        }
+        
+        $result = $wpdb->delete($table_name, $where, $where_format);
+        
+        return $result !== false;
+    }
+    
+    /**
+     * Get all assistant data for a user
+     * 
+     * @param string $table_suffix The table name suffix
+     * @param int $user_id User ID
+     * @param int $limit Limit results (optional)
+     * @return array Array of records
+     */
+    protected function get_user_assistant_data($table_suffix, $user_id, $limit = null) {
+        global $wpdb;
+        
+        $table_name = $wpdb->prefix . $table_suffix;
+        
+        $sql = $wpdb->prepare(
+            "SELECT assistant_id, input_data, response_data, created_at, updated_at 
+             FROM {$table_name} 
+             WHERE user_id = %d 
+             ORDER BY updated_at DESC",
+            $user_id
+        );
+        
+        if ($limit) {
+            $sql .= $wpdb->prepare(" LIMIT %d", $limit);
+        }
+        
+        $results = $wpdb->get_results($sql);
+        
+        if ($results) {
+            return array_map(function($row) {
+                return [
+                    'assistant_id' => $row->assistant_id,
+                    'input_data' => json_decode($row->input_data, true),
+                    'response_data' => json_decode($row->response_data, true),
+                    'created_at' => $row->created_at,
+                    'updated_at' => $row->updated_at
+                ];
+            }, $results);
+        }
+        
+        return [];
+    }
+    
+    /**
      * Create table for block data
      */
     protected function create_table($table_suffix) {
@@ -126,5 +272,13 @@ trait SV_Block_Database_Operations {
     protected function load_from_user_meta($user_id, $block_abbr, $data_type) {
         $meta_key = "sv_cb_{$block_abbr}_{$data_type}";
         return get_user_meta($user_id, $meta_key, true);
+    }
+    
+    /**
+     * Delete from user meta using naming convention
+     */
+    protected function delete_from_user_meta($user_id, $block_abbr, $data_type) {
+        $meta_key = "sv_cb_{$block_abbr}_{$data_type}";
+        return delete_user_meta($user_id, $meta_key);
     }
 }
