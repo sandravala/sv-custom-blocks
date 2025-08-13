@@ -3,13 +3,12 @@
 /**
  * Secure AJAX handler - loads permanent configuration from database
  */
-class SV_SmartGoals_Ajax_Handler_Secure
+class SV_Universal_AI_Ajax_Handler_Secure
 {
 
     use SV_Block_Database_Operations;
 
-    private $table_suffix = 'smart_goals';
-    private $block_abbr = 'sg';
+    private $block_abbr = 'uai';
 
     public function __construct()
     {
@@ -17,10 +16,66 @@ class SV_SmartGoals_Ajax_Handler_Secure
         add_action('wp_ajax_nopriv_generate_smart_goals', [$this, 'generate_smart_goals']);
         add_action('wp_ajax_load_smart_goals', [$this, 'load_smart_goals']);
         add_action('wp_ajax_save_smart_goals', [$this, 'save_smart_goals']);
+        add_action('wp_ajax_test_load_smart_goals', [$this, 'debug_load_smart_goals']);
 
         // Clean up old configurations periodically
         add_action('wp_loaded', [$this, 'maybe_cleanup_old_configs']);
     }
+
+    function debug_load_smart_goals()
+    {
+            // Previous steps passed, now test trait usage
+    $user_id = get_current_user_id();
+    $block_id = sanitize_text_field($_POST['block_id'] ?? '');
+    $table_suffix = 'sv_smart_goals';
+    
+    check_ajax_referer('sv_ajax_nonce', 'nonce');
+
+        if (!is_user_logged_in()) {
+            wp_send_json_error(['message' => 'Turite būti prisijungę.']);
+            return;
+        }
+
+        $user_id = get_current_user_id();
+        $block_id = isset($_POST['block_id']) ? sanitize_text_field(wp_unslash($_POST['block_id'])) : '';
+        $assistant_id_legacy = isset($_POST['assistant_id']) ? sanitize_text_field(wp_unslash($_POST['assistant_id'])) : '';
+        $table_suffix = isset($_POST['table_suffix']) ? sanitize_text_field(wp_unslash($_POST['table_suffix'])) : 'uai';
+
+        if (!empty($block_id)) {
+            // NEW SYSTEM: Load configuration from sv_ai_blocks_options
+            $all_configs = get_option('sv_ai_blocks_options', []);
+                // Convert stdClass to array if needed
+    if (is_object($all_configs)) {
+        $all_configs = (array) $all_configs;
+    }
+            $config = isset($all_configs[$block_id]) ? $all_configs[$block_id] : null;
+
+            if (!$config) {
+                wp_send_json_error(['message' => 'Block configuration not found.']);
+                return;
+            }
+
+            $use_responses_api = $config['useResponsesApi'] ?? true;
+            $model = $config['model'] ?? 'gpt-4';
+            $assistant_id = $config['assistantId'] ?? '';
+
+            // Create identifier for database lookup
+            $identifier = $use_responses_api ?
+                "{$block_id}_responses_{$model}" :
+                "{$block_id}_assistant_{$assistant_id}";
+        } else {
+            // LEGACY SYSTEM: Use assistant_id directly
+            if (empty($assistant_id_legacy)) {
+                wp_send_json_error(['message' => 'Block ID or Assistant ID required.']);
+                return;
+            }
+
+            $identifier = "legacy_assistant_{$assistant_id_legacy}";
+        }
+
+        wp_send_json_success(['config' => $config]);
+    }
+
 
     /**
      * Generate smart goals using permanent configuration from database
@@ -41,15 +96,25 @@ class SV_SmartGoals_Ajax_Handler_Secure
         $measurable = isset($_POST['measurable']) ? sanitize_text_field(wp_unslash($_POST['measurable'])) : '';
         $achievable = isset($_POST['achievable']) ? sanitize_text_field(wp_unslash($_POST['achievable'])) : '';
         $relevant = isset($_POST['relevant']) ? sanitize_text_field(wp_unslash($_POST['relevant'])) : '';
-        $time_bound = isset($_POST['time_bound']) ? sanitize_text_field(wp_unslash($_POST['time_bound'])) : '';
+        $time_bound = isset($_POST['time_bound']) ? sanitize_text_field(wp_unslash($_POST['time_bound'])) : 'this year';
+
+        $table_suffix = isset($_POST['table_suffix']) ? sanitize_text_field(wp_unslash($_POST['table_suffix'])) : 'uai';
+
+        $use_responses_api = isset($_POST['use_responses_api']) ? filter_var(wp_unslash($_POST['use_responses_api']), FILTER_VALIDATE_BOOLEAN) : true;
 
         // Handle both new block_id system and legacy assistant_id
         $block_id = isset($_POST['block_id']) ? sanitize_text_field(wp_unslash($_POST['block_id'])) : '';
         $assistant_id_legacy = isset($_POST['assistant_id']) ? sanitize_text_field(wp_unslash($_POST['assistant_id'])) : '';
 
+
         if (!empty($block_id)) {
             // NEW SYSTEM: Load configuration from sv_ai_blocks_options
             $all_configs = get_option('sv_ai_blocks_options', []);
+                // Convert stdClass to array if needed
+            if (is_object($all_configs)) {
+                $all_configs = (array) $all_configs;
+            }
+            
             $config = isset($all_configs[$block_id]) ? $all_configs[$block_id] : null;
 
             if (!$config) {
@@ -58,8 +123,7 @@ class SV_SmartGoals_Ajax_Handler_Secure
             }
 
             // Extract configuration following your naming convention
-            $use_responses_api = (bool)($config['useResponsesApi'] ?? true);
-            $assistant_id = $config['assistantId'] ?? '';
+            
             $model = $config['model'] ?? 'gpt-4';
             $system_prompt = $config['systemPrompt'] ?? '';
             $temperature = floatval($config['temperature'] ?? 0.3);
@@ -100,7 +164,7 @@ class SV_SmartGoals_Ajax_Handler_Secure
         try {
             if ($use_responses_api) {
                 // Call Responses API
-                $result = $this->call_responses_api($message_data, $model, $system_prompt, $temperature, $max_tokens, $response_format, $response_schema);
+                $result = $this->call_responses_api($message_data, $model, $system_prompt, $temperature, $max_tokens, $response_format, $response_schema, $table_suffix);
             } else {
                 // Call legacy Assistant API
                 $result = $this->call_assistant_api($message_data, $assistant_id);
@@ -117,7 +181,7 @@ class SV_SmartGoals_Ajax_Handler_Secure
                 "{$block_id}_assistant_{$assistant_id}";
 
             // Save to database using the trait
-            $saved = $this->save_block_data($this->table_suffix, $user_id, $block_id, $message_data, $result);
+            $saved = $this->save_block_data($table_suffix, $user_id, $block_id, $message_data, $result);
 
             if ($saved) {
                 // Follow your naming convention for user meta
@@ -135,7 +199,7 @@ class SV_SmartGoals_Ajax_Handler_Secure
     /**
      * Call Responses API
      */
-    private function call_responses_api($message_data, $model, $system_prompt, $temperature, $max_tokens, $response_format, $response_schema = null)
+    private function call_responses_api($message_data, $model, $system_prompt, $temperature, $max_tokens, $response_format, $response_schema = null, $table_suffix)
     {
         try {
             $openai_handler = SV_OpenAI_Responses_Handler::get_instance();
@@ -156,7 +220,7 @@ class SV_SmartGoals_Ajax_Handler_Secure
             } elseif ($response_format === 'json_schema' && $response_schema) {
                 $options['response_format'] = ['type' => 'json_schema'];
                 $options['response_schema'] = $response_schema;
-                $options['schema_name'] = $this->table_suffix;
+                $options['schema_name'] = $table_suffix;
             }
 
             return $openai_handler->call_responses_api($model, $user_message, $options);
@@ -203,37 +267,12 @@ class SV_SmartGoals_Ajax_Handler_Secure
         $user_id = get_current_user_id();
         $block_id = isset($_POST['block_id']) ? sanitize_text_field(wp_unslash($_POST['block_id'])) : '';
         $assistant_id_legacy = isset($_POST['assistant_id']) ? sanitize_text_field(wp_unslash($_POST['assistant_id'])) : '';
+        $table_suffix = isset($_POST['table_suffix']) ? sanitize_text_field(wp_unslash($_POST['table_suffix'])) : 'uai';
 
-        if (!empty($block_id)) {
-            // NEW SYSTEM: Load configuration from sv_ai_blocks_options
-            $all_configs = get_option('sv_ai_blocks_options', []);
-            $config = isset($all_configs[$block_id]) ? $all_configs[$block_id] : null;
 
-            if (!$config) {
-                wp_send_json_error(['message' => 'Block configuration not found.']);
-                return;
-            }
-
-            $use_responses_api = $config['useResponsesApi'] ?? true;
-            $model = $config['model'] ?? 'gpt-4';
-            $assistant_id = $config['assistantId'] ?? '';
-
-            // Create identifier for database lookup
-            $identifier = $use_responses_api ?
-                "{$block_id}_responses_{$model}" :
-                "{$block_id}_assistant_{$assistant_id}";
-        } else {
-            // LEGACY SYSTEM: Use assistant_id directly
-            if (empty($assistant_id_legacy)) {
-                wp_send_json_error(['message' => 'Block ID or Assistant ID required.']);
-                return;
-            }
-
-            $identifier = "legacy_assistant_{$assistant_id_legacy}";
-        }
 
         try {
-            $data = $this->load_block_data($this->table_suffix, $user_id, $block_id);
+            $data = $this->load_block_data($table_suffix, $user_id, $block_id);
 
             if ($data) {
                 // Return both input and response data
@@ -266,6 +305,7 @@ class SV_SmartGoals_Ajax_Handler_Secure
         $user_id = get_current_user_id();
         $block_id = isset($_POST['block_id']) ? sanitize_text_field(wp_unslash($_POST['block_id'])) : '';
         $assistant_id_legacy = isset($_POST['assistant_id']) ? sanitize_text_field(wp_unslash($_POST['assistant_id'])) : '';
+        $table_suffix = isset($_POST['table_suffix']) ? sanitize_text_field(wp_unslash($_POST['table_suffix'])) : 'uai';
 
         // Get the updated data from POST
         $updated_data = isset($_POST['goal_data']) ? wp_unslash($_POST['goal_data']) : '';
@@ -314,7 +354,7 @@ class SV_SmartGoals_Ajax_Handler_Secure
         }
 
         try {
-            $saved = $this->update_block_response_data($this->table_suffix, $user_id, $block_id, $updated_data);
+            $saved = $this->update_block_response_data($table_suffix, $user_id, $block_id, $updated_data);
 
             if ($saved) {
                 // Follow your naming convention for user meta
@@ -375,4 +415,4 @@ class SV_SmartGoals_Ajax_Handler_Secure
 }
 
 // Initialize the secure handler - replace your existing handler initialization
-new SV_SmartGoals_Ajax_Handler_Secure();
+new SV_Universal_AI_Ajax_Handler_Secure();

@@ -21,55 +21,41 @@ import "./editor.scss";
 import { availableComponents } from "./components-index.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const {
-		selectedComponent,
-		assistantId,
-		model,
-		systemPrompt,
-		temperature,
-		maxTokens,
-		responseFormat,
-		responseSchema,
-		useResponsesApi,
-		instanceId,
-	} = attributes;
+	const { selectedComponent, instanceId, assistantId, useResponsesApi } = attributes; // Only get instanceId from block attributes
 
-	const [schemaText, setSchemaText] = useState(
-		responseSchema ? JSON.stringify(responseSchema, null, 2) : "",
-	);
+	// All sensitive configuration as local state (NOT block attributes)
+	const [systemPrompt, setSystemPrompt] = useState("");
+	const [model, setModel] = useState("gpt-4");
+	const [temperature, setTemperature] = useState(0.7);
+	const [maxTokens, setMaxTokens] = useState(1500);
+	const [responseFormat, setResponseFormat] = useState("auto");
+	const [responseSchema, setResponseSchema] = useState(null);
+
+	// Loading states
 	const [isLoadingData, setIsLoadingData] = useState(true);
 	const [hasLoadedData, setHasLoadedData] = useState(false);
+	const [isSaving, setIsSaving] = useState(false);
+	const [lastSaved, setLastSaved] = useState(null);
 
-	const isJsonValid = useMemo(() => {
-		if (!schemaText.trim()) return true;
-		try {
-			JSON.parse(schemaText);
-			return true;
-		} catch (e) {
-			return false;
-		}
-	}, [schemaText]);
+	// Schema text for JSON editor
+	const [schemaText, setSchemaText] = useState("");
 
-	// Use the safe version
-	const currentComponent =
-		availableComponents[selectedComponent] ||
-		Object.values(availableComponents)[0];
-	console.log("🔍 currentComponent:", currentComponent);
-
-	// Generate instanceId if missing
+	// Generate instanceId if missing (only this goes to block attributes)
 	useEffect(() => {
 		if (!instanceId) {
 			const id =
 				crypto?.randomUUID?.() ??
 				`${Date.now()}-${Math.random().toString(16).slice(2)}`;
-			setAttributes({ instanceId: id });
+			setAttributes({ instanceId: id }); // Only instanceId saved to post
 		}
 	}, [instanceId, setAttributes]);
-	// Load saved data on component mount
+
+	// Load ALL configuration from wp_options
 	useEffect(() => {
 		if (!instanceId || hasLoadedData) return;
 
 		console.log("📥 Loading saved data for instance:", instanceId);
+		setIsLoadingData(true);
 
 		wp.apiFetch({ path: "/wp/v2/settings" })
 			.then((settings) => {
@@ -79,27 +65,37 @@ export default function Edit({ attributes, setAttributes }) {
 				if (savedConfig) {
 					console.log("✅ Found saved config:", savedConfig);
 
-					// Load all saved settings
-					setAttributes({
-						selectedComponent: savedConfig.selectedComponent || "smart-goals",
-						systemPrompt: savedConfig.systemPrompt || "",
-						model: savedConfig.model || "gpt-4",
-						temperature: savedConfig.temperature ?? 0.7,
-						maxTokens: savedConfig.maxTokens || 1500,
-						responseFormat: savedConfig.responseFormat || "auto",
-						responseSchema: savedConfig.responseSchema || null,
-						useResponsesApi: savedConfig.useResponsesApi ?? true,
-					});
+					// Load ALL saved settings into local state
+					setSystemPrompt(savedConfig.systemPrompt || "");
+					setModel(savedConfig.model || "gpt-4");
+					setTemperature(savedConfig.temperature ?? 0.7);
+					setMaxTokens(savedConfig.maxTokens || 1500);
+					setResponseFormat(savedConfig.responseFormat || "auto");
+					setResponseSchema(savedConfig.responseSchema || null);
+
+					// Set schema text for editor
+					if (savedConfig.responseSchema) {
+						setSchemaText(JSON.stringify(savedConfig.responseSchema, null, 2));
+					}
 				} else {
 					console.log("ℹ️ No saved config found, using defaults");
 
-					// Only set default component if no saved data
+					// Set default values if no saved data
 					if (
 						!selectedComponent &&
 						Object.keys(availableComponents).length > 0
 					) {
 						const defaultComponent = Object.keys(availableComponents)[0];
-						setAttributes({ selectedComponent: defaultComponent });
+						setSelectedComponent(defaultComponent);
+
+						// Set component's default prompt
+						const component = availableComponents[defaultComponent];
+						if (component) {
+							setSystemPrompt(component.defaultPrompt || "");
+							setModel(component.recommendedModel || "gpt-4");
+							setMaxTokens(component.recommendedTokens || 1500);
+							setResponseFormat(component.responseFormat || "auto");
+						}
 					}
 				}
 
@@ -110,38 +106,110 @@ export default function Edit({ attributes, setAttributes }) {
 				console.error("❌ Failed to load saved data:", error);
 				setIsLoadingData(false);
 				setHasLoadedData(true);
+
+				// Set defaults on error
+				if (Object.keys(availableComponents).length > 0) {
+					const defaultComponent = Object.keys(availableComponents)[0];
+					setSelectedComponent(defaultComponent);
+				}
 			});
 	}, [instanceId, availableComponents, hasLoadedData]);
 
-	// Auto-update settings ONLY when user manually changes component (after data is loaded)
+	// Auto-update settings when component changes (after data is loaded)
 	useEffect(() => {
-		if (!hasLoadedData) return; // Don't auto-update until we've loaded saved data
+		if (
+			!hasLoadedData ||
+			!selectedComponent ||
+			!availableComponents[selectedComponent]
+		)
+			return;
 
-		// Track if this is a user-initiated change
-		if (selectedComponent && availableComponents[selectedComponent]) {
-			const component = availableComponents[selectedComponent];
+		const component = availableComponents[selectedComponent];
 
-			// Only auto-update if the current prompt is empty or matches a different component's default
-			const shouldAutoUpdate =
-				!systemPrompt ||
-				Object.values(availableComponents).some(
-					(comp) => comp.defaultPrompt === systemPrompt && comp !== component,
-				);
+		// Only auto-update if prompt is empty or from a different component
+		const shouldAutoUpdate =
+			!systemPrompt ||
+			Object.values(availableComponents).some(
+				(comp) => comp.defaultPrompt === systemPrompt && comp !== component,
+			);
 
-			if (shouldAutoUpdate) {
-				console.log(
-					"🔄 Auto-updating settings for component:",
-					selectedComponent,
-				);
-				setAttributes({
-					systemPrompt: component.defaultPrompt,
-					model: component.recommendedModel || "gpt-4",
-					maxTokens: component.recommendedTokens || 1500,
-					responseFormat: component.responseFormat || "auto",
-				});
-			}
+		if (shouldAutoUpdate) {
+			console.log(
+				"🔄 Auto-updating settings for component:",
+				selectedComponent,
+			);
+			setSystemPrompt(component.defaultPrompt || "");
+			setModel(component.recommendedModel || "gpt-4");
+			setMaxTokens(component.recommendedTokens || 1500);
+			setResponseFormat(component.responseFormat || "auto");
 		}
-	}, [selectedComponent, hasLoadedData]); // Removed availableComponents to prevent auto-updates on load
+	}, [selectedComponent, hasLoadedData, systemPrompt, availableComponents]);
+
+	// Save configuration to wp_options only
+	const saveConfigNow = async () => {
+		if (!instanceId || !hasLoadedData) return;
+
+		setIsSaving(true);
+
+		const config = {
+			selectedComponent,
+			useResponsesApi,
+			model,
+			systemPrompt,
+			temperature,
+			maxTokens,
+			responseFormat,
+			responseSchema,
+			assistantId,
+			post_id: wp?.data?.select("core/editor")?.getCurrentPostId?.() || null,
+			updated_at: Date.now(),
+		};
+
+		try {
+			const settings = await wp.apiFetch({ path: "/wp/v2/settings" });
+			let allConfigs = settings.sv_ai_blocks_options || {};
+			if (Array.isArray(allConfigs)) {
+				allConfigs = {};
+			}
+			allConfigs[instanceId] = config;
+
+			await wp.apiFetch({
+				path: "/wp/v2/settings",
+				method: "POST",
+				data: { sv_ai_blocks_options: allConfigs },
+			});
+
+			setLastSaved(new Date().toLocaleTimeString());
+			console.log("✅ Config saved to wp_options!");
+		} catch (error) {
+			console.error("Failed to save:", error);
+			alert("Failed to save configuration. Please try again.");
+		} finally {
+			setIsSaving(false);
+		}
+	};
+
+	// JSON schema validation
+	const isJsonValid = useMemo(() => {
+		if (!schemaText.trim()) return true;
+		try {
+			JSON.parse(schemaText);
+			return true;
+		} catch (e) {
+			return false;
+		}
+	}, [schemaText]);
+
+	// Handle schema text changes
+	const handleSchemaChange = (value) => {
+		setSchemaText(value);
+		try {
+			const parsed = JSON.parse(value);
+			setResponseSchema(parsed);
+		} catch (e) {
+			// Keep typing; schema will update when valid
+		}
+	};
 
 	// Show loading state
 	if (isLoadingData) {
@@ -150,7 +218,7 @@ export default function Edit({ attributes, setAttributes }) {
 				<Card>
 					<CardBody>
 						<div style={{ textAlign: "center", padding: "20px" }}>
-							<p>Loading saved settings...</p>
+							<p>Loading configuration...</p>
 						</div>
 					</CardBody>
 				</Card>
@@ -158,67 +226,9 @@ export default function Edit({ attributes, setAttributes }) {
 		);
 	}
 
-	// Save configuration to database when post is saved
-	const [wasSaving, setWasSaving] = useState(false);
-	
-	useEffect(() => {
-		if (!hasLoadedData || !useResponsesApi || !instanceId) return;
-		
-		const { subscribe } = wp.data;
-		let previousSavingState = false;
-		
-		const unsubscribe = subscribe(() => {
-			const editor = wp.data.select('core/editor');
-			const isSavingPost = editor?.isSavingPost?.() || false;
-			const isAutosavingPost = editor?.isAutosavingPost?.() || false;
-			const currentlySaving = isSavingPost && !isAutosavingPost;
-			
-			// Detect transition from saving to not saving (save completed)
-			if (previousSavingState && !currentlySaving) {
-				const config = {
-					selectedComponent: selectedComponent || '',
-					useResponsesApi: useResponsesApi || false,
-					model: model || '',
-					systemPrompt: systemPrompt || '',
-					temperature: temperature || 0.7,
-					maxTokens: maxTokens || 1500,
-					responseFormat: responseFormat || 'auto',
-					responseSchema: responseSchema || null,
-					post_id: editor?.getCurrentPostId?.() || null,
-					updated_at: Date.now(),
-				};
-
-				console.log("💾 Saving config after post save:", config);
-
-				// Save configuration to WordPress options table
-				wp.apiFetch({ path: "/wp/v2/settings" })
-					.then((settings) => {
-						let allConfigs = settings.sv_ai_blocks_options || {};
-						if (Array.isArray(allConfigs)) {
-							allConfigs = {};
-						}
-						allConfigs[instanceId] = config;
-
-						return wp.apiFetch({
-							path: "/wp/v2/settings",
-							method: "POST",
-							data: { sv_ai_blocks_options: allConfigs },
-						});
-					})
-					.then(() => {
-						console.log("✅ Config saved successfully after post save");
-					})
-					.catch((error) => {
-						console.error("Failed to save block configuration:", error);
-					});
-			}
-			
-			previousSavingState = currentlySaving;
-		});
-
-		return unsubscribe;
-	}, [hasLoadedData, useResponsesApi, instanceId]);
-
+	const currentComponent =
+		availableComponents[selectedComponent] ||
+		Object.values(availableComponents)[0];
 
 	if (!currentComponent) {
 		return (
@@ -253,7 +263,7 @@ export default function Edit({ attributes, setAttributes }) {
 								value: key,
 							}),
 						)}
-						onChange={(value) => setAttributes({ selectedComponent: value })}
+						onChange={(value) => setAttributes({ selectedComponent: value })} // ← Back to attributes
 						help={__("Choose which AI component to use", "universal-ai")}
 					/>
 
@@ -263,6 +273,37 @@ export default function Edit({ attributes, setAttributes }) {
 							<strong> Version:</strong> {currentComponent.version}
 						</p>
 					)}
+
+					{/* Save Button */}
+					<div
+						style={{
+							marginTop: "15px",
+							padding: "10px",
+							backgroundColor: "#f8f9fa",
+							borderRadius: "4px",
+						}}
+					>
+						<button
+							onClick={saveConfigNow}
+							className="components-button is-primary"
+							disabled={isSaving}
+							style={{ width: "100%" }}
+						>
+							{isSaving ? "Saving..." : "Save Configuration"}
+						</button>
+						{lastSaved && (
+							<p
+								style={{
+									fontSize: "12px",
+									color: "#666",
+									marginTop: "5px",
+									textAlign: "center",
+								}}
+							>
+								Last saved: {lastSaved}
+							</p>
+						)}
+					</div>
 				</PanelBody>
 
 				{/* API Configuration Panel */}
@@ -273,7 +314,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<ToggleControl
 						label={__("Use Responses API", "universal-ai")}
 						checked={useResponsesApi}
-						onChange={(value) => setAttributes({ useResponsesApi: value })}
+						onChange={(value) => setAttributes({ useResponsesApi: value })} // Local state
 						help={__(
 							"Enable to use the new Responses API instead of Assistant API",
 							"universal-ai",
@@ -281,11 +322,10 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 
 					{!useResponsesApi ? (
-						// Legacy Assistant API Configuration
 						<TextControl
 							label={__("OpenAI Assistant ID", "universal-ai")}
 							value={assistantId}
-							onChange={(value) => setAttributes({ assistantId: value })}
+							onChange={(value) => setAttributes({ assistantId: value })} // Local state
 							placeholder={__(
 								"Enter Assistant ID (e.g., asst_abc123...)",
 								"universal-ai",
@@ -296,7 +336,6 @@ export default function Edit({ attributes, setAttributes }) {
 							)}
 						/>
 					) : (
-						// New Responses API Configuration
 						<>
 							<SelectControl
 								label={__("OpenAI Model", "universal-ai")}
@@ -308,14 +347,14 @@ export default function Edit({ attributes, setAttributes }) {
 									{ label: "GPT-4o", value: "gpt-4o" },
 									{ label: "GPT-4o Mini", value: "gpt-4o-mini" },
 								]}
-								onChange={(value) => setAttributes({ model: value })}
+								onChange={(value) => setModel(value)} // Local state
 								help={__("Choose the AI model to use", "universal-ai")}
 							/>
 
 							<TextareaControl
 								label={__("System Prompt", "universal-ai")}
 								value={systemPrompt}
-								onChange={(value) => setAttributes({ systemPrompt: value })}
+								onChange={(value) => setSystemPrompt(value)} // Local state
 								placeholder={
 									!systemPrompt ? currentComponent.defaultPrompt : undefined
 								}
@@ -329,7 +368,7 @@ export default function Edit({ attributes, setAttributes }) {
 							<RangeControl
 								label={__("Temperature", "universal-ai")}
 								value={temperature}
-								onChange={(value) => setAttributes({ temperature: value })}
+								onChange={(value) => setTemperature(value)} // Local state
 								min={0}
 								max={2}
 								step={0.1}
@@ -342,7 +381,7 @@ export default function Edit({ attributes, setAttributes }) {
 							<RangeControl
 								label={__("Max Tokens", "universal-ai")}
 								value={maxTokens}
-								onChange={(value) => setAttributes({ maxTokens: value })}
+								onChange={(value) => setMaxTokens(value)} // Local state
 								min={100}
 								max={4000}
 								step={100}
@@ -361,7 +400,7 @@ export default function Edit({ attributes, setAttributes }) {
 									},
 									{ label: "Plain Text", value: "text" },
 								]}
-								onChange={(value) => setAttributes({ responseFormat: value })}
+								onChange={(value) => setResponseFormat(value)} // Local state
 								help={__("Expected format of the AI response", "universal-ai")}
 							/>
 
@@ -369,25 +408,17 @@ export default function Edit({ attributes, setAttributes }) {
 								<TextareaControl
 									label={__("JSON Schema", "universal-ai")}
 									value={schemaText}
-									onChange={(value) => {
-										setSchemaText(value);
-										try {
-											const parsed = JSON.parse(value);
-											setAttributes({ responseSchema: parsed });
-										} catch (e) {
-											// keep typing; attribute will update once valid
-										}
-									}}
+									onChange={handleSchemaChange}
 									onBlur={() => {
 										if (!schemaText.trim()) {
-											setAttributes({ responseSchema: null });
+											setResponseSchema(null);
 											return;
 										}
 										try {
 											const parsed = JSON.parse(schemaText);
-											setAttributes({ responseSchema: parsed });
+											setResponseSchema(parsed);
 										} catch (e) {
-											// keep invalid text visible, but don't update attributes
+											// Keep invalid text visible
 										}
 									}}
 									help={
@@ -411,10 +442,30 @@ export default function Edit({ attributes, setAttributes }) {
 							<div style={{ fontSize: "48px", marginBottom: "10px" }}>
 								{currentComponent.icon}
 							</div>
-							<h3>{currentComponent.name}</h3>
-							<p style={{ color: "#666", marginBottom: "15px" }}>
-								{currentComponent.description}
-							</p>
+							<div>
+								<h3 style={{ margin: 0 }}>
+									{currentComponent.icon} {currentComponent.name}
+								</h3>
+								<p style={{ margin: 0, fontSize: "12px", color: "#666" }}>
+									{currentComponent.description}
+								</p>
+							</div>
+
+							<div style={{ textAlign: "right" }}>
+								<button
+									onClick={saveConfigNow}
+									className="components-button is-primary"
+									disabled={isSaving}
+									style={{ marginBottom: "5px" }}
+								>
+									{isSaving ? "💾 Saving..." : "💾 Save"}
+								</button>
+								{lastSaved && (
+									<div style={{ fontSize: "10px", color: "#666" }}>
+										{lastSaved}
+									</div>
+								)}
+							</div>
 
 							{/* Configuration Status */}
 							<div
@@ -433,10 +484,10 @@ export default function Edit({ attributes, setAttributes }) {
 									<>
 										<span style={{ color: "#28a745" }}>Responses API</span>
 										<br />
-										<span>Model: {model || "gpt-4"}</span>
+										<span>Model: {model}</span>
 										<br />
 										<span>
-											Temp: {temperature ?? 0.7}, Tokens: {maxTokens || 1500}
+											Temp: {temperature}, Tokens: {maxTokens}
 										</span>
 									</>
 								) : (

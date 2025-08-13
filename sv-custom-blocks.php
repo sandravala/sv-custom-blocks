@@ -48,7 +48,8 @@ function sv_register_assistant_blocks()
 {
     $blocks = [
         'routine-tasks-generator',
-        'quarterly-goals-generator'
+        'quarterly-goals-generator',
+        'universal-ai'
     ];
 
     foreach ($blocks as $block) {
@@ -74,7 +75,8 @@ register_activation_hook(__FILE__, 'sv_create_assistant_tables');
 /**
  * Register custom settings for AI blocks
  */
-function sv_register_ai_blocks_settings() {
+function sv_register_ai_blocks_settings()
+{
     register_setting('general', 'sv_ai_blocks_options', [
         'type' => 'object',
         'show_in_rest' => [
@@ -107,15 +109,16 @@ add_action('init', 'sv_register_ai_blocks_settings');
 /**
  * Sanitize the AI blocks options
  */
-function sv_sanitize_ai_blocks_options($value) {
+function sv_sanitize_ai_blocks_options($value)
+{
     if (!is_array($value) && !is_object($value)) {
         return new stdClass();
     }
-    
+
     // Convert to array for processing
     $value = (array) $value;
     $sanitized = array();
-    
+
     foreach ($value as $instance_id => $config) {
         if (is_array($config) || is_object($config)) {
             $config = (array) $config;
@@ -133,7 +136,7 @@ function sv_sanitize_ai_blocks_options($value) {
             );
         }
     }
-    
+
     return (object) $sanitized; // Return as object
 }
 
@@ -167,11 +170,11 @@ function sv_time_calc_init()
 }
 add_action('init', 'sv_time_calc_init');
 
-function sv_universal_ai_generator_init()
-{
-    register_block_type(__DIR__ . '/build/blocks/universal-ai');
-}
-add_action('init', 'sv_universal_ai_generator_init');
+// function sv_universal_ai_generator_init()
+// {
+//     register_block_type(__DIR__ . '/build/blocks/universal-ai');
+// }
+// add_action('init', 'sv_universal_ai_generator_init');
 
 function sv_localize_block_scripts()
 {
@@ -183,9 +186,9 @@ function sv_localize_block_scripts()
         'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
         'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
     ));
-    wp_localize_script('sv-custom-blocks-universal-ai-generator-view-script', 'sv_ajax_object', array(
-    'ajax_url' => admin_url('admin-ajax.php'),
-    'nonce'    => wp_create_nonce('sv_ajax_nonce'),
-));
+    wp_localize_script('sv-custom-blocks-universal-ai-view-script', 'sv_ajax_object', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce'    => wp_create_nonce('sv_ajax_nonce'),
+    ));
 }
 add_action('wp_enqueue_scripts', 'sv_localize_block_scripts');

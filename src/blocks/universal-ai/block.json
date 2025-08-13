@@ -12,37 +12,13 @@
 			"type": "string",
 			"default": "smart-goals"
 		},
-		"assistantId": {
+		"assistantId":{
 			"type": "string",
 			"default": ""
 		},
 		"useResponsesApi": {
-			"type": "boolean", 
-			"default": true
-		},
-		"model": {
-			"type": "string",
-			"default": "gpt-4"
-		},
-		"systemPrompt": {
-			"type": "string",
-			"default": ""
-		},
-		"temperature": {
-			"type": "number",
-			"default": 0.7
-		},
-		"maxTokens": {
-			"type": "number",
-			"default": 1500
-		},
-		"responseFormat": {
-			"type": "string", 
-			"default": "auto"
-		},
-		"responseSchema": {
-			"type": "object",
-			"default": null
+			"type": "integer",
+			"default": 1
 		},
 		"instanceId": {
 			"type": "string",
