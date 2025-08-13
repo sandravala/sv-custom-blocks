@@ -5,6 +5,7 @@
  * Outputs only the minimal markup needed for the frontend script:
  * - a stable block instance id (saved as an attribute)
  * - the current post id
+ * - user login status
  *
  * Your AJAX handler should:
  *  1) receive block_id + post_id,
@@ -33,6 +34,9 @@ $instance_id = isset( $attrs['instanceId'] ) && is_string( $attrs['instanceId'] 
 
 $post_id = get_the_ID();
 
+// Check if user is logged in
+$is_logged_in = is_user_logged_in();
+
 // A fixed wrapper ID for your current view.js which queries "#smart-goal-generator".
 $wrapper_id = 'smart-goal-generator';
 
@@ -45,6 +49,7 @@ $classes = 'smart-goal-generator';
 	data-block-id="<?php echo esc_attr( $instance_id ); ?>"
 	data-post-id="<?php echo esc_attr( $post_id ); ?>"
 	data-use-responses-api="<?php echo esc_attr( $attrs['useResponsesApi'] ?? 'true' ); ?>"
+	data-is-logged-in="<?php echo esc_attr( $is_logged_in ? 'true' : 'false' ); ?>"
 	<?php if ( isset( $attrs['assistantId'] ) && ! empty( $attrs['assistantId'] ) ) : ?>
 	data-assistant-id="<?php echo esc_attr( $attrs['assistantId'] ); ?>"
 	<?php endif; ?>

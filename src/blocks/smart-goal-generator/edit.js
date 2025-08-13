@@ -33,7 +33,7 @@ export default function Edit({ attributes, setAttributes }) {
 		responseFormat,
 		responseSchema,
 		useResponsesApi,
-		instanceId
+		instanceId,
 	} = attributes;
 
 	const [schemaText, setSchemaText] = useState(
@@ -59,32 +59,77 @@ export default function Edit({ attributes, setAttributes }) {
 	}, [instanceId, setAttributes]);
 
 	// Save block configuration when using Responses API
+	// Save block configuration when using Responses API (with debugging)
 	useEffect(() => {
-		if (useResponsesApi && instanceId && model && systemPrompt) {
-			const config = {
-				useResponsesApi,
-				model,
-				systemPrompt,
-				temperature,
-				maxTokens,
-				responseFormat,
-				responseSchema,
-				post_id: wp?.data?.select('core/editor')?.getCurrentPostId?.() || null,
-				updated_at: Date.now()
-			};
-			
-			// Save configuration to WordPress options table
-			wp.apiFetch({
-				path: '/wp/v2/options',
-				method: 'POST',
-				data: {
-					[`sv_block_config_${instanceId}`]: config
-				}
-			}).catch(error => {
-				console.warn('Failed to save block configuration:', error);
-			});
+
+		if (!useResponsesApi) {
+			console.log("Not saving: useResponsesApi is false");
+			return;
 		}
-	}, [useResponsesApi, instanceId, model, systemPrompt, temperature, maxTokens, responseFormat, responseSchema]);
+
+		if (!instanceId) {
+			console.log("Not saving: instanceId is missing");
+			return;
+		}
+
+		if (!model) {
+			console.log("Not saving: model is missing");
+			return;
+		}
+
+		if (!systemPrompt) {
+			console.log("Not saving: systemPrompt is missing");
+			return;
+		}
+
+		const config = {
+			useResponsesApi,
+			model,
+			systemPrompt,
+			temperature,
+			maxTokens,
+			responseFormat,
+			responseSchema,
+			post_id: wp?.data?.select("core/editor")?.getCurrentPostId?.() || null,
+			updated_at: Date.now(),
+		};
+
+		// Save configuration to WordPress options table using sv_ai_blocks_options
+		wp.apiFetch({ path: "/wp/v2/settings" })
+			.then((settings) => {
+				let allConfigs = settings.sv_ai_blocks_options || {};
+				
+
+				// If WordPress returned an array (old registration), convert to object
+				if (Array.isArray(allConfigs)) {
+					allConfigs = {};
+				}
+
+				allConfigs[instanceId] = config;
+
+				return wp.apiFetch({
+					path: "/wp/v2/settings",
+					method: "POST",
+					data: {
+						sv_ai_blocks_options: allConfigs,
+					},
+				});
+			})
+			.then((response) => {
+			})
+			.catch((error) => {
+				console.error("Failed to save block configuration:", error);
+			});
+	}, [
+		useResponsesApi,
+		instanceId,
+		model,
+		systemPrompt,
+		temperature,
+		maxTokens,
+		responseFormat,
+		responseSchema,
+	]);
 
 	return (
 		<>

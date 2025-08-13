@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:       Sv Custom Blocks
  * Description:       Example block scaffolded with Create Block tool.
@@ -13,8 +14,8 @@
  * @package           create-block
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (! defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
 
 // Load vendor
@@ -43,16 +44,17 @@ require_once plugin_dir_path(__FILE__) . 'build/blocks/time-calculator/includes/
  */
 
 // Register all assistant-based blocks
-function sv_register_assistant_blocks() {
+function sv_register_assistant_blocks()
+{
     $blocks = [
         'routine-tasks-generator',
         'smart-goal-generator',
         'quarterly-goals-generator'
     ];
-    
+
     foreach ($blocks as $block) {
         register_block_type(__DIR__ . '/build/blocks/' . $block);
-        
+
         // Include block-specific AJAX handlers
         $handler_file = plugin_dir_path(__FILE__) . 'src/blocks/' . $block . '/includes/ajax-handlers.php';
         if (file_exists($handler_file)) {
@@ -63,7 +65,8 @@ function sv_register_assistant_blocks() {
 add_action('init', 'sv_register_assistant_blocks');
 
 // Create tables on activation
-function sv_create_assistant_tables() {
+function sv_create_assistant_tables()
+{
     // Tables will be created on-demand by the trait
     // But you can pre-create them here if preferred
 }
@@ -71,37 +74,62 @@ register_activation_hook(__FILE__, 'sv_create_assistant_tables');
 
 // Register settings for AI Blocks to use in ajax (response api options)
 register_setting('general', 'sv_ai_blocks_options', [
-'type' => 'object',
-'show_in_rest' => true,
-'default' => [],
+    'type' => 'object',
+    'show_in_rest' => [
+        'schema' => [
+            'type' => 'object',
+            'properties' => [],  // Dynamic properties for each instanceId
+            'additionalProperties' => [
+                'type' => 'object',
+                'properties' => [
+                    'useResponsesApi' => ['type' => 'boolean'],
+                    'model' => ['type' => 'string'],
+                    'systemPrompt' => ['type' => 'string'],
+                    'temperature' => ['type' => 'number'],
+                    'maxTokens' => ['type' => 'integer'],
+                    'responseFormat' => ['type' => 'string'],
+                    'responseSchema' => ['type' => 'object'],
+                    'post_id' => ['type' => 'integer'],
+                    'updated_at' => ['type' => 'integer']
+                ]
+            ]
+        ]
+    ],
+    'default' => new stdClass(),  // Force object instead of array
 ]);
 
-function sv_custom_blocks_sv_custom_blocks_block_init() {
-	register_block_type( __DIR__ . '/build/blocks/planner-personality-quiz' );
+function sv_custom_blocks_sv_custom_blocks_block_init()
+{
+    register_block_type(__DIR__ . '/build/blocks/planner-personality-quiz');
 }
-add_action( 'init', 'sv_custom_blocks_sv_custom_blocks_block_init' );
+add_action('init', 'sv_custom_blocks_sv_custom_blocks_block_init');
 
-function sv_slider_init() {
-	register_block_type( __DIR__ . '/build/blocks/sv-slider' );
+function sv_slider_init()
+{
+    register_block_type(__DIR__ . '/build/blocks/sv-slider');
 }
-add_action( 'init', 'sv_slider_init' );
+add_action('init', 'sv_slider_init');
 
-function sv_timeblock_init() {
-	register_block_type( __DIR__ . '/build/blocks/timeblock-builder' );
+function sv_timeblock_init()
+{
+    register_block_type(__DIR__ . '/build/blocks/timeblock-builder');
 }
-add_action( 'init', 'sv_timeblock_init' );
+add_action('init', 'sv_timeblock_init');
 
-function sv_routine_tasks_init() {
-	register_block_type( __DIR__ . '/build/blocks/routine-tasks-generator' );
+function sv_routine_tasks_init()
+{
+    register_block_type(__DIR__ . '/build/blocks/routine-tasks-generator');
 }
-add_action( 'init', 'sv_routine_tasks_init' );
+add_action('init', 'sv_routine_tasks_init');
 
-function sv_time_calc_init() {
-	register_block_type( __DIR__ . '/build/blocks/time-calculator' );
+function sv_time_calc_init()
+{
+    register_block_type(__DIR__ . '/build/blocks/time-calculator');
 }
-add_action( 'init', 'sv_time_calc_init' );
+add_action('init', 'sv_time_calc_init');
 
-function sv_localize_block_scripts() {
+function sv_localize_block_scripts()
+{
     wp_localize_script('sv-custom-blocks-planner-personality-quiz-view-script', 'sv_ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
         'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
@@ -110,5 +138,9 @@ function sv_localize_block_scripts() {
         'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
         'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
     ));
+    wp_localize_script('sv-custom-blocks-smart-goal-generator-view-script', 'sv_ajax_object', array(
+    'ajax_url' => admin_url('admin-ajax.php'),
+    'nonce'    => wp_create_nonce('sv_ajax_nonce'),
+));
 }
 add_action('wp_enqueue_scripts', 'sv_localize_block_scripts');

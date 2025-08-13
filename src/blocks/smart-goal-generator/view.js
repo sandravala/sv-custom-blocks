@@ -1,28 +1,39 @@
 /**
- * Use this file for JavaScript code that you want to run in the front-end
- * on posts/pages that contain this block.
+ * Smart Goal Generator - Frontend JavaScript
+ * Updated to handle login status from render.php
  */
 
 import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 
 document.addEventListener("DOMContentLoaded", function () {
-	renderForm();
+	renderSmartGoals();
 });
 
-function renderForm() {
-	const smartGoalDiv = document
-		.getElementById("smart-goal-generator")
-		.getElementsByClassName("input-container")[0];
-	const smartGoalContainer = document.getElementById("smart-goal-generator");
-	const assistantId = smartGoalContainer.getAttribute("data-assistant-id");
-	const blockId = smartGoalContainer.getAttribute("data-block-id");
-	const useResponsesApi = smartGoalContainer.getAttribute("data-use-responses-api") === "true";
-	const root = createRoot(smartGoalDiv);
-	root.render(<SmartGoalGenerator assistantId={assistantId} blockId={blockId} useResponsesApi={useResponsesApi} />);
+function renderSmartGoals() {
+	const container = document.getElementById("smart-goal-generator");
+	if (!container) return;
+
+	// Get data from render.php
+	const blockId = container.dataset.blockId;
+	const postId = container.dataset.postId;
+const useResponsesApi = ['true', '1'].includes(container.dataset.useResponsesApi);
+	const assistantId = container.dataset.assistantId || '';
+	const isLoggedIn = container.dataset.isLoggedIn === 'true'; // From render.php
+
+	const root = createRoot(container);
+	root.render(
+		<SmartGoalGenerator 
+			blockId={blockId}
+			postId={postId}
+			useResponsesApi={useResponsesApi}
+			assistantId={assistantId}
+			isLoggedIn={isLoggedIn}
+		/>
+	);
 }
 
-function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
+function SmartGoalGenerator({ blockId, postId, useResponsesApi, assistantId, isLoggedIn }) {
 	const [formData, setFormData] = useState({
 		specific: "",
 		measurable: "",
@@ -32,20 +43,18 @@ function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 	});
 
 	const [loading, setLoading] = useState(false);
-	const [loadingSaved, setLoadingSaved] = useState(true);
+	const [loadingSaved, setLoadingSaved] = useState(isLoggedIn); // Only load if logged in
 	const [error, setError] = useState("");
 	const [goalData, setGoalData] = useState({
 		smart_goal_sentence: "",
 		resources_sentence: "",
 	});
 
-	const [saving, setSaving] = useState(false);
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-	const [smartQuestions, setSmartQuestions] = useState({
+	// Field labels and placeholders
+	const fieldLabels = Object.freeze({
 		specific: [
-			"Apibrėžk, ką nori pasiekti",
-			"Apibūdink veiksmą ir rezultatą, t.y. atsakyk: Ką tiksliai nori pasiekti? Pavyzdys: Išmokti programuoti Python kalba",
+			"Ko nori pasiekti?",
+			"Apibrėžia tikslą konkrečiai. Pavyzdys: Išmokti programuoti Python kalba",
 		],
 		measurable: [
 			"Kaip žinosi, kad pavyko ir matuosi progresą?",
@@ -61,14 +70,14 @@ function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 		],
 	});
 
-	// Load saved data on component mount
+	// Load saved data on component mount (only if logged in)
 	useEffect(() => {
-		if ((useResponsesApi && blockId) || (!useResponsesApi && assistantId)) {
+		if (isLoggedIn && ((useResponsesApi && blockId) || (!useResponsesApi && assistantId))) {
 			loadSavedData();
 		} else {
 			setLoadingSaved(false);
 		}
-	}, [assistantId, blockId, useResponsesApi]);
+	}, [isLoggedIn, assistantId, blockId, useResponsesApi]);
 
 	const loadSavedData = async () => {
 		try {
@@ -78,12 +87,13 @@ function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 			};
 			
 			// Use appropriate parameter based on API type
-			if (useResponsesApi) {
+			if(useResponsesApi)
 				params.block_id = blockId;
-			} else {
+			else
 				params.assistant_id = assistantId;
-			}
-			
+
+			console.log("Loading saved data with params:", params);
+
 			const response = await fetch(sv_ajax_object.ajax_url, {
 				method: "POST",
 				headers: {
@@ -95,7 +105,6 @@ function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 			const result = await response.json();
 
 			if (result.success) {
-				setIsLoggedIn(true);
 				console.log("Loaded saved data:", result.data);
 				if (result.data && result.data.input_data) {
 					// Convert snake_case to camelCase for form fields
@@ -107,9 +116,7 @@ function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 						relevant: inputData.relevant || "",
 						timeBound: inputData.time_bound || "",
 					});
-					// setGoalData(
-					// 	result.data.response_data
-					// );
+					
 					if (result.data.response_data) {
 						setGoalData({
 							smart_goal_sentence:
@@ -120,12 +127,11 @@ function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 					}
 				}
 			} else {
-				// User not logged in or other error
-				setIsLoggedIn(false);
+				// Error loading data (could be no data exists, which is fine)
+				console.log("No saved data found or error:", result.data?.message);
 			}
 		} catch (err) {
 			console.error("Error loading saved data:", err);
-			setIsLoggedIn(false);
 		} finally {
 			setLoadingSaved(false);
 		}
@@ -206,12 +212,12 @@ function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 			}
 		} catch (err) {
 			setError("Įvyko klaida. Bandykite dar kartą.");
-			//setError(err.message || "Įvyko Įvyko klaida. Bandykite dar kartą.");
 		} finally {
 			setLoading(false);
 		}
 	};
 
+	// Show loading while checking saved data
 	if (loadingSaved) {
 		return (
 			<div className="loading-message">
@@ -220,6 +226,7 @@ function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 		);
 	}
 
+	// Show login required message if not logged in
 	if (!isLoggedIn) {
 		return (
 			<div className="login-required">
@@ -237,48 +244,72 @@ function SmartGoalGenerator({ assistantId, blockId, useResponsesApi }) {
 		<>
 			{goalData.smart_goal_sentence.length === 0 &&
 				(!loading ? (
-					<form onSubmit={handleSubmit} className="smart-goal-form">
-						{Object.keys(smartQuestions).map((key) => (
-							<div className="form-group" key={key}>
-								<label htmlFor={key}>{smartQuestions[key][0]}</label>
-								<textarea
-									id={key}
-									value={formData[key]}
-									onChange={(e) => handleInputChange(key, e.target.value)}
-									placeholder={smartQuestions[key][1]}
-									required
-								/>
-							</div>
-						))}
-						{error && <div className="error-message">{error}</div>}
+					// Form Section
+					<div className="smart-goal-form-section">
+						<h3>SMART Tikslo Generatorius</h3>
+						<form onSubmit={handleSubmit} className="smart-goal-form">
+							{/* Form fields */}
+							{Object.entries(fieldLabels).map(([field, [label, placeholder]]) => (
+								<div key={field} className="form-group">
+									<label htmlFor={field}>
+										{label} {field !== 'timeBound' && <span className="required">*</span>}
+									</label>
+									<textarea
+										id={field}
+										value={formData[field]}
+										onChange={(e) => handleInputChange(field, e.target.value)}
+										placeholder={placeholder}
+										required={field !== 'timeBound'}
+										rows="3"
+									/>
+								</div>
+							))}
 
-						<button type="submit" disabled={loading} className="generate-btn">
-							Generuoti SMART tikslą
-						</button>
-					</form>
+							{error && <div className="error-message">{error}</div>}
+
+							<button type="submit" className="generate-button">
+								Generuoti SMART tikslą
+							</button>
+						</form>
+					</div>
 				) : (
+					// Loading Animation
 					<div className="ai-blob" style={{ "--ai-size": "220px" }}>
 						<span className="ai-blob__orb" />
 						<span className="ai-blob__orb ai-blob__orb--slow" />
-						<span className="ai-blob__text">Generuoja…</span>
+						<span className="ai-blob__text">Generuojamas SMART tikslas…</span>
 					</div>
 				))}
 
-					<div className="ai-blob" style={{ "--ai-size": "350px" }}>
-						<span className="ai-blob__orb" />
-						<span className="ai-blob__orb ai-blob__orb--slow" />
-						<span className="ai-blob__text">Generuoja…</span>
+			{/* Results Section */}
+			{goalData.smart_goal_sentence && (
+				<div className="smart-goal-results">
+					<div className="results-header">
+						<h3>Jūsų SMART tikslas</h3>
+						<button 
+							onClick={() => {
+								setGoalData({ smart_goal_sentence: "", resources_sentence: "" });
+								setError("");
+							}} 
+							className="edit-button"
+						>
+							Redaguoti
+						</button>
 					</div>
-			{goalData.smart_goal_sentence.length > 0 && (
-				<div>
-					<h4>Tavo SMART tikslas</h4>
-					<p>{goalData.smart_goal_sentence}</p>
-					{goalData.resources_sentence && (
-						<div>
-							<h5>Papildomos rekomendacijos iš produktyvumo roboto:</h5>
-							<p>{goalData.resources_sentence}</p>
+
+					<div className="smart-goal-content">
+						<div className="goal-statement">
+							<h4>Tikslo formuluotė:</h4>
+							<p id="smart-goal-sentence">{goalData.smart_goal_sentence}</p>
 						</div>
-					)}
+
+						{goalData.resources_sentence && (
+							<div className="resources-statement">
+								<h4>Reikalingi ištekliai:</h4>
+								<p id="resources-sentence">{goalData.resources_sentence}</p>
+							</div>
+						)}
+					</div>
 				</div>
 			)}
 		</>
