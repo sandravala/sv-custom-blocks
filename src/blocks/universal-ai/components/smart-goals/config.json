@@ -1,0 +1,11 @@
+{
+  "name": "Smart Goals Generator",
+  "icon": "🎯",
+  "description": "Create SMART goals with AI assistance",
+  "defaultPrompt": "You are a SMART goals expert. Help users create Specific, Measurable, Achievable, Relevant, and Time-bound goals. Always provide structured, actionable goal statements with clear metrics and timelines.",
+  "category": "productivity",
+  "version": "1.0.0",
+  "responseFormat": "json_object",
+  "recommendedModel": "gpt-4",
+  "recommendedTokens": 1000
+}

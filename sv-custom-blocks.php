@@ -48,7 +48,6 @@ function sv_register_assistant_blocks()
 {
     $blocks = [
         'routine-tasks-generator',
-        'smart-goal-generator',
         'quarterly-goals-generator'
     ];
 
@@ -72,31 +71,71 @@ function sv_create_assistant_tables()
 }
 register_activation_hook(__FILE__, 'sv_create_assistant_tables');
 
-// Register settings for AI Blocks to use in ajax (response api options)
-register_setting('general', 'sv_ai_blocks_options', [
-    'type' => 'object',
-    'show_in_rest' => [
-        'schema' => [
-            'type' => 'object',
-            'properties' => [],  // Dynamic properties for each instanceId
-            'additionalProperties' => [
+/**
+ * Register custom settings for AI blocks
+ */
+function sv_register_ai_blocks_settings() {
+    register_setting('general', 'sv_ai_blocks_options', [
+        'type' => 'object',
+        'show_in_rest' => [
+            'schema' => [
                 'type' => 'object',
-                'properties' => [
-                    'useResponsesApi' => ['type' => 'boolean'],
-                    'model' => ['type' => 'string'],
-                    'systemPrompt' => ['type' => 'string'],
-                    'temperature' => ['type' => 'number'],
-                    'maxTokens' => ['type' => 'integer'],
-                    'responseFormat' => ['type' => 'string'],
-                    'responseSchema' => ['type' => 'object'],
-                    'post_id' => ['type' => 'integer'],
-                    'updated_at' => ['type' => 'integer']
+                'properties' => [],  // Dynamic properties for each instanceId
+                'additionalProperties' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'selectedComponent' => ['type' => 'string'], // Add this missing property
+                        'useResponsesApi' => ['type' => 'boolean'],
+                        'model' => ['type' => 'string'],
+                        'systemPrompt' => ['type' => 'string'],
+                        'temperature' => ['type' => 'number'],
+                        'maxTokens' => ['type' => 'integer'],
+                        'responseFormat' => ['type' => 'string'],
+                        'responseSchema' => ['type' => ['object', 'null']], // Allow null
+                        'post_id' => ['type' => 'integer'],
+                        'updated_at' => ['type' => 'integer']
+                    ]
                 ]
             ]
-        ]
-    ],
-    'default' => new stdClass(),  // Force object instead of array
-]);
+        ],
+        'default' => new stdClass(),
+        'sanitize_callback' => 'sv_sanitize_ai_blocks_options', // Add sanitization
+    ]);
+}
+add_action('init', 'sv_register_ai_blocks_settings');
+
+/**
+ * Sanitize the AI blocks options
+ */
+function sv_sanitize_ai_blocks_options($value) {
+    if (!is_array($value) && !is_object($value)) {
+        return new stdClass();
+    }
+    
+    // Convert to array for processing
+    $value = (array) $value;
+    $sanitized = array();
+    
+    foreach ($value as $instance_id => $config) {
+        if (is_array($config) || is_object($config)) {
+            $config = (array) $config;
+            $sanitized[sanitize_key($instance_id)] = array(
+                'selectedComponent' => sanitize_text_field($config['selectedComponent'] ?? ''),
+                'useResponsesApi'   => (bool) ($config['useResponsesApi'] ?? true),
+                'model'             => sanitize_text_field($config['model'] ?? 'gpt-4'),
+                'systemPrompt'      => sanitize_textarea_field($config['systemPrompt'] ?? ''),
+                'temperature'       => floatval($config['temperature'] ?? 0.7),
+                'maxTokens'         => intval($config['maxTokens'] ?? 1500),
+                'responseFormat'    => sanitize_text_field($config['responseFormat'] ?? 'auto'),
+                'responseSchema'    => $config['responseSchema'] ?? null,
+                'post_id'           => intval($config['post_id'] ?? 0),
+                'updated_at'        => intval($config['updated_at'] ?? time()),
+            );
+        }
+    }
+    
+    return (object) $sanitized; // Return as object
+}
 
 function sv_custom_blocks_sv_custom_blocks_block_init()
 {
@@ -128,6 +167,12 @@ function sv_time_calc_init()
 }
 add_action('init', 'sv_time_calc_init');
 
+function sv_universal_ai_generator_init()
+{
+    register_block_type(__DIR__ . '/build/blocks/universal-ai');
+}
+add_action('init', 'sv_universal_ai_generator_init');
+
 function sv_localize_block_scripts()
 {
     wp_localize_script('sv-custom-blocks-planner-personality-quiz-view-script', 'sv_ajax_object', array(
@@ -138,7 +183,7 @@ function sv_localize_block_scripts()
         'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
         'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
     ));
-    wp_localize_script('sv-custom-blocks-smart-goal-generator-view-script', 'sv_ajax_object', array(
+    wp_localize_script('sv-custom-blocks-universal-ai-generator-view-script', 'sv_ajax_object', array(
     'ajax_url' => admin_url('admin-ajax.php'),
     'nonce'    => wp_create_nonce('sv_ajax_nonce'),
 ));

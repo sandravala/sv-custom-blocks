@@ -1,0 +1,62 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sv-custom-blocks/universal-ai",
+	"version": "0.1.0",
+	"title": "Universal AI Block",
+	"category": "widgets", 
+	"icon": "star-filled",
+	"description": "Generate AI-powered content using customizable components and OpenAI Responses API.",
+	"attributes": {
+		"selectedComponent": {
+			"type": "string",
+			"default": "smart-goals"
+		},
+		"assistantId": {
+			"type": "string",
+			"default": ""
+		},
+		"useResponsesApi": {
+			"type": "boolean", 
+			"default": true
+		},
+		"model": {
+			"type": "string",
+			"default": "gpt-4"
+		},
+		"systemPrompt": {
+			"type": "string",
+			"default": ""
+		},
+		"temperature": {
+			"type": "number",
+			"default": 0.7
+		},
+		"maxTokens": {
+			"type": "number",
+			"default": 1500
+		},
+		"responseFormat": {
+			"type": "string", 
+			"default": "auto"
+		},
+		"responseSchema": {
+			"type": "object",
+			"default": null
+		},
+		"instanceId": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sv-custom-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css", 
+	"style": "file:./index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

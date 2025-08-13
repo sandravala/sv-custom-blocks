@@ -1,0 +1,11 @@
+{
+  "name": "Quarterly Goals Generator",
+  "icon": "🎯",
+  "description": "generate quarterly goals for smart goal with AI assistance",
+  "defaultPrompt": "Generate quarterly goals based on the provided smart goal.",
+  "category": "productivity",
+  "version": "1.0.0",
+  "responseFormat": "json_schema",
+  "recommendedModel": "gpt-4o",
+  "recommendedTokens": 2500
+}
