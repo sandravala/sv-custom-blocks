@@ -38,7 +38,6 @@ const EditableTable = ({
         emptyStateSubtext: 'Add your first item to get started',
         addButtonText: 'Add Item',
         saveButtonText: 'Save Changes',
-        editButtonText: 'Edit',
         deleteConfirmText: 'Are you sure you want to delete this item?'
     };
 
@@ -237,10 +236,11 @@ const EditableTable = ({
                 {tableConfig.showActions && (
                     <div className="sv-row-actions">
                         <button
-                            className="sv-btn sv-btn-secondary sv-btn-small"
+                            className={`sv-btn sv-btn-secondary sv-btn-small ${isEditing ? '' : 'sv-btn-edit'}`}
                             onClick={() => toggleEdit(row.id)}
+                            id={`edit-button-${row.id}`}
                         >
-                            {isEditing ? 'Done' : tableConfig.editButtonText}
+                            {isEditing ? '✓' : '✎'}
                         </button>
                         {tableConfig.allowAddRemove && (
                             <button
@@ -281,7 +281,7 @@ const EditableTable = ({
             const groupCount = Array.isArray(groupData) ? groupData.length : 0;
             
             return (
-                <div key={groupKey} className="sv-editable-table">
+                <div key={groupKey} className="sv-editable-table" data-dirty={isDirty}>
                     <div className="sv-group-header">{groupKey}</div>
                     <div className="sv-table-header">
                         <h3 className="sv-table-title">
@@ -320,7 +320,7 @@ const EditableTable = ({
         const dataCount = Array.isArray(tableData) ? tableData.length : 0;
         
         return (
-            <div className="sv-editable-table">
+            <div className="sv-editable-table" data-dirty={isDirty}>
                 <div className="sv-table-header">
                     <h3 className="sv-table-title">{tableConfig.title}</h3>
                     <div className="sv-table-actions">
@@ -351,7 +351,7 @@ const EditableTable = ({
                         )}
                     </div>
                 </div>
-                <div className="sv-table-rows">
+                <div className="sv-table-rows" key='table-rows'>
                     {isLoading ? renderLoadingState() :
                      dataCount === 0 ? renderEmptyState() :
                      tableData.map(row => renderRow(row))}

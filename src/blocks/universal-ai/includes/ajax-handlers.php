@@ -15,8 +15,7 @@ class SV_Universal_AI_Ajax_Handler_Secure
         add_action('wp_ajax_generate_ai_data', [$this, 'generate_ai_data']);
         add_action('wp_ajax_nopriv_generate_ai_data', [$this, 'generate_ai_data']);
         add_action('wp_ajax_load_saved_data', [$this, 'load_saved_data']);
-        add_action('wp_ajax_load_block_input_data', [$this, 'load_block_input_data']);
-        add_action('wp_ajax_load_user_data', [$this, 'load_user_data']);
+        add_action('wp_ajax_save_modified_data', [$this, 'save_modified_data']);
 
 
         // Clean up old configurations periodically
@@ -380,8 +379,12 @@ class SV_Universal_AI_Ajax_Handler_Secure
         }
 
         $user_id = get_current_user_id();
-        $save_to_meta = isset($_POST['save_to_meta']) ? json_decode(wp_unslash($_POST['save_to_meta']), true) : [];
         $updated_data = isset($_POST['data']) ? wp_unslash($_POST['data']) : '';
+
+                $save_to_meta = [];
+        if (isset($_POST['save_to_meta'])) {
+            $save_to_meta = $this->get_form_data('save_to_meta');
+        }
 
         if (empty($updated_data)) {
             wp_send_json_error(['message' => 'Nėra duomenų išsaugojimui.']);

@@ -5,6 +5,40 @@
 
 import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
+import EditableTable from '@components/EditableTable';
+
+const smartGoalsColumns = [
+        {
+            key: 'smart_goal_sentence',
+            label: 'SMART Goal',
+            type: 'textarea',
+            flex: 'flex-1',
+            placeholder: 'Enter your SMART goal...',
+            rows: 3
+        },
+        {
+            key: 'resources_sentence',
+            label: 'Required Resources',
+            type: 'textarea',
+            flex: 'flex-1',
+            placeholder: 'What resources do you need?',
+            rows: 2
+        },
+    ];
+
+	const tableConfig = {
+        title: 'Mano SMART tikslas',
+        allowEditing: true,
+        allowAddRemove: false,
+        grouped: false,
+        showActions: true,
+        showCounter: false,
+        emptyStateText: 'No SMART goals saved yet',
+        emptyStateSubtext: 'Generate your first SMART goal using the form above, then add it to your collection',
+        saveButtonText: 'Išsaugoti',
+        editButtonText: '✎',
+        deleteConfirmText: 'Are you sure you want to delete this SMART goal?'
+    };
 
 export default function SmartGoalsComponent({ blockId, postId, assistantId, useResponsesApi, isLoggedIn, ajaxObject, componentName, canUseAiAgain }) {
 	console.log("🔍 ajaxObject received:", ajaxObject);
@@ -19,7 +53,11 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 		timeBound: "this year",
 	});
 
-	console.log("useResponsesApi:", useResponsesApi);
+			const saveToMeta = {
+			smart_goal: 'smart_goal_sentence',
+			resources: 'resources_sentence',
+		};
+
 
 	const [loading, setLoading] = useState(false);
 	const [loadingSaved, setLoadingSaved] = useState(isLoggedIn); // Only load if logged in
@@ -28,6 +66,8 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 		smart_goal_sentence: "",
 		resources_sentence: "",
 	});
+
+	
 
 	// Field labels and placeholders
 	const fieldLabels = Object.freeze({
@@ -89,6 +129,12 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 
 			if (result.success) {
 				console.log("Loaded saved data:", result.data);
+				
+				setGoalData({
+					smart_goal_sentence: result.data.data.user_data.smart_goal || "",
+					resources_sentence: result.data.data.user_data.resources || "",
+				});
+				setFormData(result.data.input_data);
 				// if (result.data && result.data.input_data) {
 				// 	// Convert snake_case to camelCase for form fields
 				// 	const inputData = result.data.input_data;
@@ -157,10 +203,7 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 		setLoading(true);
 		setError("");
 
-		const saveToMeta = {
-			smart_goal: 'smart_goal_sentence',
-			resources: 'resources_sentence',
-		};
+
 
 		try {
 			const params = {
@@ -204,6 +247,39 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 			setError("Įvyko klaida. Bandykite dar kartą.");
 		} finally {
 			setLoading(false);
+		}
+	};
+
+	const handleDataSave = async (data, metaKey) => {
+		//e.preventDefault();
+
+		console.log("Saving SMART goal:", goalData);
+		setError("");
+
+		try {
+			const response = await fetch(ajaxObject.ajax_url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+				body: new URLSearchParams({
+					action: "save_modified_data",
+					nonce: ajaxObject.nonce,
+					data: JSON.stringify(data[0]),
+					save_to_meta: JSON.stringify(saveToMeta)
+				}),
+			});
+
+			const result = await response.json();
+
+			if (result.success) {
+				console.log(result.data);
+			} else {
+				setError(result.data.message || "Įvyko klaida išsaugant tikslą");
+			}
+		} catch (err) {
+			setError("Įvyko klaida. Bandykite dar kartą.");
+		} finally {
 		}
 	};
 
@@ -299,6 +375,16 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 								<p id="resources-sentence">{goalData.resources_sentence}</p>
 							</div>
 						)}
+						<EditableTable
+                        data={goalData.smart_goal_sentence ? [{ ...goalData, id: 'new-row' }] : []}
+                        columns={smartGoalsColumns}
+                        config={tableConfig}
+                        //onDataChange={(newData) => setGoalData({ ...goalData, ...newData[0] })}
+                        onSave={handleDataSave}
+                        blockAbbr="sg"
+                        dataType="goals_collection"
+                        className="smart-goals-table"
+                    />
 					</div>
 				</div>
 			)}
