@@ -6,8 +6,10 @@
 import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 
-export default function SmartGoalsComponent({ blockId, postId, assistantId, useResponsesApi, isLoggedIn, ajaxObject }) {
+export default function SmartGoalsComponent({ blockId, postId, assistantId, useResponsesApi, isLoggedIn, ajaxObject, componentName }) {
 	console.log("🔍 ajaxObject received:", ajaxObject);
+	// Create schema name
+		const schemaName = String(componentName).toLowerCase().replace(/[^a-z0-9_]/g, "_");
 
 	const [formData, setFormData] = useState({
 		specific: "",
@@ -152,16 +154,18 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 		setLoading(true);
 		setError("");
 
+		const saveToMeta = {
+			smart_goal: 'smart_goal_sentence',
+			resources: 'resources_sentence',
+		};
+
 		try {
 			const params = {
-				action: "generate_smart_goals",
+				action: "generate_ai_data",
 				nonce: ajaxObject.nonce,
-				specific: formData.specific,
-				measurable: formData.measurable,
-				achievable: formData.achievable,
-				relevant: formData.relevant,
-				time_bound: formData.timeBound,
-				table_suffix: 'smart_goals',
+				form_data: JSON.stringify(formData),
+				schema_name: schemaName,
+				save_to_meta: JSON.stringify(saveToMeta),
 				use_responses_api: useResponsesApi
 			};
 			

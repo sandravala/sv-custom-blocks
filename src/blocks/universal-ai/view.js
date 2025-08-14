@@ -39,6 +39,7 @@ async function renderUniversalAIBlocks() {
                         useResponsesApi={useResponsesApi}
                         isLoggedIn={isLoggedIn}
 						ajaxObject={sv_ajax_object} // ← Pass the AJAX object
+                        componentName={componentName}
                     />
                 );
             } else {

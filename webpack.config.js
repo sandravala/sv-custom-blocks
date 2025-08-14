@@ -4,15 +4,28 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ComponentsListPlugin = require("./webpack-components-plugin");
 const glob = require("glob");
 
-// Dynamically find all block directories in the src/blocks folder
+// // Dynamically find all block directories in the src/blocks folder
+// const blocks = glob
+// 	.sync("./src/blocks/*/index.js")
+// 	.reduce((entries, blockPath) => {
+// 		const blockName = blockPath.split("/")[3]; // Extract block name from path
+// 		entries[`blocks/${blockName}/index`] = blockPath; // Add entry for index.js
+// 		const viewPath = blockPath.replace("index.js", "view.js");
+// 		if (glob.sync(viewPath).length > 0) {
+// 			entries[`blocks/${blockName}/view`] = viewPath; // Add entry for view.js if it exists
+// 		}
+// 		return entries;
+// 	}, {});
+
+// Only process actual blocks, exclude components
 const blocks = glob
 	.sync("./src/blocks/*/index.js")
 	.reduce((entries, blockPath) => {
-		const blockName = blockPath.split("/")[3]; // Extract block name from path
-		entries[`blocks/${blockName}/index`] = blockPath; // Add entry for index.js
+		const blockName = blockPath.split("/")[3];
+		entries[`blocks/${blockName}/index`] = blockPath;
 		const viewPath = blockPath.replace("index.js", "view.js");
 		if (glob.sync(viewPath).length > 0) {
-			entries[`blocks/${blockName}/view`] = viewPath; // Add entry for view.js if it exists
+			entries[`blocks/${blockName}/view`] = viewPath;
 		}
 		return entries;
 	}, {});
@@ -90,6 +103,15 @@ module.exports = {
 	],
 	resolve: {
 		extensions: [".js", ".scss"],
+		alias: {
+			"@components": path.resolve(__dirname, "src/components"),
+			"@common": path.resolve(__dirname, "src/components/common"),
+		},
+	},
+	watchOptions: {
+		ignored: /node_modules/,
+		aggregateTimeout: 300,
+		poll: 1000,
 	},
 	mode: "development",
 	devtool: "source-map", // Include source maps for easier debugging
