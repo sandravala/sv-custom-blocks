@@ -21,7 +21,13 @@ import "./editor.scss";
 import { availableComponents } from "./components-index.js";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { selectedComponent, instanceId, assistantId, useResponsesApi } = attributes; // Only get instanceId from block attributes
+	const {
+		selectedComponent,
+		instanceId,
+		assistantId,
+		useResponsesApi,
+		canUseAiAgain,
+	} = attributes; // Only get instanceId from block attributes
 
 	// All sensitive configuration as local state (NOT block attributes)
 	const [systemPrompt, setSystemPrompt] = useState("");
@@ -86,7 +92,9 @@ export default function Edit({ attributes, setAttributes }) {
 						Object.keys(availableComponents).length > 0
 					) {
 						const defaultComponent = Object.keys(availableComponents)[0];
-						setSelectedComponent(defaultComponent);
+						setAttributes({
+							selectedComponent: selectedComponent || defaultComponent,
+						});
 
 						// Set component's default prompt
 						const component = availableComponents[defaultComponent];
@@ -110,7 +118,7 @@ export default function Edit({ attributes, setAttributes }) {
 				// Set defaults on error
 				if (Object.keys(availableComponents).length > 0) {
 					const defaultComponent = Object.keys(availableComponents)[0];
-					setSelectedComponent(defaultComponent);
+					setAttributes({ selectedComponent: defaultComponent });
 				}
 			});
 	}, [instanceId, availableComponents, hasLoadedData]);
@@ -317,6 +325,15 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(value) => setAttributes({ useResponsesApi: value })} // Local state
 						help={__(
 							"Enable to use the new Responses API instead of Assistant API",
+							"universal-ai",
+						)}
+					/>
+					<ToggleControl
+						label={__("Can use AI generator again?", "universal-ai")}
+						checked={canUseAiAgain}
+						onChange={(value) => setAttributes({ canUseAiAgain: value })} // Local state
+						help={__(
+							"Let's user generate data repeatedly vs only once",
 							"universal-ai",
 						)}
 					/>

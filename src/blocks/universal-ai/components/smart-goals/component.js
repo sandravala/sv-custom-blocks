@@ -6,7 +6,7 @@
 import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 
-export default function SmartGoalsComponent({ blockId, postId, assistantId, useResponsesApi, isLoggedIn, ajaxObject, componentName }) {
+export default function SmartGoalsComponent({ blockId, postId, assistantId, useResponsesApi, isLoggedIn, ajaxObject, componentName, canUseAiAgain }) {
 	console.log("🔍 ajaxObject received:", ajaxObject);
 	// Create schema name
 		const schemaName = String(componentName).toLowerCase().replace(/[^a-z0-9_]/g, "_");
@@ -59,11 +59,14 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 	}, [isLoggedIn, assistantId, blockId, useResponsesApi]);
 
 	const loadSavedData = async () => {
+
+		//JSON.stringify(["meta_key1", "meta_key2"]); - čia kokių ieškoti meta keys vartotojo meta
 		try {
 			const params = {
-				action: "load_smart_goals",
+				action: "load_saved_data",
 				nonce: ajaxObject.nonce,
-				table_suffix: 'smart_goals',
+				can_use_ai_again: canUseAiAgain,
+				meta_keys: JSON.stringify(["smart_goal", "resources"])
 			};
 			
 			// Use appropriate parameter based on API type
@@ -74,7 +77,7 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 
 			console.log("Loading saved data with params:", params);
 
-			const response = await fetch(sv_ajax_object.ajax_url, {
+			const response = await fetch(ajaxObject.ajax_url, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
@@ -86,26 +89,26 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 
 			if (result.success) {
 				console.log("Loaded saved data:", result.data);
-				if (result.data && result.data.input_data) {
-					// Convert snake_case to camelCase for form fields
-					const inputData = result.data.input_data;
-					setFormData({
-						specific: inputData.specific || "",
-						measurable: inputData.measurable || "",
-						achievable: inputData.achievable || "",
-						relevant: inputData.relevant || "",
-						timeBound: inputData.time_bound || "",
-					});
+				// if (result.data && result.data.input_data) {
+				// 	// Convert snake_case to camelCase for form fields
+				// 	const inputData = result.data.input_data;
+				// 	setFormData({
+				// 		specific: inputData.specific || "",
+				// 		measurable: inputData.measurable || "",
+				// 		achievable: inputData.achievable || "",
+				// 		relevant: inputData.relevant || "",
+				// 		timeBound: inputData.time_bound || "",
+				// 	});
 					
-					if (result.data.response_data) {
-						setGoalData({
-							smart_goal_sentence:
-								result.data.response_data.smart_goal_sentence || "",
-							resources_sentence:
-								result.data.response_data.resources_sentence || "",
-						});
-					}
-				}
+				// 	if (result.data.response_data) {
+				// 		setGoalData({
+				// 			smart_goal_sentence:
+				// 				result.data.response_data.smart_goal_sentence || "",
+				// 			resources_sentence:
+				// 				result.data.response_data.resources_sentence || "",
+				// 		});
+				// 	}
+				// }
 			} else {
 				// Error loading data (could be no data exists, which is fine)
 				console.log("No saved data found or error:", result.data?.message);

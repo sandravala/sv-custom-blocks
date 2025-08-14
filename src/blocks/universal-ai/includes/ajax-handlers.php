@@ -14,11 +14,33 @@ class SV_Universal_AI_Ajax_Handler_Secure
     {
         add_action('wp_ajax_generate_ai_data', [$this, 'generate_ai_data']);
         add_action('wp_ajax_nopriv_generate_ai_data', [$this, 'generate_ai_data']);
+        add_action('wp_ajax_load_saved_data', [$this, 'load_saved_data']);
         add_action('wp_ajax_load_block_input_data', [$this, 'load_block_input_data']);
+        add_action('wp_ajax_load_user_data', [$this, 'load_user_data']);
 
 
         // Clean up old configurations periodically
         add_action('wp_loaded', [$this, 'maybe_cleanup_old_configs']);
+    }
+
+    public function load_saved_data()
+    {
+        check_ajax_referer('sv_ajax_nonce', 'nonce');
+                if (!is_user_logged_in()) {
+            wp_send_json_error(['message' => 'Turite būti prisijungę, kad galėtumėte naudoti šį įrankį.']);
+            return;
+        }
+
+        $user_id = get_current_user_id();
+        $load_input_data = isset($_POST['can_use_ai_again']) ? filter_var(wp_unslash($_POST['can_use_ai_again']), FILTER_VALIDATE_BOOLEAN) : true;
+
+        $data_to_return = [];
+        if ($load_input_data) {
+            $data_to_return = $this->load_block_input_data($user_id);
+        }
+        $data_to_return['user_data'] = $this->load_user_data($user_id);
+
+        wp_send_json_success(['data' => $data_to_return]);
     }
 
     /**
@@ -45,7 +67,7 @@ class SV_Universal_AI_Ajax_Handler_Secure
 
         $use_responses_api = isset($_POST['use_responses_api']) ? filter_var(wp_unslash($_POST['use_responses_api']), FILTER_VALIDATE_BOOLEAN) : true;
 
-       
+
 
         // Handle both new block_id system and legacy assistant_id
         $block_id = isset($_POST['block_id']) ? sanitize_text_field(wp_unslash($_POST['block_id'])) : '';
@@ -141,17 +163,18 @@ class SV_Universal_AI_Ajax_Handler_Secure
     /**
      * Get sanitized FormData (all user input values)
      */
-private function get_form_data($name){
-    if (!isset($_POST[$name])) return [];
-    $raw = wp_unslash($_POST[$name]);          // "[object Object]" arba JSON
-    if (is_string($raw)) {
-        $decoded = json_decode($raw, true);
-        if (json_last_error() === JSON_ERROR_NONE) $raw = $decoded;
+    private function get_form_data($name)
+    {
+        if (!isset($_POST[$name])) return [];
+        $raw = wp_unslash($_POST[$name]);          // "[object Object]" arba JSON
+        if (is_string($raw)) {
+            $decoded = json_decode($raw, true);
+            if (json_last_error() === JSON_ERROR_NONE) $raw = $decoded;
+        }
+        if (!is_array($raw)) return [];
+        foreach ($raw as $k => $v) $out[$k] = sanitize_text_field($v);
+        return $out ?? [];
     }
-    if (!is_array($raw)) return [];
-    foreach ($raw as $k => $v) $out[$k] = sanitize_text_field($v);
-    return $out ?? [];
-}
 
 
 
@@ -214,37 +237,55 @@ private function get_form_data($name){
     /**
      * Load saved input data
      */
-    public function load_block_input_data()
+    private function load_block_input_data($user_id)
     {
-        check_ajax_referer('sv_ajax_nonce', 'nonce');
-
-        if (!is_user_logged_in()) {
-            wp_send_json_error(['message' => 'Turite būti prisijungę.']);
-            return;
-        }
-
-        $user_id = get_current_user_id();
+        
         $block_id = isset($_POST['block_id']) ? sanitize_text_field(wp_unslash($_POST['block_id'])) : '';
-        $assistant_id_legacy = isset($_POST['assistant_id']) ? sanitize_text_field(wp_unslash($_POST['assistant_id'])) : '';
-
-
-
+        
         try {
             $data = $this->load_block_data($user_id, $block_id);
 
             if ($data) {
                 // Return both input and response data
-                wp_send_json_success([
-                    'input_data' => $data['input_data'],
-                    'sv_cb_sg_last_updated' => $data['updated_at']
-                ]);
+                return $data;
             } else {
-                wp_send_json_success(null); // No saved data found
+                return null; // No saved data found
             }
         } catch (Exception $e) {
-            error_log('Load Smart Goals Error: ' . $e->getMessage());
-            wp_send_json_error(['message' => 'Klaida užkraunant duomenis.']);
+            error_log('Load input data Error: ' . $e->getMessage());
+            return null;
         }
+    }
+
+    private function load_user_data($user_id)
+    {
+
+        // Parse list of meta keys (JSON array)
+        $meta_keys = [];
+        if (isset($_POST['meta_keys'])) {
+            $decoded = json_decode(wp_unslash($_POST['meta_keys']), true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                $meta_keys = array_map('sanitize_key', $decoded);
+            }
+        }
+
+        // Optional: if you require keys, error out
+        // if (empty($meta_keys)) {
+        //     wp_send_json_error(['message' => 'Nenurodyti meta raktai.']);
+        //     return;
+        // }
+
+        $data = [];
+
+        foreach (array_unique($meta_keys) as $key) {
+            $value = get_user_meta($user_id, $key, true); // returns scalar/array or '' if not set
+            if ($value !== '' && $value !== null) {
+                // Keep arrays as-is; JSON response will handle them
+                $data[$key] = $value;
+            }
+        }
+
+       return $data; // Return as associative array
     }
 
     /**

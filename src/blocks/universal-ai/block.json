@@ -4,7 +4,7 @@
 	"name": "sv-custom-blocks/universal-ai",
 	"version": "0.1.0",
 	"title": "Universal AI Block",
-	"category": "widgets", 
+	"category": "widgets",
 	"icon": "star-filled",
 	"description": "Generate AI-powered content using customizable components and OpenAI Responses API.",
 	"attributes": {
@@ -12,11 +12,15 @@
 			"type": "string",
 			"default": "smart-goals"
 		},
-		"assistantId":{
+		"assistantId": {
 			"type": "string",
 			"default": ""
 		},
 		"useResponsesApi": {
+			"type": "integer",
+			"default": 1
+		},
+		"canUseAiAgain": {
 			"type": "integer",
 			"default": 1
 		},
@@ -31,7 +35,7 @@
 	},
 	"textdomain": "sv-custom-blocks",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css", 
+	"editorStyle": "file:./index.css",
 	"style": "file:./index.css",
 	"viewScript": "file:./view.js",
 	"render": "file:./render.php"

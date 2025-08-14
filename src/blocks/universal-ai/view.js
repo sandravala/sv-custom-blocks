@@ -22,7 +22,8 @@ async function renderUniversalAIBlocks() {
 		const assistantId = container.dataset.assistantId || '';
 		const useResponsesApi = ['true', '1'].includes(container.dataset.useResponsesApi);
         const isLoggedIn = container.dataset.isLoggedIn === 'true';
-        
+        const canUseAiAgain = ['true', '1'].includes(container.dataset.canUseAiAgain);
+
         console.log('🎯 Loading component:', componentName);
         
         try {
@@ -40,6 +41,7 @@ async function renderUniversalAIBlocks() {
                         isLoggedIn={isLoggedIn}
 						ajaxObject={sv_ajax_object} // ← Pass the AJAX object
                         componentName={componentName}
+                        canUseAiAgain={canUseAiAgain}
                     />
                 );
             } else {
