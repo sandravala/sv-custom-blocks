@@ -21,7 +21,6 @@ class SV_Universal_AI_Ajax_Handler_Secure
         add_action('wp_loaded', [$this, 'maybe_cleanup_old_configs']);
     }
 
-
     /**
      * Generate AI data using permanent configuration from database
      */
@@ -38,13 +37,15 @@ class SV_Universal_AI_Ajax_Handler_Secure
 
         // Get form data
         // FormData contains ONLY user input values
-        $user_input = $this->get_form_data();
+        $user_input = $this->get_form_data('form_data');
         if (empty($user_input)) {
-            wp_send_json_error(['message' => 'Užpildyk bent vieną laukelį!']);
+            wp_send_json_error(['message' => 'Užpildyk bent vieną laukelį!', 'data' => $_POST['form_data']]);
             return;
         }
 
         $use_responses_api = isset($_POST['use_responses_api']) ? filter_var(wp_unslash($_POST['use_responses_api']), FILTER_VALIDATE_BOOLEAN) : true;
+
+       
 
         // Handle both new block_id system and legacy assistant_id
         $block_id = isset($_POST['block_id']) ? sanitize_text_field(wp_unslash($_POST['block_id'])) : '';
@@ -53,15 +54,7 @@ class SV_Universal_AI_Ajax_Handler_Secure
 
         $save_to_meta = [];
         if (isset($_POST['save_to_meta'])) {
-            $raw_meta_config = wp_unslash($_POST['save_to_meta']);
-            $decoded_config = json_decode($raw_meta_config, true);
-
-            // Validate that decode was successful and result is array
-            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded_config)) {
-                $save_to_meta = $decoded_config;
-            } else {
-                error_log('Invalid save_to_meta JSON: ' . json_last_error_msg());
-            }
+            $save_to_meta = $this->get_form_data('save_to_meta');
         }
 
 
@@ -74,6 +67,7 @@ class SV_Universal_AI_Ajax_Handler_Secure
             }
 
             $config = isset($all_configs[$block_id]) ? $all_configs[$block_id] : null;
+
 
             if (!$config) {
                 wp_send_json_error(['message' => 'Block configuration not found. Please save the block settings first.']);
@@ -147,25 +141,19 @@ class SV_Universal_AI_Ajax_Handler_Secure
     /**
      * Get sanitized FormData (all user input values)
      */
-    private function get_form_data()
-    {
-        $form_data = [];
-        if (!isset($_POST['form_data']) || empty($_POST['form_data'])) {
-            return $form_data; // Return empty array if no data
-        }
-
-        // Process all POST data - FormData only contains user values
-        foreach ($_POST['form_data'] as $key => $value) {
-            // Sanitize based on field type
-            if (is_array($value)) {
-                $form_data[$key] = array_map('sanitize_text_field', wp_unslash($value));
-            } else {
-                $form_data[$key] = sanitize_text_field(wp_unslash($value));
-            }
-        }
-
-        return $form_data;
+private function get_form_data($name){
+    if (!isset($_POST[$name])) return [];
+    $raw = wp_unslash($_POST[$name]);          // "[object Object]" arba JSON
+    if (is_string($raw)) {
+        $decoded = json_decode($raw, true);
+        if (json_last_error() === JSON_ERROR_NONE) $raw = $decoded;
     }
+    if (!is_array($raw)) return [];
+    foreach ($raw as $k => $v) $out[$k] = sanitize_text_field($v);
+    return $out ?? [];
+}
+
+
 
     /**
      * Call Responses API

@@ -45,12 +45,13 @@ module.exports = {
 	},
 	watchOptions: {
 		ignored: [
-			path.resolve(__dirname, "node_modules"),
-			path.resolve(
-				__dirname,
-				"src/blocks/smart-goal-generator/components-index.js",
-			),
+			"**/node_modules",
+			"**/build/**",
+			"**/components-index.js",
+			path.resolve(__dirname, "src/blocks/universal-ai/components-index.js")
 		],
+		aggregateTimeout: 300,
+		poll: 1000,
 	},
 	module: {
 		rules: [
@@ -107,11 +108,6 @@ module.exports = {
 			"@components": path.resolve(__dirname, "src/components"),
 			"@common": path.resolve(__dirname, "src/components/common"),
 		},
-	},
-	watchOptions: {
-		ignored: /node_modules/,
-		aggregateTimeout: 300,
-		poll: 1000,
 	},
 	mode: "development",
 	devtool: "source-map", // Include source maps for easier debugging

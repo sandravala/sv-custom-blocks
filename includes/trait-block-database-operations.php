@@ -25,7 +25,7 @@ trait SV_Block_Database_Operations
         $table_name = $wpdb->prefix . self::TABLE_SUFFIX; // Universal table for all AI blocks
 
         // Ensure table exists
-        $this->create_universal_table();
+        $this->create_table($table_name);
 
         $data = [
             'user_id' => $user_id,
@@ -74,7 +74,7 @@ trait SV_Block_Database_Operations
         $table_name = $wpdb->prefix . self::TABLE_SUFFIX;;
 
         $result = $wpdb->get_row($wpdb->prepare(
-            "SELECT input_data, response_data, created_at, updated_at FROM {$table_name} 
+            "SELECT input_data, created_at, updated_at FROM {$table_name} 
              WHERE user_id = %d AND block_id = %s 
              ORDER BY updated_at DESC LIMIT 1",
             $user_id,
@@ -131,7 +131,7 @@ trait SV_Block_Database_Operations
         $table_name = $wpdb->prefix . self::TABLE_SUFFIX;;
 
         $sql = $wpdb->prepare(
-            "SELECT block_id, input_data, response_data, created_at, updated_at 
+            "SELECT block_id, input_data, created_at, updated_at 
              FROM {$table_name} 
              WHERE user_id = %d 
              ORDER BY updated_at DESC",
@@ -161,11 +161,10 @@ trait SV_Block_Database_Operations
     /**
      * Create table for block data (updated schema)
      */
-    protected function create_table($table_suffix)
+    protected function create_table($table_name)
     {
         global $wpdb;
 
-        $table_name = $wpdb->prefix . $table_suffix;
         $charset_collate = $wpdb->get_charset_collate();
 
         $sql = "CREATE TABLE IF NOT EXISTS {$table_name} (
@@ -310,11 +309,11 @@ trait SV_Block_Database_Operations
 
         foreach ($save_to_meta as $meta_key => $path) {
             if (empty($path)) {
-                $this->save_user_meta($user_id, $meta_key, $response_data);
+                $this->save_to_user_meta($user_id, $meta_key, $response_data);
             } else {
                 $value = $this->extract_data_by_path($response_data, $path);
                 if ($value !== null) {
-                    $this->save_user_meta($user_id, $meta_key, $value);
+                    $this->save_to_user_meta($user_id, $meta_key, $value);
                 }
             }
         }

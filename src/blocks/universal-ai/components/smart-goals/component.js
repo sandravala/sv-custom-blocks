@@ -195,6 +195,7 @@ export default function SmartGoalsComponent({ blockId, postId, assistantId, useR
 				setError("");
 			} else {
 				setError(result.data.message || "Įvyko klaida generuojant tikslą");
+				console.log(result.data.data.toString());
 			}
 		} catch (err) {
 			setError("Įvyko klaida. Bandykite dar kartą.");
