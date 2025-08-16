@@ -31,7 +31,7 @@ class SV_Universal_AI_Ajax_Handler_Secure
         }
 
         $user_id = get_current_user_id();
-        $load_input_data = isset($_POST['can_use_ai_again']) ? filter_var(wp_unslash($_POST['can_use_ai_again']), FILTER_VALIDATE_BOOLEAN) : true;
+        $load_input_data = isset($_POST['can_use_ai_again']) ? filter_var(wp_unslash($_POST['can_use_ai_again']), FILTER_VALIDATE_BOOLEAN) : false;
 
         $data_to_return = [];
         if ($load_input_data) {
@@ -39,7 +39,7 @@ class SV_Universal_AI_Ajax_Handler_Secure
         }
         $data_to_return['user_data'] = $this->load_user_data($user_id);
 
-        wp_send_json_success(['data' => $data_to_return]);
+        wp_send_json_success($data_to_return);
     }
 
     /**

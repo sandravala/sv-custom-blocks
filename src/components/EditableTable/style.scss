@@ -2,455 +2,508 @@
 // Compatible with WordPress block themes and your existing patterns
 
 .sv-editable-table-container {
-    // Container for one or more tables
-    .sv-editable-table + .sv-editable-table {
-        margin-top: 24px; // Space between grouped tables
-    }
+	// Container for one or more tables
+	.sv-editable-table + .sv-editable-table {
+		margin-top: 24px; // Space between grouped tables
+	}
 }
 
 /* Main EditableTable Component */
 .sv-editable-table {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    overflow: hidden;
-    margin-bottom: 24px;
+	background: white;
+	border-radius: 12px;
+	box-shadow:
+		0 1px 3px 0 #8cc9c570,
+		0 1px 2px -1px #8cc9c570;
+	overflow: hidden;
+	margin-bottom: 24px;
 
-    &:last-child {
-        margin-bottom: 0;
-    }
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 /* Header */
 .sv-table-header {
-    background: white;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 20px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	background: white;
+	border-bottom: 1px solid #e2e8f0;
+	padding: 20px 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .sv-table-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #0f172a;
-    margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	color: #1a0640 !important;
+	margin: 0;
 }
 
 .sv-table-actions {
-    display: flex;
-    gap: 12px;
-    align-items: center;
+	display: flex;
+	gap: 12px;
+	align-items: center;
 }
 
 /* Buttons */
 .sv-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    text-decoration: none;
-    outline: none;
-    background: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 16px;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.15s ease;
+	text-decoration: none;
+	outline: none;
+	background: none;
 
-    &:focus {
-        box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
-    }
+	&:focus {
+		box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+	}
 
-    &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
 
-    // Icon sizing
-    .icon, svg {
-        width: 16px;
-        height: 16px;
-        fill: currentColor;
-    }
+	// Icon sizing
+	.icon,
+	svg {
+		width: 16px;
+		height: 16px;
+		fill: currentColor;
+	}
 
-    .icon-plus {
-        width: 14px;
-        height: 14px;
-    }
+	.icon-plus {
+		width: 14px;
+		height: 14px;
+	}
 }
 
 .sv-btn-primary {
-    background: #3b82f6;
-    color: white;
+	background: #3b82f6;
+	color: white;
 
-    &:hover:not(:disabled) {
-        background: #2563eb;
-    }
+	&:hover:not(:disabled) {
+		background: #2563eb;
+	}
 }
 
 .sv-btn-edit {
-    transform: rotateZ(90deg);
+	transform: rotateZ(90deg);
 }
 
 .sv-btn-secondary {
-    background: white;
-    color: #64748b;
-    border-color: #e2e8f0;
+	background: white;
+	color: #64748b;
+	border-color: #e2e8f0;
+
+	&:hover:not(:disabled) {
+		background: #f8fafc;
+		border-color: #cbd5e1;
+	}
+}
+
+.sv-btn-secondary.sv-editable-table-save-btn {
+    background: linear-gradient(0deg, rgb(140, 201, 197) 0%, rgb(171, 181, 214) 100%);
+    color: white;
 
     &:hover:not(:disabled) {
-        background: #f8fafc;
-        border-color: #cbd5e1;
+        background: linear-gradient(0deg, rgb(96 156 152) 0%, rgb(84 98 144) 100%);
+        transform: scale(1.05);
     }
 }
 
 .sv-btn-danger {
-    background: #ef4444;
-    color: white;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    border-radius: 50%;
-    justify-content: center;
+	background: #ef4444;
+	color: white;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border-radius: 50%;
+	justify-content: center;
 
-    &:hover:not(:disabled) {
-        background: #dc2626;
-    }
+	&:hover:not(:disabled) {
+		background: #dc2626;
+	}
 }
 
 .sv-btn-small {
-    padding: 6px 12px;
-    font-size: 13px;
+	padding: 6px 12px;
+	font-size: 13px;
 }
 
 /* Group Headers */
 .sv-group-header {
-    background: #f1f5f9;
-    color: #475569;
-    padding: 16px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    border-bottom: 1px solid #e2e8f0;
-    margin: 0;
+	background: #f1f5f9;
+	color: #475569;
+	padding: 16px 24px;
+	font-size: 16px;
+	font-weight: 600;
+	border-bottom: 1px solid #e2e8f0;
+	margin: 0;
 }
 
 /* Table Rows */
 .sv-table-rows {
-    padding: 0;
+	padding: 0;
 }
 
 .sv-table-row {
-    padding: 20px 24px;
-    border-bottom: 1px solid #f1f5f9;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    transition: background-color 0.15s ease;
+	padding: 20px 24px;
+	border-bottom: 1px solid #f1f5f9;
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+	transition: background-color 0.15s ease;
 
-    &:hover {
-        background: #f8fafc;
-    }
+	&:hover {
+		background: #f8fafc;
+	}
 
-    &:last-child {
-        border-bottom: none;
-    }
+	&:last-child {
+		border-bottom: none;
+	}
 
-    &.editing {
-        background: #fefce8;
-        border-left: 4px solid #eab308;
-    }
+	&.editing {
+		background: #fefce8;
+		border-left: 4px solid #eab308;
+	}
+}
+
+/* Group Section Headers - inside table rows */
+.sv-group-section-header {
+	background: var(--teal-light);
+	color: #0a4541;
+	padding: 12px 24px;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin: 0;
+
+	// Add some spacing from previous group
+	&:not(:first-child) {
+		margin-top: 16px;
+	}
+}
+
+// Ensure rows after group headers have proper spacing
+.sv-group-section-header + .sv-table-row {
+	border-top: none;
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+	.sv-group-section-header {
+		background: #334155;
+		color: #cbd5e1;
+		border-bottom-color: #475569;
+		border-top-color: #475569;
+
+		&:not(:first-child) {
+			border-top-color: #64748b;
+		}
+	}
 }
 
 /* Fields */
 .sv-table-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
 
-    &.flex-1 {
-        flex: 1;
-        min-width: 0;
-    }
+	&.flex-1 {
+		flex: 1;
+		min-width: 0;
+	}
 
-    &.flex-auto {
-        flex: 0 0 auto;
-    }
+	&.flex-auto {
+		flex: 0 0 auto;
+	}
 }
 
 .sv-field-label {
-    font-size: 12px;
-    font-weight: 500;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 2px;
+	font-size: 12px;
+	font-weight: 500;
+	color: #64748b;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 2px;
 }
 
 .sv-field-value {
-    font-size: 15px;
-    color: #0f172a;
-    word-break: break-word;
-    line-height: 1.4;
+	font-size: 15px;
+	color: #0f172a;
+	word-break: break-word;
+	line-height: 1.4;
 }
 
 /* Form Inputs */
 .sv-field-input {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 14px;
-    background: white;
-    transition: all 0.15s ease;
-    color: #1e293b;
-    font-family: inherit;
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid #d1d5db;
+	border-radius: 8px;
+	font-size: 14px;
+	background: white;
+	transition: all 0.15s ease;
+	color: #1e293b;
+	font-family: inherit;
 
-    &:focus {
-        outline: none;
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
-    }
+	&:focus {
+		outline: none;
+		border-color: #3b82f6;
+		box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+	}
 
-    &::placeholder {
-        color: #9ca3af;
-    }
+	&::placeholder {
+		color: #9ca3af;
+	}
 
-    &.number {
-        width: 100px;
-        text-align: center;
-    }
+	&.number {
+		width: 100px;
+		text-align: center;
+	}
 
-    &.textarea {
-        min-height: 80px;
-        resize: vertical;
-        line-height: 1.5;
-    }
+	&.textarea {
+		min-height: 80px;
+		resize: vertical;
+		line-height: 1.5;
+	}
 
-    // Select specific styling
-    &[type="select"] {
-        cursor: pointer;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-        background-position: right 8px center;
-        background-repeat: no-repeat;
-        background-size: 16px;
-        padding-right: 32px;
-    }
+	// Select specific styling
+	&[type="select"] {
+		cursor: pointer;
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+		background-position: right 8px center;
+		background-repeat: no-repeat;
+		background-size: 16px;
+		padding-right: 32px;
+	}
 }
 
 // Separate selector for select elements
 select.sv-field-input {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 8px center;
-    background-repeat: no-repeat;
-    background-size: 16px;
-    padding-right: 32px;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+	background-position: right 8px center;
+	background-repeat: no-repeat;
+	background-size: 16px;
+	padding-right: 32px;
 }
 
 /* Row Actions */
 .sv-row-actions {
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-    flex-shrink: 0;
+	display: flex;
+	gap: 8px;
+	align-items: flex-start;
+	flex-shrink: 0;
 }
 
 /* Empty State */
 .sv-table-empty {
-    padding: 60px 24px;
-    text-align: center;
-    color: #64748b;
+	padding: 60px 24px;
+	text-align: center;
+	color: #64748b;
 }
 
 .sv-table-empty-icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 16px;
-    color: #cbd5e1;
+	width: 48px;
+	height: 48px;
+	margin: 0 auto 16px;
+	color: #cbd5e1;
 }
 
 .sv-table-empty-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: #475569;
-    margin-bottom: 8px;
+	font-size: 16px;
+	font-weight: 500;
+	color: #475569;
+	margin-bottom: 8px;
 }
 
 .sv-table-empty-text {
-    font-size: 14px;
-    color: #64748b;
+	font-size: 14px;
+	color: #64748b;
 }
 
 /* Loading State */
 .sv-table-loading {
-    padding: 40px 24px;
-    text-align: center;
-    color: #64748b;
-    font-style: italic;
+	padding: 40px 24px;
+	text-align: center;
+	color: #64748b;
+	font-style: italic;
 }
 
 /* Badges */
 .sv-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
-    background: #f1f5f9;
-    color: #475569;
-    text-transform: capitalize;
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 10px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 500;
+	background: #f1f5f9;
+	color: #475569;
+	text-transform: capitalize;
 
-    &.success {
-        background: #dcfce7;
-        color: #166534;
-    }
+	&.success {
+		background: #dcfce7;
+		color: #166534;
+	}
 
-    &.warning {
-        background: #fef3c7;
-        color: #92400e;
-    }
+	&.warning {
+		background: #fef3c7;
+		color: #92400e;
+	}
 
-    &.danger {
-        background: #fee2e2;
-        color: #991b1b;
-    }
+	&.danger {
+		background: #fee2e2;
+		color: #991b1b;
+	}
 
-    &.info {
-        background: #dbeafe;
-        color: #1e40af;
-    }
+	&.info {
+		background: #dbeafe;
+		color: #1e40af;
+	}
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .sv-table-header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 16px;
-        padding: 16px 20px;
-    }
+	.sv-table-header {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 16px;
+		padding: 16px 20px;
+	}
 
-    .sv-table-actions {
+	.sv-table-actions {
+		justify-content: end;
+	}
+    .sv-btn {
+        width: auto;
         justify-content: center;
     }
 
-    .sv-table-row {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 16px;
-        padding: 16px 20px;
-    }
+	.sv-table-row {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 16px;
+		padding: 16px 20px;
+	}
 
-    .sv-table-field {
-        width: 100%;
+	.sv-table-field {
+		width: 100%;
 
-        &.flex-1,
-        &.flex-auto {
-            flex: none;
-        }
-    }
+		&.flex-1,
+		&.flex-auto {
+			flex: none;
+		}
+	}
 
-    .sv-field-input {
-        &.number {
-            width: 100%;
-            text-align: left;
-        }
-    }
+	.sv-field-input {
+		&.number {
+			width: 100%;
+			text-align: left;
+		}
+	}
 
-    .sv-row-actions {
-        justify-content: flex-end;
-        margin-top: 12px;
-        padding-top: 12px;
-        border-top: 1px solid #f1f5f9;
-    }
+	.sv-row-actions {
+		justify-content: flex-end;
+		margin-top: 12px;
+		padding-top: 12px;
+		border-top: 1px solid #f1f5f9;
+	}
 
-    .sv-group-header {
-        padding: 12px 20px;
-        font-size: 15px;
-    }
+	.sv-group-header {
+		padding: 12px 20px;
+		font-size: 15px;
+	}
 
-    .sv-table-empty {
-        padding: 40px 20px;
-    }
+	.sv-table-empty {
+		padding: 40px 20px;
+	}
 }
 
 /* Dark mode support (if your theme supports it) */
 @media (prefers-color-scheme: dark) {
-    .sv-editable-table {
-        background: #1e293b;
-        
-        .sv-table-header {
-            background: #1e293b;
-            border-color: #334155;
-        }
-        
-        .sv-table-title {
-            color: #f1f5f9;
-        }
-        
-        .sv-group-header {
-            background: #334155;
-            color: #cbd5e1;
-            border-color: #475569;
-        }
-        
-        .sv-table-row {
-            border-color: #334155;
-            
-            &:hover {
-                background: #334155;
-            }
-            
-            &.editing {
-                background: #451a03;
-                border-left-color: #f59e0b;
-            }
-        }
-        
-        .sv-field-label {
-            color: #94a3b8;
-        }
-        
-        .sv-field-value {
-            color: #f1f5f9;
-        }
-        
-        .sv-field-input {
-            background: #334155;
-            border-color: #475569;
-            color: #f1f5f9;
-            
-            &:focus {
-                border-color: #3b82f6;
-            }
-            
-            &::placeholder {
-                color: #64748b;
-            }
-        }
-        
-        .sv-btn-secondary {
-            background: #334155;
-            color: #cbd5e1;
-            border-color: #475569;
-            
-            &:hover:not(:disabled) {
-                background: #475569;
-            }
-        }
-        
-        .sv-table-empty,
-        .sv-table-loading {
-            color: #94a3b8;
-        }
-        
-        .sv-table-empty-title {
-            color: #cbd5e1;
-        }
-    }
+	.sv-editable-table {
+		background: #1e293b;
+
+		.sv-table-header {
+			background: #1e293b;
+			border-color: #334155;
+		}
+
+		.sv-table-title {
+			color: #f1f5f9;
+		}
+
+		.sv-group-header {
+			background: #334155;
+			color: #cbd5e1;
+			border-color: #475569;
+		}
+
+		.sv-table-row {
+			border-color: #334155;
+
+			&:hover {
+				background: #334155;
+			}
+
+			&.editing {
+				background: #451a03;
+				border-left-color: #f59e0b;
+			}
+		}
+
+		.sv-field-label {
+			color: #94a3b8;
+		}
+
+		.sv-field-value {
+			color: #f1f5f9;
+		}
+
+		.sv-field-input {
+			background: #334155;
+			border-color: #475569;
+			color: #f1f5f9;
+
+			&:focus {
+				border-color: #3b82f6;
+			}
+
+			&::placeholder {
+				color: #64748b;
+			}
+		}
+
+		.sv-btn-secondary {
+			background: #334155;
+			color: #cbd5e1;
+			border-color: #475569;
+
+			&:hover:not(:disabled) {
+				background: #475569;
+			}
+		}
+
+		.sv-table-empty,
+		.sv-table-loading {
+			color: #94a3b8;
+		}
+
+		.sv-table-empty-title {
+			color: #cbd5e1;
+		}
+	}
 }
 
 // /* WordPress admin compatibility */
@@ -467,7 +520,7 @@ select.sv-field-input {
 //         .sv-table-header {
 //             position: relative;
 //         }
-        
+
 //         // Prevent editor interference
 //         .sv-field-input {
 //             &:focus {
