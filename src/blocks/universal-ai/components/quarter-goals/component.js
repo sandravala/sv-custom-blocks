@@ -36,7 +36,9 @@ export default function QuarterlyGoalsComponent({
 	const [inputDataLoaded, setInputDataLoaded] = useState(false);
 	const [error, setError] = useState("");
 	const [submitted, setSubmitted] = useState(false);
-	const [goalData, setGoalData] = useState([]);
+	const [goalData, setGoalData] = useState({
+		actions: [],
+	});
 
 	const [formData, setFormData] = useState({
 		smart_goal: "",
@@ -48,9 +50,9 @@ export default function QuarterlyGoalsComponent({
 			key: "description",
 			label: "Tarpiniai tikslai / veiksmai",
 			type: "textarea",
-			flex: "flex-1",
+			flex: "flex-4",
 			placeholder: "",
-			rows: 3,
+			rows: 1,
 		},
 		{
 			key: "hours_estimate",
@@ -65,17 +67,27 @@ export default function QuarterlyGoalsComponent({
 	const tableConfig = {
 		title: "Mano SMART tikslas",
 		allowEditing: true,
-		allowAddRemove: false,
+		allowAddRemove: true,
 		grouped: true,
 		groupBy: "area",
 		showActions: true,
+		actionsLabel: "Veiksmai",
 		showCounter: false,
-		emptyStateText: "No SMART goals saved yet",
+		emptyStateText: "Dar nėra ketvirtinių tikslų!",
 		emptyStateSubtext:
-			"Generate your first SMART goal using the form above, then add it to your collection",
+			"Paprašyk DI asistento pagalbos (forma viršuje), ir tarpiniai tikslai bus sugeneruoti",
 		saveButtonText: "Išsaugoti",
 		editButtonText: "✎",
-		deleteConfirmText: "Are you sure you want to delete this SMART goal?",
+		deleteConfirmText: "Ar tikrai nori ištrinti šį veiksmą?",
+		showTotals: true,
+		totalsConfig: {
+        label: 'VISO',
+        position: 'bottom',
+        fields: {
+            description: 'iš viso:',
+            hours_estimate: 'sum'
+        }
+	}
 	};
 
 	const formConfig = {
@@ -133,17 +145,29 @@ export default function QuarterlyGoalsComponent({
 			const result = await response.json();
 
 			if (result.success) {
-				setFormData({ ...formData, ...result.data.user_data });
+				setFormData({ ...formData, ...result.data.input_data });
 				//iterate through each action and replace hours_estimate object with hours_estimate property whose value is inside hours_estimate object, total_hours
+				let total_hours = 0;
 				const actions = result.data.user_data.goal_actions.map((action, index) => {
-					action.hours_estimate = action.hours_estimate.total_hours;
-					action.id = `action-${index + 1}`;
+					// replace hours_estimate object with total_hours property if hours_estimate is an object
+					if (typeof action.hours_estimate === "object") {
+						action.hours_estimate = action.hours_estimate.total_hours;
+					}
+					total_hours += action.hours_estimate;
+					// add id to action, but include action.area (as quarter) and each different quarter action counter resets
+					// each different quarter action gets its own counter
+					// e.g. area: Q1, actions: 1, 2, etc. area: Q2, actions: start at 1 again
+					// const quarterActions = actions.filter((a) => a.area === action.area);
+					// action.id = `action-${quarterActions.length + 1}-${action.area}`;
 					// flatten action.dependencies array to string
-					action.dependencies = action.dependencies.join(", ");
+					action.dependencies = Array.isArray(action.dependencies)
+						? action.dependencies.join(", ")
+						: action.dependencies;
 					return action;
 				});
+
 				console.log("actions:", actions);
-				setGoalData([...goalData, ...(actions || [])]);
+				setGoalData({actions: actions});
 
 				console.log("Loaded saved data:", result.data.user_data);
 			} else {
@@ -158,7 +182,8 @@ export default function QuarterlyGoalsComponent({
 		}
 	};
 
-	const handleInputChange = (field, value) => {
+	const handleTableChange = (field, value) => {
+		console.log("handleTableChange called with field:", field, "value:", value);
 		setFormData((prev) => ({
 			...prev,
 			[field]: value,
@@ -435,16 +460,12 @@ export default function QuarterlyGoalsComponent({
 	};
 
 	const handleDataSave = async (data, metaKey) => {
-		const newGoalData = Object.values(data)
-			.flat()
-			.reduce((acc, item) => {
-				if (item.id && item.generated_data) {
-					acc[item.id] = item.generated_data;
-				}
-				return acc;
-			}, {});
-		setGoalData(newGoalData);
+		console.log("handleDataSave called with data:", data, "metaKey:", metaKey);
+
+		setGoalData(data);
 		setError("");
+
+		const updatedGoalActions = {actions: data}
 
 		try {
 			const response = await fetch(ajaxObject.ajax_url, {
@@ -455,7 +476,7 @@ export default function QuarterlyGoalsComponent({
 				body: new URLSearchParams({
 					action: "save_modified_data",
 					nonce: ajaxObject.nonce,
-					data: JSON.stringify(newGoalData),
+					data: JSON.stringify(updatedGoalActions),
 					save_to_meta: JSON.stringify(saveToMeta),
 				}),
 			});
@@ -499,7 +520,7 @@ export default function QuarterlyGoalsComponent({
 	return (
 		<>
 			{submitted && (
-				<div className="sv-smart-goal-generator-submission-success"></div>
+				<div className="sv-ai-generator-submission-success"></div>
 			)}
 			{loadingSaved && (
 				<FormRenderer
@@ -515,14 +536,14 @@ export default function QuarterlyGoalsComponent({
 			{/* Results Section */}
 			{!loading && (
 				<EditableTable
-					data={goalData}
+					data={goalData.actions}
 					columns={quarterlyGoalsColumns}
 					config={tableConfig}
-					// onDataChange={handleTableChange}
+					onDataChange={handleTableChange}
 					onSave={handleDataSave}
-					blockAbbr="sg"
-					dataType="goals_collection"
-					className="smart-goals-table"
+					blockAbbr="goal_q"
+					dataType="goals_q_collection"
+					className="goal-q-table"
 				/>
 			)}
 		</>

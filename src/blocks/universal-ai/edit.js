@@ -153,6 +153,26 @@ export default function Edit({ attributes, setAttributes }) {
 		}
 	}, [selectedComponent, hasLoadedData, systemPrompt, availableComponents]);
 
+	// Auto-save configuration when post is saved
+useEffect(() => {
+	if (!hasLoadedData || !instanceId) return;
+
+	// Subscribe to post saving status
+	const unsubscribe = wp.data.subscribe(() => {
+		const editor = wp.data.select('core/editor');
+		const isSavingPost = editor?.isSavingPost?.();
+		const isAutosaving = editor?.isAutosavingPost?.();
+		
+		// Only trigger on manual save, not autosave
+		if (isSavingPost && !isAutosaving && !isSaving) {
+			console.log('🔄 Post is being saved, auto-saving Universal AI config...');
+			saveConfigNow();
+		}
+	});
+
+	// Cleanup subscription on unmount
+	return () => unsubscribe();
+}, [hasLoadedData, instanceId, isSaving, saveConfigNow]);
 	// Save configuration to wp_options only
 	const saveConfigNow = async () => {
 		if (!instanceId || !hasLoadedData) return;
@@ -400,7 +420,7 @@ export default function Edit({ attributes, setAttributes }) {
 								value={maxTokens}
 								onChange={(value) => setMaxTokens(value)} // Local state
 								min={100}
-								max={4000}
+								max={10000}
 								step={100}
 								help={__("Maximum response length (tokens)", "universal-ai")}
 							/>

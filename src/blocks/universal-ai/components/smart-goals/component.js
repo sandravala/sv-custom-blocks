@@ -315,7 +315,7 @@ export default function SmartGoalsComponent({
 	return (
 		<>
 		{submitted && (
-			<div className="sv-smart-goal-generator-submission-success"></div>
+			<div className="sv-ai-generator-submission-success"></div>
 		)}
 			{loadingSaved && (
 				<FormRenderer

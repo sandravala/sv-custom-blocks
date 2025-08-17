@@ -33,12 +33,19 @@ const EditableTable = ({
 		grouped: false,
 		groupBy: null,
 		showActions: true,
+		actionsLabel: "",
 		showCounter: true,
 		emptyStateText: "No items added yet",
 		emptyStateSubtext: "Add your first item to get started",
 		addButtonText: "Add Item",
 		saveButtonText: "Save Changes",
 		deleteConfirmText: "Are you sure you want to delete this item?",
+		showTotals: false,
+		totalsConfig: {
+			label: "Total",
+			position: "bottom", // 'top' or 'bottom'
+			fields: {}, // Which fields to calculate totals for
+		},
 	};
 
 	const tableConfig = { ...defaultConfig, ...config };
@@ -50,10 +57,10 @@ const EditableTable = ({
 	const [isLoading, setIsLoading] = useState(false);
 
 	// Update internal data when props change
-	useEffect(() => {
-		setTableData(data);
-		setIsDirty(false);
-	}, [data]);
+	// useEffect(() => {
+	// 	setTableData(data);
+	// 	setIsDirty(false);
+	// }, [data]);
 
 	// Generate unique ID for new rows
 	const generateId = () => {
@@ -106,18 +113,27 @@ const EditableTable = ({
 			}, {}),
 		};
 
-		if (tableConfig.grouped && groupKey) {
-			newRow.group = groupKey;
+		// Add group field for flat array mode
+		if (tableConfig.grouped && groupKey && Array.isArray(tableData)) {
+			const groupByField = tableConfig.groupBy || "group";
+			newRow[groupByField] = groupKey;
 		}
 
 		let newData;
 		if (tableConfig.grouped) {
-			newData = { ...tableData };
-			if (!newData[groupKey]) {
-				newData[groupKey] = [];
+			if (Array.isArray(tableData)) {
+				// Flat array - just add to array
+				newData = [...tableData, newRow];
+			} else {
+				// Pre-grouped object - add to specific group
+				newData = { ...tableData };
+				if (!newData[groupKey]) {
+					newData[groupKey] = [];
+				}
+				newData[groupKey] = [...newData[groupKey], newRow];
 			}
-			newData[groupKey] = [...newData[groupKey], newRow];
 		} else {
+			// Simple ungrouped mode
 			newData = [...tableData, newRow];
 		}
 
@@ -130,10 +146,19 @@ const EditableTable = ({
 		if (!confirm(tableConfig.deleteConfirmText)) return;
 
 		let newData;
+
 		if (tableConfig.grouped) {
-			newData = { ...tableData };
-			newData[groupKey] = newData[groupKey].filter((row) => row.id !== rowId);
+			// Check if data is pre-grouped object or flat array
+			if (Array.isArray(tableData)) {
+				// Flat array - filter directly
+				newData = tableData.filter((row) => row.id !== rowId);
+			} else {
+				// Pre-grouped object - filter within the group
+				newData = { ...tableData };
+				newData[groupKey] = newData[groupKey].filter((row) => row.id !== rowId);
+			}
 		} else {
+			// Simple ungrouped mode
 			newData = tableData.filter((row) => row.id !== rowId);
 		}
 
@@ -146,13 +171,27 @@ const EditableTable = ({
 
 	// Update row data
 	const updateRow = (rowId, field, value, groupKey = null) => {
+		const column = columns.find((col) => col.key === field);
+		value = convertValue(value, column);
+
 		let newData;
+
 		if (tableConfig.grouped) {
-			newData = { ...tableData };
-			newData[groupKey] = newData[groupKey].map((row) =>
-				row.id === rowId ? { ...row, [field]: value } : row,
-			);
+			// Check if data is pre-grouped object or flat array
+			if (Array.isArray(tableData)) {
+				// Flat array - update directly in the array
+				newData = tableData.map((row) =>
+					row.id === rowId ? { ...row, [field]: value } : row,
+				);
+			} else {
+				// Pre-grouped object - update within the group
+				newData = { ...tableData };
+				newData[groupKey] = newData[groupKey].map((row) =>
+					row.id === rowId ? { ...row, [field]: value } : row,
+				);
+			}
 		} else {
+			// Simple ungrouped mode
 			newData = tableData.map((row) =>
 				row.id === rowId ? { ...row, [field]: value } : row,
 			);
@@ -160,10 +199,39 @@ const EditableTable = ({
 
 		handleDataChange(newData);
 	};
+	const convertValue = (value, column) => {
+		if (!column) return value;
+
+		switch (column.type) {
+			case "number":
+				if (value === "" || value === null || value === undefined) {
+					return column.defaultValue || 0;
+				}
+				const num = Number(value);
+				return isNaN(num) ? column.defaultValue || 0 : num;
+
+			case "select":
+				return value || column.defaultValue || "";
+
+			default:
+				return value;
+		}
+	};
 
 	// Render field based on column configuration
 	const renderField = (row, column, isEditing, groupKey = null) => {
 		const value = row[column.key];
+
+		// Special handling for totals row
+		if (row.__isTotalsRow) {
+			return (
+				<div className="sv-field-value sv-totals-value">
+					{column.type === "number" && typeof value === "number"
+						? value.toLocaleString()
+						: value}
+				</div>
+			);
+		}
 		const fieldId = `${blockAbbr}_${dataType}_${column.key}_${row.id}`;
 
 		if (!isEditing) {
@@ -225,44 +293,91 @@ const EditableTable = ({
 		}
 	};
 
+	const calculateTotals = () => {
+		if (!tableConfig.showTotals) return null;
+
+		const { totalsConfig } = tableConfig;
+		const allRows =
+			tableConfig.grouped && Array.isArray(tableData)
+				? tableData
+				: tableConfig.grouped
+				? Object.values(tableData).flat()
+				: tableData;
+
+		const totalsRow = {
+			id: "__totals__",
+			__isTotalsRow: true,
+		};
+
+		columns.forEach((column) => {
+			const fieldConfig = totalsConfig.fields[column.key];
+
+			if (fieldConfig === "sum") {
+				// Calculate sum for numeric fields
+				totalsRow[column.key] = allRows.reduce((sum, row) => {
+					const value = Number(row[column.key]) || 0;
+					return sum + value;
+				}, 0);
+			} else if (typeof fieldConfig === "string") {
+				// Use custom text
+				totalsRow[column.key] = fieldConfig;
+			} else {
+				// Empty for other fields
+				totalsRow[column.key] = "";
+			}
+		});
+
+		return totalsRow;
+	};
+
 	// Render table row
 	const renderRow = (row, groupKey = null) => {
 		const isEditing = editingRows.has(row.id);
+		const isTotalsRow = row.__isTotalsRow;
 
 		return (
 			<div
 				key={row.id}
-				className={`sv-table-row ${isEditing ? "editing" : ""}`}
+				className={`sv-table-row ${isEditing ? "editing" : ""} ${isTotalsRow ? "sv-totals-row" : ""}`}
 			>
-				{columns.map((column) => (
+				{columns.map((column) => {
+
+					const isSumField = isTotalsRow && 
+        tableConfig.totalsConfig?.fields[column.key] === 'sum';
+					
+					return (
 					<div
 						key={column.key}
 						className={`sv-table-field ${column.flex || "flex-auto"}`}
 					>
-						{/* <div className="sv-field-label">{column.label}</div> */}
+						<div className={`sv-field-label ${isSumField ? "sum-field" : ""}`}>{column.label}</div>
 						{renderField(row, column, isEditing, groupKey)}
 					</div>
-				))}
+				)})}
 
 				{tableConfig.showActions && (
 					<div className="sv-row-actions">
-						<button
-							className={`sv-btn sv-btn-secondary sv-btn-small ${
-								isEditing ? "" : "sv-btn-edit"
-							}`}
-							onClick={() => toggleEdit(row.id)}
-							id={`edit-button-${row.id}`}
-						>
-							{isEditing ? "✓" : "✎"}
-						</button>
-						{tableConfig.allowAddRemove && (
-							<button
-								className="sv-btn sv-btn-danger"
-								onClick={() => deleteRow(row.id, groupKey)}
-								title="Delete"
-							>
-								×
-							</button>
+						{!isTotalsRow && (
+							<>
+								<button
+									className={`sv-btn sv-btn-secondary sv-btn-small ${
+										isEditing ? "" : "sv-btn-edit"
+									}`}
+									onClick={() => toggleEdit(row.id)}
+									id={`edit-button-${row.id}`}
+								>
+									{isEditing ? "✓" : "✎"}
+								</button>
+								{tableConfig.allowAddRemove && (
+									<button
+										className="sv-btn sv-btn-danger"
+										onClick={() => deleteRow(row.id, groupKey)}
+										title="Delete"
+									>
+										×
+									</button>
+								)}
+							</>
 						)}
 					</div>
 				)}
@@ -330,57 +445,70 @@ const EditableTable = ({
 			allGroupsData = null;
 		}
 
+		const totalsRow = calculateTotals();
+
 		return (
 			<div className="sv-editable-table" data-dirty={isDirty}>
-				<div className="sv-table-header">
-					<h3 className="sv-table-title">{tableConfig.title}</h3>
-					<div className="sv-table-actions">
-						{tableConfig.showCounter && (
-							<span className="sv-badge">
-								{totalCount} {totalCount === 1 ? "item" : "items"}
-							</span>
-						)}
-						{tableConfig.allowAddRemove && !tableConfig.grouped && (
-							<button
-								className="sv-btn sv-btn-primary sv-btn-small"
-								onClick={() => addRow()}
-							>
-								<svg
-									className="icon icon-plus"
-									viewBox="0 0 20 20"
-									fill="currentColor"
+				<div className="sv-table-header-rows">
+					<div className="sv-table-header">
+						<h3 className="sv-table-title">{tableConfig.title}</h3>
+						<div className="sv-table-actions">
+							{tableConfig.showCounter && (
+								<span className="sv-badge">
+									{totalCount} {totalCount === 1 ? "item" : "items"}
+								</span>
+							)}
+							{tableConfig.allowAddRemove && !tableConfig.grouped && (
+								<button
+									className="sv-btn sv-btn-primary sv-btn-small"
+									onClick={() => addRow()}
 								>
-									<path
-										fillRule="evenodd"
-										d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
-										clipRule="evenodd"
-									/>
-								</svg>
-								{tableConfig.addButtonText}
-							</button>
-						)}
-						{isDirty && onSave && (
-							<button
-								className="sv-btn sv-btn-secondary sv-btn-small"
-								onClick={handleSave}
-								disabled={isLoading}
+									<svg
+										className="icon icon-plus"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+									>
+										<path
+											fillRule="evenodd"
+											d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+											clipRule="evenodd"
+										/>
+									</svg>
+									{tableConfig.addButtonText}
+								</button>
+							)}
+							{isDirty && onSave && (
+								<button
+									className="sv-btn sv-btn-secondary sv-btn-small sv-editable-table-save-btn"
+									onClick={handleSave}
+									disabled={isLoading}
+								>
+									{isLoading ? "Saugoma..." : tableConfig.saveButtonText}
+								</button>
+							)}
+						</div>
+					</div>
+					{/* ADD: Column headers (once for entire table) */}
+					<div className="sv-table-column-headers">
+						{columns.map((column) => (
+							<div
+								key={column.key}
+								className={`sv-table-header-cell ${column.flex || "flex-auto"}`}
 							>
-								{isLoading ? "Saving..." : tableConfig.saveButtonText}
-							</button>
+								{column.label}
+							</div>
+						))}
+						{tableConfig.showActions && (
+							<div className="sv-table-header-cell actions">
+								{tableConfig.actionsLabel}
+							</div>
 						)}
 					</div>
+					{/* Top totals */}
+					{totalsRow &&
+						tableConfig.totalsConfig.position === "top" &&
+						renderRow(totalsRow)}
 				</div>
-				{/* ADD: Column headers (once for entire table) */}
-            <div className="sv-table-column-headers">
-                {columns.map((column) => (
-                    <div key={column.key} className={`sv-table-header-cell ${column.flex || 'flex-auto'}`}>
-                        {column.label}
-                    </div>
-                ))}
-                {tableConfig.showActions && (
-                    <div className="sv-table-header-cell flex-auto">Actions</div>
-                )}
-            </div>
 				<div className="sv-table-rows">
 					{isLoading
 						? renderLoadingState()
@@ -396,6 +524,10 @@ const EditableTable = ({
 						  ))
 						: // Simple rendering
 						  tableData.map((row) => renderRow(row))}
+					{/* Bottom totals */}
+					{totalsRow &&
+						tableConfig.totalsConfig.position === "bottom" &&
+						renderRow(totalsRow)}
 				</div>
 			</div>
 		);
