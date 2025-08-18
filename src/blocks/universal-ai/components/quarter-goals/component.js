@@ -213,7 +213,7 @@ export default function QuarterlyGoalsComponent({
 			const result = await response.json();
 
 			if (result.success) {
-				setFormData({ smart_goal: result.data.user_data.smart_goal });
+				setFormData((prev) => ({...prev, ...result.data.input_data}));
 
 				const actions = formatActionItems(result.data.user_data.goal_actions);
 

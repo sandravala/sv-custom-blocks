@@ -11,6 +11,17 @@ export const availableComponents = {
     "recommendedModel": "gpt-4o",
     "recommendedTokens": 2500
   },
+  "routine-tasks": {
+    "name": "Routine Tasks Generator",
+    "icon": "📋",
+    "description": "generate routine tasks with AI assistance",
+    "defaultPrompt": "Generate routine tasks based on the provided information.",
+    "category": "productivity",
+    "version": "1.0.0",
+    "responseFormat": "json_schema",
+    "recommendedModel": "gpt-4o",
+    "recommendedTokens": 8000
+  },
   "smart-goals": {
     "name": "Smart Goals Generator",
     "icon": "🎯",

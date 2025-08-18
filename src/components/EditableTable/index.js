@@ -231,6 +231,16 @@ const EditableTable = ({
 	};
 
 	// Updated updateRow function to handle both data structures
+	const updateRowWithCalculation = (row, rowId, field, value) => {
+		if (row.id === rowId) {
+			// Update the field and recalculate
+			const updatedRow = { ...row, [field]: value };
+			return recalculateRow(updatedRow);
+		}
+		return row;
+	};
+
+	// Then your updateRow function becomes much cleaner:
 	const updateRow = (rowId, field, value, groupKey = null) => {
 		const column = columns.find((col) => col.key === field);
 		value = convertValue(value, column);
@@ -242,7 +252,7 @@ const EditableTable = ({
 			if (Array.isArray(tableData)) {
 				// Flat array - update directly in the array
 				newData = tableData.map((row) =>
-					row.id === rowId ? { ...row, [field]: value } : row,
+					updateRowWithCalculation(row, rowId, field, value),
 				);
 			} else {
 				// Pre-grouped object - update within the group
@@ -250,14 +260,14 @@ const EditableTable = ({
 				if (Array.isArray(newData[groupKey])) {
 					// Legacy structure: direct array
 					newData[groupKey] = newData[groupKey].map((row) =>
-						row.id === rowId ? { ...row, [field]: value } : row,
+						updateRowWithCalculation(row, rowId, field, value),
 					);
 				} else {
 					// New structure: items array
 					newData[groupKey] = {
 						...newData[groupKey],
 						items: newData[groupKey].items.map((row) =>
-							row.id === rowId ? { ...row, [field]: value } : row,
+							updateRowWithCalculation(row, rowId, field, value),
 						),
 					};
 				}
@@ -265,7 +275,7 @@ const EditableTable = ({
 		} else {
 			// Simple ungrouped mode
 			newData = tableData.map((row) =>
-				row.id === rowId ? { ...row, [field]: value } : row,
+				updateRowWithCalculation(row, rowId, field, value),
 			);
 		}
 
@@ -288,8 +298,18 @@ const EditableTable = ({
 		}
 		const fieldId = `${blockAbbr}_${dataType}_${column.key}_${row.id}`;
 
+		// Check if field is calculated (always readonly)
+		const isCalculated = column.calculated === true;
+		const isReadonly = column.readonly === true || isCalculated;
+
+		// Display mode or readonly/calculated field
+
 		if (!isEditing) {
 			// Display mode
+			let displayValue = value;
+			if (isCalculated && column.calculate) {
+				displayValue = column.calculate(row);
+			}
 			if (column.render) {
 				return column.render(value, row);
 			}
@@ -301,7 +321,18 @@ const EditableTable = ({
 				return <span className={`sv-badge ${badgeClass}`}>{value}</span>;
 			}
 
-			return <div className="sv-field-value">{value}</div>;
+			// Add calculated styling
+			const className = isCalculated
+				? "sv-field-value calculated"
+				: isReadonly && isEditing
+				? "sv-field-value readonly"
+				: "sv-field-value";
+
+			if (column.type === "number" && typeof displayValue === "number") {
+				displayValue = displayValue.toLocaleString();
+			}
+
+			return <div className={className}>{displayValue}</div>;
 		}
 
 		// Edit mode
@@ -535,7 +566,7 @@ const EditableTable = ({
 				return null;
 			}
 
-			if(typeof tableConfig.groupSubtitle === "object") {
+			if (typeof tableConfig.groupSubtitle === "object") {
 				return tableConfig.groupSubtitle[groupKey] || null;
 			}
 
