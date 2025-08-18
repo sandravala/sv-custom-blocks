@@ -1,0 +1,289 @@
+// AccordionHeader.scss - Styles for collapsible container component
+// Compatible with WordPress block themes and existing EditableTable patterns
+
+/* Main Accordion Component */
+.sv-accordion {
+	background: white;
+	border-radius: 12px;
+	box-shadow:
+		0 1px 3px 0 rgba(140, 201, 197, 0.4),
+		0 1px 2px -1px rgba(140, 201, 197, 0.4);
+	overflow: hidden;
+	margin-bottom: 16px;
+	transition: all 0.2s ease;
+
+	&:hover {
+		box-shadow:
+			0 4px 6px -1px rgba(140, 201, 197, 0.3),
+			0 2px 4px -1px rgba(140, 201, 197, 0.3);
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/* Header */
+.sv-accordion-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 24px;
+	transition: all 0.15s ease;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	
+	&:hover {
+		background: #f8fafc;
+	}
+
+	&:focus {
+		outline: none;
+		background: #f1f5f9;
+	}
+}
+
+.sv-accordion-title-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-width: 0; // Prevent text overflow
+}
+
+.sv-accordion-title {
+	font-size: 18px;
+	font-weight: 600;
+	color: #1a0640 !important;
+	margin: 0;
+	word-break: break-word;
+}
+
+.sv-accordion-subtitle {
+	font-size: 14px;
+	color: #64748b;
+	margin: 4px 0 0 0;
+	font-weight: 400;
+	line-height: 1.4;
+}
+
+.sv-accordion-actions {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-shrink: 0;
+}
+
+/* Toggle Button */
+.sv-accordion-toggle {
+	background: none;
+	border: none;
+	padding: 8px;
+	cursor: pointer;
+	border-radius: 6px;
+	transition: all 0.15s ease;
+	color: #64748b;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		background: #e2e8f0;
+		color: #1a0640;
+	}
+
+	&:focus {
+		outline: none;
+		background: #e2e8f0;
+		box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+	}
+}
+
+.sv-accordion-toggle-icon {
+	width: 20px;
+	height: 20px;
+	transition: transform 0.2s ease;
+}
+
+.sv-accordion.expanded .sv-accordion-toggle-icon {
+	transform: rotate(180deg);
+}
+
+/* Content Area */
+.sv-accordion-content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease;
+	border-top: 1px solid #e2e8f0;
+}
+
+.sv-accordion.expanded .sv-accordion-content {
+	max-height: 2000px; // Large enough for most content
+}
+
+.sv-accordion-content-inner {
+	padding: 24px;
+}
+
+/* Reusable Button Styles (consistent with EditableTable) */
+.sv-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 12px;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.15s ease;
+	text-decoration: none;
+	outline: none;
+	background: none;
+
+	&:focus {
+		box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	// Icon sizing
+	.sv-icon,
+	svg {
+		width: 16px;
+		height: 16px;
+		fill: currentColor;
+	}
+}
+
+.sv-btn-small {
+	padding: 4px 8px;
+	font-size: 12px;
+}
+
+.sv-btn-primary {
+	background: linear-gradient(0deg, rgb(140, 201, 197) 0%, rgb(171, 181, 214) 100%);
+	color: white;
+
+	&:hover:not(:disabled) {
+		background: linear-gradient(0deg, rgb(96, 156, 152) 0%, rgb(84, 98, 144) 100%);
+		transform: scale(1.05);
+	}
+}
+
+.sv-btn-secondary {
+	background: white;
+	color: #64748b;
+	border-color: #e2e8f0;
+
+	&:hover:not(:disabled) {
+		background: #f8fafc;
+		border-color: #cbd5e1;
+		color: #1e293b;
+	}
+}
+
+/* Badge Component */
+.sv-badge {
+	background: #f1f5f9;
+	color: #64748b;
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-size: 12px;
+	font-weight: 500;
+	white-space: nowrap;
+
+	&.success {
+		background: #dcfce7;
+		color: #166534;
+	}
+
+	&.warning {
+		background: #fef3cd;
+		color: #92400e;
+	}
+
+	&.error {
+		background: #fecaca;
+		color: #991b1b;
+	}
+
+	&.info {
+		background: #dbeafe;
+		color: #1e40af;
+	}
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+	.sv-accordion-header {
+		padding: 16px 20px;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.sv-accordion-content-inner {
+		padding: 20px;
+	}
+
+	.sv-accordion-title {
+		font-size: 16px;
+	}
+
+	.sv-accordion-subtitle {
+		font-size: 13px;
+	}
+
+	.sv-accordion-actions {
+		gap: 8px;
+		flex-wrap: wrap;
+	}
+
+	// On mobile, actions might wrap to new line
+	.sv-accordion-header {
+		align-items: flex-start;
+		flex-direction: row;
+	}
+
+	.sv-accordion-title-wrapper {
+		order: 1;
+		flex: 8;
+		margin-bottom: 8px;
+	}
+
+	.sv-accordion-actions {
+		order: 2;
+		flex: 1;
+		justify-content: space-between;
+	}
+}
+
+/* Animation Improvements */
+@media (prefers-reduced-motion: reduce) {
+	.sv-accordion-content {
+		transition: none;
+	}
+
+	.sv-accordion-toggle-icon {
+		transition: none;
+	}
+
+	.sv-accordion {
+		transition: none;
+	}
+}
+
+/* Focus and Accessibility */
+.sv-accordion-header:focus-visible {
+	outline: 2px solid #3b82f6;
+	outline-offset: 2px;
+}
+
+.sv-accordion-toggle:focus-visible {
+	outline: 2px solid #3b82f6;
+	outline-offset: 2px;
+}

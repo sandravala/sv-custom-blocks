@@ -1,6 +1,8 @@
 //@import '../../shared/styles/ai-blob';
 @import '@components/EditableTable/style';
 @import '@components/FormRenderer/style';
+@import '@components/AccordionHeader/style';
+
 @import '../../shared/styles/_common-styles.scss';
 
 // .smart-goal-generator {
@@ -335,5 +337,10 @@
 // 		}
 // 	}
 // }
+
+
+#universal-ai-block {
+    margin-bottom: 2em;
+}
 
 

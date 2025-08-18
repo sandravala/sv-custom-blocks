@@ -7,6 +7,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { createRoot } from "react-dom/client";
 import EditableTable from "@components/EditableTable";
 import FormRenderer from "@components/FormRenderer";
+import AccordionHeader from "@components/AccordionHeader";
 
 export default function QuarterlyGoalsComponent({
 	blockId,
@@ -38,12 +39,18 @@ export default function QuarterlyGoalsComponent({
 	const [submitted, setSubmitted] = useState(false);
 	const [goalData, setGoalData] = useState({
 		actions: [],
+		assumptions: [],
+		required_resources: [],
+		risks: [],
+		stages: [],
 	});
 
 	const [formData, setFormData] = useState({
 		smart_goal: "",
 		current_situation: "",
 	});
+
+	const [groupSubtitles, setGroupSubtitles] = useState({});
 
 	const quarterlyGoalsColumns = [
 		{
@@ -60,16 +67,16 @@ export default function QuarterlyGoalsComponent({
 			type: "number",
 			flex: "flex-1",
 			placeholder: "",
-		}
-
+		},
 	];
 
 	const tableConfig = {
-		title: "Mano SMART tikslas",
+		title: "",
 		allowEditing: true,
 		allowAddRemove: true,
 		grouped: true,
 		groupBy: "area",
+		groupSubtitle: groupSubtitles,
 		showActions: true,
 		actionsLabel: "Veiksmai",
 		showCounter: false,
@@ -81,13 +88,13 @@ export default function QuarterlyGoalsComponent({
 		deleteConfirmText: "Ar tikrai nori ištrinti šį veiksmą?",
 		showTotals: true,
 		totalsConfig: {
-        label: 'VISO',
-        position: 'bottom',
-        fields: {
-            description: 'iš viso:',
-            hours_estimate: 'sum'
-        }
-	}
+			label: "VISO",
+			position: "bottom",
+			fields: {
+				description: "iš viso:",
+				hours_estimate: "sum",
+			},
+		},
 	};
 
 	const formConfig = {
@@ -95,8 +102,8 @@ export default function QuarterlyGoalsComponent({
 		submitButtonText: "Generuoti", // Submit button text
 		successMessage: "Thank you!", // Message shown after successful submission
 		showRequiredNote: false, // Show "Fields marked with * are required"
-		submittingText: "Produktyvumo robotas dirba...", // kas rodoma ai blob'e
-		submitAnotherResponseText: "DI asistento pagalba",
+		submittingText: "DI asistentas dirba...", // kas rodoma ai blob'e
+		submitAnotherResponseText: "Paprašyk, kad DI asistentas sugeneruotų naujus tarpinius tikslus",
 		canSubmitAnotherResponse: true, // Allow submitting another response
 	};
 
@@ -113,6 +120,13 @@ export default function QuarterlyGoalsComponent({
 		},
 	];
 
+	const quarterTitles = {
+		Q1: "I ketv: ",
+		Q2: "II ketv: ",
+		Q3: "III ketv: ",
+		Q4: "IV ketv: ",
+	};
+
 	// Load saved data on component mount (only if logged in)
 	useEffect(() => {
 		if (
@@ -123,16 +137,70 @@ export default function QuarterlyGoalsComponent({
 		}
 	}, [isLoggedIn, assistantId, blockId, useResponsesApi]);
 
+	useEffect(() => {
+		// Only process if we have stages data
+		if (goalData.stages && Object.keys(goalData.stages).length > 0) {
+			// Build complete object in one operation
+			const subtitles = Object.entries(goalData.stages).reduce(
+				(acc, [quarter, data]) => {
+					const quarterTitle = quarterTitles[quarter];
+					const outcomes = data.outcomes ? data.outcomes.join(" | ") : "";
+					acc[quarterTitle] = outcomes;
+					return acc;
+				},
+				{},
+			);
+
+			setGroupSubtitles(subtitles);
+		}
+	}, [goalData.stages]); // Only depend on the actual data
+
+	const formatActionItems = (actions) => {
+		let total_hours = 0;
+
+		// Create a counter for each group/area
+		const groupCounters = {};
+
+		return actions.map((action, index) => {
+			// replace hours_estimate object with total_hours property if hours_estimate is an object
+			if (typeof action.hours_estimate === "object") {
+				action.hours_estimate = action.hours_estimate.total_hours;
+			}
+			total_hours += action.hours_estimate;
+			action.dependencies = Array.isArray(action.dependencies)
+				? action.dependencies.join(", ")
+				: action.dependencies;
+
+			// Get the original area before transformation (Q1, Q2, Q3, Q4)
+			const quarter = action.area;
+			action.quarter = quarter;
+
+			if (action.area in quarterTitles) {
+				action.area = quarterTitles[action.area];
+			}
+
+			// Initialize counter for this group if it doesn't exist
+			if (!groupCounters[quarter]) {
+				groupCounters[quarter] = 0;
+			}
+
+			// Increment counter for this group
+			groupCounters[quarter]++;
+
+			// Set ID based on group and position within group
+			action.id = `${quarter}_action_${groupCounters[quarter]}`;
+
+			return action;
+		});
+	};
 	const loadSavedData = async () => {
 		//JSON.stringify(["meta_key1", "meta_key2"]); - čia kokių ieškoti meta keys vartotojo meta
 		try {
-
 			const params = {
 				action: "load_saved_data",
 				nonce: ajaxObject.nonce,
 				meta_keys: JSON.stringify(["smart_goal", ...Object.keys(saveToMeta)]),
 			};
-
 
 			const response = await fetch(ajaxObject.ajax_url, {
 				method: "POST",
@@ -145,31 +213,17 @@ export default function QuarterlyGoalsComponent({
 			const result = await response.json();
 
 			if (result.success) {
-				setFormData({ ...formData, ...result.data.input_data });
-				//iterate through each action and replace hours_estimate object with hours_estimate property whose value is inside hours_estimate object, total_hours
-				let total_hours = 0;
-				const actions = result.data.user_data.goal_actions.map((action, index) => {
-					// replace hours_estimate object with total_hours property if hours_estimate is an object
-					if (typeof action.hours_estimate === "object") {
-						action.hours_estimate = action.hours_estimate.total_hours;
-					}
-					total_hours += action.hours_estimate;
-					// add id to action, but include action.area (as quarter) and each different quarter action counter resets
-					// each different quarter action gets its own counter
-					// e.g. area: Q1, actions: 1, 2, etc. area: Q2, actions: start at 1 again
-					// const quarterActions = actions.filter((a) => a.area === action.area);
-					// action.id = `action-${quarterActions.length + 1}-${action.area}`;
-					// flatten action.dependencies array to string
-					action.dependencies = Array.isArray(action.dependencies)
-						? action.dependencies.join(", ")
-						: action.dependencies;
-					return action;
+				setFormData({ smart_goal: result.data.user_data.smart_goal });
+
+				const actions = formatActionItems(result.data.user_data.goal_actions);
+
+				setGoalData({
+					actions: actions,
+					assumptions: result.data.user_data.goal_assumptions,
+					required_resources: result.data.user_data.goal_required_resources,
+					risks: result.data.user_data.goal_risks,
+					stages: result.data.user_data.goal_stages,
 				});
-
-				console.log("actions:", actions);
-				setGoalData({actions: actions});
-
-				console.log("Loaded saved data:", result.data.user_data);
 			} else {
 				// Error loading data (could be no data exists, which is fine)
 				console.log("No saved data found or error:", result.data?.message);
@@ -182,12 +236,13 @@ export default function QuarterlyGoalsComponent({
 		}
 	};
 
-	const handleTableChange = (field, value) => {
-		console.log("handleTableChange called with field:", field, "value:", value);
-		setFormData((prev) => ({
-			...prev,
-			[field]: value,
-		}));
+	const handleTableChange = (tableData) => {
+		const sortedData = tableData.sort((a, b) => {
+			const quarterOrder = { Q1: 1, Q2: 2, Q3: 3, Q4: 4 };
+			return quarterOrder[a.quarter] - quarterOrder[b.quarter];
+		});
+		//update goal data actions value
+		setGoalData((prev) => ({ ...prev, actions: sortedData }));
 	};
 
 	const handleSubmit = async (inputData, saveKey) => {
@@ -214,7 +269,6 @@ export default function QuarterlyGoalsComponent({
 			...inputData,
 		};
 
-		console.log("Submitting form data:", userInput);
 		try {
 			const params = {
 				action: "generate_ai_data",
@@ -244,7 +298,6 @@ export default function QuarterlyGoalsComponent({
 
 			if (result.success) {
 				setSubmitted(true);
-				console.log("result.data:", result.data);
 
 				const resultExample = {
 					meta: {
@@ -438,15 +491,17 @@ export default function QuarterlyGoalsComponent({
 					},
 				};
 
-
-				// setGoalData({
-				// 	smart_goal_sentence: result.data.smart_goal_sentence || "",
-				// 	resources_sentence: result.data.resources_sentence || "",
-				// });
+				const actionsFormatted = formatActionItems(result.data.actions);
+				setGoalData({
+					actions: actionsFormatted,
+					assumptions: result.data.assumptions,
+					required_resources: result.data.required_resources,
+					risks: result.data.risks,
+					stages: result.data.stages,
+				});
 				setError("");
 			} else {
 				setError(result.data.message || "Įvyko klaida generuojant tikslą");
-				console.log(result.data.data.toString());
 			}
 		} catch (err) {
 			setError("Įvyko klaida. Bandykite dar kartą.");
@@ -460,12 +515,10 @@ export default function QuarterlyGoalsComponent({
 	};
 
 	const handleDataSave = async (data, metaKey) => {
-		console.log("handleDataSave called with data:", data, "metaKey:", metaKey);
-
-		setGoalData(data);
+		setGoalData((prev) => ({ ...prev, actions: data }));
 		setError("");
 
-		const updatedGoalActions = {actions: data}
+		const updatedGoalActions = { actions: data };
 
 		try {
 			const response = await fetch(ajaxObject.ajax_url, {
@@ -484,7 +537,7 @@ export default function QuarterlyGoalsComponent({
 			const result = await response.json();
 
 			if (result.success) {
-				console.log(result.data);
+				// Data saved successfully
 			} else {
 				setError(result.data.message || "Įvyko klaida išsaugant tikslą");
 			}
@@ -519,15 +572,28 @@ export default function QuarterlyGoalsComponent({
 
 	return (
 		<>
-			{submitted && (
-				<div className="sv-ai-generator-submission-success"></div>
+			{submitted && <div className="sv-ai-generator-submission-success"></div>}
+			{formData.smart_goal.length > 0 && (
+				<div style={{ padding: "20px 24px" }}>
+					<h4
+						style={{
+							fontSize: "18px",
+							fontWeight: 600,
+							color: "#1a0640 !important",
+						}}
+					>
+						{" "}
+						Tikslas:{" "}
+					</h4>
+					<p style={{ margin: 0 }}>{formData.smart_goal}</p>
+				</div>
 			)}
 			{loadingSaved && (
 				<FormRenderer
 					fields={formFields}
 					initialData={formData}
 					config={formConfig}
-					wasSubmitted={false}
+					wasSubmitted={goalData.actions.length > 0}
 					onSubmit={handleSubmit}
 					blockAbbr="smart_goal"
 					dataType="inputs"
@@ -535,16 +601,59 @@ export default function QuarterlyGoalsComponent({
 			)}
 			{/* Results Section */}
 			{!loading && (
-				<EditableTable
-					data={goalData.actions}
-					columns={quarterlyGoalsColumns}
-					config={tableConfig}
-					onDataChange={handleTableChange}
-					onSave={handleDataSave}
-					blockAbbr="goal_q"
-					dataType="goals_q_collection"
-					className="goal-q-table"
-				/>
+				<>
+					<EditableTable
+						data={goalData.actions}
+						columns={quarterlyGoalsColumns}
+						config={tableConfig}
+						onDataChange={handleTableChange}
+						onSave={handleDataSave}
+						blockAbbr="goal_q"
+						dataType="goals_q_collection"
+						className="goal-q-table"
+					/>
+					<AccordionHeader title="Papildoma informacija, aktuali tarpiniams tikslams">
+						{/* Put any content here */}
+						{goalData.assumptions.length > 0 && (
+							<>
+								<h5>Prielaidos: </h5>
+								<ul>
+									{goalData.assumptions.map((item, index) => (
+										<li key={index}>{item}</li>
+									))}
+								</ul>
+							</>
+						)}
+						{goalData.required_resources.length > 0 && (
+							<>
+								<h5>Tikslui pasiekti reikalingi ištekliai: </h5>
+								<ul>
+									{goalData.required_resources.map((item, index) => (
+										<li key={index}>{item.resource}</li>
+									))}
+									<li key="other_resources">
+										Ir (galbūt) kiti, čia neįvardinti ištekliai... (rekomenduoju
+										papildomai įvertinti ir savarankiškai){" "}
+									</li>
+								</ul>
+							</>
+						)}
+						{goalData.risks.length > 0 && (
+							<div style={{ color: "red" }}>
+								<h5 style={{ color: "red" }}>Galimi rizikos veiksniai: </h5>
+								<ul>
+									{goalData.risks.map((item, index) => (
+										<li key={index}>
+											{item.risk}
+											<br></br> Rekomendacija rizikos valdymui:{" "}
+											{item.mitigation}
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
+					</AccordionHeader>
+				</>
 			)}
 		</>
 	);

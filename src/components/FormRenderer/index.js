@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 
+
 /**
  * FormRenderer Component - Simple form renderer
  *
@@ -32,6 +33,7 @@ const FormRenderer = ({
 		showRequiredNote: true,
 		submittingText: "Produktyvumo robotas dirba...",
 		submitAnotherResponseText: "Pabandyk dar kartą",
+		submitAgainConfirmText: "Ar tikrai nori pradėti iš naujo? Seni duomenys bus ištrinti",
 		canSubmitAnotherResponse: true,
 	};
 
@@ -100,6 +102,7 @@ const FormRenderer = ({
 	// Handle form submission
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
 
 		if (!validateForm()) {
 			return;
@@ -255,7 +258,13 @@ const FormRenderer = ({
 					<p className="sv-success-message">{formConfig.successMessage}</p> */}
 					<button
 						className="sv-btn sv-btn-secondary sv-btn-submit-another"
-						onClick={() => setIsSubmitted(false)}
+						onClick={() => {
+							if(!confirm(formConfig.submitAgainConfirmText)) {
+								return;
+							}
+							setIsSubmitted(false);
+
+						}}
 					>
 						{formConfig.submitAnotherResponseText}
 					</button>

@@ -11,9 +11,17 @@
 	margin-bottom: 24px;
 	justify-items: center;
 
-	.sv-form-renderer.generating-data {
+	&.generating-data {
 		overflow: visible;
 		box-shadow: none;
+		min-height: 100vh;
+		min-width: 100vw;
+		position: fixed;
+		top: 20%;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 9999;
 	}
 
 	/* Form Header */
@@ -298,6 +306,7 @@
 				rgb(84 98 144) 100%
 			);
 			transform: scale(1.05);
+			    color: white;
 		}
 	}
 

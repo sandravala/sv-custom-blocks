@@ -238,6 +238,21 @@
 		font-size: 13px;
 	}
 
+	.sv-btn-add-row {
+		font-size: 1.5em;
+    padding: .1em .6em;
+    border-radius: 2em;
+    background: #8cc9c56e;
+    color: #ffffff;
+    text-align: center;
+    align-items: center;
+
+	&:hover:not(:disabled) {
+		background: #8cc9c5e5;
+		transform: none;
+	}
+	}
+
 	/* Group Headers */
 	.sv-group-header {
 		background: #f1f5f9;
@@ -315,6 +330,11 @@
 		top: 0;
 		z-index: 5; // Lower than column headers
 
+		/* NEW: Match table row layout */
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
 		&:first-child {
 			border-top: none;
 		}
@@ -322,6 +342,37 @@
 		&:not(:first-child) {
 			margin-top: 16px;
 			border-top: 2px solid #cbd5e1;
+		}
+
+		/* NEW: Header content spans data columns */
+		.sv-group-header-content {
+			flex: 1;
+		}
+	}
+
+	/* Group subtitle styling */
+	.sv-group-subtitle {
+		font-size: 13px;
+		font-weight: 400;
+		text-transform: none;
+		letter-spacing: normal;
+		color: #64748b;
+		margin: 4px 0 0 0;
+		line-height: 1.4;
+	}
+
+	/* NEW: Actions column matches table row actions */
+	.sv-group-actions {
+		width: 120px; // Same as .sv-row-actions
+		display: flex;
+		justify-content: center;
+		flex-shrink: 0;
+		
+		.sv-btn {
+			.icon {
+				width: 14px;
+				height: 14px;
+			}
 		}
 	}
 
@@ -557,11 +608,10 @@
 			}
 		}
 
-
-			.sv-row-actions,
-	.sv-table-header-cell.actions {
-		justify-content: flex-end;
-	}
+		.sv-row-actions,
+		.sv-table-header-cell.actions {
+			justify-content: flex-end;
+		}
 
 		/* Show field labels again on mobile */
 		.sv-table-field {
@@ -622,6 +672,22 @@
 			padding: 0 20px;
 			overflow-y: visible; // Remove scroll on mobile
 		}
+				.sv-group-title {
+			font-size: 15px;
+		}
+
+		.sv-group-subtitle {
+			font-size: 12px;
+		}
+
+		.sv-group-actions {
+			justify-content: flex-end;
+
+			.sv-btn {
+
+				justify-content: center;
+			}
+		}
 	}
 
 	/* Hide labels on desktop */
@@ -649,6 +715,17 @@
 				background: #334155;
 				color: #cbd5e1;
 				border-color: #475569;
+			}
+
+			.sv-group-header-content {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 16px;
+			}
+
+			.sv-group-header-text {
+				flex: 1;
 			}
 
 			.sv-table-row {
@@ -704,6 +781,9 @@
 			.sv-table-empty-title {
 				color: #cbd5e1;
 			}
+			.sv-group-subtitle {
+			color: #94a3b8;
+		}
 		}
 	}
 }

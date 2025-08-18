@@ -32,6 +32,7 @@ const EditableTable = ({
 		allowAddRemove: true,
 		grouped: false,
 		groupBy: null,
+		groupSubtitle: {},
 		showActions: true,
 		actionsLabel: "",
 		showCounter: true,
@@ -56,11 +57,11 @@ const EditableTable = ({
 	const [isDirty, setIsDirty] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 
-	// Update internal data when props change
-	// useEffect(() => {
-	// 	setTableData(data);
-	// 	setIsDirty(false);
-	// }, [data]);
+	//Update internal data when props change
+	useEffect(() => {
+		setTableData(data);
+		//setIsDirty(false);
+	}, [data]);
 
 	// Generate unique ID for new rows
 	const generateId = () => {
@@ -125,12 +126,41 @@ const EditableTable = ({
 				// Flat array - just add to array
 				newData = [...tableData, newRow];
 			} else {
-				// Pre-grouped object - add to specific group
+				// Handle both new structure (with items) and legacy structure (direct array)
 				newData = { ...tableData };
 				if (!newData[groupKey]) {
-					newData[groupKey] = [];
+					// Create new group - check if we're using new structure
+					const hasNewStructure = Object.values(tableData).some(
+						(group) =>
+							group &&
+							typeof group === "object" &&
+							!Array.isArray(group) &&
+							group.items,
+					);
+
+					if (hasNewStructure) {
+						// New structure: create group with items array
+						newData[groupKey] = {
+							subtitle: null,
+							items: [newRow],
+						};
+					} else {
+						// Legacy structure: create direct array
+						newData[groupKey] = [newRow];
+					}
+				} else {
+					// Add to existing group
+					if (Array.isArray(newData[groupKey])) {
+						// Legacy structure: direct array
+						newData[groupKey] = [...newData[groupKey], newRow];
+					} else {
+						// New structure: items array
+						newData[groupKey] = {
+							...newData[groupKey],
+							items: [...(newData[groupKey].items || []), newRow],
+						};
+					}
 				}
-				newData[groupKey] = [...newData[groupKey], newRow];
 			}
 		} else {
 			// Simple ungrouped mode
@@ -155,7 +185,18 @@ const EditableTable = ({
 			} else {
 				// Pre-grouped object - filter within the group
 				newData = { ...tableData };
-				newData[groupKey] = newData[groupKey].filter((row) => row.id !== rowId);
+				if (Array.isArray(newData[groupKey])) {
+					// Legacy structure: direct array
+					newData[groupKey] = newData[groupKey].filter(
+						(row) => row.id !== rowId,
+					);
+				} else {
+					// New structure: items array
+					newData[groupKey] = {
+						...newData[groupKey],
+						items: newData[groupKey].items.filter((row) => row.id !== rowId),
+					};
+				}
 			}
 		} else {
 			// Simple ungrouped mode
@@ -169,36 +210,7 @@ const EditableTable = ({
 		setEditingRows(newEditingRows);
 	};
 
-	// Update row data
-	const updateRow = (rowId, field, value, groupKey = null) => {
-		const column = columns.find((col) => col.key === field);
-		value = convertValue(value, column);
-
-		let newData;
-
-		if (tableConfig.grouped) {
-			// Check if data is pre-grouped object or flat array
-			if (Array.isArray(tableData)) {
-				// Flat array - update directly in the array
-				newData = tableData.map((row) =>
-					row.id === rowId ? { ...row, [field]: value } : row,
-				);
-			} else {
-				// Pre-grouped object - update within the group
-				newData = { ...tableData };
-				newData[groupKey] = newData[groupKey].map((row) =>
-					row.id === rowId ? { ...row, [field]: value } : row,
-				);
-			}
-		} else {
-			// Simple ungrouped mode
-			newData = tableData.map((row) =>
-				row.id === rowId ? { ...row, [field]: value } : row,
-			);
-		}
-
-		handleDataChange(newData);
-	};
+	// Value conversion helper function
 	const convertValue = (value, column) => {
 		if (!column) return value;
 
@@ -216,6 +228,48 @@ const EditableTable = ({
 			default:
 				return value;
 		}
+	};
+
+	// Updated updateRow function to handle both data structures
+	const updateRow = (rowId, field, value, groupKey = null) => {
+		const column = columns.find((col) => col.key === field);
+		value = convertValue(value, column);
+
+		let newData;
+
+		if (tableConfig.grouped) {
+			// Check if data is pre-grouped object or flat array
+			if (Array.isArray(tableData)) {
+				// Flat array - update directly in the array
+				newData = tableData.map((row) =>
+					row.id === rowId ? { ...row, [field]: value } : row,
+				);
+			} else {
+				// Pre-grouped object - update within the group
+				newData = { ...tableData };
+				if (Array.isArray(newData[groupKey])) {
+					// Legacy structure: direct array
+					newData[groupKey] = newData[groupKey].map((row) =>
+						row.id === rowId ? { ...row, [field]: value } : row,
+					);
+				} else {
+					// New structure: items array
+					newData[groupKey] = {
+						...newData[groupKey],
+						items: newData[groupKey].items.map((row) =>
+							row.id === rowId ? { ...row, [field]: value } : row,
+						),
+					};
+				}
+			}
+		} else {
+			// Simple ungrouped mode
+			newData = tableData.map((row) =>
+				row.id === rowId ? { ...row, [field]: value } : row,
+			);
+		}
+
+		handleDataChange(newData);
 	};
 
 	// Render field based on column configuration
@@ -297,39 +351,59 @@ const EditableTable = ({
 		if (!tableConfig.showTotals) return null;
 
 		const { totalsConfig } = tableConfig;
-		const allRows =
-			tableConfig.grouped && Array.isArray(tableData)
-				? tableData
-				: tableConfig.grouped
-				? Object.values(tableData).flat()
-				: tableData;
+		let allRows;
 
-		const totalsRow = {
-			id: "__totals__",
-			__isTotalsRow: true,
-		};
+		if (tableConfig.grouped && Array.isArray(tableData)) {
+			// Flat array - use as is
+			allRows = tableData;
+		} else if (tableConfig.grouped) {
+			// Pre-grouped object - flatten all groups
+			allRows = Object.values(tableData).reduce((acc, groupData) => {
+				// Handle both new structure (with items) and legacy structure (direct array)
+				const items = Array.isArray(groupData)
+					? groupData
+					: groupData?.items || [];
+				return acc.concat(items);
+			}, []);
+		} else {
+			// Simple ungrouped data
+			allRows = Array.isArray(tableData) ? tableData : [];
+		}
+
+		const totals = { __isTotalsRow: true };
 
 		columns.forEach((column) => {
-			const fieldConfig = totalsConfig.fields[column.key];
+			if (totalsConfig.fields[column.key]) {
+				const values = allRows
+					.map((row) => row[column.key])
+					.filter((val) => typeof val === "number" && !isNaN(val));
 
-			if (fieldConfig === "sum") {
-				// Calculate sum for numeric fields
-				totalsRow[column.key] = allRows.reduce((sum, row) => {
-					const value = Number(row[column.key]) || 0;
-					return sum + value;
-				}, 0);
-			} else if (typeof fieldConfig === "string") {
-				// Use custom text
-				totalsRow[column.key] = fieldConfig;
+				switch (totalsConfig.fields[column.key]) {
+					case "sum":
+						totals[column.key] = values.reduce((sum, val) => sum + val, 0);
+						break;
+					case "avg":
+						totals[column.key] = values.length
+							? values.reduce((sum, val) => sum + val, 0) / values.length
+							: 0;
+						break;
+					case "count":
+						totals[column.key] = allRows.filter(
+							(row) => row[column.key] != null && row[column.key] !== "",
+						).length;
+						break;
+					default:
+						totals[column.key] = "";
+				}
+			} else if (column.key === totalsConfig.labelColumn) {
+				totals[column.key] = totalsConfig.label || "Total";
 			} else {
-				// Empty for other fields
-				totalsRow[column.key] = "";
+				totals[column.key] = "";
 			}
 		});
 
-		return totalsRow;
+		return totals;
 	};
-
 	// Render table row
 	const renderRow = (row, groupKey = null) => {
 		const isEditing = editingRows.has(row.id);
@@ -338,22 +412,29 @@ const EditableTable = ({
 		return (
 			<div
 				key={row.id}
-				className={`sv-table-row ${isEditing ? "editing" : ""} ${isTotalsRow ? "sv-totals-row" : ""}`}
+				className={`sv-table-row ${isEditing ? "editing" : ""} ${
+					isTotalsRow ? "sv-totals-row" : ""
+				}`}
 			>
 				{columns.map((column) => {
+					const isSumField =
+						isTotalsRow &&
+						tableConfig.totalsConfig?.fields[column.key] === "sum";
 
-					const isSumField = isTotalsRow && 
-        tableConfig.totalsConfig?.fields[column.key] === 'sum';
-					
 					return (
-					<div
-						key={column.key}
-						className={`sv-table-field ${column.flex || "flex-auto"}`}
-					>
-						<div className={`sv-field-label ${isSumField ? "sum-field" : ""}`}>{column.label}</div>
-						{renderField(row, column, isEditing, groupKey)}
-					</div>
-				)})}
+						<div
+							key={column.key}
+							className={`sv-table-field ${column.flex || "flex-auto"}`}
+						>
+							<div
+								className={`sv-field-label ${isSumField ? "sum-field" : ""}`}
+							>
+								{column.label}
+							</div>
+							{renderField(row, column, isEditing, groupKey)}
+						</div>
+					);
+				})}
 
 				{tableConfig.showActions && (
 					<div className="sv-row-actions">
@@ -435,15 +516,50 @@ const EditableTable = ({
 				allGroupsData = Object.entries(tableData);
 			}
 
-			totalCount = allGroupsData.reduce(
-				(sum, [, groupData]) => sum + (groupData?.length || 0),
-				0,
-			);
+			totalCount = allGroupsData.reduce((sum, [, groupData]) => {
+				// Handle both new structure (with items) and legacy structure (direct array)
+				const items = Array.isArray(groupData)
+					? groupData
+					: groupData?.items || [];
+				return sum + (items?.length || 0);
+			}, 0);
 		} else {
 			// Simple ungrouped data
 			totalCount = Array.isArray(tableData) ? tableData.length : 0;
 			allGroupsData = null;
 		}
+
+		// NEW: Helper function to get group subtitle
+		const getGroupSubtitle = (groupKey, groupData) => {
+			if (!tableConfig.groupSubtitle) {
+				return null;
+			}
+
+			if(typeof tableConfig.groupSubtitle === "object") {
+				return tableConfig.groupSubtitle[groupKey] || null;
+			}
+
+			// Method 1: Check if groupData has subtitle property (new structure)
+			if (groupData && typeof groupData === "object" && groupData.subtitle) {
+				return groupData.subtitle;
+			}
+
+			// Method 2: Check if group data has items array with subtitle (new structure)
+			if (groupData && groupData.items && Array.isArray(groupData.items)) {
+				return groupData.subtitle || null;
+			}
+
+			// Method 3: Fallback - extract from first item (legacy support)
+			const items = Array.isArray(groupData)
+				? groupData
+				: groupData?.items || [];
+			if (items.length === 0) {
+				return null;
+			}
+
+			const firstItem = items[0];
+			return firstItem[tableConfig.groupSubtitle] || null;
+		};
 
 		const totalsRow = calculateTotals();
 
@@ -460,21 +576,11 @@ const EditableTable = ({
 							)}
 							{tableConfig.allowAddRemove && !tableConfig.grouped && (
 								<button
-									className="sv-btn sv-btn-primary sv-btn-small"
+									className="sv-btn sv-btn-primary sv-btn-small sv-btn-add-row"
 									onClick={() => addRow()}
+									title={`Pridėti eilutę`}
 								>
-									<svg
-										className="icon icon-plus"
-										viewBox="0 0 20 20"
-										fill="currentColor"
-									>
-										<path
-											fillRule="evenodd"
-											d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
-											clipRule="evenodd"
-										/>
-									</svg>
-									{tableConfig.addButtonText}
+									+
 								</button>
 							)}
 							{isDirty && onSave && (
@@ -488,7 +594,7 @@ const EditableTable = ({
 							)}
 						</div>
 					</div>
-					{/* ADD: Column headers (once for entire table) */}
+					{/* Column headers */}
 					<div className="sv-table-column-headers">
 						{columns.map((column) => (
 							<div
@@ -515,13 +621,40 @@ const EditableTable = ({
 						: totalCount === 0
 						? renderEmptyState()
 						: tableConfig.grouped
-						? // Grouped rendering
-						  allGroupsData.map(([groupKey, groupData]) => (
-								<div key={`group-${groupKey}`} className="sv-table-group">
-									<div className="sv-group-section-header">{groupKey}</div>
-									{groupData.map((row) => renderRow(row, groupKey))}
-								</div>
-						  ))
+						? // NEW: Updated grouped rendering with subtitles
+						  allGroupsData.map(([groupKey, groupData]) => {
+								const subtitle = getGroupSubtitle(groupKey, groupData);
+								// Handle both new structure (with items) and legacy structure (direct array)
+								const items = Array.isArray(groupData)
+									? groupData
+									: groupData?.items || [];
+								return (
+									<div key={`group-${groupKey}`} className="sv-table-group">
+										<div className="sv-group-section-header">
+											<div className="sv-group-header-content">
+												<div className="sv-group-title">{groupKey}</div>
+												{subtitle && (
+													<div className="sv-group-subtitle">{subtitle}</div>
+												)}
+											</div>
+											{tableConfig.showActions && (
+												<div className="sv-group-actions">
+													{tableConfig.allowAddRemove && (
+														<button
+															className="sv-btn sv-btn-primary sv-btn-small sv-btn-add-row"
+															onClick={() => addRow(groupKey)}
+															title={`Pridėti eilutę į: ${groupKey}`}
+														>
+															+
+														</button>
+													)}
+												</div>
+											)}
+										</div>
+										{items.map((row) => renderRow(row, groupKey))}
+									</div>
+								);
+						  })
 						: // Simple rendering
 						  tableData.map((row) => renderRow(row))}
 					{/* Bottom totals */}
