@@ -200,7 +200,12 @@ export default function QuarterlyGoalsComponent({
 				action: "load_saved_data",
 				nonce: ajaxObject.nonce,
 				meta_keys: JSON.stringify(["smart_goal", ...Object.keys(saveToMeta)]),
+				can_use_ai_again: canUseAiAgain,
 			};
+
+			// Use appropriate parameter based on API type
+			if (useResponsesApi) params.block_id = blockId;
+			else params.assistant_id = assistantId;
 
 			const response = await fetch(ajaxObject.ajax_url, {
 				method: "POST",

@@ -3,7 +3,6 @@
 
 import React, { useState, useEffect } from "react";
 
-
 /**
  * FormRenderer Component - Simple form renderer
  *
@@ -33,7 +32,8 @@ const FormRenderer = ({
 		showRequiredNote: true,
 		submittingText: "Produktyvumo robotas dirba...",
 		submitAnotherResponseText: "Pabandyk dar kartą",
-		submitAgainConfirmText: "Ar tikrai nori pradėti iš naujo? Seni duomenys bus ištrinti",
+		submitAgainConfirmText:
+			"Ar tikrai nori pradėti iš naujo? Seni duomenys bus ištrinti",
 		canSubmitAnotherResponse: true,
 	};
 
@@ -44,6 +44,7 @@ const FormRenderer = ({
 	const [errors, setErrors] = useState({});
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(wasSubmitted);
+	const [anotherResponse, setAnotherResponse] = useState(false);
 
 	// Initialize form data based on fields and initialData
 	useEffect(() => {
@@ -56,7 +57,6 @@ const FormRenderer = ({
 		});
 		setFormData(initialFormData);
 	}, []);
-
 
 	// Handle input changes
 	const handleInputChange = (fieldKey, value) => {
@@ -103,6 +103,9 @@ const FormRenderer = ({
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		if (anotherResponse && !confirm(formConfig.submitAgainConfirmText)) {
+			return;
+		}
 
 		if (!validateForm()) {
 			return;
@@ -259,11 +262,8 @@ const FormRenderer = ({
 					<button
 						className="sv-btn sv-btn-secondary sv-btn-submit-another"
 						onClick={() => {
-							if(!confirm(formConfig.submitAgainConfirmText)) {
-								return;
-							}
+							setAnotherResponse(true);
 							setIsSubmitted(false);
-
 						}}
 					>
 						{formConfig.submitAnotherResponseText}
@@ -279,7 +279,7 @@ const FormRenderer = ({
 				isSubmitting ? "generating-data" : ""
 			}`}
 		>
-			{!isSubmitting && 
+			{!isSubmitting && (
 				<form onSubmit={handleSubmit} className="sv-form-container" noValidate>
 					{formConfig.title && (
 						<div className="sv-form-header">
@@ -312,7 +312,7 @@ const FormRenderer = ({
 						</button>
 					</div>
 				</form>
-			}
+			)}
 
 			{isSubmitting && (
 				<div className="ai-blob" style={{ "--ai-size": "300px" }}>

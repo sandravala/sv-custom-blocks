@@ -59,7 +59,33 @@ const EditableTable = ({
 
 	//Update internal data when props change
 	useEffect(() => {
-		setTableData(data);
+		if (!data) return;
+
+		let processedData = data;
+
+		// Handle flat array (most common case)
+		if (Array.isArray(data)) {
+			processedData = data.map((row) => ({
+				...row,
+				id: row.id || generateId(),
+			}));
+		}
+		// Handle grouped object
+		else if (typeof data === "object") {
+			processedData = {};
+			Object.entries(data).forEach(([groupKey, items]) => {
+				if (Array.isArray(items)) {
+					processedData[groupKey] = items.map((row) => ({
+						...row,
+						id: row.id || generateId(),
+					}));
+				} else {
+					processedData[groupKey] = items;
+				}
+			});
+		}
+
+		setTableData(processedData);
 		//setIsDirty(false);
 	}, [data]);
 
@@ -234,15 +260,16 @@ const EditableTable = ({
 	const updateRowWithCalculation = (row, rowId, field, value) => {
 		if (row.id === rowId) {
 			// Update the field and recalculate
-			const updatedRow = { ...row, [field]: value };
-			return recalculateRow(updatedRow);
+			return { ...row, [field]: value };
+			//return recalculateRow(updatedRow);
 		}
 		return row;
 	};
 
-	// Then your updateRow function becomes much cleaner:
+
 	const updateRow = (rowId, field, value, groupKey = null) => {
 		const column = columns.find((col) => col.key === field);
+
 		value = convertValue(value, column);
 
 		let newData;
@@ -288,12 +315,20 @@ const EditableTable = ({
 
 		// Special handling for totals row
 		if (row.__isTotalsRow) {
+			let displayValue = value;
+			if (column.type === "number" && typeof value === "number") {
+				displayValue =
+					column.valueDisplayStyle !== undefined
+						? displayValue.toLocaleString("lt-LT", column.valueDisplayStyle)
+						: displayValue.toLocaleString("lt-LT", {
+								style: "decimal",
+								minimumFractionDigits: 0,
+								maximumFractionDigits: 2,
+						  });
+			}
+
 			return (
-				<div className="sv-field-value sv-totals-value">
-					{column.type === "number" && typeof value === "number"
-						? value.toLocaleString()
-						: value}
-				</div>
+				<div className="sv-field-value sv-totals-value">{displayValue}</div>
 			);
 		}
 		const fieldId = `${blockAbbr}_${dataType}_${column.key}_${row.id}`;
@@ -304,7 +339,7 @@ const EditableTable = ({
 
 		// Display mode or readonly/calculated field
 
-		if (!isEditing) {
+		if (!isEditing || isReadonly) {
 			// Display mode
 			let displayValue = value;
 			if (isCalculated && column.calculate) {
@@ -329,7 +364,14 @@ const EditableTable = ({
 				: "sv-field-value";
 
 			if (column.type === "number" && typeof displayValue === "number") {
-				displayValue = displayValue.toLocaleString();
+				displayValue =
+					column.valueDisplayStyle !== undefined
+						? displayValue.toLocaleString("lt-LT", column.valueDisplayStyle)
+						: displayValue.toLocaleString("lt-LT", {
+								style: "decimal",
+								minimumFractionDigits: 0,
+								maximumFractionDigits: 2,
+						  });
 			}
 
 			return <div className={className}>{displayValue}</div>;
@@ -345,11 +387,14 @@ const EditableTable = ({
 			onChange: (e) => updateRow(row.id, column.key, e.target.value, groupKey),
 			placeholder:
 				column.placeholder || `Enter ${column.label.toLowerCase()}...`,
+			disabled: isReadonly || isCalculated,
 		};
 
-		switch (column.type) {
-			case "textarea":
-				return <textarea {...commonProps} rows={column.rows || 3} />;
+
+		
+			switch (column.type) {
+				case "textarea":
+					return <textarea {...commonProps} rows={column.rows || 3} />;
 
 			case "number":
 				return (
@@ -376,6 +421,8 @@ const EditableTable = ({
 			default:
 				return <input {...commonProps} type="text" />;
 		}
+		
+	
 	};
 
 	const calculateTotals = () => {
@@ -405,9 +452,34 @@ const EditableTable = ({
 
 		columns.forEach((column) => {
 			if (totalsConfig.fields[column.key]) {
+				// GET VALUES: Handle calculated columns differently
 				const values = allRows
-					.map((row) => row[column.key])
-					.filter((val) => typeof val === "number" && !isNaN(val));
+					.map((row) => {
+						let value;
+
+						// FOR CALCULATED COLUMNS: Calculate value in real-time
+						if (column.calculated && typeof column.calculate === "function") {
+							try {
+								value = column.calculate(row);
+							} catch (error) {
+								console.error(
+									`Error calculating ${column.key} for totals:`,
+									error,
+								);
+								value = 0;
+							}
+						} else {
+							// FOR REGULAR COLUMNS: Get stored value
+							value = row[column.key];
+						}
+
+						return value;
+					})
+					.filter((val) => {
+						// More lenient filter - convert strings to numbers
+						const num = Number(val);
+						return !isNaN(num) && isFinite(num);
+					});
 
 				switch (totalsConfig.fields[column.key]) {
 					case "sum":
@@ -419,9 +491,17 @@ const EditableTable = ({
 							: 0;
 						break;
 					case "count":
-						totals[column.key] = allRows.filter(
-							(row) => row[column.key] != null && row[column.key] !== "",
-						).length;
+						// For count, check calculated values too
+						const countValues = allRows.filter((row) => {
+							let value;
+							if (column.calculated && typeof column.calculate === "function") {
+								value = column.calculate(row);
+							} else {
+								value = row[column.key];
+							}
+							return value != null && value !== "";
+						});
+						totals[column.key] = countValues.length;
 						break;
 					default:
 						totals[column.key] = "";
@@ -442,7 +522,7 @@ const EditableTable = ({
 
 		return (
 			<div
-				key={row.id}
+				key={`${row.id ? row.id : generateId()}`}
 				className={`sv-table-row ${isEditing ? "editing" : ""} ${
 					isTotalsRow ? "sv-totals-row" : ""
 				}`}
@@ -521,7 +601,7 @@ const EditableTable = ({
 	// Render loading state
 	const renderLoadingState = () => (
 		<div className="sv-table-loading">
-			<div>Kraunami duomenys...</div>
+			<div className="sv-table-loader"></div>
 		</div>
 	);
 

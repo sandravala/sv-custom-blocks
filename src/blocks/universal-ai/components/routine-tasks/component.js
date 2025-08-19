@@ -25,7 +25,7 @@ export default function RoutineTasksComponent({
 		.replace(/[^a-z0-9_]/g, "_");
 
 	const saveToMeta = {
-		routine_tasks: "responsibilities_table"
+		routine_tasks: "responsibilities_table",
 	};
 
 	const [loading, setLoading] = useState(false);
@@ -39,7 +39,7 @@ export default function RoutineTasksComponent({
 		activity_area: "",
 		job_title: "",
 		additional_info: "",
-		responsibility_level: ""
+		responsibility_level: "",
 	});
 
 	const formConfig = {
@@ -48,7 +48,8 @@ export default function RoutineTasksComponent({
 		successMessage: "Thank you!", // Message shown after successful submission
 		showRequiredNote: true, // Show "Fields marked with * are required"
 		submittingText: "DI asistentas dirba...", // kas rodoma ai blob'e
-		submitAnotherResponseText: "Paprašyk, kad DI asistentas sugeneruotų naują rutininių užduočių sąrašą",
+		submitAnotherResponseText:
+			"Paprašyk, kad DI asistentas sugeneruotų naują rutininių užduočių sąrašą",
 		canSubmitAnotherResponse: true, // Allow submitting another response
 	};
 
@@ -67,7 +68,8 @@ export default function RoutineTasksComponent({
 			name: "job_title",
 			label: "Pareigos",
 			type: "text",
-			placeholder: "Pareigos ir lygis (pvz., projektų vadovas, specialistas, jaunesnysis)",
+			placeholder:
+				"Pareigos ir lygis (pvz., projektų vadovas, specialistas, jaunesnysis)",
 			required: true,
 			key: "job_title",
 		},
@@ -75,7 +77,8 @@ export default function RoutineTasksComponent({
 			name: "additional_info",
 			label: "Papildoma informacija",
 			type: "textarea",
-			placeholder: "Konkrečios užduotys ar procesai, kuriuose dalyvauji ar turi bent dalinę atsakomybę",
+			placeholder:
+				"Konkrečios užduotys ar procesai, kuriuose dalyvauji ar turi bent dalinę atsakomybę",
 			required: false,
 			rows: 2,
 			key: "additional_info",
@@ -85,23 +88,35 @@ export default function RoutineTasksComponent({
 			label: "Atsakomybės lygis",
 			type: "select",
 			options: [
-				{ label: "Pilnai atsakinga:s už visą procesą", value: "full_responsibility" },
-				{ label: "Dalyvauju procese / padedu", value: "partial_responsibility" },
-				{ label: "Vadovauju komandai, atsakingai už šį procesą", value: "team_lead" },
-				{ label: "Individuali:us vykdytoja:s", value: "individual_contributor" }
+				{
+					label: "Pilnai atsakinga:s už visą procesą",
+					value: "full_responsibility",
+				},
+				{
+					label: "Dalyvauju procese / padedu",
+					value: "partial_responsibility",
+				},
+				{
+					label: "Vadovauju komandai, atsakingai už šį procesą",
+					value: "team_lead",
+				},
+				{
+					label: "Individuali:us vykdytoja:s",
+					value: "individual_contributor",
+				},
 			],
 			required: true,
 			key: "responsibility_level",
-		}
+		},
 	];
 
 	const routineTasksColumns = [
 		{
-			key: "task",
+			key: "responsibility",
 			label: "Užduotis",
 			type: "text",
 			flex: "flex-4",
-			placeholder: ""
+			placeholder: "",
 		},
 		{
 			key: "typical_hours_per_month",
@@ -117,14 +132,15 @@ export default function RoutineTasksComponent({
 			flex: "flex-1",
 			placeholder: "",
 			calculated: true, // Mark as calculated
-		readonly: true,   // User can't edit
-		// Function that calculates value from other columns
-		calculate: (row) => {
-			const hours = Number(row.typical_hours_per_month) || 0;
-			const weeklyRate = 4.33; // €25 per hour
-			return (hours * weeklyRate).toFixed(1);
-		}
-		}
+			readonly: true, // User can't edit
+			// Function that calculates value from other columns
+			calculate: (row) => {
+				const hours = Number(row.typical_hours_per_month) || 0;
+				const weeklyRate = 4.33; // €25 per hour
+				return (hours / weeklyRate);
+			},
+			dependsOn: ["typical_hours_per_month"],
+		},
 	];
 
 	const tableConfig = {
@@ -146,13 +162,12 @@ export default function RoutineTasksComponent({
 			label: "VISO",
 			position: "bottom",
 			fields: {
-				task: "iš viso:",
+				responsibility: "iš viso:",
 				typical_hours_per_month: "sum",
-				hours_per_week: "sum",
+				weekly_hours: "sum",
 			},
 		},
 	};
-
 
 	// Load saved data on component mount (only if logged in)
 	useEffect(() => {
@@ -164,7 +179,6 @@ export default function RoutineTasksComponent({
 		}
 	}, [isLoggedIn, assistantId, blockId, useResponsesApi]);
 
-
 	const loadSavedData = async () => {
 		//JSON.stringify(["meta_key1", "meta_key2"]); - čia kokių ieškoti meta keys vartotojo meta
 		try {
@@ -172,7 +186,12 @@ export default function RoutineTasksComponent({
 				action: "load_saved_data",
 				nonce: ajaxObject.nonce,
 				meta_keys: JSON.stringify(Object.keys(saveToMeta)),
+				can_use_ai_again: canUseAiAgain,
 			};
+
+			// Use appropriate parameter based on API type
+			if (useResponsesApi) params.block_id = blockId;
+			else params.assistant_id = assistantId;
 
 			const response = await fetch(ajaxObject.ajax_url, {
 				method: "POST",
@@ -185,9 +204,14 @@ export default function RoutineTasksComponent({
 			const result = await response.json();
 
 			if (result.success) {
+				console.log("Loaded saved data:", result.data);
 				setFormData((prev) => ({ ...prev, ...result.data.input_data }));
 
-				setRoutineTasks((prev) => ({ ...prev, ...result.data.user_data }));
+				const routineTasksData = result.data.user_data.routine_tasks;
+				// routineTasks.forEach((task, index) => {
+				// 	task.id = index + 1; // Ensure each task has a unique ID
+				// });
+				setRoutineTasks(routineTasksData);
 
 			} else {
 				// Error loading data (could be no data exists, which is fine)
@@ -207,12 +231,18 @@ export default function RoutineTasksComponent({
 		// 	return quarterOrder[a.quarter] - quarterOrder[b.quarter];
 		// });
 		//update goal data actions value
+
 		
-	setRoutineTasks((prev) => ({ ...prev, ...tableData }));
+		setRoutineTasks(tableData);
+		
 	};
 
 	const handleSubmit = async (inputData, saveKey) => {
-		if (inputData.activity_area.length < 1 || inputData.job_title.length < 1 || inputData.responsibility_level.length < 1) {
+		if (
+			inputData.activity_area.length < 1 ||
+			inputData.job_title.length < 1 ||
+			inputData.responsibility_level.length < 1
+		) {
 			setError("Užpildyk visus privalomus laukus!");
 			return;
 		}
@@ -230,7 +260,6 @@ export default function RoutineTasksComponent({
 		setFormData((prev) => ({ ...prev, ...inputData }));
 		setLoading(true);
 		setError("");
-
 
 		try {
 			const params = {
@@ -264,9 +293,9 @@ export default function RoutineTasksComponent({
 
 				console.log("Generated AI Data:", result.data.responsibilities_table);
 				const generatedData = result.data.responsibilities_table;
-				generatedData.array.forEach(task => {
-					task.hours_per_week = (task.typical_hours_per_month / 4.33).toFixed(1);
-				});
+				// generatedData.array.forEach(task => {
+				// 	task.hours_per_week = (task.typical_hours_per_month / 4.33).toFixed(1);
+				// });
 				setRoutineTasks(generatedData || []);
 
 				setError("");
@@ -285,10 +314,8 @@ export default function RoutineTasksComponent({
 	};
 
 	const handleDataSave = async (data, metaKey) => {
-		setRoutineTasks((prev) => ({ ...prev, ...data }));
+		setRoutineTasks(data);
 		setError("");
-
-		
 
 		try {
 			const response = await fetch(ajaxObject.ajax_url, {
@@ -299,7 +326,7 @@ export default function RoutineTasksComponent({
 				body: new URLSearchParams({
 					action: "save_modified_data",
 					nonce: ajaxObject.nonce,
-					data: JSON.stringify(data),
+					data: JSON.stringify({ [saveToMeta.routine_tasks]: data }),
 					save_to_meta: JSON.stringify(saveToMeta),
 				}),
 			});
@@ -368,9 +395,8 @@ export default function RoutineTasksComponent({
 						dataType="routine_tasks_collection"
 						className="routine-tasks-table"
 					/>
-					<AccordionHeader title="Papildoma informacija, aktuali tarpiniams tikslams">
+					<AccordionHeader title="Papildoma informacija">
 						{/* Put any content here */}
-						
 					</AccordionHeader>
 				</>
 			)}
