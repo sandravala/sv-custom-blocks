@@ -1,0 +1,50 @@
+/**
+ * Monthly Goals Block - Styles
+ */
+
+ @import '@components/EditableTable/style';
+
+// Additional classes for quarterly context improvements
+.quarterly-actions-container {
+	background: rgba(140, 201, 197, 0.05);
+	border-radius: var(--sv-radius-md);
+	padding: var(--sv-space-sm);
+}
+
+.quarterly-action-card {
+	background: white;
+	border-radius: var(--sv-radius-sm);
+	padding: var(--sv-space-sm);
+	border-left: 3px solid var(--sv-teal);
+	box-shadow: var(--sv-shadow-sm);
+	transition: all 0.2s ease;
+	
+	&:hover {
+		transform: translateY(-1px);
+		box-shadow: var(--sv-shadow-md);
+	}
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.other-months-container {
+	background: var(--sv-bg-lavender-light);
+	border-radius: var(--sv-radius-sm);
+	padding: var(--sv-space-sm);
+}
+
+.other-month-goal {
+	padding: var(--sv-space-xs);
+	border-radius: var(--sv-radius-sm);
+	transition: background 0.2s ease;
+	
+	&:hover {
+		background: var(--sv-teal-light);
+	}
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

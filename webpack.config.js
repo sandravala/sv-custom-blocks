@@ -107,6 +107,7 @@ module.exports = {
 		alias: {
 			"@components": path.resolve(__dirname, "src/components"),
 			"@common": path.resolve(__dirname, "src/components/common"),
+			"@shared": path.resolve(__dirname, "src/shared")
 		},
 	},
 	mode: "development",

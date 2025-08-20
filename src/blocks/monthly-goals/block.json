@@ -1,21 +1,22 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "sv-custom-blocks/routine-tasks-generator",
+	"name": "sv-custom-blocks/monthly-goals",
 	"version": "0.1.0",
-	"title": "Routine Tasks Generator",
+	"title": "Monthly Goals",
 	"category": "widgets",
-	"icon": "list-view",
-	"description": "Generate routine tasks using OpenAI based on job role and responsibilities",
+	"icon": "calendar-alt",
+	"description": "Create and manage monthly goals based on quarterly objectives.",
 	"attributes": {
-		"assistantId": {
+		"sv_cb_mg_month_selection_mode": {
 			"type": "string",
-			"default": ""
+			"default": "limited"
 		}
 	},
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"anchor": true
 	},
 	"textdomain": "sv-custom-blocks",
 	"editorScript": "file:./index.js",
