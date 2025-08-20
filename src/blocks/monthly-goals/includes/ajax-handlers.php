@@ -128,7 +128,12 @@ class SV_MonthlyGoals_Ajax_Handler
         }
 
         try {
-            // Get existing monthly goals
+
+            $saved = false;
+
+            if (!empty($goals_data)) {
+                // No goals data provided
+                // Get existing monthly goals
             $monthly_goals = get_user_meta($user_id, 'monthly_goals', true);
             if (!is_array($monthly_goals)) {
                 $monthly_goals = [];
@@ -154,10 +159,13 @@ class SV_MonthlyGoals_Ajax_Handler
 
             // Save updated monthly goals
             $saved = update_user_meta($user_id, 'monthly_goals', $monthly_goals);
+            }
+
+            
 
             // Save TC preferences if provided
             if ($tc_preferences && is_array($tc_preferences)) {
-                update_user_meta($user_id, 'tc_calculator_preferences', $tc_preferences);
+                $saved = update_user_meta($user_id, 'tc_calculator_preferences', $tc_preferences);
             }
 
             // Save timestamp

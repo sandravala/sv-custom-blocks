@@ -121,10 +121,10 @@ export default function QuarterlyGoalsComponent({
 	];
 
 	const quarterTitles = {
-		Q1: "I ketv: ",
-		Q2: "II ketv: ",
-		Q3: "III ketv: ",
-		Q4: "IV ketv: ",
+		Q1: "I ketv.",
+			Q2: "II ketv.",
+			Q3: "III ketv.",
+			Q4: "IV ketv.",
 	};
 
 	// Load saved data on component mount (only if logged in)
@@ -155,6 +155,35 @@ export default function QuarterlyGoalsComponent({
 		}
 	}, [goalData.stages]); // Only depend on the actual data
 
+
+	const getQuarterInfo = (area) => {
+    
+    // Check if area is already a quarter key (Q1, Q2, etc.)
+    if (quarterTitles[area]) {
+        return {
+            key: area,
+            title: quarterTitles[area]
+        };
+    }
+
+	const areaSubstring = area.replace(" ketv: ", " ketv.");
+
+    // Check if area is already a formatted title
+    const foundKey = Object.entries(quarterTitles).find(([key, title]) => title.includes(areaSubstring));
+    if (foundKey) {
+        return {
+            key: foundKey[0],
+            title: foundKey[1]
+        };
+    }
+    
+    // Fallback - area doesn't match known patterns
+    return {
+        key: area,
+        title: area
+    };
+};
+
 	const formatActionItems = (actions) => {
 		let total_hours = 0;
 
@@ -172,23 +201,21 @@ export default function QuarterlyGoalsComponent({
 				: action.dependencies;
 
 			// Get the original area before transformation (Q1, Q2, Q3, Q4)
-			const quarter = action.area;
-			action.quarter = quarter;
+			const quarterMeta = getQuarterInfo(action.area);
+			action.quarter = quarterMeta.key;
 
-			if (action.area in quarterTitles) {
-				action.area = quarterTitles[action.area];
-			}
+			action.area = quarterMeta.title;
 
 			// Initialize counter for this group if it doesn't exist
-			if (!groupCounters[quarter]) {
-				groupCounters[quarter] = 0;
+			if (!groupCounters[quarterMeta.key]) {
+				groupCounters[quarterMeta.key] = 0;
 			}
 
 			// Increment counter for this group
-			groupCounters[quarter]++;
+			groupCounters[quarterMeta.key]++;
 
 			// Set ID based on group and position within group
-			action.id = `${quarter}_action_${groupCounters[quarter]}`;
+			action.id = `${quarterMeta.key}_action_${groupCounters[quarterMeta.key]}`;
 
 			return action;
 		});

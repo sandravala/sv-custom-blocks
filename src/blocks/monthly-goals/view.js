@@ -35,15 +35,10 @@ function MonthlyGoalsComponent({ blockElement }) {
 	const [workingHours, setWorkingHours] = useState(0);
 	const [allRoutineTasks, setAllRoutineTasks] = useState([]);
 	const [routineTaskHours, setRoutineTaskHours] = useState(0);
-	const [otherMonthsGoals, setOtherMonthsGoals] = useState([]);
+	const [hasTimeForGoals, setHasTimeForGoals] = useState(false);
+	const [maxHoursPerGoal, setMaxHoursPerGoal] = useState(40);
 	const [showWorkingHoursSaveButton, setShowWorkingHoursSaveButton] =
 		useState(false);
-
-	// Calculate other months' goals for current quarter
-	useEffect(() => {
-		const calculatedGoals = getOtherMonthsGoals(allMonthlyGoals, selectedMonth);
-		setOtherMonthsGoals(calculatedGoals);
-	}, [allMonthlyGoals, selectedMonth]);
 
 	const getAvailableMonths = () => {
 		const currentDate = new Date();
@@ -102,7 +97,7 @@ function MonthlyGoalsComponent({ blockElement }) {
 		if (!isLoggedIn) return;
 
 		const availableMonths = getAvailableMonths();
-		//const quarterlyContext = getQuarterlyContext(allGoalActions, selectedMonth);
+
 		if (availableMonths.length > 0) {
 			const currentDate = new Date();
 			const currentYear = currentDate.getFullYear();
@@ -153,14 +148,6 @@ function MonthlyGoalsComponent({ blockElement }) {
 		}
 	}, [selectedMonth, allMonthlyGoals]);
 
-	// Update current month goals when month or data changes
-	useEffect(() => {
-		if (selectedMonth && allMonthlyGoals.length >= 0) {
-			const monthGoals = getMonthGoals(allMonthlyGoals, selectedMonth);
-			setCurrentMonthGoals(monthGoals);
-		}
-	}, [selectedMonth, allMonthlyGoals]);
-
 	// Update TC preferences ONLY when month or TC data changes (not when monthly goals change)
 	useEffect(() => {
 		if (selectedMonth) {
@@ -175,6 +162,11 @@ function MonthlyGoalsComponent({ blockElement }) {
 		if (selectedMonth && vacationDays >= 0 && hoursPerDay > 0) {
 			calculateWorkingHoursDisplay();
 		}
+		const hasTime =
+			workingHours > 0 &&
+			routineTaskHours > 0 &&
+			workingHours > routineTaskHours;
+		setHasTimeForGoals(hasTime);
 	}, [selectedMonth, vacationDays, hoursPerDay]);
 
 	// Load all data from backend once
@@ -214,41 +206,6 @@ function MonthlyGoalsComponent({ blockElement }) {
 		} finally {
 			setLoading(false);
 		}
-	};
-
-	// Get all goals from other months in the same quarter
-	const getOtherMonthsGoals = (allMonthlyGoals, selectedMonth) => {
-		if (!selectedMonth) return [];
-
-		const [year, month] = selectedMonth.split("-").map(Number);
-		const currentQuarter = getQuarterFromMonth(month);
-
-		// Define quarter months
-		const quarterMonths = {
-			Q1: [1, 2, 3],
-			Q2: [4, 5, 6],
-			Q3: [7, 8, 9],
-			Q4: [10, 11, 12],
-		};
-
-		const currentQuarterMonths = quarterMonths[currentQuarter];
-		const otherMonths = currentQuarterMonths.filter((m) => m !== month);
-
-		// Collect all goals from other months
-		const allOtherGoals = [];
-
-		otherMonths.forEach((monthNum) => {
-			const monthKey = `${year}-${monthNum.toString().padStart(2, "0")}`;
-			const monthEntry = allMonthlyGoals.find(
-				(entry) => entry.month === monthKey,
-			);
-
-			if (monthEntry && monthEntry.goals) {
-				allOtherGoals.push(...monthEntry.goals);
-			}
-		});
-
-		return allOtherGoals;
 	};
 
 	// Get quarter title with stage information
@@ -308,11 +265,6 @@ function MonthlyGoalsComponent({ blockElement }) {
 
 	// Get quarterly context for selected month
 	const getQuarterlyContext = (goalActions, selectedMonth) => {
-		console.log("getQuarterlyContext called with:", {
-			goalActions: goalActions.length,
-			selectedMonth,
-		});
-
 		if (!Array.isArray(goalActions) || !selectedMonth) {
 			return { quarter: "", actions: [] };
 		}
@@ -321,21 +273,11 @@ function MonthlyGoalsComponent({ blockElement }) {
 		const monthNum = parseInt(selectedMonth.split("-")[1]);
 		const quarter = getQuarterFromMonth(monthNum);
 
-		console.log("Calculated quarter:", quarter, "for month:", monthNum);
-
 		// Filter actions by quarter - check both 'quarter' and 'area' fields
 		const quarterlyActions = goalActions.filter((action) => {
 			const actionQuarter = action.quarter || action.area || "";
-			console.log(
-				"Action quarter/area:",
-				actionQuarter,
-				"matches:",
-				actionQuarter === quarter,
-			);
 			return actionQuarter === quarter;
 		});
-
-		console.log("Filtered actions:", quarterlyActions);
 
 		return {
 			quarter,
@@ -460,6 +402,7 @@ function MonthlyGoalsComponent({ blockElement }) {
 			console.error("Save error:", err);
 		} finally {
 			setSaving(false);
+			setShowWorkingHoursSaveButton(false);
 		}
 	};
 
@@ -469,8 +412,25 @@ function MonthlyGoalsComponent({ blockElement }) {
 	};
 
 	// Handle table data changes
-	const handleGoalsChange = (newGoalsData) => {
+	const handleGoalsChange = (newGoalsData, changeInfo) => {
 		setCurrentMonthGoals(newGoalsData);
+		//calculate goals hours sum and compare it to working hours - routine tasks number
+		if (changeInfo.field === "hours_allocated") {
+			const totalAllocatedHours = newGoalsData.reduce(
+				(sum, goal) => sum + (goal.hours_allocated || 0),
+				0,
+			);
+			const current_goal_hours = changeInfo.newValue;
+
+			const availableHours = workingHours - routineTaskHours;
+			const remainingHours = Math.max(0, availableHours - totalAllocatedHours);
+
+			// Set max for new/edited goals (current allocation + remaining)
+			const maxForNewGoal = Math.max(0, remainingHours + current_goal_hours);
+			setMaxHoursPerGoal(maxForNewGoal);
+			const canAddMoreGoals = remainingHours > 0;
+			setHasTimeForGoals(canAddMoreGoals);
+		}
 	};
 
 	// Handle table save
@@ -478,11 +438,35 @@ function MonthlyGoalsComponent({ blockElement }) {
 		saveMonthlyGoals(currentMonthGoals);
 	};
 
+	const getTableTitle = () => {
+		const currentMonth = selectedMonth.split("-");
+		const monthlyStrings = {
+			"01": " sausio",
+			"02": " vasario",
+			"03": " kovo",
+			"04": " balandžio",
+			"05": " gegužės",
+			"06": " birželio",
+			"07": " liepos",
+			"08": " rugpjūčio",
+			"09": " rugsėjo",
+			10: " spalio",
+			11: " lapkričio",
+			12: " gruodžio",
+		};
+		return `${currentMonth[0] + monthlyStrings[currentMonth[1]]} tikslai`;
+	};
+
 	// Editable table configuration
-	const tableConfig = createSimpleListConfig("Mėnesio tikslai");
-	tableConfig.emptyStateText = "Mėnesio tikslų dar nėra";
-	tableConfig.emptyStateSubtext = "Paspausk + ir pridėk savo mėnesio tikslus";
-	tableConfig.saveButtonText = "Išsaugoti tikslus";
+	const tableConfig = {
+		title: getTableTitle(),
+		emptyStateText: "Šiam mėnesiui tikslų dar nėra",
+		emptyStateSubtext: "Paspausk + ir užrašyk tikslus",
+		saveButtonText: "Išsaugoti tikslus",
+		allowAdd: hasTimeForGoals,
+		allowRemove: true,
+		showCounter: false,
+	};
 
 	// Column definitions for goals table
 	const goalColumns = [
@@ -499,12 +483,50 @@ function MonthlyGoalsComponent({ blockElement }) {
 			type: "number",
 			flex: "flex-auto",
 			min: 0,
-			max: 744, // reikės naudoti state, paskaičiuosiu kiek tikslams lieka ir atimsiu su kiekvienu esamu tikslu
+			max: maxHoursPerGoal,
 			defaultValue: 0,
 		},
 	];
 
 	const availableMonths = getAvailableMonths();
+
+	const InfoCard = ({ children, hours, className = "" }) => {
+		return (
+			<div className={`quarterly-action-card sv-mb-sm ${className}`}>
+				<div className="sv-flex sv-justify-between sv-items-center">
+					<div className="sv-text-sm sv-text-greenish sv-font-normal sv-flex-1">
+						{children}
+					</div>
+					{hours && (
+						<div className="sv-text-teal sv-px-sm sv-py-xs sv-rounded sv-text-sm sv-font-medium sv-ml-sm">
+							{hours} h
+						</div>
+					)}
+				</div>
+			</div>
+		);
+	};
+
+	// InfoSection Component - Reusable section with title and cards container
+	const InfoSection = ({
+		title,
+		children,
+		className = "",
+		hasBorder = false,
+	}) => {
+		return (
+			<div
+				className={`sv-mb-md ${
+					hasBorder ? "sv-border-t sv-border-teal sv-pt-md" : ""
+				} ${className}`}
+			>
+				<div className="sv-text-md sv-font-medium sv-text-dark sv-mb-sm">
+					{title}
+				</div>
+				<div className="quarterly-actions-container">{children}</div>
+			</div>
+		);
+	};
 
 	if (!isLoggedIn) {
 		return null; // Login notice shown in PHP
@@ -524,11 +546,11 @@ function MonthlyGoalsComponent({ blockElement }) {
 
 			{/* Month Selector and Working Hours Inputs */}
 			<div className="sv-card">
-				<div className="sv-card__header">
+				{/* <div className="sv-card__header">
 					<h3 className="sv-text-xl sv-font-semibold sv-text-dark">
 						Mėnesio tikslai
 					</h3>
-				</div>
+				</div> */}
 
 				{/* Row 1: Inputs */}
 				<div className="sv-grid sv-grid-cols-3 sv-gap-md sv-mb-md">
@@ -652,45 +674,43 @@ function MonthlyGoalsComponent({ blockElement }) {
 				<div className="sv-flex sv-flex-col sv-gap-lg">
 					{/* Quarterly Context */}
 					{quarterlyContext && quarterlyContext.actions.length > 0 && (
-						<AccordionHeader
-							title={
-								getQuarterTitle(quarterlyContext.quarter, allGoalStages).title
-							}
-							subtitle={
-								getQuarterTitle(quarterlyContext.quarter, allGoalStages)
-									.outcomes
-							}
-						>
+						<AccordionHeader title="Papildoma informacija">
+							{/* Quarterly Outcomes */}
+							<InfoSection
+								title={`Siektini ${
+									getQuarterTitle(quarterlyContext.quarter, allGoalStages).title
+								} rezultatai:`}
+							>
+								<InfoCard>
+									{
+										getQuarterTitle(quarterlyContext.quarter, allGoalStages)
+											.outcomes
+									}
+								</InfoCard>
+							</InfoSection>
+
 							{/* Main Actions from goal_actions */}
-							<div className="sv-mb-md">
-								<div className="sv-text-sm sv-font-medium sv-text-dark sv-mb-sm">
-									Pagrindiniai veiksmai:
-								</div>
-								<div className="quarterly-actions-container">
-									{quarterlyContext.actions.map((action, index) => (
-										<div key={index} className="quarterly-action-card sv-mb-sm">
-											<div className="sv-flex sv-justify-between sv-items-center">
-												<div className="sv-text-dark sv-font-normal sv-flex-1">
-													{action.description ||
-														action.responsibility ||
-														"Užduotis"}
-												</div>
-												{action.hours_estimate && (
-													<div className="sv-bg-teal sv-text-white sv-px-sm sv-py-xs sv-rounded sv-text-sm sv-font-medium sv-ml-sm">
-														{action.hours_estimate.total_hours || 0}h
-													</div>
-												)}
-											</div>
-										</div>
-									))}
-								</div>
-							</div>
-							{/* All monthly goals in this quarter */}
+							<InfoSection
+								title={`Pagrindiniai ${
+									getQuarterTitle(quarterlyContext.quarter, allGoalStages).title
+								} veiksmai:`}
+							>
+								{quarterlyContext.actions.map((action, index) => (
+									<InfoCard key={index} hours={action.hours_estimate}>
+										{action.description || action.responsibility || "Užduotis"}
+									</InfoCard>
+								))}
+							</InfoSection>
+
+							{/* Monthly Goals in this quarter */}
 							{allMonthlyGoals.length > 0 && (
-								<div className="sv-border-t sv-border-teal sv-pt-md">
-									<div className="sv-text-sm sv-font-medium sv-text-dark sv-mb-sm">
-										Mėnesių tikslai:
-									</div>
+								<InfoSection
+									title={`${
+										getQuarterTitle(quarterlyContext.quarter, allGoalStages)
+											.title
+									} mėnesiniai tikslai:`}
+									hasBorder={true}
+								>
 									{allMonthlyGoals
 										.filter((monthEntry) => {
 											// Filter to show only goals from current quarter
@@ -702,21 +722,11 @@ function MonthlyGoalsComponent({ blockElement }) {
 										})
 										.flatMap((monthEntry) => monthEntry.goals || [])
 										.map((goal, index) => (
-											<div
-												key={index}
-												className="quarterly-action-card sv-mb-sm"
-											>
-												<div className="sv-flex sv-justify-between sv-items-center">
-													<div className="sv-text-dark sv-font-normal sv-flex-1">
-														{goal.description}
-													</div>
-													<div className="sv-bg-teal sv-text-white sv-px-sm sv-py-xs sv-rounded sv-text-sm sv-font-medium sv-ml-sm">
-														{goal.hours_allocated || 0}h
-													</div>
-												</div>
-											</div>
+											<InfoCard key={index} hours={goal.hours_allocated}>
+												{goal.description}
+											</InfoCard>
 										))}
-								</div>
+								</InfoSection>
 							)}
 						</AccordionHeader>
 					)}
