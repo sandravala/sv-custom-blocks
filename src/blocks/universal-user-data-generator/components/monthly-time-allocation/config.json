@@ -1,0 +1,20 @@
+{
+  "name": "Monthly Time Allocation",
+  "icon": "📅",
+  "description": "Plan and allocate time for routine tasks and goals across weeks",
+  "category": "Planning",
+  "version": "1.0.0",
+  "dataSchema": {
+    "selectedMonth": "string",
+    "monthlyAllocation": "object"
+  },
+  "userMetaKeys": {
+    "weekly_allocations": "monthly_time_allocation",
+    "routine_tasks": "routine_tasks",
+    "monthly_goals": "monthly_goals"
+  },
+  "defaultConfig": {
+    "showRoutineTasks": true,
+    "showMonthlyGoals": true
+  }
+}

@@ -38,6 +38,9 @@
 
 	.sv-table-header-cell,
 	.sv-table-field {
+		&.flex-0 {
+			display: none; // Hide by default
+		}
 		&.flex-1 {
 			flex: 1;
 			min-width: 0;
@@ -534,6 +537,10 @@
 		justify-content: center;
 		align-items: center;
 		margin: 2em;
+	}
+
+	.sv-field-value.zero-value {
+		opacity: 0;
 	}
 
 	/* Badges */

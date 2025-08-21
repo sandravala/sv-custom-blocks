@@ -480,7 +480,7 @@ const getEmptyFields = (row) => {
 			}
 
 			return (
-				<div className="sv-field-value sv-totals-value">{displayValue}</div>
+				<div className={`sv-field-value sv-totals-value ${displayValue === "0" || displayValue === 0 ? "zero-value" : ""}`}>{displayValue}</div>
 			);
 		}
 		const fieldId = `${blockAbbr}_${dataType}_${column.key}_${row.id}`;
@@ -509,11 +509,15 @@ const getEmptyFields = (row) => {
 			}
 
 			// Add calculated styling
-			const className = isCalculated
+			let className = isCalculated
 				? "sv-field-value calculated"
 				: isReadonly && isEditing
 				? "sv-field-value readonly"
 				: "sv-field-value";
+
+			if (column.type === "number" && (displayValue === "0" || displayValue === 0)) {
+				className += " zero-value";
+			}
 
 			if (column.type === "number" && typeof displayValue === "number") {
 				displayValue =

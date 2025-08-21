@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sv-custom-blocks/universal-user-data-generator",
+	"version": "0.1.0",
+	"title": "Universal User Data Generator",
+	"category": "widgets",
+	"icon": "database",
+	"description": "Manage user data with dynamic components for planning and productivity.",
+	"attributes": {
+		"selectedComponent": {
+			"type": "string",
+			"default": "monthly-time-allocation"
+		},
+		"instanceId": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sv-custom-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

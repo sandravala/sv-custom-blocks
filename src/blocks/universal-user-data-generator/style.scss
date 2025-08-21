@@ -1,0 +1,81 @@
+/**
+ * Monthly Goals Block - Styles
+ */
+
+ @import '@components/EditableTable/style';
+
+// Additional classes for quarterly context improvements
+.monthly-time-allocation-component {
+    .sv-editable-table-container .sv-field-input.number {
+    width: 100%;
+    padding: 2px;
+    margin-right: -10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 12px;
+    background: white;
+    transition: all 0.15s ease;
+    color: #1e293b;
+    font-family: inherit;
+    text-align: center;
+}
+
+/* Monthly Time Allocation Table - Reduced gaps between week columns */
+.monthly-time-allocation-table .sv-table-row,
+.monthly-time-allocation-table .sv-table-column-headers {
+    gap: 4px; /* Small gap for week columns */
+}
+
+/* Restore normal spacing for non-week columns */
+.monthly-time-allocation-table .sv-table-field:first-child,
+.monthly-time-allocation-table .sv-table-header-cell:first-child {
+    margin-right: 16px; /* Space after Task column */
+}
+
+.monthly-time-allocation-table .sv-table-header-cell.flex-1:nth-last-child(3),
+.monthly-time-allocation-table .sv-table-header-cell.flex-1:nth-last-child(2) {
+    text-align: center;
+}
+.monthly-time-allocation-table.sv-editable-table-container .sv-table-field.flex-1 {
+    text-align: center;
+}
+
+.monthly-time-allocation-table.sv-editable-table-container .sv-table-field.flex-1,
+.monthly-time-allocation-table.sv-editable-table-container .sv-table-header-cell.flex-1 {
+        padding: 0px 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.monthly-time-allocation-table.sv-editable-table-container .sv-table-row:not(.editing) .sv-table-field.flex-1,
+.monthly-time-allocation-table.sv-editable-table-container .sv-table-header-cell.flex-1 {
+
+    border-left: 1px #80808036 solid;
+}
+.monthly-time-allocation-table .sv-field-value.calculated {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.monthly-time-allocation-table.sv-editable-table-container .sv-row-actions, 
+.monthly-time-allocation-table.sv-editable-table-container .sv-table-header-cell.actions {
+    flex: 1;
+}
+
+.monthly-time-allocation-table .sv-table-row .sv-table-field.flex-1 .sv-field-value.transparent-field {
+    opacity: 0;
+}
+// /* Chrome, Safari, Edge, Opera */
+// .sv-editable-table-container .sv-field-input.number::-webkit-outer-spin-button,
+// .sv-editable-table-container .sv-field-input.number::-webkit-inner-spin-button {
+//   -webkit-appearance: none;
+//   margin: 0;
+// }
+
+// /* Firefox */
+// .sv-editable-table-container .sv-field-input.number {
+//   -moz-appearance: textfield;
+// }
+}

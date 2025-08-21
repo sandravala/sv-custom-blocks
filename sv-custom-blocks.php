@@ -46,12 +46,11 @@ require_once plugin_dir_path(__FILE__) . 'build/blocks/monthly-goals/includes/aj
  */
 
 // Register all assistant-based blocks
-function sv_register_assistant_blocks()
+function sv_register_common_blocks()
 {
     $blocks = [
-        'routine-tasks-generator',
-        'quarterly-goals-generator',
-        'universal-ai'
+        'universal-ai',
+        'universal-user-data-generator'
     ];
 
     foreach ($blocks as $block) {
@@ -64,15 +63,15 @@ function sv_register_assistant_blocks()
         }
     }
 }
-add_action('init', 'sv_register_assistant_blocks');
+add_action('init', 'sv_register_common_blocks');
 
 // Create tables on activation
-function sv_create_assistant_tables()
+function sv_create_common_tables()
 {
     // Tables will be created on-demand by the trait
     // But you can pre-create them here if preferred
 }
-register_activation_hook(__FILE__, 'sv_create_assistant_tables');
+register_activation_hook(__FILE__, 'sv_create_common_tables');
 
 /**
  * Register custom settings for AI blocks
@@ -160,11 +159,6 @@ function sv_timeblock_init()
 }
 add_action('init', 'sv_timeblock_init');
 
-function sv_routine_tasks_init()
-{
-    register_block_type(__DIR__ . '/build/blocks/routine-tasks-generator');
-}
-add_action('init', 'sv_routine_tasks_init');
 
 function sv_time_calc_init()
 {
@@ -186,21 +180,17 @@ add_action('init', 'sv_monthly_goals_init');
 
 function sv_localize_block_scripts()
 {
-    wp_localize_script('sv-custom-blocks-planner-personality-quiz-view-script', 'sv_ajax_object', array(
-        'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
-        'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
-    ));
-    wp_localize_script('sv-custom-blocks-routine-tasks-generator-view-script', 'sv_ajax_object', array(
-        'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
-        'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
-    ));
-    wp_localize_script('sv-custom-blocks-universal-ai-view-script', 'sv_ajax_object', array(
-        'ajax_url' => admin_url('admin-ajax.php'),
-        'nonce'    => wp_create_nonce('sv_ajax_nonce'),
-    ));
-    wp_localize_script('sv-custom-blocks-monthly-goals-view-script', 'sv_ajax_object', array(
-        'ajax_url' => admin_url('admin-ajax.php'),
-        'nonce'    => wp_create_nonce('sv_ajax_nonce'),
-    ));
+    $blocks = [
+        'planner-personality-quiz',
+        'universal-ai',
+        'universal-user-data-generator',
+    ];
+    foreach ($blocks as $block) {
+        wp_localize_script("sv-custom-blocks-{$block}-view-script", 'sv_ajax_object', array(
+            'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX URL
+            'nonce'    => wp_create_nonce('sv_ajax_nonce'), // Secure the request
+        ));
+    }
+
 }
 add_action('wp_enqueue_scripts', 'sv_localize_block_scripts');
