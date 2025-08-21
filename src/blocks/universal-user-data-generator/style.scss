@@ -67,15 +67,80 @@
 .monthly-time-allocation-table .sv-table-row .sv-table-field.flex-1 .sv-field-value.transparent-field {
     opacity: 0;
 }
-// /* Chrome, Safari, Edge, Opera */
-// .sv-editable-table-container .sv-field-input.number::-webkit-outer-spin-button,
-// .sv-editable-table-container .sv-field-input.number::-webkit-inner-spin-button {
-//   -webkit-appearance: none;
-//   margin: 0;
-// }
 
-// /* Firefox */
-// .sv-editable-table-container .sv-field-input.number {
-//   -moz-appearance: textfield;
-// }
+}
+
+
+// Weekly Todo List Component - Styles (minimal custom styles, uses existing reusable classes)
+// src/blocks/universal-user-data-generator/components/weekly-todo-list/style.scss
+
+// Weekly Todo List Component - Styles (minimal custom styles, uses existing reusable classes)
+// src/blocks/universal-user-data-generator/components/weekly-todo-list/style.scss
+
+.weekly-todo-list-component {
+    
+    /* Week Navigator - arrow style navigation */
+    .sv-week-navigator {
+        display: flex;
+        align-items: center;
+        gap: var(--sv-space-sm);
+        max-width: 400px;
+        margin-bottom: var(--sv-space-xs);
+    }
+
+    .sv-week-arrow {
+        background: transparent;
+        border: none;
+        border-radius: var(--sv-radius-sm);
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--sv-font-size-lg);
+        font-weight: bold;
+        color: var(--sv-teal);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        
+        &:hover:not(:disabled) {
+            background: transparent;
+            transform: scale(1.05);
+        }
+        
+        &:disabled {
+            background: transparent;
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 94, 49, 0.3);
+        }
+    }
+
+    .sv-week-display {
+        flex: 1;
+        text-align: center;
+        font-size: var(--sv-font-size-base);
+        font-weight: 600;
+        color: var(--sv-primary);
+        padding: var(--sv-space-xs) var(--sv-space-sm);
+        background: transparent;
+        border-radius: var(--sv-radius-sm);
+        border: none;
+    }
+
+    .sv-week-indicator {
+        text-align: center;
+    }
+
+    .sv-current-week-label {
+        font-size: var(--sv-font-size-sm);
+        color: var(--sv-dark);
+        opacity: 0.75;
+        font-weight: 500;
+    }
 }

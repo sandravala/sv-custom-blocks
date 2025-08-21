@@ -1,0 +1,32 @@
+{
+  "name": "Weekly Todo Breakdown",
+  "icon": "✅",
+  "description": "Break down weekly tasks into actionable todo items with add/remove functionality",
+  "category": "Planning",
+  "version": "1.0.0",
+  "dataSchema": {
+    "selectedWeek": "string",
+    "weeklyTodos": "object"
+  },
+  "userMetaKeys": {
+    "monthly_allocation": "monthly_time_allocation",
+    "weekly_todos": "weekly_todo_breakdown"
+  },
+  "defaultConfig": {
+    "allowAddTodos": true,
+    "allowRemoveTodos": true,
+    "showCompletedTodos": true,
+    "autoSaveEnabled": false
+  },
+  "features": [
+    "Week selector (previous/current/next week)",
+    "Display tasks from monthly time allocation as group headers",
+    "Add/remove actionable todo items under each task",
+    "Save detailed breakdown with todo structure",
+    "Integration with existing monthly allocation data"
+  ],
+  "dependencies": [
+    "EditableTable component",
+    "Monthly time allocation data"
+  ]
+}

@@ -92,145 +92,156 @@ const EditableTable = ({
 	}, [data]);
 
 	const canAddRows = () => {
-    return config.allowAdd !== undefined ? config.allowAdd : tableConfig.allowAddRemove;
-};
+		return config.allowAdd !== undefined
+			? config.allowAdd
+			: tableConfig.allowAddRemove;
+	};
 
-const canRemoveRows = () => {
-    return config.allowRemove !== undefined ? config.allowRemove : tableConfig.allowAddRemove;
-};
+	const canRemoveRows = () => {
+		return config.allowRemove !== undefined
+			? config.allowRemove
+			: tableConfig.allowAddRemove;
+	};
 	// Generate unique ID for new rows
 	const generateId = () => {
 		return Date.now() + Math.random().toString(36).substr(2, 9);
 	};
 
 	// Helper to find current value in existing data
-const getCurrentValue = (rowId, field, groupKey = null) => {
-	if (tableConfig.grouped) {
-		if (Array.isArray(tableData)) {
-			const row = tableData.find(r => r.id === rowId);
-			return row ? row[field] : null;
-		} else {
-			const groupData = tableData[groupKey];
-			if (Array.isArray(groupData)) {
-				const row = groupData.find(r => r.id === rowId);
+	const getCurrentValue = (rowId, field, groupKey = null) => {
+		if (tableConfig.grouped) {
+			if (Array.isArray(tableData)) {
+				const row = tableData.find((r) => r.id === rowId);
 				return row ? row[field] : null;
-			} else if (groupData?.items) {
-				const row = groupData.items.find(r => r.id === rowId);
-				return row ? row[field] : null;
+			} else {
+				const groupData = tableData[groupKey];
+				if (Array.isArray(groupData)) {
+					const row = groupData.find((r) => r.id === rowId);
+					return row ? row[field] : null;
+				} else if (groupData?.items) {
+					const row = groupData.items.find((r) => r.id === rowId);
+					return row ? row[field] : null;
+				}
 			}
+		} else {
+			const row = tableData.find((r) => r.id === rowId);
+			return row ? row[field] : null;
 		}
-	} else {
-		const row = tableData.find(r => r.id === rowId);
-		return row ? row[field] : null;
-	}
-	return null;
-};
+		return null;
+	};
 	// Handle data changes
 	const handleDataChange = (newData, changeInfo) => {
-		// If we have change info, enhance it with old value
-	if (changeInfo && changeInfo.type === 'update') {
-		const oldValue = getCurrentValue(changeInfo.rowId, changeInfo.field, changeInfo.groupKey);
-		changeInfo.oldValue = oldValue;
-	}
-	setTableData(newData);
+				// If we have change info, enhance it with old value
+		if (changeInfo && changeInfo.type === "update") {
+			const oldValue = getCurrentValue(
+				changeInfo.rowId,
+				changeInfo.field,
+				changeInfo.groupKey,
+			);
+			changeInfo.oldValue = oldValue;
+		}
+		setTableData(newData);
 		let isActualChange = false;
 		if (changeInfo) {
-		
-		
-		switch (changeInfo.type) {
-			case 'add':
-				// Don't set dirty on add - wait for user to actually enter data
-				console.log("Row added:", changeInfo);
-				isActualChange = false;
-				break;
-				
-			case 'delete':
-				// Deleting a row is always an actual change
-				isActualChange = true;
-				break;
-				
-			case 'update':
-				// Only mark as change if values are actually different
-				isActualChange = !changeInfo.oldValue !== changeInfo.newValue;
-				break;
+			switch (changeInfo.type) {
+				case "add":
+					// Don't set dirty on add - wait for user to actually enter data
+					isActualChange = false;
+					break;
+
+				case "delete":
+					// Deleting a row is always an actual change
+					isActualChange = true;
+					break;
+
+				case "update":
+					// Only mark as change if values are actually different
+					isActualChange = changeInfo.oldValue !== changeInfo.newValue;
+					break;
+			}
 		}
-	}
-	
-	setIsDirty(isActualChange);
-	if (onDataChange) {
+
+		setIsDirty(isActualChange);
+		if (onDataChange) {
 			onDataChange(newData, changeInfo);
 		}
 	};
 
 	// Helper to get empty field names for user feedback
-const getEmptyFields = (row) => {
-	const editableFields = columns.filter(col => 
-		!col.calculated && 
-		!col.readonly &&
-		col.key !== 'id' &&
-		!col.key.startsWith('__')
-	);
-	
-	return editableFields.filter(col => {
-		const value = row[col.key];
-		return value === '' || 
-		       value === null || 
-		       value === undefined || 
-		       (typeof value === 'string' && value.trim() === '');
-	});
-};
-	const validateRowForSaving = (row) => {
-	const emptyFields = getEmptyFields(row);
-	
-	if (emptyFields.length === 0) {
-		return { isValid: true };
-	}
-	
-	// Create helpful message
-	const fieldNames = emptyFields.map(field => field.label).join(', ');
-	
-	let message;
-	if (emptyFields.length > 0) {
-		message = "Užpildyk visus laukelius!";
-	} 
-	return {
-		isValid: false,
-		message,
-		emptyFields
+	const getEmptyFields = (row) => {
+		const editableFields = columns.filter(
+			(col) =>
+				!col.calculated &&
+				!col.readonly &&
+				col.key !== "id" &&
+				!col.key.startsWith("__") &&
+				col.type !== "checkbox"
+		);
+
+		return editableFields.filter((col) => {
+			const value = row[col.key];
+			return (
+				value === "" ||
+				value === null ||
+				value === undefined ||
+				(typeof value === "string" && value.trim() === "")
+			);
+		});
 	};
-};
+	const validateRowForSaving = (row) => {
+		const emptyFields = getEmptyFields(row);
+
+		if (emptyFields.length === 0) {
+			return { isValid: true };
+		}
+
+		// Create helpful message
+		const fieldNames = emptyFields.map((field) => field.label).join(", ");
+
+		let message;
+		if (emptyFields.length > 0) {
+			message = "Užpildyk visus laukelius!";
+		}
+		return {
+			isValid: false,
+			message,
+			emptyFields,
+		};
+	};
 
 	// Toggle edit mode for a row
 	const toggleEdit = (rowId) => {
-			const isCurrentlyEditing = editingRows.has(rowId);
-	
-	if (isCurrentlyEditing) {
-		// Find the row being edited
-		let rowBeingEdited = null;
-		
-		if (tableConfig.grouped) {
-			if (Array.isArray(tableData)) {
-				rowBeingEdited = tableData.find(row => row.id === rowId);
+		const isCurrentlyEditing = editingRows.has(rowId);
+
+		if (isCurrentlyEditing) {
+			// Find the row being edited
+			let rowBeingEdited = null;
+
+			if (tableConfig.grouped) {
+				if (Array.isArray(tableData)) {
+					rowBeingEdited = tableData.find((row) => row.id === rowId);
+				} else {
+					Object.values(tableData).forEach((groupData) => {
+						const items = Array.isArray(groupData)
+							? groupData
+							: groupData?.items || [];
+						const found = items.find((row) => row.id === rowId);
+						if (found) rowBeingEdited = found;
+					});
+				}
 			} else {
-				Object.values(tableData).forEach(groupData => {
-					const items = Array.isArray(groupData) ? groupData : groupData?.items || [];
-					const found = items.find(row => row.id === rowId);
-					if (found) rowBeingEdited = found;
-				});
+				rowBeingEdited = tableData.find((row) => row.id === rowId);
 			}
-		} else {
-			rowBeingEdited = tableData.find(row => row.id === rowId);
-		}
-		
-		if (rowBeingEdited) {
-			const validation = validateRowForSaving(rowBeingEdited);
-			
-			if (!validation.isValid) {
-				alert(validation.message);
-				return; // Stay in edit mode
+
+			if (rowBeingEdited) {
+				const validation = validateRowForSaving(rowBeingEdited);
+
+				if (!validation.isValid) {
+					alert(validation.message);
+					return; // Stay in edit mode
+				}
 			}
 		}
-	}
 
 		const newEditingRows = new Set(editingRows);
 		if (newEditingRows.has(rowId)) {
@@ -321,16 +332,15 @@ const getEmptyFields = (row) => {
 		}
 
 		// Simple change info
-	const changeInfo = {
-		type: 'add',
-		rowId: newRow.id,
-		rowData: newRow,
-		groupKey: groupKey || null
-	};
+		const changeInfo = {
+			type: "add",
+			rowId: newRow.id,
+			rowData: newRow,
+			groupKey: groupKey || null,
+		};
 
-	handleDataChange(newData, changeInfo);
-	setEditingRows(new Set([...editingRows, newRow.id]));
-
+		handleDataChange(newData, changeInfo);
+		setEditingRows(new Set([...editingRows, newRow.id]));
 	};
 
 	// Delete row
@@ -366,13 +376,13 @@ const getEmptyFields = (row) => {
 		}
 
 		// Simple change info - no need to find deleted row ourselves
-	const changeInfo = {
-		type: 'delete',
-		rowId,
-		groupKey: groupKey || null
-	};
+		const changeInfo = {
+			type: "delete",
+			rowId,
+			groupKey: groupKey || null,
+		};
 
-	handleDataChange(newData, changeInfo);
+		handleDataChange(newData, changeInfo);
 
 		const newEditingRows = new Set(editingRows);
 		newEditingRows.delete(rowId);
@@ -408,7 +418,6 @@ const getEmptyFields = (row) => {
 		}
 		return row;
 	};
-
 
 	const updateRow = (rowId, field, value, groupKey = null) => {
 		const column = columns.find((col) => col.key === field);
@@ -450,15 +459,15 @@ const getEmptyFields = (row) => {
 		}
 
 		// Simple change info - let handleDataChange look up old value
-	const changeInfo = {
-		type: 'update',
-		rowId,
-		field,
-		newValue: value,
-		groupKey: groupKey || null
-	};
+		const changeInfo = {
+			type: "update",
+			rowId,
+			field,
+			newValue: value,
+			groupKey: groupKey || null,
+		};
 
-	handleDataChange(newData, changeInfo);
+		handleDataChange(newData, changeInfo);
 	};
 
 	// Render field based on column configuration
@@ -480,7 +489,13 @@ const getEmptyFields = (row) => {
 			}
 
 			return (
-				<div className={`sv-field-value sv-totals-value ${displayValue === "0" || displayValue === 0 ? "zero-value" : ""}`}>{displayValue}</div>
+				<div
+					className={`sv-field-value sv-totals-value ${
+						displayValue === "0" || displayValue === 0 ? "zero-value" : ""
+					}`}
+				>
+					{displayValue}
+				</div>
 			);
 		}
 		const fieldId = `${blockAbbr}_${dataType}_${column.key}_${row.id}`;
@@ -488,6 +503,22 @@ const getEmptyFields = (row) => {
 		// Check if field is calculated (always readonly)
 		const isCalculated = column.calculated === true;
 		const isReadonly = column.readonly === true || isCalculated;
+		const isCheckbox = column.type === "checkbox";
+
+		if (isCheckbox) {
+			return (
+				<input
+					{...commonProps}
+					type="checkbox"
+					id={fieldId}
+					checked={value || false}
+					onChange={(e) =>
+						updateRow(row.id, column.key, e.target.checked, groupKey)
+					}
+					className={`sv-field-input checkbox`}
+				/>
+			);
+		}
 
 		// Display mode or readonly/calculated field
 
@@ -515,7 +546,10 @@ const getEmptyFields = (row) => {
 				? "sv-field-value readonly"
 				: "sv-field-value";
 
-			if (column.type === "number" && (displayValue === "0" || displayValue === 0)) {
+			if (
+				column.type === "number" &&
+				(displayValue === "0" || displayValue === 0)
+			) {
 				className += " zero-value";
 			}
 
@@ -546,11 +580,9 @@ const getEmptyFields = (row) => {
 			disabled: isReadonly || isCalculated,
 		};
 
-
-		
-			switch (column.type) {
-				case "textarea":
-					return <textarea {...commonProps} rows={column.rows || 3} />;
+		switch (column.type) {
+			case "textarea":
+				return <textarea {...commonProps} rows={column.rows || 3} />;
 
 			case "number":
 				return (
@@ -574,11 +606,22 @@ const getEmptyFields = (row) => {
 					</select>
 				);
 
+			case "checkbox":
+				return (
+					<input
+						{...commonProps}
+						type="checkbox"
+						checked={value || false}
+						onChange={(e) =>
+							updateRow(row.id, column.key, e.target.checked, groupKey)
+						}
+						className={`sv-field-input checkbox`}
+					/>
+				);
+
 			default:
 				return <input {...commonProps} type="text" />;
 		}
-		
-	
 	};
 
 	const calculateTotals = () => {
@@ -676,12 +719,29 @@ const getEmptyFields = (row) => {
 		const isEditing = editingRows.has(row.id);
 		const isTotalsRow = row.__isTotalsRow;
 
+		if (!isTotalsRow && !isEditing) {
+        const hasAnyData = columns.some(column => {
+            // Skip calculated, readonly, and system columns
+            if (column.calculated || column.readonly || column.key === 'id' || column.key.startsWith('__')) {
+                return false;
+            }
+            
+            const value = row[column.key];
+            return value !== null && value !== undefined && value !== "";
+        });
+        
+        if (!hasAnyData) {
+            return null; // Don't render empty rows
+        }
+    }
+
 		return (
 			<div
 				key={`${row.id ? row.id : generateId()}`}
+				name={`row-${row.id}`}
 				className={`sv-table-row ${isEditing ? "editing" : ""} ${
 					isTotalsRow ? "sv-totals-row" : ""
-				}`}
+				} ${row.rowClass ? row.rowClass : ""}`}
 			>
 				{columns.map((column) => {
 					const isSumField =
@@ -837,9 +897,7 @@ const getEmptyFields = (row) => {
 						<h3 className="sv-table-title">{tableConfig.title}</h3>
 						<div className="sv-table-actions">
 							{tableConfig.showCounter && (
-								<span className="sv-badge">
-									{totalCount} vnt.
-								</span>
+								<span className="sv-badge">{totalCount} vnt.</span>
 							)}
 							{canAddRows() && !tableConfig.grouped && (
 								<button
