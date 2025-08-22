@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import EditableTable from "@components/EditableTable";
+import { getISOWeek, getYear } from 'date-fns';
 
 export default function WeeklyTodoListComponent({
 	blockId,
@@ -69,9 +70,7 @@ export default function WeeklyTodoListComponent({
 		const daysToFirstMonday = dayOfWeekJan1 === 0 ? -6 : 1 - dayOfWeekJan1;
 		firstMonday.setDate(firstJan.getDate() + daysToFirstMonday);
 
-		const weekNumber = Math.ceil(
-			(monday - firstMonday) / (7 * 24 * 60 * 60 * 1000) + 1,
-		);
+		const weekNumber = getISOWeek(monday);
 
 		// Format dates as MM DD
 		const formatDate = (date) => {

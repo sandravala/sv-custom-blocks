@@ -1,0 +1,319 @@
+{
+  "chronotype_data": {
+    "morning_strong": {
+      "type": "morning_strong",
+      "emoji": "🌅",
+      "name": "Ryškus rytinis tipas",
+      "score_range": "70-86",
+      "productive_hours": {
+        "start": "06:00",
+        "end": "15:00",
+        "peak_start": "06:00",
+        "peak_end": "14:00",
+        "total_productive": 6,
+        "optimal_window": "06:00-14:00"
+      },
+      "characteristics": {
+        "energy_pattern": "early_peak_sharp_decline",
+        "morning_difficulty": "very_easy",
+        "evening_capability": "very_low",
+        "startup_speed": "immediate"
+      },
+      "optimal_schedule": {
+        "preparation": {
+          "time": "04:30-06:00",
+          "activities": ["mankšta", "pusryčiai", "tylus planavimas"]
+        },
+        "deep_work": {
+          "time": "06:00-09:00",
+          "activities": ["kūryba", "tekstų rašymas", "sudėtingų problemų sprendimas"]
+        },
+        "communication": {
+          "time": "09:00-11:00", 
+          "activities": ["susitikimai", "skambučiai", "bendri projektai"]
+        },
+        "completion": {
+          "time": "11:00-13:00",
+          "activities": ["korekcijos", "ataskaitos", "atsakymai el. paštu"]
+        },
+        "transition": {
+          "time": "13:00-15:00",
+          "activities": ["pietūs", "dokumentų peržiūra", "lengvi darbai"]
+        },
+        "wind_down": {
+          "time": "po 15:00",
+          "activities": ["poilsis", "buitis", "hobiai"]
+        }
+      },
+      "recommendations": {
+        "max_daily_hours": 6,
+        "work_blocks": 3,
+        "break_frequency": "every_2-3_hours",
+        "avoid_after": "15:00",
+        "key_principle": "6 produktyvios valandos iki 14:00"
+      },
+      "risks": [
+        "vakarinės užduotys tampa nekokybiškos",
+        "kaltės jausmas dėl trumpesnių valandų",
+        "bandymas 'ištempti' iki vakaro"
+      ]
+    },
+
+    "morning_moderate": {
+      "type": "morning_moderate",
+      "emoji": "🌄",
+      "name": "Vidutiniškai rytinis tipas",
+      "score_range": "59-69",
+      "productive_hours": {
+        "start": "07:30",
+        "end": "16:00",
+        "peak_start": "09:00",
+        "peak_end": "13:00",
+        "total_productive": 7,
+        "optimal_window": "07:30-16:00"
+      },
+      "characteristics": {
+        "energy_pattern": "gradual_buildup_sustained_peak",
+        "morning_difficulty": "easy_with_warmup",
+        "evening_capability": "moderate",
+        "startup_speed": "gradual"
+      },
+      "optimal_schedule": {
+        "warmup": {
+          "time": "07:30-09:00",
+          "activities": ["pusryčiai", "dienos planavimas", "lengvi darbai", "el. paštas"]
+        },
+        "intensive_work": {
+          "time": "09:00-12:00",
+          "activities": ["kūrybinės užduotys", "projektų rašymas", "svarbūs sprendimai"]
+        },
+        "social_tactical": {
+          "time": "12:00-13:30",
+          "activities": ["susitikimai", "bendravimas", "koordinavimas", "pietūs"]
+        },
+        "systematic_work": {
+          "time": "13:30-15:30",
+          "activities": ["duomenų analizė", "dokumentacija", "praktiniai uždaviniai"]
+        },
+        "transition_out": {
+          "time": "15:30-17:00",
+          "activities": ["planavimas kitai dienai", "refleksija", "trumpi atsakymai"]
+        },
+        "rest": {
+          "time": "po 17:00",
+          "activities": ["buitis", "aktyvus poilsis", "hobiai"]
+        }
+      },
+      "recommendations": {
+        "max_daily_hours": 7,
+        "work_blocks": 3,
+        "break_frequency": "every_2-3_hours",
+        "avoid_after": "17:00",
+        "key_principle": "sklandus startas ir struktūruota popietė"
+      },
+      "risks": [
+        "per greitas įsijungimas į dieną",
+        "per daug planavimo ryte",
+        "pervargimas iki pietų"
+      ]
+    },
+
+    "intermediate": {
+      "type": "intermediate",
+      "emoji": "🌓",
+      "name": "Tarpinis tipas",
+      "score_range": "42-58",
+      "productive_hours": {
+        "start": "09:00",
+        "end": "17:00",
+        "peak_start": "09:30",
+        "peak_end": "15:00",
+        "total_productive": 7,
+        "optimal_window": "09:00-17:00"
+      },
+      "characteristics": {
+        "energy_pattern": "flexible_adaptable",
+        "morning_difficulty": "moderate",
+        "evening_capability": "moderate",
+        "startup_speed": "adaptable"
+      },
+      "optimal_schedule": {
+        "activation": {
+          "time": "08:30-09:30",
+          "activities": ["kava", "trumpas planavimas", "peržiūra", "bendravimas"]
+        },
+        "first_work_block": {
+          "time": "09:30-11:30",
+          "activities": ["kūrybinės užduotys", "struktūravimas", "dėmesio reikalaujantis darbas"]
+        },
+        "break_tactical": {
+          "time": "11:30-13:00",
+          "activities": ["pietūs", "atsakymai laiškais", "dokumentų peržiūra"]
+        },
+        "second_work_block": {
+          "time": "13:00-15:00",
+          "activities": ["techniniai ar analitiniai uždaviniai", "sisteminiai veiksmai"]
+        },
+        "flexible_window": {
+          "time": "15:00-16:00",
+          "activities": ["pasivaikščiojimas", "susitikimai", "kūrybinis laikas"]
+        },
+        "third_work_block": {
+          "time": "16:00-17:30",
+          "activities": ["užbaigimo užduotys", "planavimas rytdienai", "refleksija"]
+        },
+        "wind_down": {
+          "time": "po 17:30",
+          "activities": ["sportas", "bendravimas", "laisvalaikis"]
+        }
+      },
+      "recommendations": {
+        "max_daily_hours": 7,
+        "work_blocks": 3,
+        "break_frequency": "between_blocks",
+        "avoid_after": "17:30",
+        "key_principle": "3 aiškūs darbo blokai su pertraukomis"
+      },
+      "risks": [
+        "stokoja aiškios struktūros",
+        "išsibarsto tarp skirtingų užduočių",
+        "diena tampa 'viena ilga užduotis be ribų'"
+      ]
+    },
+
+    "evening_moderate": {
+      "type": "evening_moderate",
+      "emoji": "🌆",
+      "name": "Vidutiniškai vakarinis tipas",
+      "score_range": "31-41",
+      "productive_hours": {
+        "start": "11:00",
+        "end": "19:00",
+        "peak_start": "14:00",
+        "peak_end": "18:30",
+        "total_productive": 6,
+        "optimal_window": "11:00-19:00"
+      },
+      "characteristics": {
+        "energy_pattern": "slow_start_afternoon_peak",
+        "morning_difficulty": "difficult",
+        "evening_capability": "high",
+        "startup_speed": "very_slow"
+      },
+      "optimal_schedule": {
+        "slow_start": {
+          "time": "08:30-10:30",
+          "activities": ["pusryčiai", "laiškų skaitymas", "fizinis aktyvumas", "lengvi darbai"]
+        },
+        "warm_up": {
+          "time": "10:30-12:30",
+          "activities": ["planavimas", "dokumentų tvarkymas", "koordinacinės užduotys"]
+        },
+        "break_tactical": {
+          "time": "12:30-14:00",
+          "activities": ["pietūs", "trumpi skambučiai", "organizaciniai reikalai"]
+        },
+        "first_intensive": {
+          "time": "14:00-16:30",
+          "activities": ["kūryba", "tekstai", "analitiniai sprendimai", "strateginiai uždaviniai"]
+        },
+        "second_peak": {
+          "time": "16:30-18:30",
+          "activities": ["prezentacijos", "techniniai darbai", "sisteminimas"]
+        },
+        "conscious_limit": {
+          "time": "po 18:30",
+          "activities": ["atsitraukimas", "planavimas rytdienai", "poilsis", "hobiai"]
+        }
+      },
+      "recommendations": {
+        "max_daily_hours": 6,
+        "work_blocks": 2,
+        "break_frequency": "before_intensive_blocks",
+        "avoid_after": "18:30",
+        "key_principle": "paprastos užduotys ryte, svarbiausi darbai po pietų"
+      },
+      "risks": [
+        "jaučiasi 'apsnūdęs visą dieną' ankstyvame grafike",
+        "spaudimas prisitaikyti prie rytinių struktūrų",
+        "neišnaudoja tikro produktyvumo lango"
+      ]
+    },
+
+    "evening_strong": {
+      "type": "evening_strong",
+      "emoji": "🌃",
+      "name": "Ryškus vakarinis tipas",
+      "score_range": "16-30",
+      "productive_hours": {
+        "start": "14:00",
+        "end": "22:00",
+        "peak_start": "15:00",
+        "peak_end": "21:00",
+        "total_productive": 6,
+        "optimal_window": "14:00-22:00"
+      },
+      "characteristics": {
+        "energy_pattern": "survival_morning_evening_peak",
+        "morning_difficulty": "very_difficult",
+        "evening_capability": "very_high",
+        "startup_speed": "extremely_slow"
+      },
+      "optimal_schedule": {
+        "survival_mode": {
+          "time": "09:00-11:00",
+          "activities": ["pusryčiai", "fizinis aktyvumas", "planavimas", "el. paštas"]
+        },
+        "light_organizational": {
+          "time": "11:00-13:00",
+          "activities": ["duomenų peržiūra", "struktūros kūrimas", "komunikacija"]
+        },
+        "preparation": {
+          "time": "13:00-15:00",
+          "activities": ["ramesnė pertrauka prieš įsijungiant į intensyvesnę fazę"]
+        },
+        "first_productive": {
+          "time": "15:00-18:00",
+          "activities": ["kūrybiniai projektai", "straipsniai", "kodavimas", "analizė"]
+        },
+        "peak_performance": {
+          "time": "18:00-21:00",
+          "activities": ["strateginis mąstymas", "planavimas", "ilgalaikiai sprendimai"]
+        },
+        "conscious_wind_down": {
+          "time": "po 21:00",
+          "activities": ["ribos", "atsitraukimas", "pasiruošimas miegui (be ekranų)"]
+        }
+      },
+      "recommendations": {
+        "max_daily_hours": 6,
+        "work_blocks": 2,
+        "break_frequency": "long_preparation_break",
+        "avoid_after": "21:00",
+        "key_principle": "įšildyti dieną lėtai, lankstus bet struktūruotas vakarinis režimas"
+      },
+      "risks": [
+        "dirba 'kūnu be proto' ankstyvame grafike",
+        "išsikraipantys miego ritmai",
+        "pervargimas nes protas veikia bet kūnas pavargęs"
+      ]
+    }
+  },
+
+  "user_chronotype_metadata": {
+    "chronotype_type": "string",
+    "test_score": "number",
+    "assigned_date": "datetime",
+    "productivity_preferences": {
+      "preferred_start_time": "time",
+      "preferred_end_time": "time",
+      "break_preferences": "array",
+      "focus_work_preference": "string"
+    },
+    "ai_recommendations": {
+      "daily_schedule_template": "object",
+      "task_time_mapping": "object",
+      "energy_alerts": "array"
+    }
+  }
+}

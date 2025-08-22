@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import EditableTable from "@components/EditableTable";
+import { getISOWeek, getYear } from 'date-fns';
 
 export default function MonthlyTimeAllocationComponent({
 	blockId,
@@ -114,27 +115,10 @@ export default function MonthlyTimeAllocationComponent({
 	};
 
 	// Calculate ISO week number
-	const getISOWeek = (date) => {
-		const tempDate = new Date(date.getTime());
-		tempDate.setHours(0, 0, 0, 0);
-
-		// Thursday in current week decides the year
-		tempDate.setDate(tempDate.getDate() + 3 - ((tempDate.getDay() + 6) % 7));
-
-		// January 4 is always in week 1
-		const week1 = new Date(tempDate.getFullYear(), 0, 4);
-
-		// Adjust to Thursday in week 1 and count weeks from there
-		return (
-			1 +
-			Math.round(
-				((tempDate.getTime() - week1.getTime()) / 86400000 -
-					3 +
-					((week1.getDay() + 6) % 7)) /
-					7,
-			)
-		);
-	};
+	// const getISOWeek = (date) => {
+	// 	const weekNumber = getISOWeek(date);
+	// 	return weekNumber;
+	// };
 
 	// Get goals for selected month
 	const getSelectedMonthGoals = () => {
