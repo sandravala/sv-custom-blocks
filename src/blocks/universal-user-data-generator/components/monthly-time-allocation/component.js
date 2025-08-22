@@ -201,7 +201,6 @@ export default function MonthlyTimeAllocationComponent({
 			if (result.success) {
 				const userData = result.data.user_data || {};
 				setLoadedData(userData);
-                console.log("Loaded allocation data:", userData);
 			} else {
 				setError(result.data?.message || "Failed to load data");
 			}
@@ -219,7 +218,6 @@ export default function MonthlyTimeAllocationComponent({
 	};
 
 	const handleTableSave = async (dataToSave) => {
-        console.log("Saving data:", dataToSave);
 		// Convert flat table data back to your week-based structure
 		const year = selectedMonth.split("-")[0];
 		const weeks = getWeeksForMonth(selectedMonth);
@@ -263,7 +261,6 @@ export default function MonthlyTimeAllocationComponent({
 				0,
 			);
 		});
-        console.log("Prepared allocations data:", allocationsData);
 
 		// Save using AJAX
 		try {

@@ -200,7 +200,6 @@ export default function SmartGoalsComponent({
 		setLoading(true);
 		setError("");
 
-		console.log("Submitting form data:", formData);
 		try {
 			const params = {
 				action: "generate_ai_data",
@@ -237,7 +236,6 @@ export default function SmartGoalsComponent({
 				setError("");
 			} else {
 				setError(result.data.message || "Įvyko klaida generuojant tikslą");
-				console.log(result.data.data.toString());
 			}
 		} catch (err) {
 			setError("Įvyko klaida. Bandykite dar kartą.");
@@ -279,7 +277,6 @@ export default function SmartGoalsComponent({
 			const result = await response.json();
 
 			if (result.success) {
-				console.log(result.data);
 			} else {
 				setError(result.data.message || "Įvyko klaida išsaugant tikslą");
 			}

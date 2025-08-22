@@ -19,8 +19,6 @@ async function renderUniversalDataGeneratorBlocks() {
         const blockId = container.dataset.blockId;
         const componentName = container.dataset.component;
         const isLoggedIn = container.dataset.isLoggedIn === 'true';
-
-        console.log('🎯 Loading data component:', componentName);
         
         try {
             // Dynamically load the component

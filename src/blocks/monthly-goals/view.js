@@ -190,7 +190,6 @@ function MonthlyGoalsComponent({ blockElement }) {
 			const result = await response.json();
 
 			if (result.success) {
-				console.log("Loaded monthly goals data:", result.data);
 				setAllGoalActions(result.data.goal_actions || []);
 				setAllMonthlyGoals(result.data.monthly_goals || []);
 				setAllTCPreferences(result.data.tc_preferences || {});

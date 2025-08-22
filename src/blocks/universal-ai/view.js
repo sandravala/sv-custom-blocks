@@ -24,7 +24,6 @@ async function renderUniversalAIBlocks() {
         const isLoggedIn = container.dataset.isLoggedIn === 'true';
         const canUseAiAgain = ['true', '1'].includes(container.dataset.canUseAiAgain);
 
-        console.log('🎯 Loading component:', componentName);
         
         try {
             // Dynamically load the component

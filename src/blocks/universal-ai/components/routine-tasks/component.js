@@ -204,7 +204,6 @@ export default function RoutineTasksComponent({
 			const result = await response.json();
 
 			if (result.success) {
-				console.log("Loaded saved data:", result.data);
 				setFormData((prev) => ({ ...prev, ...result.data.input_data }));
 
 				const routineTasksData = result.data.user_data.routine_tasks;
@@ -290,8 +289,6 @@ export default function RoutineTasksComponent({
 
 			if (result.success) {
 				setSubmitted(true);
-
-				console.log("Generated AI Data:", result.data.responsibilities_table);
 				const generatedData = result.data.responsibilities_table;
 				// generatedData.array.forEach(task => {
 				// 	task.hours_per_week = (task.typical_hours_per_month / 4.33).toFixed(1);

@@ -398,26 +398,6 @@ export default function WeeklyTodoListComponent({
 						</button>
 					</div>
 				</div>
-
-				{/* Week Info Display */}
-				{currentWeekData && (
-					<div className="sv-card sv-mb-md">
-						<p className="sv-text-base sv-font-semibold sv-text-dark sv-mb-xs">
-							Savaitė {currentWeekData.weekInfo?.weekNumber} (
-							{currentWeekData.weekInfo?.year})
-						</p>
-						<p className="sv-text-sm sv-text-dark sv-opacity-75 sv-mb-xs">
-							{currentWeekData.dates}
-						</p>
-						{currentWeekData.tasks?.length > 0 && (
-							<p className="sv-text-sm sv-text-teal">
-								{currentWeekData.tasks.length} užduot
-								{currentWeekData.tasks.length === 1 ? "is" : "ys"} •{" "}
-								{currentWeekData.total_hours} val. skirta
-							</p>
-						)}
-					</div>
-				)}
 			</div>
 
 			{/* Loading State */}
