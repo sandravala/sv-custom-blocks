@@ -2,6 +2,7 @@
 // src/blocks/universal-user-data-generator/components/chronotype-test/component.js
 
 import React, { useState, useEffect } from "react";
+import EnergyFlowComponent from "@components/EnergyFlowComponent";
 
 export default function ChronotypeTestComponent({
 	blockId,
@@ -15,12 +16,12 @@ export default function ChronotypeTestComponent({
 	// State management
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 	const [answers, setAnswers] = useState({
-        1: 1,
-        2: 1, 
-        3: 1,
-        4: 1,
-        5: 1,
-        6: 1,
+        1: 5,
+        2: 5, 
+        3: 5,
+        4: 5,
+        5: 5,
+        6: 5,
         7: 1,
         8: 1,
         9: 1,
@@ -110,39 +111,18 @@ export default function ChronotypeTestComponent({
 			(sum, score) => sum + score,
 			0,
 		);
-		const avgScore = totalScore / Object.keys(answers).length;
 
-		const matchedType = Object.values(resultData).find(
-			(item) =>
-				totalScore >= item.score_range[0] && totalScore <= item.score_range[1],
-		);
+		const matchedType = Object.entries(resultData).reduce((found, [key, item]) => {
+			if (totalScore >= item.score_range[0] && totalScore <= item.score_range[1]) {
+				return { ...item, pdfFile: getPdfUrl(`${key}.pdf`) };
+			}
+			return found;
+		}, null);
 
-		setTypeData({ ...matchedType, pdfFile: getPdfUrl("test.pdf")});
+		setTypeData(matchedType);
         saveResult(matchedType);
 
         setShowResult(true);
-		// if (avgScore >= 4) {
-		// 	return {
-		// 		type: "Ryto tipas",
-		// 		description:
-		// 			"Jūs esate ryto žmogus - energingiausias ankstyvomis valandos.",
-		// 		pdfFile: "test.pdf",
-		// 	};
-		// } else if (avgScore >= 3) {
-		// 	return {
-		// 		type: "Neutralus tipas",
-		// 		description:
-		// 			"Jūs turite neutralų ritmą - prisitaikote prie aplinkybių.",
-		// 		pdfFile: "test.pdf",
-		// 	};
-		// } else {
-		// 	return {
-		// 		type: "Vakaro tipas",
-		// 		description:
-		// 			"Jūs esate vakaro žmogus - produktyviausias vėlyvomis valandos.",
-		// 		pdfFile: "test.pdf",
-		// 	};
-		// }
 	};
 
 	// Replace the getPdfUrl function with this:
@@ -174,14 +154,14 @@ export default function ChronotypeTestComponent({
 	return (
 		<div className="chronotype-test-component">
 			<div className="sv-card">
-				<h3>Chronotipo klausimynas</h3>
+				{/* <h3>Chronotipo klausimynas</h3> */}
 
 				{!showResult ? (
 					<div className="quiz-container">
 						{/* Progress indicator */}
 						<div className="quiz-progress sv-mb-md">
 							<p className="sv-text-sm sv-opacity-75">
-								Klausimas {currentQuestionIndex + 1} iš {quizData.length}
+								{currentQuestionIndex + 1} klausimas iš {quizData.length}
 							</p>
 							<div className="progress-bar sv-bg-gray-light sv-rounded">
 								<div
@@ -258,6 +238,8 @@ export default function ChronotypeTestComponent({
 									return <li key={"key_tip_" + i}>{tip}</li>;
 								})}
 							</ul>
+							<EnergyFlowComponent chronotypeData={typeData}
+					className="sv-mb-lg" />
 							<a
 								href={typeData.pdfFile}
 								target="_blank"
@@ -508,16 +490,16 @@ export default function ChronotypeTestComponent({
 
 	const resultData = {
   morning_strong: {
-    name: "Ryškus rytinis tipas",
+    name: "ryškus rytinis",
     score_range: [70, 86],
     peak_hours: [6, 7, 8, 9, 10, 11, 12, 13],
     productive_hours: 6,
     summary:
-      "Tavo energija aukščiausia rytais. Po pietų produktyvumas krenta - geriau nuveiksi 6 valandas kokybiškai nei 10 vidutiniškai. Saugok rytinį laiką svarbiems darbams.",
+      "Tavo energija pasiekia aukščiausią lygį rytais. Po pietų produktyvumas krenta - jei tik galim, geriau planuok 6 produktyvias valandas ryte, nei 10 po pietų. Saugok rytinį laiką svarbiems darbams.",
     key_tips: [
-      "Svarbiausius darbus daryk 6:00-12:00",
+      "Svarbiausius darbus planuok 6:00-12:00",
       "Po 15:00 jokių naujų projektų",
-      "6 kokybės valandos geriau nei 10 vidutinių",
+      "6 produktyvios valandos geriau nei 10 vidutinių",
     ],
     ideal_tasks_timing: {
       creative_work: [6, 7, 8],
@@ -542,14 +524,14 @@ export default function ChronotypeTestComponent({
   },
 
   morning_moderate: {
-    name: "Vidutiniškai rytinis tipas",
+    name: "vidutiniškai rytinis",
     score_range: [59, 69],
     peak_hours: [9, 10, 11, 12],
     productive_hours: 7,
     summary:
       "Puikiai tinka standartiniam darbo ritmui. Leisk sau įsivažiuoti į dieną, tada maksimaliai išnaudok 9:00-15:00 langą. Sklandus startas ir produktyvi popietė.",
     key_tips: [
-      "Leisk sau laiką atsibusti 7:30-9:00",
+      "Duok sau laiko prabusti ir įsivažiuoti 7:30-9:00",
       "Aukso valandos: 9:00-13:00",
       "Susitikimus planuok 12:00-15:00",
     ],
@@ -576,16 +558,16 @@ export default function ChronotypeTestComponent({
   },
 
   intermediate: {
-    name: "Tarpinis tipas",
+    name: "tarpinis",
     score_range: [42, 58],
     peak_hours: [10, 11, 12, 13, 14],
     productive_hours: 7,
     summary:
-      "Turi didžiausią prisitaikymo galimybę, bet reikia aiškios struktūros. 3 darbo blokai su pertraukomis - tavo sėkmės formulė. Klausyk energijos signalų.",
+      "Turi didžiausią prisitaikymo galimybę, bet reikia aiškios struktūros. 3 darbo blokai su pertraukomis - tavo sėkmės formulė. Svarbu atsižvelgti į savo energijos svyravimus.",
     key_tips: [
-      "Sukurk 3 aiškius darbo blokus",
-      "Klausyk savo energijos signalų",
-      "Strategiškai naudok pertraukas",
+      "Pasidaryk 3 aiškius darbo blokus",
+      "Klausyk savo energijos svyravimų ir signalų",
+      "Strategiškai išnaudok pertraukėles",
     ],
     ideal_tasks_timing: {
       creative_work: [10, 11, 13, 14], // 09:30-11:30,13:00-15:00
@@ -610,14 +592,14 @@ export default function ChronotypeTestComponent({
   },
 
   evening_moderate: {
-    name: "Vidutiniškai vakarinis tipas",
+    name: "vidutiniškai vakarinis",
     score_range: [31, 41],
     peak_hours: [14, 15, 16, 17, 18],
     productive_hours: 6,
     summary:
-      "Lėti rytai, bet galinga popietė. Nepriverk savęs rytais - vietoj to ruoškis savo energijos pikui 14:00-18:30. Griežtai sustok 19:00.",
+      "Lėti rytai, bet stipri popietė. Nespausk savęs sudėtingoms užduotims rytais - vietoj to pasiruošk išnaudoti savo energijos piką 14:00-18:30. Griežtai nustok dirbti 19:00.",
     key_tips: [
-      "Priimk rytų lėtumą - tai ne trūkumas",
+      "Priimk lėtą įsivažiavimą rytais - tai ne trūkumas",
       "Visi svarbūs darbai 14:00-18:30",
       "Griežtai sustok 19:00",
     ],
@@ -644,16 +626,16 @@ export default function ChronotypeTestComponent({
   },
 
   evening_strong: {
-    name: "Ryškus vakarinis tipas",
+    name: "ryškus vakarinis",
     score_range: [16, 30],
     peak_hours: [15, 16, 17, 18, 19, 20],
     productive_hours: 6,
     summary:
-      "Tavo energija aukščiausia vakare. Rytai sunkūs - naudok juos pasiruošimui, o svarbiausius darbus daryk 15:00-21:00. Nestabdyk savęs ankstyvu grafiku.",
+      "Tavo energija aukščiausią lygį pasiekia vakare. Rytai sunkūs - naudok juos pasiruošimui, o svarbiausius darbus daryk 15:00-21:00. Jei tik gali - nesprausk savęs į pernelyg ankstyvą grafiką.",
     key_tips: [
       "Saugok vakarines valandas svarbiausiems projektams",
       "Rytais daryk tik lengvus, rutininius darbus",
-      "Griežtai sustok 22:00 - kitaip sugadinsi rytojų",
+      "Griežtai sustok 22:00 - kitaip sugadinsi rytdienos produktyvumą",
     ],
     ideal_tasks_timing: {
       creative_work: [15, 16, 17, 18, 19, 20],

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { debounce, set } from "lodash";
 import AccordionHeader from "@components/AccordionHeader";
+import EnergyFlowComponent from "@components/EnergyFlowComponent";
 import DatePicker, { registerLocale } from "react-datepicker";
 import lt from "date-fns/locale/lt";
 import { getISOWeek, getYear } from "date-fns";
@@ -54,7 +55,10 @@ const DailyTaskPickerComponent = ({
 			setCurrentWeekInfo(weekInfo);
 			setWeeklyData(weekData);
 		}
-	}, [selectedDate, loadedData.monthly_allocation]);
+		if (loadedData.chronotype) {
+			setChronotypeData(loadedData.chronotype);
+		}
+	}, [selectedDate, loadedData]);
 
 	useEffect(() => {
 		if (weeklyData && currentWeekInfo && isDirty) {
@@ -176,7 +180,7 @@ const DailyTaskPickerComponent = ({
 		}));
 
 		setWeeklyData(updatedWeekData);
-        setIsDirty(true);
+		setIsDirty(true);
 		//debouncedSave(updatedAllocations);
 	};
 
@@ -216,7 +220,7 @@ const DailyTaskPickerComponent = ({
 		].todo.reduce((sum, todo) => sum + (todo.taskHours || 0), 0);
 
 		setWeeklyData(updatedWeekData);
-        setIsDirty(true);
+		setIsDirty(true);
 		//debouncedSave(updatedAllocations);
 
 		// Reset form
@@ -240,7 +244,7 @@ const DailyTaskPickerComponent = ({
 		});
 
 		setWeeklyData(updatedWeekData);
-        setIsDirty(true);
+		setIsDirty(true);
 		//debouncedSave(updatedAllocations);
 	};
 
@@ -260,7 +264,7 @@ const DailyTaskPickerComponent = ({
 		});
 
 		setWeeklyData(updatedWeekData);
-        setIsDirty(true);
+		setIsDirty(true);
 		//debouncedSave(updatedAllocations);
 	};
 
@@ -309,6 +313,13 @@ const DailyTaskPickerComponent = ({
 		<div className="daily-task-picker-component">
 			{/* Energy Flow Context */}
 
+			{chronotypeData && (
+				<EnergyFlowComponent
+					chronotypeData={chronotypeData}
+					className="sv-mb-lg"
+				/>
+			)}
+
 			{/* Add Tasks Section */}
 			<div className="sv-card sv-mb-lg">
 				{/* Weekly Task Pills */}
@@ -318,7 +329,7 @@ const DailyTaskPickerComponent = ({
 				).length > 0 ? (
 					<div className="quick-add-section sv-mb-md">
 						<p className="sv-text-sm sv-mb-sm" style={{ color: "#64748b" }}>
-							📋 Iš savaitės sąrašo:
+							Iš savaitės sąrašo:
 						</p>
 						<div className="quick-add-pills">
 							{weeklyData.tasks.flatMap((task, taskIndex) =>
@@ -341,7 +352,7 @@ const DailyTaskPickerComponent = ({
 				) : (
 					<div className="no-weekly-tasks sv-mb-md">
 						<p className="sv-text-sm" style={{ color: "#64748b" }}>
-							Savaitės sąraše nėra užduočių
+							Šios savaitės sąraše užduočių nėra
 						</p>
 					</div>
 				)}
@@ -427,7 +438,7 @@ const DailyTaskPickerComponent = ({
 							className="date-picker-input"
 						/>
 					</div>
-					{weeklyData &&
+					{/* {weeklyData &&
 						weeklyData.tasks?.flatMap((task) =>
 							task.todo?.filter((todo) => todo.scheduledDate),
 						).length > 0 && (
@@ -435,9 +446,9 @@ const DailyTaskPickerComponent = ({
 								className="ai-suggestions-btn"
 								onClick={triggerAISuggestions}
 							>
-								🤖 Gauti AI dienotvarkės pasiūlymus
+							Gauti AI dienotvarkės pasiūlymus
 							</button>
-						)}
+						)} */}
 				</div>
 
 				{/* Task List */}
@@ -466,7 +477,7 @@ const DailyTaskPickerComponent = ({
 											<div className="task-context">
 												{task.task} •{" "}
 												{task.type === "routine"
-													? "Rutinos"
+													? "Rutininė"
 													: "Mėnesio tikslas"}
 											</div>
 										</div>
@@ -486,77 +497,11 @@ const DailyTaskPickerComponent = ({
 						<div className="empty-state-icon">📝</div>
 						<p>Šiandienai dar nepridėta užduočių.</p>
 						<p style={{ fontSize: "14px", marginTop: "8px" }}>
-							Pasirinkite iš savaitės sąrašo arba pridėkite neplanuotą užduotį!
+							Pasirink iš savaitės sąrašo arba pridėk neplanuotą užduotį!
 						</p>
 					</div>
 				)}
 			</div>
-
-			<AccordionHeader
-				title="📊 Šiandienos energijos srautas"
-				initialOpen={false}
-			>
-				<h3 className="sv-text-lg sv-font-semibold sv-mb-md sv-text-center">
-					📊 Šiandienos energijos srautas
-				</h3>
-
-				{/* Energy Flow Chart */}
-				<div className="energy-flow-chart">
-					<div className="time-labels">
-						<span>9 val</span>
-						<span>12 val</span>
-						<span>15 val</span>
-						<span>18 val</span>
-						<span>21 val</span>
-					</div>
-					<div className="energy-bars">
-						<div
-							className="energy-bar high"
-							data-tooltip="9-11 val • 🧠 Gilioji veikla"
-						></div>
-						<div
-							className="energy-bar high"
-							data-tooltip="10-12 val • 🧠 Kūryba"
-						></div>
-						<div
-							className="energy-bar medium"
-							data-tooltip="12-13 val • 🍽️ Pietūs"
-						></div>
-						<div
-							className="energy-bar medium"
-							data-tooltip="13-15 val • 🔄 Admin darbai"
-						></div>
-						<div
-							className="energy-bar medium"
-							data-tooltip="15-16 val • 🔄 Susitikimai"
-						></div>
-						<div
-							className="energy-bar low"
-							data-tooltip="16-18 val • 💤 Lengvi darbai"
-						></div>
-						<div
-							className="energy-bar low"
-							data-tooltip="18-20 val • 💤 Planavimas"
-						></div>
-					</div>
-				</div>
-
-				{/* Context Summary */}
-				<div className="context-summary">
-					<div className="theme-day">
-						<span className="theme-icon">🎯</span>
-						<span className="theme-text">
-							Šiandienos tema: <strong>Produktyvumo planavimas</strong>
-						</span>
-					</div>
-					<div className="recommendations">
-						<span className="rec-label">Geriausiai tinka:</span>
-						<span className="rec-high">Gilioji veikla (9-11 val)</span>
-						<span className="rec-medium">Admin darbai (13-16 val)</span>
-						<span className="rec-low">Planavimas (18-20 val)</span>
-					</div>
-				</div>
-			</AccordionHeader>
 		</div>
 	);
 };

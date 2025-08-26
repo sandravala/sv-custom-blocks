@@ -3,6 +3,7 @@
  */
 
 @import "@components/EditableTable/style";
+@import "@components/EnergyFlowComponent/style";
 @import "react-datepicker/dist/react-datepicker.css";
 
 // Additional classes for quarterly context improvements
@@ -185,95 +186,6 @@
 			outline: none;
 			border-color: #3b82f6;
 		}
-	}
-
-	// Energy Flow Chart
-	.energy-flow-chart {
-		margin-bottom: 16px;
-	}
-
-	.time-labels {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 8px;
-		padding: 0 10px;
-
-		span {
-			font-size: 12px;
-			color: #64748b;
-			font-weight: 500;
-		}
-	}
-
-	.energy-bars {
-		display: flex;
-		gap: 2px;
-		height: 60px;
-		align-items: flex-end;
-		background: #f8fafc;
-		border-radius: 6px;
-		padding: 8px;
-		position: relative;
-	}
-
-	.energy-bar {
-		flex: 1;
-		border-radius: 3px 3px 0 0;
-		position: relative;
-		cursor: pointer;
-		transition: all 0.2s ease;
-		min-height: 10px;
-
-		&.high {
-			background: linear-gradient(to top, #3b82f6, #60a5fa);
-			height: 45px;
-		}
-
-		&.medium {
-			background: linear-gradient(to top, #10b981, #34d399);
-			height: 30px;
-		}
-
-		&.low {
-			background: linear-gradient(to top, #f59e0b, #fbbf24);
-			height: 15px;
-		}
-
-		&:hover {
-			transform: translateY(-2px);
-			filter: brightness(1.1);
-		}
-
-		// Tooltip
-		&::after {
-			content: attr(data-tooltip);
-			position: absolute;
-			bottom: 100%;
-			left: 50%;
-			transform: translateX(-50%);
-			background: #1e293b;
-			color: white;
-			padding: 4px 8px;
-			border-radius: 4px;
-			font-size: 11px;
-			white-space: nowrap;
-			opacity: 0;
-			pointer-events: none;
-			margin-bottom: 4px;
-			z-index: 10;
-			transition: opacity 0.2s ease;
-		}
-
-		&:hover::after {
-			opacity: 1;
-		}
-	}
-
-	// Context Summary
-	.context-summary {
-		display: flex;
-		flex-direction: column;
-		gap: 12px;
 	}
 
 	.theme-day {
@@ -813,35 +725,41 @@
 				font-size: 1.8rem;
 				margin-bottom: var(--sv-space-md);
 				color: var(--sv-primary);
+				margin-top: var(--sv-space-md);
+				text-transform: uppercase;
 			}
 
 			p {
-				font-size: 1.1rem;
+				font-size: 12px;
 				line-height: 1.5;
 				color: var(--sv-text-primary);
 				margin-bottom: var(--sv-space-lg);
 			}
 
-            a.sv-btn {
-			padding: var(--sv-space-sm) var(--sv-space-md);
-			border-radius: 8px;
-			font-weight: 500;
-			border: none;
-			cursor: pointer;
-			transition: all 0.2s ease;
-            text-decoration: none;
+			ul {
+				font-size: 12px;
+				text-align: left;
+			}
 
-			&.sv-btn-primary {
-				background: var(--sv-primary);
-				color: white;
+			a.sv-btn {
+				padding: var(--sv-space-sm) var(--sv-space-md);
+				border-radius: 8px;
+				font-weight: 500;
+				border: none;
+				cursor: pointer;
+				transition: all 0.2s ease;
+				text-decoration: none;
 
-				&:hover:not(:disabled) {
-					background: #e23e10;
-					transform: translateY(-1px);
+				&.sv-btn-primary {
+					background: var(--sv-primary);
+					color: white;
+
+					&:hover:not(:disabled) {
+						background: #e23e10;
+						transform: translateY(-1px);
+					}
 				}
 			}
-        }
-
 		}
 	}
 

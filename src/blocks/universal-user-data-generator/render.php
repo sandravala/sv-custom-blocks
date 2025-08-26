@@ -12,6 +12,7 @@ if (!defined('ABSPATH')) {
 
 $attrs = is_array($attributes) ? $attributes : [];
 
+
 $instance_id = isset($attrs['instanceId']) && $attrs['instanceId'] !== ''
     ? $attrs['instanceId']
     : wp_generate_uuid4();

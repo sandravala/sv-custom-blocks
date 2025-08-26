@@ -34754,17 +34754,17 @@ function QuizRender() {
     typeMeme = _useState8[0],
     setTypeMeme = _useState8[1];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState10 = _slicedToArray(_useState9, 2),
-    emailSent = _useState10[0],
-    setEmailSent = _useState10[1];
+    _useState0 = _slicedToArray(_useState9, 2),
+    emailSent = _useState0[0],
+    setEmailSent = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState10 = _slicedToArray(_useState1, 2),
+    sending = _useState10[0],
+    setSending = _useState10[1];
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState12 = _slicedToArray(_useState11, 2),
-    sending = _useState12[0],
-    setSending = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState14 = _slicedToArray(_useState13, 2),
-    emailError = _useState14[0],
-    setEmailError = _useState14[1];
+    emailError = _useState12[0],
+    setEmailError = _useState12[1];
   var points = ["100% ne aš", "Nepanašu į mane", "Gaaaal kartais", "Skamba panašiai", "100% AŠ!"];
   var tieBreakerQuestions = [{
     question: "Kai turi išspręsti svarbų klausimą, kaip renkiesi ieškoti sprendimo?",
@@ -34803,29 +34803,29 @@ function QuizRender() {
       letter: "P"
     }]
   }];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       email: "",
       name: ""
     }),
-    _useState16 = _slicedToArray(_useState15, 2),
-    subscriberData = _useState16[0],
-    setSubscriberData = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    _useState14 = _slicedToArray(_useState13, 2),
+    subscriberData = _useState14[0],
+    setSubscriberData = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       email: false,
       name: false
     }),
+    _useState16 = _slicedToArray(_useState15, 2),
+    errors = _useState16[0],
+    setErrors = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cookieSet()),
     _useState18 = _slicedToArray(_useState17, 2),
-    errors = _useState18[0],
-    setErrors = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cookieSet()),
+    currentQuestion = _useState18[0],
+    setCurrentQuestion = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState20 = _slicedToArray(_useState19, 2),
-    currentQuestion = _useState20[0],
-    setCurrentQuestion = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-    _useState22 = _slicedToArray(_useState21, 2),
-    currentVariant = _useState22[0],
-    setCurrentVariant = _useState22[1];
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    currentVariant = _useState20[0],
+    setCurrentVariant = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       E: [0, 0],
       I: [0, 0],
       S: [0, 0],
@@ -34835,9 +34835,9 @@ function QuizRender() {
       J: [0, 0],
       P: [0, 0]
     }),
-    _useState24 = _slicedToArray(_useState23, 2),
-    selectedAnswers = _useState24[0],
-    setSelectedAnswers = _useState24[1]; // To track selected answers for each question
+    _useState22 = _slicedToArray(_useState21, 2),
+    selectedAnswers = _useState22[0],
+    setSelectedAnswers = _useState22[1]; // To track selected answers for each question
 
   var pairs = [{
     key1: "E",
@@ -34856,43 +34856,43 @@ function QuizRender() {
     key2: "P",
     index: 3
   }];
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["", "", "", ""]),
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(["", "", "", ""]),
+    _useState24 = _slicedToArray(_useState23, 2),
+    dichotomy = _useState24[0],
+    setDichotomy = _useState24[1];
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState26 = _slicedToArray(_useState25, 2),
-    dichotomy = _useState26[0],
-    setDichotomy = _useState26[1];
-  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    tieBreak = _useState26[0],
+    setTieBreak = _useState26[1];
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState28 = _slicedToArray(_useState27, 2),
-    tieBreak = _useState28[0],
-    setTieBreak = _useState28[1];
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    currentTieBreakQuestion = _useState28[0],
+    setCurrentTieBreakQuestion = _useState28[1];
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cookieSet() > 0),
     _useState30 = _slicedToArray(_useState29, 2),
-    currentTieBreakQuestion = _useState30[0],
-    setCurrentTieBreakQuestion = _useState30[1];
-  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(cookieSet() > 0),
-    _useState32 = _slicedToArray(_useState31, 2),
-    showResultContainer = _useState32[0],
-    setShowResultContainer = _useState32[1];
-  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
+    showResultContainer = _useState30[0],
+    setShowResultContainer = _useState30[1];
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
       if (c && c.includes("=")) {
         return c.split("=")[1];
       }
       return "";
     }),
+    _useState32 = _slicedToArray(_useState31, 2),
+    type = _useState32[0],
+    setType = _useState32[1];
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
     _useState34 = _slicedToArray(_useState33, 2),
-    type = _useState34[0],
-    setType = _useState34[1];
-  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    isChecked = _useState34[0],
+    setIsChecked = _useState34[1];
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState36 = _slicedToArray(_useState35, 2),
-    isChecked = _useState36[0],
-    setIsChecked = _useState36[1];
+    isButtonDisabled = _useState36[0],
+    setIsButtonDisabled = _useState36[1];
   var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState38 = _slicedToArray(_useState37, 2),
-    isButtonDisabled = _useState38[0],
-    setIsButtonDisabled = _useState38[1];
-  var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState40 = _slicedToArray(_useState39, 2),
-    firstRadioClicked = _useState40[0],
-    setFirstRadioClicked = _useState40[1];
+    firstRadioClicked = _useState38[0],
+    setFirstRadioClicked = _useState38[1];
   var checkHandler = function checkHandler() {
     setIsChecked(!isChecked);
   };
@@ -34906,10 +34906,10 @@ function QuizRender() {
     }
     return {};
   };
-  var _useState41 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_objectSpread({}, getQuestionSet(currentQuestion))),
-    _useState42 = _slicedToArray(_useState41, 2),
-    questionsAnswered = _useState42[0],
-    setQuestionsAnswered = _useState42[1];
+  var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_objectSpread({}, getQuestionSet(currentQuestion))),
+    _useState40 = _slicedToArray(_useState39, 2),
+    questionsAnswered = _useState40[0],
+    setQuestionsAnswered = _useState40[1];
   // Update the button's disabled state whenever the checkbox state changes
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setIsButtonDisabled(!isChecked);
