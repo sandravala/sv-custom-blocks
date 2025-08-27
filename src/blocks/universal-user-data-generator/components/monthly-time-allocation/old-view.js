@@ -157,8 +157,6 @@ function MonthlyTimeAllocationComponent({ blockElement }) {
 			const result = await response.json();
 
 			if (result.success) {
-				console.log("Loaded monthly goals data:", result.data);
-
 				setDataLoaded(true);
 			} else {
 				setError(result.data || "Error loading monthly goals data");

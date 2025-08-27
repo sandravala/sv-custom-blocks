@@ -450,10 +450,10 @@ useEffect(() => {
 									}}
 									help={
 										isJsonValid
-											? __("Define JSON structure (optional)", "universal-ai")
+											? __("Define JSON structure (optional). Start with type: object", "universal-ai")
 											: __("Invalid JSON. Fix errors to apply.", "universal-ai")
 									}
-									rows={10}
+									rows={20}
 								/>
 							)}
 						</>
