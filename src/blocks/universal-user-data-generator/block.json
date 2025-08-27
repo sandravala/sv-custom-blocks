@@ -15,6 +15,17 @@
 		"instanceId": {
 			"type": "string",
 			"default": ""
+		},
+		"formConfiguration": {
+			"type": "object",
+			"default": {
+				"title": "User Feedback Form",
+				"description": "",
+				"userMetaKey": "sv_cb_uff_feedback_data",
+				"fieldsJson": "[{\"key\":\"satisfaction\",\"type\":\"select\",\"label\":\"Overall Satisfaction\",\"required\":true,\"options\":[{\"label\":\"Very Satisfied\",\"value\":\"5\"},{\"label\":\"Satisfied\",\"value\":\"4\"},{\"label\":\"Neutral\",\"value\":\"3\"},{\"label\":\"Dissatisfied\",\"value\":\"2\"},{\"label\":\"Very Dissatisfied\",\"value\":\"1\"}]},{\"key\":\"comments\",\"type\":\"textarea\",\"label\":\"Comments & Suggestions\",\"placeholder\":\"Please share your thoughts...\",\"required\":false,\"rows\":4}]",
+				"submitButtonText": "Submit Feedback",
+				"successMessage": "Thank you for your feedback!"
+			}
 		}
 	},
 	"example": {},

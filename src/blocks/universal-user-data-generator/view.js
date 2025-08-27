@@ -19,7 +19,8 @@ async function renderUniversalDataGeneratorBlocks() {
         const blockId = container.dataset.blockId;
         const componentName = container.dataset.component;
         const isLoggedIn = container.dataset.isLoggedIn === 'true';
-        
+        const formConfig = container.dataset.formConfig ? JSON.parse(container.dataset.formConfig) : {};
+
         try {
             // Dynamically load the component
             const ComponentClass = await loadComponent(componentName);
@@ -32,6 +33,7 @@ async function renderUniversalDataGeneratorBlocks() {
                         isLoggedIn={isLoggedIn}
                         ajaxObject={window.sv_ajax_object || {}} // Use global AJAX object
                         componentName={componentName}
+                        formConfiguration={formConfig}
                     />
                 );
             } else {

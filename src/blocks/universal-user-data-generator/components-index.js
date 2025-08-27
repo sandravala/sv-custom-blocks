@@ -50,6 +50,55 @@ export const availableComponents = {
       "Chronotype data for energy flow"
     ]
   },
+  "monthly-goals": {
+    "name": "Monthly Goals",
+    "icon": "🎯",
+    "description": "Create and manage monthly goals based on quarterly objectives with time allocation",
+    "category": "Planning",
+    "version": "1.0.0",
+    "dataSchema": {
+      "selectedMonth": "string",
+      "currentMonthGoals": "array",
+      "workingHours": "number",
+      "vacationDays": "number",
+      "hoursPerDay": "number"
+    },
+    "userMetaKeys": {
+      "goal_actions": "goal_actions",
+      "monthly_goals": "monthly_goals",
+      "tc_preferences": "tc_calculator_preferences",
+      "routine_tasks": "routine_tasks",
+      "goal_stages": "goal_stages"
+    },
+    "saveToMeta": {
+      "monthly_goals": "monthly_goals",
+      "tc_preferences": "tc_calculator_preferences"
+    },
+    "defaultConfig": {
+      "monthSelectionMode": "limited",
+      "showWorkingHours": true,
+      "showQuarterlyContext": true,
+      "autoCalculateAvailableTime": true
+    },
+    "features": [
+      "Month selector with quarterly context",
+      "Working hours calculator with vacation days",
+      "Routine task time deduction",
+      "Quarterly goals integration",
+      "Editable goals table with save functionality",
+      "Time availability validation"
+    ],
+    "dependencies": [
+      "EditableTable component",
+      "Working hours calculator utilities",
+      "Quarterly goals data"
+    ],
+    "blockAbbr": "mg",
+    "dataTypes": {
+      "monthly_goals": "sv_cb_mg_monthly_goals",
+      "tc_preferences": "sv_cb_mg_tc_preferences"
+    }
+  },
   "monthly-time-allocation": {
     "name": "Monthly Time Allocation",
     "icon": "📅",
@@ -69,6 +118,46 @@ export const availableComponents = {
       "showRoutineTasks": true,
       "showMonthlyGoals": true
     }
+  },
+  "user-feedback-form": {
+    "name": "User Feedback Form",
+    "icon": "📝",
+    "version": "1.0.0",
+    "category": "Data Collection",
+    "description": "Customizable form that saves user responses as JSON to user meta. Admin configures fields via Inspector Controls.",
+    "features": [
+      "Configurable form fields via JSON",
+      "All data saves to single user meta key as JSON",
+      "Merges with existing data (doesn't overwrite)",
+      "Supports all FormRenderer field types",
+      "Shows submitted data preview",
+      "Resubmission capability"
+    ],
+    "dataSchema": {
+      "formConfiguration": "object",
+      "userMetaKey": "string"
+    },
+    "defaultConfig": {
+      "title": "User Feedback Form",
+      "submitButtonText": "Submit Feedback",
+      "successMessage": "Thank you for your feedback!",
+      "userMetaKey": "sv_cb_uff_feedback_data",
+      "fieldsJson": "[{\"key\":\"satisfaction\",\"type\":\"select\",\"label\":\"Overall Satisfaction\",\"required\":true,\"options\":[{\"label\":\"Very Satisfied\",\"value\":\"5\"},{\"label\":\"Satisfied\",\"value\":\"4\"},{\"label\":\"Neutral\",\"value\":\"3\"},{\"label\":\"Dissatisfied\",\"value\":\"2\"},{\"label\":\"Very Dissatisfied\",\"value\":\"1\"}]},{\"key\":\"comments\",\"type\":\"textarea\",\"label\":\"Comments & Suggestions\",\"placeholder\":\"Please share your thoughts...\",\"required\":false,\"rows\":4}]"
+    },
+    "fieldTypes": [
+      "text",
+      "email",
+      "number",
+      "textarea",
+      "select",
+      "checkbox",
+      "radio",
+      "date"
+    ],
+    "dependencies": [
+      "FormRenderer component",
+      "Universal User Data Generator AJAX handlers"
+    ]
   },
   "weekly-todo-list": {
     "name": "Weekly Todo Breakdown",

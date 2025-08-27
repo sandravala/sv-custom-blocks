@@ -449,9 +449,9 @@ function MonthlyGoalsComponent({ blockElement }) {
 			"07": " liepos",
 			"08": " rugpjūčio",
 			"09": " rugsėjo",
-			10: " spalio",
-			11: " lapkričio",
-			12: " gruodžio",
+			"10": " spalio",
+			"11": " lapkričio",
+			"12": " gruodžio",
 		};
 		return `${currentMonth[0] + monthlyStrings[currentMonth[1]]} tikslai`;
 	};

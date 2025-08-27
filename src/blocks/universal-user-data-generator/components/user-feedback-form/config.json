@@ -1,0 +1,34 @@
+{
+    "name": "User Feedback Form",
+    "icon": "📝",
+    "version": "1.0.0",
+    "category": "Data Collection",
+    "description": "Customizable form that saves user responses as JSON to user meta. Admin configures fields via Inspector Controls.",
+    "features": [
+      "Configurable form fields via JSON",
+      "All data saves to single user meta key as JSON",
+      "Merges with existing data (doesn't overwrite)",
+      "Supports all FormRenderer field types",
+      "Shows submitted data preview",
+      "Resubmission capability"
+    ],
+    "dataSchema": {
+      "formConfiguration": "object", 
+      "userMetaKey": "string" 
+    },
+    "defaultConfig": {
+      "title": "User Feedback Form",
+      "submitButtonText": "Submit Feedback", 
+      "successMessage": "Thank you for your feedback!",
+      "userMetaKey": "sv_cb_uff_feedback_data",
+      "fieldsJson": "[{\"key\":\"satisfaction\",\"type\":\"select\",\"label\":\"Overall Satisfaction\",\"required\":true,\"options\":[{\"label\":\"Very Satisfied\",\"value\":\"5\"},{\"label\":\"Satisfied\",\"value\":\"4\"},{\"label\":\"Neutral\",\"value\":\"3\"},{\"label\":\"Dissatisfied\",\"value\":\"2\"},{\"label\":\"Very Dissatisfied\",\"value\":\"1\"}]},{\"key\":\"comments\",\"type\":\"textarea\",\"label\":\"Comments & Suggestions\",\"placeholder\":\"Please share your thoughts...\",\"required\":false,\"rows\":4}]"
+    },
+    "fieldTypes": [
+      "text", "email", "number", "textarea", 
+      "select", "checkbox", "radio", "date"
+    ],
+    "dependencies": [
+      "FormRenderer component",
+      "Universal User Data Generator AJAX handlers"
+    ]
+  }
