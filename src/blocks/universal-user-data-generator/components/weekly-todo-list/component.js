@@ -260,7 +260,6 @@ export default function WeeklyTodoListComponent({
 
 			const result = await response.json();
 			if (result.success) {
-				console.log("✅ Todo list saved successfully");
 				setLoadedData((prev) => ({
 					...prev,
 					monthly_allocation: updatedAllocation,

@@ -45,11 +45,8 @@ function QuizRender() {
 
 	const cookieSet = () => {
 		if (c) {
-			console.log("cookie found");
-			console.log(quizData.length);
 			return quizData.length;
 		} else {
-			console.log("cookie not found");
 			return 0;
 		}
 	};
@@ -350,8 +347,6 @@ function QuizRender() {
 			setType(typeString);
 			setTieBreak([]);
 		} else {
-			console.log("dichotomy not full");
-			console.log(dichotomy);
 
 			// if (tieBreak.length > 0) {
 			//     return;
@@ -387,8 +382,7 @@ function QuizRender() {
 			(prev, current) => prev + current,
 			"",
 		)}; expires=${expirationDate.toUTCString()}; SameSite=Strict; path=/`;
-		console.log(type);
-		console.log(dichotomy);
+
         document.querySelector(".test-intro").classList.add("hidden");
 		setShowResultContainer(!showResultContainer);
 	};
@@ -512,7 +506,6 @@ function QuizRender() {
 						setEmailSent(false);
 						setSending(false);
 						setEmailError(true);
-						console.log(response.data);
 					}
 				},
 				error: function () {

@@ -161,7 +161,6 @@ export default function UserFeedbackFormComponent({
 			if (saveResult.success) {
 				setSubmitted(true);
 				setFormData(mergedData);
-				console.log("✅ Form data saved successfully");
 			} else {
 				throw new Error(saveResult.data?.message || "Failed to save form data");
 			}

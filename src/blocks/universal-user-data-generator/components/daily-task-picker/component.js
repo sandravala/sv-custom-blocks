@@ -46,7 +46,6 @@ const DailyTaskPickerComponent = ({
 
 	useEffect(() => {
 		if (loadedData.monthly_allocation) {
-			console.log(loadedData);
 			const allocations = loadedData.monthly_allocation;
 			const weekInfo = getWeekInfoFromDate(selectedDate);
 			const yearData = allocations?.[weekInfo.year];
@@ -110,7 +109,6 @@ const DailyTaskPickerComponent = ({
 
 			if (result.success) {
 				const data = result.data.user_data;
-				console.log("Loaded data:", data);
 				setLoadedData(data || {});
 				// Set monthly allocation data
 
@@ -136,7 +134,6 @@ const DailyTaskPickerComponent = ({
 			};
 
 			const updatedAllocations = { monthly_allocation: monthlyAllocation };
-			console.log(updatedAllocations);
 			try {
 				await fetch(ajaxObject.ajax_url, {
 					method: "POST",

@@ -61,8 +61,6 @@ export default function ChronotypeTestComponent({
 		if (isLastQuestion) {
 			// If last question, show result
 			setShowResult(true);
-			console.log("Quiz answers:", answers);
-			console.log("Result:", calculateResult());
 		} else {
 			setCurrentQuestionIndex((prev) => prev + 1);
 		}
@@ -94,7 +92,6 @@ export default function ChronotypeTestComponent({
 			const result = await response.json();
 
 			if (result.success) {
-                console.log("data saved successfully");
 				// Optionally reload data to see saved state
 				// loadComponentData();
 			} else {

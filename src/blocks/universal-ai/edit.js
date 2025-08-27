@@ -60,7 +60,6 @@ export default function Edit({ attributes, setAttributes }) {
 	useEffect(() => {
 		if (!instanceId || hasLoadedData) return;
 
-		console.log("📥 Loading saved data for instance:", instanceId);
 		setIsLoadingData(true);
 
 		wp.apiFetch({ path: "/wp/v2/settings" })
@@ -69,8 +68,6 @@ export default function Edit({ attributes, setAttributes }) {
 				const savedConfig = allConfigs[instanceId];
 
 				if (savedConfig) {
-					console.log("✅ Found saved config:", savedConfig);
-
 					// Load ALL saved settings into local state
 					setSystemPrompt(savedConfig.systemPrompt || "");
 					setModel(savedConfig.model || "gpt-4");
@@ -84,7 +81,6 @@ export default function Edit({ attributes, setAttributes }) {
 						setSchemaText(JSON.stringify(savedConfig.responseSchema, null, 2));
 					}
 				} else {
-					console.log("ℹ️ No saved config found, using defaults");
 
 					// Set default values if no saved data
 					if (
@@ -142,10 +138,6 @@ export default function Edit({ attributes, setAttributes }) {
 			);
 
 		if (shouldAutoUpdate) {
-			console.log(
-				"🔄 Auto-updating settings for component:",
-				selectedComponent,
-			);
 			setSystemPrompt(component.defaultPrompt || "");
 			setModel(component.recommendedModel || "gpt-4");
 			setMaxTokens(component.recommendedTokens || 1500);
@@ -165,7 +157,6 @@ useEffect(() => {
 		
 		// Only trigger on manual save, not autosave
 		if (isSavingPost && !isAutosaving && !isSaving) {
-			console.log('🔄 Post is being saved, auto-saving Universal AI config...');
 			saveConfigNow();
 		}
 	});
@@ -208,7 +199,6 @@ useEffect(() => {
 			});
 
 			setLastSaved(new Date().toLocaleTimeString());
-			console.log("✅ Config saved to wp_options!");
 		} catch (error) {
 			console.error("Failed to save:", error);
 			alert("Failed to save configuration. Please try again.");

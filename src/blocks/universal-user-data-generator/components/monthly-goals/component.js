@@ -212,7 +212,6 @@ export default function MonthlyGoalsComponent({ blockId,
                 setAllRoutineTasks(loadedUserData.routine_tasks || []);
                 setAllGoalStages(loadedUserData.goal_stages || {});
                 setDataLoaded(true);
-                console.log("Loaded user monthly goal data:", loadedUserData);
             } else {
                 setError(result.data || "Error loading monthly goals data");
             }
