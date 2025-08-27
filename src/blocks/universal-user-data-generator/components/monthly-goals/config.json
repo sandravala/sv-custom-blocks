@@ -1,0 +1,49 @@
+{
+  "name": "Monthly Goals",
+  "icon": "🎯",
+  "description": "Create and manage monthly goals based on quarterly objectives with time allocation",
+  "category": "Planning",
+  "version": "1.0.0",
+  "dataSchema": {
+    "selectedMonth": "string",
+    "currentMonthGoals": "array",
+    "workingHours": "number",
+    "vacationDays": "number",
+    "hoursPerDay": "number"
+  },
+  "userMetaKeys": {
+    "goal_actions": "goal_actions",
+    "monthly_goals": "monthly_goals",
+    "tc_preferences": "tc_calculator_preferences",
+    "routine_tasks": "routine_tasks",
+    "goal_stages": "goal_stages"
+  },
+  "saveToMeta": {
+    "monthly_goals": "monthly_goals",
+    "tc_preferences": "tc_calculator_preferences"
+  },
+  "defaultConfig": {
+    "monthSelectionMode": "limited",
+    "showWorkingHours": true,
+    "showQuarterlyContext": true,
+    "autoCalculateAvailableTime": true
+  },
+  "features": [
+    "Month selector with quarterly context",
+    "Working hours calculator with vacation days",
+    "Routine task time deduction",
+    "Quarterly goals integration",
+    "Editable goals table with save functionality",
+    "Time availability validation"
+  ],
+  "dependencies": [
+    "EditableTable component",
+    "Working hours calculator utilities",
+    "Quarterly goals data"
+  ],
+  "blockAbbr": "mg",
+  "dataTypes": {
+    "monthly_goals": "sv_cb_mg_monthly_goals",
+    "tc_preferences": "sv_cb_mg_tc_preferences"
+  }
+}
