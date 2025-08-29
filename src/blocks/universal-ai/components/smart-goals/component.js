@@ -289,8 +289,8 @@ export default function SmartGoalsComponent({
 	// Show loading while checking saved data
 	if (!loadingSaved) {
 		return (
-			<div className="loading-message">
-				<p>Kraunami duomenys...</p>
+			<div className="sv-table-loading">
+				<div className="sv-table-loader"></div>
 			</div>
 		);
 	}
@@ -311,9 +311,7 @@ export default function SmartGoalsComponent({
 
 	return (
 		<>
-		{submitted && (
-			<div className="sv-ai-generator-submission-success"></div>
-		)}
+			{submitted && <div className="sv-ai-generator-submission-success"></div>}
 			{loadingSaved && (
 				<FormRenderer
 					fields={formFields}

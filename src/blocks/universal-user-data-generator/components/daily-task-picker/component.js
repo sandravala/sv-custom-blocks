@@ -292,7 +292,9 @@ const DailyTaskPickerComponent = ({
 	if (loading) {
 		return (
 			<div className="daily-task-picker-loading">
-				<p>Kraunami duomenys...</p>
+				<div className="sv-table-loading">
+			<div className="sv-table-loader"></div>
+		</div>
 			</div>
 		);
 	}

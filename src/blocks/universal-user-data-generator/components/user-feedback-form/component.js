@@ -29,7 +29,7 @@ export default function UserFeedbackFormComponent({
 	// Parse form configuration from admin settings
 	const formConfig = useMemo(() => {
 		const config = {
-			title: formConfigData.title || "",
+			title: formConfigData.title || formConfigData.userMetaKey.replaceAll("_", " "),
 			submitButtonText: formConfigData.submitButtonText || "Pateikti",
 			successMessage:
 				formConfigData.successMessage || "Ačiū už tavo grįžtamąjį ryšį!",
@@ -78,7 +78,7 @@ export default function UserFeedbackFormComponent({
 	}, [formConfigData.fieldsJson]);
 
 	// User meta key where data will be saved
-	const userMetaKey = formConfigData.userMetaKey || componentName +"user_feedback_data";
+	const userMetaKey = "sv_cb_uff_" + (formConfigData.userMetaKey || componentName + "user_feedback_data");
 
 	// Load saved data on component mount (only if logged in)
 	useEffect(() => {
@@ -138,6 +138,7 @@ export default function UserFeedbackFormComponent({
 				...formSubmissionData,
 				submitted_at: new Date().toISOString(),
 				form_version: blockId, // Track which form instance this came from
+				form_title: formConfig.title,
 			};
 
 			// Save merged data as JSON
@@ -175,9 +176,9 @@ export default function UserFeedbackFormComponent({
 	// Show loading while checking saved data
 	if (!loadingSaved) {
 		return (
-			<div className="loading-message">
-				<p>Loading form...</p>
-			</div>
+<div className="sv-table-loading">
+			<div className="sv-table-loader"></div>
+		</div>
 		);
 	}
 
@@ -251,7 +252,7 @@ export default function UserFeedbackFormComponent({
 					<div style={{ fontSize: "12px", color: "#666" }}>
 						{Object.entries(formData)
 							.filter(
-								([key]) => !["submitted_at", "form_version"].includes(key),
+								([key]) => !["submitted_at", "form_version", "form_title"].includes(key),
 							)
 							.map(([key, value]) => {
 								const field = formFields.find((f) => f.key === key);

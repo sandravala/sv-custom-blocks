@@ -137,7 +137,7 @@ export default function RoutineTasksComponent({
 			calculate: (row) => {
 				const hours = Number(row.typical_hours_per_month) || 0;
 				const weeklyRate = 4.33; // €25 per hour
-				return (hours / weeklyRate);
+				return hours / weeklyRate;
 			},
 			dependsOn: ["typical_hours_per_month"],
 		},
@@ -211,7 +211,6 @@ export default function RoutineTasksComponent({
 				// 	task.id = index + 1; // Ensure each task has a unique ID
 				// });
 				setRoutineTasks(routineTasksData);
-
 			} else {
 				// Error loading data (could be no data exists, which is fine)
 				console.log("No saved data found or error:", result.data?.message);
@@ -231,9 +230,7 @@ export default function RoutineTasksComponent({
 		// });
 		//update goal data actions value
 
-		
 		setRoutineTasks(tableData);
-		
 	};
 
 	const handleSubmit = async (inputData, saveKey) => {
@@ -344,8 +341,8 @@ export default function RoutineTasksComponent({
 	// Show loading while checking saved data
 	if (!loadingSaved) {
 		return (
-			<div className="loading-message">
-				<p>Kraunami duomenys...</p>
+			<div className="sv-table-loading">
+				<div className="sv-table-loader"></div>
 			</div>
 		);
 	}
@@ -365,7 +362,7 @@ export default function RoutineTasksComponent({
 	}
 
 	return (
-		<>
+		<div className="routine-tasks-container">
 			{submitted && <div className="sv-ai-generator-submission-success"></div>}
 
 			{loadingSaved && (
@@ -397,6 +394,6 @@ export default function RoutineTasksComponent({
 					</AccordionHeader>
 				</>
 			)}
-		</>
+		</div>
 	);
 }

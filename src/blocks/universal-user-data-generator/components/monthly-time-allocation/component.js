@@ -484,9 +484,9 @@ const getAllocationStatus = () => {
 
 	if (loading) {
 		return (
-			<div className="loading-state">
-				<p>Kraunami duomenys...</p>
-			</div>
+<div className="sv-table-loading">
+			<div className="sv-table-loader"></div>
+		</div>
 		);
 	}
 

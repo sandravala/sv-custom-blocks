@@ -26,7 +26,6 @@ $selected_component = isset($attrs['selectedComponent'])
     id="universal-ai-block"
     data-block-id="<?php echo esc_attr($instance_id); ?>"
     data-component="<?php echo esc_attr($selected_component); ?>"
-    data-config="<?php echo esc_attr(json_encode($block_config)); ?>"
     data-assistant-id="<?php echo esc_attr($assistant_id); ?>"
     data-use-responses-api="<?php echo esc_attr($use_responses_api); ?>"
     data-is-logged-in="<?php echo esc_attr(is_user_logged_in() ? 'true' : 'false'); ?>"

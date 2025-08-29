@@ -401,9 +401,9 @@ export default function WeeklyTodoListComponent({
 			{/* Loading State */}
 			{loading && (
 				<div className="sv-card sv-text-center">
-					<p className="sv-text-base sv-opacity-75">
-						Kraunami savaitės duomenys...
-					</p>
+<div className="sv-table-loading">
+			<div className="sv-table-loader"></div>
+		</div>
 				</div>
 			)}
 

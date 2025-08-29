@@ -449,7 +449,7 @@
 
 	/* Form Inputs */
 	.sv-field-input {
-		width: 100%;
+		width: 90%;
 		padding: 10px 12px;
 		border: 1px solid #d1d5db;
 		border-radius: 8px;
@@ -470,7 +470,7 @@
 		}
 
 		&.number {
-			width: 100px;
+			width: 80%;
 			text-align: center;
 		}
 
@@ -732,7 +732,7 @@
 
 		.sv-field-input {
 			&.number {
-				width: 100%;
+				width: 90%;
 				text-align: left;
 			}
 		}

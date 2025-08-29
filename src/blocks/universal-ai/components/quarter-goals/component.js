@@ -103,7 +103,8 @@ export default function QuarterlyGoalsComponent({
 		successMessage: "Thank you!", // Message shown after successful submission
 		showRequiredNote: false, // Show "Fields marked with * are required"
 		submittingText: "DI asistentas dirba...", // kas rodoma ai blob'e
-		submitAnotherResponseText: "Paprašyk, kad DI asistentas sugeneruotų naujus tarpinius tikslus",
+		submitAnotherResponseText:
+			"Paprašyk, kad DI asistentas sugeneruotų naujus tarpinius tikslus",
 		canSubmitAnotherResponse: true, // Allow submitting another response
 	};
 
@@ -122,9 +123,9 @@ export default function QuarterlyGoalsComponent({
 
 	const quarterTitles = {
 		Q1: "I ketv.",
-			Q2: "II ketv.",
-			Q3: "III ketv.",
-			Q4: "IV ketv.",
+		Q2: "II ketv.",
+		Q3: "III ketv.",
+		Q4: "IV ketv.",
 	};
 
 	// Load saved data on component mount (only if logged in)
@@ -155,34 +156,34 @@ export default function QuarterlyGoalsComponent({
 		}
 	}, [goalData.stages]); // Only depend on the actual data
 
-
 	const getQuarterInfo = (area) => {
-    
-    // Check if area is already a quarter key (Q1, Q2, etc.)
-    if (quarterTitles[area]) {
-        return {
-            key: area,
-            title: quarterTitles[area]
-        };
-    }
+		// Check if area is already a quarter key (Q1, Q2, etc.)
+		if (quarterTitles[area]) {
+			return {
+				key: area,
+				title: quarterTitles[area],
+			};
+		}
 
-	const areaSubstring = area.replace(" ketv: ", " ketv.");
+		const areaSubstring = area.replace(" ketv: ", " ketv.");
 
-    // Check if area is already a formatted title
-    const foundKey = Object.entries(quarterTitles).find(([key, title]) => title.includes(areaSubstring));
-    if (foundKey) {
-        return {
-            key: foundKey[0],
-            title: foundKey[1]
-        };
-    }
-    
-    // Fallback - area doesn't match known patterns
-    return {
-        key: area,
-        title: area
-    };
-};
+		// Check if area is already a formatted title
+		const foundKey = Object.entries(quarterTitles).find(([key, title]) =>
+			title.includes(areaSubstring),
+		);
+		if (foundKey) {
+			return {
+				key: foundKey[0],
+				title: foundKey[1],
+			};
+		}
+
+		// Fallback - area doesn't match known patterns
+		return {
+			key: area,
+			title: area,
+		};
+	};
 
 	const formatActionItems = (actions) => {
 		let total_hours = 0;
@@ -245,7 +246,7 @@ export default function QuarterlyGoalsComponent({
 			const result = await response.json();
 
 			if (result.success) {
-				setFormData((prev) => ({...prev, ...result.data.input_data}));
+				setFormData((prev) => ({ ...prev, ...result.data.input_data }));
 
 				const actions = formatActionItems(result.data.user_data.goal_actions);
 
@@ -582,8 +583,8 @@ export default function QuarterlyGoalsComponent({
 	// Show loading while checking saved data
 	if (!loadingSaved) {
 		return (
-			<div className="loading-message">
-				<p>Kraunami duomenys...</p>
+			<div className="sv-table-loading">
+				<div className="sv-table-loader"></div>
 			</div>
 		);
 	}
@@ -593,7 +594,7 @@ export default function QuarterlyGoalsComponent({
 		return (
 			<div className="login-required">
 				<h4>Prisijungimas reikalingas</h4>
-				<p>Turite būti prisijungę, kad galėtumėte naudoti šį įrankį.</p>
+				<p>Turi prisijungti, kad galėtum naudoti šį įrankį.</p>
 				<p>
 					<a href="/wp-login.php">Prisijungti</a> arba{" "}
 					<a href="/wp-login.php?action=register">Registruotis</a>

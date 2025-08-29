@@ -45,7 +45,6 @@ if ($selected_component === 'user-feedback-form' && isset($attrs['formConfigurat
     <?php else: ?>
         <!-- Component loads here via view.js -->
         <div class="universal-user-data-generator-loading">
-            <p><?php _e('Kraunama...', 'sv-custom-blocks'); ?></p>
         </div>
     <?php endif; ?>
 </div>

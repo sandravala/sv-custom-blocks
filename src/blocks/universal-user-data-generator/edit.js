@@ -113,7 +113,8 @@ export default function Edit({ attributes, setAttributes }) {
 					>
 						<TextControl
 							label={__("Form Title", "sv-custom-blocks")}
-							value={formConfiguration?.title || "User Feedback Form"}
+							value={formConfiguration?.title}
+							placeholder="User Feedback Form"
 							onChange={(value) =>
 								setAttributes({
 									formConfiguration: {
@@ -130,9 +131,8 @@ export default function Edit({ attributes, setAttributes }) {
 
 						<TextControl
 							label={__("User Meta Key", "sv-custom-blocks")}
-							value={
-								formConfiguration?.userMetaKey || "sv_cb_uff_feedback_data"
-							}
+							value={formConfiguration?.userMetaKey}
+							placeholder="x_feedback_data"
 							onChange={(value) =>
 								setAttributes({
 									formConfiguration: {
@@ -149,32 +149,30 @@ export default function Edit({ attributes, setAttributes }) {
 
 						<TextareaControl
 							label={__("Form Fields JSON", "sv-custom-blocks")}
-							value={
-								formConfiguration?.fieldsJson ||
-								`[
-  {
-    "key": "overall_satisfaction",
-    "type": "select",
-    "label": "Overall Satisfaction",
-    "required": true,
-    "options": [
-      {"label": "Very Satisfied", "value": "5"},
-      {"label": "Satisfied", "value": "4"},
-      {"label": "Neutral", "value": "3"},
-      {"label": "Dissatisfied", "value": "2"},
-      {"label": "Very Dissatisfied", "value": "1"}
-    ]
-  },
-  {
-    "key": "comments",
-    "type": "textarea",
-    "label": "Comments & Suggestions",
-    "placeholder": "Please share your thoughts...",
-    "required": false,
-    "rows": 4
-  }
-]`
-							}
+							value={formConfiguration?.fieldsJson}
+							placeholder={`[
+											{
+												"key": "overall_satisfaction",
+												"type": "select",
+												"label": "Overall Satisfaction",
+												"required": true,
+												"options": [
+												{"label": "Very Satisfied", "value": "5"},
+												{"label": "Satisfied", "value": "4"},
+												{"label": "Neutral", "value": "3"},
+												{"label": "Dissatisfied", "value": "2"},
+												{"label": "Very Dissatisfied", "value": "1"}
+												]
+											},
+											{
+												"key": "comments",
+												"type": "textarea",
+												"label": "Comments & Suggestions",
+												"placeholder": "Please share your thoughts...",
+												"required": false,
+												"rows": 4
+											}
+										]`}
 							onChange={(value) =>
 								setAttributes({
 									formConfiguration: {
@@ -192,7 +190,8 @@ export default function Edit({ attributes, setAttributes }) {
 
 						<TextControl
 							label={__("Submit Button Text", "sv-custom-blocks")}
-							value={formConfiguration?.submitButtonText || "Submit Feedback"}
+							value={formConfiguration?.submitButtonText}
+							placeholder="Submit Feedback"
 							onChange={(value) =>
 								setAttributes({
 									formConfiguration: {
@@ -205,10 +204,8 @@ export default function Edit({ attributes, setAttributes }) {
 
 						<TextControl
 							label={__("Success Message", "sv-custom-blocks")}
-							value={
-								formConfiguration?.successMessage ||
-								"Thank you for your feedback!"
-							}
+							value={formConfiguration?.successMessage}
+							placeholder="Thank you for your feedback!"
 							onChange={(value) =>
 								setAttributes({
 									formConfiguration: {
@@ -252,15 +249,11 @@ export default function Edit({ attributes, setAttributes }) {
 											}}
 										>
 											<div style={{ marginBottom: "8px" }}>
-												<strong>Form:</strong>{" "}
-												{formConfiguration.title || "User Feedback Form"}
+												<strong>Form:</strong> {formConfiguration.title || ""}
 											</div>
 											<div style={{ marginBottom: "8px" }}>
 												<strong>Meta Key:</strong>{" "}
-												<code>
-													{formConfiguration.userMetaKey ||
-														"sv_cb_uff_feedback_data"}
-												</code>
+												<code>{formConfiguration.userMetaKey || ""}</code>
 											</div>
 											{formConfiguration.fieldsJson && (
 												<div>

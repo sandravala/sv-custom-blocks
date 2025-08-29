@@ -448,6 +448,19 @@ useEffect(() => {
 											// Keep invalid text visible
 										}
 									}}
+									placeholder={`{
+													"type": "object",
+													"properties": {
+													...
+													},
+													"required": [
+														"activity_area",
+														"job_title",
+														"responsibilities_table",
+														"responsibility_coverage_note"
+													],
+													"additionalProperties": false
+												}`}
 									help={
 										isJsonValid
 											? __("Define JSON structure (optional). Start with type: object", "universal-ai")

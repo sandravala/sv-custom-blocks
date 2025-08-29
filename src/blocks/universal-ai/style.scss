@@ -1,9 +1,9 @@
 //@import '../../shared/styles/ai-blob';
-@import '@components/EditableTable/style';
-@import '@components/FormRenderer/style';
-@import '@components/AccordionHeader/style';
+@import "@components/EditableTable/style";
+@import "@components/FormRenderer/style";
+@import "@components/AccordionHeader/style";
 
-@import '../../shared/styles/_common-styles.scss';
+@import "../../shared/styles/_common-styles.scss";
 
 // .smart-goal-generator {
 // 	max-width: 800px;
@@ -104,8 +104,6 @@
 // 			}
 // 		}
 // 	}
-
-	
 
 // 	.tasks-result {
 // 		background-color: #f8f9fa;
@@ -338,9 +336,21 @@
 // 	}
 // }
 
-
 #universal-ai-block {
-    margin-bottom: 2em;
+	margin-bottom: 2em;
 }
 
+.routine-tasks-container {
+	.sv-editable-table-container .sv-field-input {
+		width: 90%;
+	}
+	.sv-editable-table-container .sv-field-input.number {
+		width: 80%;
+	}
 
+	@media (max-width: 768px) {
+		.sv-editable-table-container .sv-field-input.number {
+			width: 90%;
+		}
+	}
+}

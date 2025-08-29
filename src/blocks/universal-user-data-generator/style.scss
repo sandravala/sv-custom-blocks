@@ -788,6 +788,9 @@
 }
 
 .user-feedback-form {
+	.sv-form-title {
+		display: none;
+	}
 	.ai-blob {
 		opacity: 0.1;
 	}

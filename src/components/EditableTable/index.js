@@ -88,7 +88,7 @@ const EditableTable = ({
 		}
 
 		setTableData(processedData);
-		//setIsDirty(false);
+		
 	}, [data]);
 
 	const canAddRows = () => {
@@ -143,6 +143,7 @@ const EditableTable = ({
 		setTableData(newData);
 		let isActualChange = false;
 		if (changeInfo) {
+			
 			switch (changeInfo.type) {
 				case "add":
 					// Don't set dirty on add - wait for user to actually enter data
@@ -156,12 +157,22 @@ const EditableTable = ({
 
 				case "update":
 					// Only mark as change if values are actually different
+					const emptyFields = getEmptyFields(changeInfo.row);
+					if(emptyFields.length > 0) {
+						isActualChange = false;
+					} else {
 					isActualChange = changeInfo.oldValue !== changeInfo.newValue;
+					}
+					
 					break;
 			}
+
+			// if (isActualChange) {
+			// 	setIsDirty(true);
+			// }
 		}
 
-		setIsDirty(isActualChange);
+		//setIsDirty(isActualChange);
 		if (onDataChange) {
 			onDataChange(newData, changeInfo);
 		}
@@ -179,7 +190,8 @@ const EditableTable = ({
 		);
 
 		return editableFields.filter((col) => {
-			const value = row[col.key];
+			
+			const value = row && col.key in row ? row[col.key] : null;
 			return (
 				value === "" ||
 				value === null ||
@@ -189,7 +201,8 @@ const EditableTable = ({
 		});
 	};
 	const validateRowForSaving = (row) => {
-		const emptyFields = getEmptyFields(row);
+	
+			const emptyFields = getEmptyFields(row);
 
 		if (emptyFields.length === 0) {
 			return { isValid: true };
@@ -242,20 +255,22 @@ const EditableTable = ({
 				}
 			}
 		}
+		
 
 		const newEditingRows = new Set(editingRows);
 		if (newEditingRows.has(rowId)) {
 			newEditingRows.delete(rowId);
+			setIsDirty(true);
 		} else {
 			newEditingRows.add(rowId);
 		}
 		setEditingRows(newEditingRows);
+
 	};
 
 	// Save changes
 	const handleSave = async () => {
 		if (!onSave) return;
-
 		setIsLoading(true);
 		try {
 			await onSave(tableData, `sv_cb_${blockAbbr}_${dataType}`);
@@ -338,9 +353,8 @@ const EditableTable = ({
 			rowData: newRow,
 			groupKey: groupKey || null,
 		};
-
-		handleDataChange(newData, changeInfo);
 		setEditingRows(new Set([...editingRows, newRow.id]));
+		handleDataChange(newData, changeInfo);
 	};
 
 	// Delete row
@@ -381,12 +395,13 @@ const EditableTable = ({
 			rowId,
 			groupKey: groupKey || null,
 		};
-
-		handleDataChange(newData, changeInfo);
-
 		const newEditingRows = new Set(editingRows);
 		newEditingRows.delete(rowId);
 		setEditingRows(newEditingRows);
+
+		handleDataChange(newData, changeInfo);
+
+
 	};
 
 	// Value conversion helper function

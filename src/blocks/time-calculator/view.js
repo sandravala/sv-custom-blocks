@@ -1,6 +1,6 @@
 /**
  * Frontend Time Calculator Widget
- * 
+ *
  * Renders an interactive calculator that computes available working hours
  * per year or month based on user inputs.
  *
@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (calculatorContainer) {
 		const root = createRoot(calculatorContainer);
 		// Get calculation mode from the data attribute set by PHP
-		const calculationMode = calculatorContainer.getAttribute('data-calculation-mode') || 'yearly';
+		const calculationMode =
+			calculatorContainer.getAttribute("data-calculation-mode") || "yearly";
 		root.render(<TimeCalculatorWidget calculationMode={calculationMode} />);
 	}
 });
@@ -24,19 +25,21 @@ function TimeCalculatorWidget({ calculationMode }) {
 	// Get current year and month for defaults
 	const currentYear = new Date().getFullYear();
 	const currentMonth = new Date().getMonth() + 1; // 1-based month
-	
+
 	// State for user inputs
 	const [selectedYear, setSelectedYear] = useState(currentYear);
 	const [selectedMonth, setSelectedMonth] = useState(currentMonth);
 	const [workingHours, setWorkingHours] = useState(8);
-	const [vacationDays, setVacationDays] = useState(calculationMode === 'yearly' ? 20 : 2); // User sets own monthly numbers
-	
+	const [vacationDays, setVacationDays] = useState(
+		calculationMode === "yearly" ? 20 : 2,
+	); // User sets own monthly numbers
+
 	// State for validation errors
 	const [errors, setErrors] = useState({});
-	
+
 	// State for calculation results
 	const [results, setResults] = useState(null);
-	
+
 	// State for user data loading
 	const [userDataLoaded, setUserDataLoaded] = useState(false);
 
@@ -48,18 +51,18 @@ function TimeCalculatorWidget({ calculationMode }) {
 
 	// Month options
 	const monthOptions = [
-		{ value: 1, label: 'Sausis' },
-		{ value: 2, label: 'Vasaris' },
-		{ value: 3, label: 'Kovas' },
-		{ value: 4, label: 'Balandis' },
-		{ value: 5, label: 'Gegužė' },
-		{ value: 6, label: 'Birželis' },
-		{ value: 7, label: 'Liepa' },
-		{ value: 8, label: 'Rugpjūtis' },
-		{ value: 9, label: 'Rugsėjis' },
-		{ value: 10, label: 'Spalis' },
-		{ value: 11, label: 'Lapkritis' },
-		{ value: 12, label: 'Gruodis' }
+		{ value: 1, label: "Sausis" },
+		{ value: 2, label: "Vasaris" },
+		{ value: 3, label: "Kovas" },
+		{ value: 4, label: "Balandis" },
+		{ value: 5, label: "Gegužė" },
+		{ value: 6, label: "Birželis" },
+		{ value: 7, label: "Liepa" },
+		{ value: 8, label: "Rugpjūtis" },
+		{ value: 9, label: "Rugsėjis" },
+		{ value: 10, label: "Spalis" },
+		{ value: 11, label: "Lapkritis" },
+		{ value: 12, label: "Gruodis" },
 	];
 
 	// Load user preferences on component mount
@@ -67,9 +70,9 @@ function TimeCalculatorWidget({ calculationMode }) {
 		loadUserPreferences();
 	}, []);
 
-		// Calculate total days in period (for input validation)
+	// Calculate total days in period (for input validation)
 	const getTotalDaysInPeriod = () => {
-		if (calculationMode === 'yearly') {
+		if (calculationMode === "yearly") {
 			return selectedYear % 4 === 0 ? 366 : 365; // Leap year check
 		} else {
 			// Days in selected month
@@ -80,38 +83,38 @@ function TimeCalculatorWidget({ calculationMode }) {
 	// Load user preferences from WordPress user meta
 	const loadUserPreferences = async () => {
 		try {
-			if (typeof window.tcCalculatorAjax !== 'undefined') {
+			if (typeof window.tcCalculatorAjax !== "undefined") {
 				const response = await fetch(window.tcCalculatorAjax.ajaxUrl, {
-					method: 'POST',
+					method: "POST",
 					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
+						"Content-Type": "application/x-www-form-urlencoded",
 					},
 					body: new URLSearchParams({
-						action: 'tc_get_user_preferences',
+						action: "tc_get_user_preferences",
 						nonce: window.tcCalculatorAjax.nonce,
 						calculation_mode: calculationMode,
 						year: selectedYear,
-						month: selectedMonth
-					})
+						month: selectedMonth,
+					}),
 				});
 
 				const data = await response.json();
-				
+
 				if (data.success && data.data) {
 					const prefs = data.data;
-					
+
 					// Load working hours and vacation days
 					if (prefs.working_hours) {
 						setWorkingHours(parseFloat(prefs.working_hours));
 					}
-					
+
 					if (prefs.vacation_days) {
 						setVacationDays(parseInt(prefs.vacation_days));
 					}
 				}
 			}
 		} catch (error) {
-			console.warn('Could not load user preferences:', error);
+			console.warn("Could not load user preferences:", error);
 		} finally {
 			setUserDataLoaded(true);
 		}
@@ -120,17 +123,17 @@ function TimeCalculatorWidget({ calculationMode }) {
 	// Save user preferences to WordPress user meta
 	const saveUserPreferences = async (year, month, hours, vacation) => {
 		try {
-			if (typeof window.tcCalculatorAjax !== 'undefined') {
+			if (typeof window.tcCalculatorAjax !== "undefined") {
 				const params = {
-					action: 'tc_save_user_preferences',
+					action: "tc_save_user_preferences",
 					nonce: window.tcCalculatorAjax.nonce,
 					year: year,
 					working_hours: hours,
-					calculation_mode: calculationMode
+					calculation_mode: calculationMode,
 				};
 
 				// Save month if in monthly mode
-				if (calculationMode === 'monthly') {
+				if (calculationMode === "monthly") {
 					params.month = month;
 					params.vacation_days_monthly = vacation;
 					params.working_hours_monthly = hours;
@@ -140,32 +143,32 @@ function TimeCalculatorWidget({ calculationMode }) {
 				}
 
 				await fetch(window.tcCalculatorAjax.ajaxUrl, {
-					method: 'POST',
+					method: "POST",
 					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded',
+						"Content-Type": "application/x-www-form-urlencoded",
 					},
-					body: new URLSearchParams(params)
+					body: new URLSearchParams(params),
 				});
 			}
 		} catch (error) {
-			console.warn('Could not save user preferences:', error);
+			console.warn("Could not save user preferences:", error);
 		}
 	};
 
 	// Lithuanian holidays (static dates)
 	const getStaticHolidays = (year) => [
-		new Date(year, 0, 1),   // Naujieji metai
-		new Date(year, 1, 16),  // Lietuvos Valstybės atkūrimo diena
-		new Date(year, 2, 11),  // Lietuvos Nepriklausomybės atkūrimo diena
-		new Date(year, 4, 1),   // Tarptautinė darbininkų diena
-		new Date(year, 5, 24),  // Joninės (Rasos)
-		new Date(year, 6, 6),   // Valstybės diena
-		new Date(year, 7, 15),  // Žolinė
-		new Date(year, 10, 1),  // Visų šventųjų diena
-		new Date(year, 10, 2),  // Mirusiųjų atminimo diena
+		new Date(year, 0, 1), // Naujieji metai
+		new Date(year, 1, 16), // Lietuvos Valstybės atkūrimo diena
+		new Date(year, 2, 11), // Lietuvos Nepriklausomybės atkūrimo diena
+		new Date(year, 4, 1), // Tarptautinė darbininkų diena
+		new Date(year, 5, 24), // Joninės (Rasos)
+		new Date(year, 6, 6), // Valstybės diena
+		new Date(year, 7, 15), // Žolinė
+		new Date(year, 10, 1), // Visų šventųjų diena
+		new Date(year, 10, 2), // Mirusiųjų atminimo diena
 		new Date(year, 11, 24), // Šv. Kūčios
 		new Date(year, 11, 25), // Kalėdos
-		new Date(year, 11, 26)  // Kalėdos (antra diena)
+		new Date(year, 11, 26), // Kalėdos (antra diena)
 	];
 
 	// Calculate Easter Monday for given year
@@ -184,11 +187,11 @@ function TimeCalculatorWidget({ calculationMode }) {
 		const m = Math.floor((a + 11 * h + 22 * l) / 451);
 		const month = Math.floor((h + l - 7 * m + 114) / 31);
 		const day = ((h + l - 7 * m + 114) % 31) + 1;
-		
+
 		const easterSunday = new Date(year, month - 1, day);
 		const easterMonday = new Date(easterSunday);
 		easterMonday.setDate(easterSunday.getDate() + 1);
-		
+
 		return easterMonday;
 	};
 
@@ -207,9 +210,10 @@ function TimeCalculatorWidget({ calculationMode }) {
 
 	// Check if a date is a holiday
 	const isHoliday = (date, holidays) => {
-		return holidays.some(holiday => 
-			holiday.getDate() === date.getDate() && 
-			holiday.getMonth() === date.getMonth()
+		return holidays.some(
+			(holiday) =>
+				holiday.getDate() === date.getDate() &&
+				holiday.getMonth() === date.getMonth(),
 		);
 	};
 
@@ -218,13 +222,17 @@ function TimeCalculatorWidget({ calculationMode }) {
 		const startDate = new Date(year, 0, 1);
 		const endDate = new Date(year, 11, 31);
 		let workingDays = 0;
-		
-		for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+
+		for (
+			let d = new Date(startDate);
+			d <= endDate;
+			d.setDate(d.getDate() + 1)
+		) {
 			if (!isWeekend(d) && !isHoliday(d, holidays)) {
 				workingDays++;
 			}
 		}
-		
+
 		return workingDays;
 	};
 
@@ -232,22 +240,25 @@ function TimeCalculatorWidget({ calculationMode }) {
 	const calculateWorkingTime = () => {
 		// Validation
 		const newErrors = {};
-		
+
 		if (!yearOptions.includes(selectedYear)) {
-			newErrors.year = 'Prašome pasirinkti galiojantį metus';
+			newErrors.year = "Prašome pasirinkti galiojantį metus";
 		}
-		
-		if (calculationMode === 'monthly' && (selectedMonth < 1 || selectedMonth > 12)) {
-			newErrors.month = 'Prašome pasirinkti galiojantį mėnesį';
+
+		if (
+			calculationMode === "monthly" &&
+			(selectedMonth < 1 || selectedMonth > 12)
+		) {
+			newErrors.month = "Prašome pasirinkti galiojantį mėnesį";
 		}
-		
+
 		if (workingHours < 1 || workingHours > 8) {
-			newErrors.workingHours = 'Darbo valandos turi būti nuo 1 iki 8';
+			newErrors.workingHours = "Darbo valandos turi būti nuo 1 iki 8";
 		}
-		
-		const maxVacation = calculationMode === 'yearly' ? 50 : 10; // Max 10 days vacation per month
-		const minVacation = calculationMode === 'yearly' ? 20 : 0;  // Min 0 days vacation per month
-		
+
+		const maxVacation = getTotalDaysInPeriod(); // Max vacation days based on the period
+		const minVacation = calculationMode === "yearly" ? 20 : 0; // Min 0 days vacation per month
+
 		if (vacationDays < minVacation || vacationDays > maxVacation) {
 			newErrors.vacationDays = `Atostogų dienos turi būti nuo ${minVacation} iki ${maxVacation}`;
 		}
@@ -262,76 +273,101 @@ function TimeCalculatorWidget({ calculationMode }) {
 
 		// Save user preferences
 		if (userDataLoaded) {
-			saveUserPreferences(selectedYear, selectedMonth, workingHours, vacationDays);
+			saveUserPreferences(
+				selectedYear,
+				selectedMonth,
+				workingHours,
+				vacationDays,
+			);
 		}
 
 		// Get holidays for the selected year
 		const holidays = getAllHolidays(selectedYear);
-		
+
 		let startDate, endDate, periodName;
-		
-		if (calculationMode === 'yearly') {
+
+		if (calculationMode === "yearly") {
 			startDate = new Date(selectedYear, 0, 1); // January 1st
 			endDate = new Date(selectedYear, 11, 31); // December 31st
 			periodName = `per ${selectedYear} metus`;
 		} else {
 			startDate = new Date(selectedYear, selectedMonth - 1, 1); // First day of month
 			endDate = new Date(selectedYear, selectedMonth, 0); // Last day of month
-			const monthName = monthOptions.find(m => m.value === selectedMonth)?.label || '';
+			const monthName =
+				monthOptions.find((m) => m.value === selectedMonth)?.label || "";
 			periodName = `${selectedYear} ${monthName}`;
 		}
 
 		// Count working days (excluding weekends and holidays)
 		let workingDaysCount = 0;
-		
-		for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+
+		for (
+			let d = new Date(startDate);
+			d <= endDate;
+			d.setDate(d.getDate() + 1)
+		) {
 			if (!isWeekend(d) && !isHoliday(d, holidays)) {
 				workingDaysCount++;
 			}
 		}
-		
+
 		// Calculate buffer days (always proportional from 14 annual days)
 		let bufferDaysUsed;
-		if (calculationMode === 'yearly') {
+		if (calculationMode === "yearly") {
 			bufferDaysUsed = 14; // Full 14 days for yearly
 		} else {
 			// Proportional allocation for monthly - calculate precise partial days
-			const totalYearWorkingDays = getAllYearWorkingDays(selectedYear, holidays);
+			const totalYearWorkingDays = getAllYearWorkingDays(
+				selectedYear,
+				holidays,
+			);
 			const monthProportion = workingDaysCount / totalYearWorkingDays;
 			bufferDaysUsed = 14 * monthProportion; // Keep as decimal for precision
 		}
-		
+
 		// User sets their own vacation days (no proportional calculation)
 		const vacationDaysUsed = vacationDays;
-		
+
 		// Calculate available working days
-		const availableWorkingDays = Math.max(0, workingDaysCount - vacationDaysUsed - bufferDaysUsed);
-		
+		const availableWorkingDays = Math.max(
+			0,
+			workingDaysCount - vacationDaysUsed - bufferDaysUsed,
+		);
+
 		// Calculate total available working hours
 		const totalWorkingHours = availableWorkingDays * workingHours;
-		
+
 		// Count total days in period
-		const totalDaysInPeriod = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
-		
+		const totalDaysInPeriod =
+			Math.round((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+
 		// Count weekends in period
 		let weekendDays = 0;
-		for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+		for (
+			let d = new Date(startDate);
+			d <= endDate;
+			d.setDate(d.getDate() + 1)
+		) {
 			if (isWeekend(d)) {
 				weekendDays++;
 			}
 		}
-		
+
 		// Count holidays in period
 		let holidaysInPeriod = 0;
-		for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+		for (
+			let d = new Date(startDate);
+			d <= endDate;
+			d.setDate(d.getDate() + 1)
+		) {
 			if (isHoliday(d, holidays)) {
 				holidaysInPeriod++;
 			}
 		}
-		
+
 		// Calculate breakdown values
 		let monthlyHours, weeklyHours;
-		if (calculationMode === 'yearly') {
+		if (calculationMode === "yearly") {
 			monthlyHours = totalWorkingHours / 12;
 			weeklyHours = monthlyHours / 4;
 		} else {
@@ -340,7 +376,7 @@ function TimeCalculatorWidget({ calculationMode }) {
 			weeklyHours = totalWorkingHours / weeksInMonth;
 			monthlyHours = totalWorkingHours; // This month's total
 		}
-		
+
 		setResults({
 			calculationMode,
 			periodName,
@@ -353,7 +389,7 @@ function TimeCalculatorWidget({ calculationMode }) {
 			availableWorkingDays: Math.round(availableWorkingDays * 10) / 10, // Round to 1 decimal
 			totalWorkingHours: Math.round(totalWorkingHours),
 			monthlyHours: Math.round(monthlyHours),
-			weeklyHours: Math.round(weeklyHours)
+			weeklyHours: Math.round(weeklyHours),
 		});
 	};
 
@@ -362,11 +398,18 @@ function TimeCalculatorWidget({ calculationMode }) {
 		if (userDataLoaded) {
 			calculateWorkingTime();
 		}
-	}, [selectedYear, selectedMonth, workingHours, vacationDays, calculationMode, userDataLoaded]);
+	}, [
+		selectedYear,
+		selectedMonth,
+		workingHours,
+		vacationDays,
+		calculationMode,
+		userDataLoaded,
+	]);
 
 	// Load preferences when month changes (for monthly mode)
 	useEffect(() => {
-		if (userDataLoaded && calculationMode === 'monthly') {
+		if (userDataLoaded && calculationMode === "monthly") {
 			loadUserPreferences();
 		}
 	}, [selectedMonth]);
@@ -376,14 +419,14 @@ function TimeCalculatorWidget({ calculationMode }) {
 		if (hours >= 1000) {
 			return `${hours.toFixed(1)} h`;
 		}
-		return hours + ' h';
+		return hours + " h";
 	};
 
 	// Don't render until user data is loaded
 	if (!userDataLoaded) {
 		return (
-			<div className="time-calculator-loading">
-				<p>Skaičiuoja...</p>
+			<div className="sv-table-loading">
+				<div className="sv-table-loader"></div>
 			</div>
 		);
 	}
@@ -393,10 +436,9 @@ function TimeCalculatorWidget({ calculationMode }) {
 			<div className="time-calculator-header">
 				<h3>Laiko skaičiuoklė</h3>
 				<p>
-					{calculationMode === 'yearly' 
-						? 'Apskaičiuoja galimas darbo valandas per metus'
-						: 'Apskaičiuoja galimas darbo valandas per mėnesį'
-					}
+					{calculationMode === "yearly"
+						? "Apskaičiuoja galimas darbo valandas per metus"
+						: "Apskaičiuoja galimas darbo valandas per mėnesį"}
 				</p>
 			</div>
 
@@ -408,35 +450,45 @@ function TimeCalculatorWidget({ calculationMode }) {
 							id="year-select"
 							value={selectedYear}
 							onChange={(e) => setSelectedYear(parseInt(e.target.value))}
-							className={errors.year ? 'error' : ''}
+							className={errors.year ? "error" : ""}
 						>
-							{yearOptions.map(year => (
-								<option key={year} value={year}>{year}</option>
+							{yearOptions.map((year) => (
+								<option key={year} value={year}>
+									{year}
+								</option>
 							))}
 						</select>
-						{errors.year && <span className="error-message">{errors.year}</span>}
+						{errors.year && (
+							<span className="error-message">{errors.year}</span>
+						)}
 					</div>
 
-					{calculationMode === 'monthly' && (
+					{calculationMode === "monthly" && (
 						<div className="form-group">
 							<label htmlFor="month-select">Mėnuo:</label>
 							<select
 								id="month-select"
 								value={selectedMonth}
 								onChange={(e) => setSelectedMonth(parseInt(e.target.value))}
-								className={errors.month ? 'error' : ''}
+								className={errors.month ? "error" : ""}
 							>
-								{monthOptions.map(month => (
-									<option key={month.value} value={month.value}>{month.label}</option>
+								{monthOptions.map((month) => (
+									<option key={month.value} value={month.value}>
+										{month.label}
+									</option>
 								))}
 							</select>
-							{errors.month && <span className="error-message">{errors.month}</span>}
+							{errors.month && (
+								<span className="error-message">{errors.month}</span>
+							)}
 						</div>
 					)}
 
 					<div className="form-group">
 						<label htmlFor="working-hours">
-							{calculationMode === 'yearly' ? 'Darbo valandų per dieną:' : 'Darbo valandų per dieną (šį mėnesį):'}
+							{calculationMode === "yearly"
+								? "Darbo valandų per dieną:"
+								: "Darbo valandų per dieną (šį mėnesį):"}
 						</label>
 						<input
 							id="working-hours"
@@ -446,27 +498,39 @@ function TimeCalculatorWidget({ calculationMode }) {
 							step="0.5"
 							value={workingHours}
 							onChange={(e) => setWorkingHours(parseFloat(e.target.value))}
-							className={errors.workingHours ? 'error' : ''}
-							placeholder={calculationMode === 'monthly' ? 'Vidutiniškai: 8h' : ''}
+							className={errors.workingHours ? "error" : ""}
+							placeholder={
+								calculationMode === "monthly" ? "Vidutiniškai: 8h" : ""
+							}
 						/>
-						{errors.workingHours && <span className="error-message">{errors.workingHours}</span>}
+						{errors.workingHours && (
+							<span className="error-message">{errors.workingHours}</span>
+						)}
 					</div>
 
 					<div className="form-group">
 						<label htmlFor="vacation-days">
-							{calculationMode === 'yearly' ? 'Atostogų (dienomis per metus):' : 'Atostogų (dienomis per mėnesį):'}
+							{calculationMode === "yearly"
+								? "Atostogų (dienomis per metus):"
+								: "Atostogų (dienomis per mėnesį):"}
 						</label>
 						<input
 							id="vacation-days"
 							type="number"
-							min={calculationMode === 'yearly' ? 20 : 0}
+							min={calculationMode === "yearly" ? 20 : 0}
 							max={results?.totalDaysInPeriod || getTotalDaysInPeriod()}
 							value={vacationDays}
 							onChange={(e) => setVacationDays(parseInt(e.target.value))}
-							className={errors.vacationDays ? 'error' : ''}
-							placeholder={calculationMode === 'monthly' ? `Vidutiniškai: ${Math.round(20/12)}` : ''}
+							className={errors.vacationDays ? "error" : ""}
+							placeholder={
+								calculationMode === "monthly"
+									? `Vidutiniškai: ${Math.round(20 / 12)}`
+									: ""
+							}
 						/>
-						{errors.vacationDays && <span className="error-message">{errors.vacationDays}</span>}
+						{errors.vacationDays && (
+							<span className="error-message">{errors.vacationDays}</span>
+						)}
 					</div>
 				</div>
 			</div>
@@ -475,7 +539,9 @@ function TimeCalculatorWidget({ calculationMode }) {
 				<div className="time-calculator-results">
 					<div className="primary-result">
 						<div className="result-value">
-							<span className="hours-number">{formatHours(results.totalWorkingHours)}</span>
+							<span className="hours-number">
+								{formatHours(results.totalWorkingHours)}
+							</span>
 						</div>
 						<div className="result-subtitle">
 							{results.periodName} ({results.availableWorkingDays} darbo dienos)
@@ -486,7 +552,9 @@ function TimeCalculatorWidget({ calculationMode }) {
 						<h5>Detalus skaičiavimas:</h5>
 						<div className="breakdown-grid">
 							<div className="breakdown-item">
-								<span className="label">Viso {calculationMode === 'yearly' ? 'metais' : 'mėnesyje'}:</span>
+								<span className="label">
+									Viso {calculationMode === "yearly" ? "metais" : "mėnesyje"}:
+								</span>
 								<span className="value">{results.totalDaysInPeriod}</span>
 							</div>
 							<div className="breakdown-item">
@@ -495,15 +563,21 @@ function TimeCalculatorWidget({ calculationMode }) {
 							</div>
 							<div className="breakdown-item">
 								<span className="label">Šventės:</span>
-								<span className="value negative">-{results.holidaysInPeriod}</span>
+								<span className="value negative">
+									-{results.holidaysInPeriod}
+								</span>
 							</div>
 							<div className="breakdown-item">
 								<span className="label">Atostogos:</span>
-								<span className="value negative">-{results.vacationDaysUsed}</span>
+								<span className="value negative">
+									-{results.vacationDaysUsed}
+								</span>
 							</div>
 							<div className="breakdown-item">
 								<span className="label">Rezervas (liga, kt.):</span>
-								<span className="value negative">-{results.bufferDaysUsed}</span>
+								<span className="value negative">
+									-{results.bufferDaysUsed}
+								</span>
 							</div>
 							<div className="breakdown-item total">
 								<span className="label">Darbo dienos:</span>
@@ -512,21 +586,27 @@ function TimeCalculatorWidget({ calculationMode }) {
 						</div>
 
 						<div className="monthly-breakdown">
-							{calculationMode === 'yearly' ? (
+							{calculationMode === "yearly" ? (
 								<>
 									<div className="monthly-item">
 										<span className="label">Vidutiniškai per mėnesį:</span>
-										<span className="value">{formatHours(results.monthlyHours)}</span>
+										<span className="value">
+											{formatHours(results.monthlyHours)}
+										</span>
 									</div>
 									<div className="monthly-item">
 										<span className="label">Vidutiniškai per savaitę:</span>
-										<span className="value">{formatHours(results.weeklyHours)}</span>
+										<span className="value">
+											{formatHours(results.weeklyHours)}
+										</span>
 									</div>
 								</>
 							) : (
 								<div className="monthly-item">
 									<span className="label">Vidutiniškai per savaitę:</span>
-									<span className="value">{formatHours(results.weeklyHours)}</span>
+									<span className="value">
+										{formatHours(results.weeklyHours)}
+									</span>
 								</div>
 							)}
 						</div>

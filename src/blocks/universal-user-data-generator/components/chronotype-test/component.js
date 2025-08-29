@@ -124,18 +124,19 @@ export default function ChronotypeTestComponent({
 
 	// Replace the getPdfUrl function with this:
 	const getPdfUrl = (pdfFile) => {
-		try {
-			// Use webpack's require.context for dynamic loading
-			const pdfFolder = __webpack_require__(
-				"./src/blocks/universal-user-data-generator/components/chronotype-test sync recursive \\.pdf$",
-			);
-			return pdfFolder(`./${pdfFile}`)["default"];
-		} catch (error) {
-			console.error("PDF file not found:", pdfFile);
-            console.log(error);
-			// Fallback to static path if dynamic loading fails
-			return `/wp-content/plugins/sv-custom-blocks/build/blocks/universal-user-data-generator/components/chronotype-test/${pdfFile}`;
-		}
+		return `/wp-content/uploads/chronotype/${pdfFile}`;
+		// try {
+		// 	// Use webpack's require.context for dynamic loading
+		// 	const pdfFolder = __webpack_require__(
+		// 		"./src/blocks/universal-user-data-generator/components/chronotype-test sync recursive \\.pdf$",
+		// 	);
+		// 	return pdfFolder(`./${pdfFile}`)["default"];
+		// } catch (error) {
+		// 	console.error("PDF file not found:", pdfFile);
+        //     console.log(error);
+		// 	// Fallback to static path if dynamic loading fails
+		// 	return `/wp-content/plugins/sv-custom-blocks/build/blocks/universal-user-data-generator/components/chronotype-test/${pdfFile}`;
+		// }
 	};
 
 	// Reset quiz

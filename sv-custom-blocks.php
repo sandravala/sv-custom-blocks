@@ -5,7 +5,7 @@
  * Description:       Example block scaffolded with Create Block tool.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.4.0
+ * Version:           1.0.0
  * Author:            The WordPress Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -27,6 +27,7 @@ require_once plugin_dir_path(__FILE__) . 'includes/class-plugin-settings.php';
 require_once plugin_dir_path(__FILE__) . 'includes/openai-assistant-handler.php';
 require_once plugin_dir_path(__FILE__) . 'includes/openai-responses-handler.php';
 require_once plugin_dir_path(__FILE__) . 'includes/trait-block-database-operations.php';
+require_once plugin_dir_path(__FILE__) . 'includes/admin-feedback-page.php';
 
 // Initialize plugin settings
 SV_Plugin_Settings::get_instance();
@@ -35,7 +36,6 @@ SV_Plugin_Settings::get_instance();
 
 require_once plugin_dir_path(__FILE__) . 'build/blocks/planner-personality-quiz/includes/form-submission.php';
 require_once plugin_dir_path(__FILE__) . 'build/blocks/time-calculator/includes/ajax-handlers.php';
-require_once plugin_dir_path(__FILE__) . 'build/blocks/monthly-goals/includes/ajax-handlers.php';
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
@@ -166,11 +166,6 @@ function sv_time_calc_init()
 }
 add_action('init', 'sv_time_calc_init');
 
-function sv_monthly_goals_init()
-{
-    register_block_type(__DIR__ . '/build/blocks/monthly-goals');
-}
-add_action('init', 'sv_monthly_goals_init');
 
 // function sv_universal_ai_generator_init()
 // {
