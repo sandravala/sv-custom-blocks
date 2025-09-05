@@ -36,6 +36,7 @@ class SV_Universal_AI_Ajax_Handler_Secure
         $data_to_return = [];
         if ($load_input_data) {
             $data_to_return = $this->load_block_input_data($user_id);
+
         }
         $data_to_return['user_data'] = $this->load_user_data($user_id);
 

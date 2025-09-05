@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import EditableTable from "@components/EditableTable";
-import { getISOWeek, getYear } from 'date-fns';
+import { getISOWeek, getYear } from "date-fns";
 
 export default function WeeklyTodoListComponent({
 	blockId,
@@ -157,7 +157,6 @@ export default function WeeklyTodoListComponent({
 
 			// Convert tasks to grouped table data
 			generateTableData(weekData.tasks || []);
-
 		} else {
 			// No data for this week - create empty structure
 			const emptyWeekData = {
@@ -173,23 +172,23 @@ export default function WeeklyTodoListComponent({
 
 	const handleTableChange = (updatedData, changeInfo) => {
 		setTableData(updatedData);
-		if (changeInfo.field === "completed" && changeInfo.rowId ) {
+		if (changeInfo.field === "completed" && changeInfo.rowId) {
 			// Use the field ID pattern from EditableTable
-            
+
 			rowInactiveStyling(changeInfo.rowId, changeInfo.newValue);
 		}
 	};
 
-    const rowInactiveStyling = (rowId, isInactive) => {
-        const rowElement = document.getElementsByName(`row-${rowId}`)[0];
-        if (rowElement) {
-            if (isInactive) {
-                rowElement.classList.add("inactive");
-            } else {
-                rowElement.classList.remove("inactive");
-            }
-        }
-    };
+	const rowInactiveStyling = (rowId, isInactive) => {
+		const rowElement = document.getElementsByName(`row-${rowId}`)[0];
+		if (rowElement) {
+			if (isInactive) {
+				rowElement.classList.add("inactive");
+			} else {
+				rowElement.classList.remove("inactive");
+			}
+		}
+	};
 
 	// Handle saving todo data back to monthly allocation structure
 	const handleTableSave = async (updatedData) => {
@@ -296,7 +295,7 @@ export default function WeeklyTodoListComponent({
 						taskGroup: task.task, // Group field
 						totalGroupHours: task.hours,
 						taskType: task.type,
-                        rowClass: todo.completed ? "inactive" : "",
+						rowClass: todo.completed ? "inactive" : "",
 					});
 				});
 			} else {
@@ -371,8 +370,10 @@ export default function WeeklyTodoListComponent({
 
 	return (
 		<div className="weekly-todo-list-component">
+			
 			<div className="sv-mb-lg">
 				{/* Week Selection Slider */}
+
 				<div className="sv-mb-md sv-justify-center sv-flex">
 					<div className="sv-week-navigator">
 						<button
@@ -397,13 +398,18 @@ export default function WeeklyTodoListComponent({
 					</div>
 				</div>
 			</div>
+			{!loading && !currentWeekData && (
+				<div className="sv-card sv-bg-primary-light sv-border sv-border-primary sv-text-primary">
+					<p className="sv-font-medium">Mėnesio plane nėra užduočių šiai savaitei.</p>
+				</div>
+			)}
 
 			{/* Loading State */}
 			{loading && (
 				<div className="sv-card sv-text-center">
-<div className="sv-table-loading">
-			<div className="sv-table-loader"></div>
-		</div>
+					<div className="sv-table-loading">
+						<div className="sv-table-loader"></div>
+					</div>
 				</div>
 			)}
 
@@ -420,7 +426,6 @@ export default function WeeklyTodoListComponent({
 					{currentWeekData.tasks?.length > 0 &&
 					Object.keys(tableData).length > 0 ? (
 						<div>
-                            
 							{/* EditableTable will be implemented in next chunk */}
 							<EditableTable
 								data={tableData}

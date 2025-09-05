@@ -314,10 +314,13 @@ const DailyTaskPickerComponent = ({
 			{/* Energy Flow Context */}
 
 			{chronotypeData && (
-				<EnergyFlowComponent
+				<AccordionHeader title="Tinkamiausias laikas įvairioms užduotims pagal tavo chronotipą*">
+					<EnergyFlowComponent
 					chronotypeData={chronotypeData}
 					className="sv-mb-lg"
+					title=""
 				/>
+				</AccordionHeader>
 			)}
 
 			{/* Add Tasks Section */}

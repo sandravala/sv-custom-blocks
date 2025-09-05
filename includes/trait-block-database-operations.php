@@ -71,7 +71,10 @@ trait SV_Block_Database_Operations
     {
         global $wpdb;
 
-        $table_name = $wpdb->prefix . self::TABLE_SUFFIX;;
+        $table_name = $wpdb->prefix . self::TABLE_SUFFIX;
+        if ($wpdb->get_var("SHOW TABLES LIKE '{$table_name}'") != $table_name) {
+            return null; // Table doesn't exist
+        }
 
         $result = $wpdb->get_row($wpdb->prepare(
             "SELECT input_data, created_at, updated_at FROM {$table_name} 
@@ -102,7 +105,10 @@ trait SV_Block_Database_Operations
     {
         global $wpdb;
 
-        $table_name = $wpdb->prefix . self::TABLE_SUFFIX;;
+        $table_name = $wpdb->prefix . self::TABLE_SUFFIX;
+        if ($wpdb->get_var("SHOW TABLES LIKE '{$table_name}'") != $table_name) {
+            return false; // Table doesn't exist
+        }
 
         $where = ['user_id' => $user_id];
         $where_format = ['%d'];

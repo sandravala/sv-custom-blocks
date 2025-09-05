@@ -191,6 +191,8 @@ export default function QuarterlyGoalsComponent({
 		// Create a counter for each group/area
 		const groupCounters = {};
 
+		if(actions.length === 0) return [];
+
 		return actions.map((action, index) => {
 			// replace hours_estimate object with total_hours property if hours_estimate is an object
 			if (typeof action.hours_estimate === "object") {
@@ -221,7 +223,7 @@ export default function QuarterlyGoalsComponent({
 			return action;
 		});
 	};
-	const loadSavedData = async () => {
+	const loadSavedData = async (fetchAndSetQGoalData = true) => {
 		//JSON.stringify(["meta_key1", "meta_key2"]); - čia kokių ieškoti meta keys vartotojo meta
 		try {
 			const params = {
@@ -246,17 +248,48 @@ export default function QuarterlyGoalsComponent({
 			const result = await response.json();
 
 			if (result.success) {
-				setFormData((prev) => ({ ...prev, ...result.data.input_data }));
+				const input_data =
+ result.data && result.data.input_data
+    ? result.data.input_data
+    : {};
+				const user_data = result.data.user_data ? result.data.user_data : {};
+				if (!fetchAndSetQGoalData) {
+					console.log("user_data", user_data);
+					if (user_data && user_data.smart_goal) {
+						setFormData((prev) => ({
+							...prev,
+							smart_goal: user_data.smart_goal,
+						}));
+						return user_data.smart_goal;
+					}
+					
+				} else {
+					
+					if (input_data && Object.keys(input_data).length > 0) {
+						setFormData((prev) => ({ ...prev, ...input_data }));
+					}
 
-				const actions = formatActionItems(result.data.user_data.goal_actions);
+					let actions = [];
+					if (user_data) {
+						if (user_data.smart_goal ) {
+							setFormData((prev) => ({
+								...prev,
+								smart_goal: user_data.smart_goal,
+							}));
+						}
+						if (user_data.goal_actions && Array.isArray(user_data.goal_actions) && user_data.goal_actions.length > 0) {
+							actions = formatActionItems(user_data.goal_actions);
+						}
 
-				setGoalData({
-					actions: actions,
-					assumptions: result.data.user_data.goal_assumptions,
-					required_resources: result.data.user_data.goal_required_resources,
-					risks: result.data.user_data.goal_risks,
-					stages: result.data.user_data.goal_stages,
-				});
+						setGoalData({
+							actions: actions,
+							assumptions: user_data.goal_assumptions,
+							required_resources: user_data.goal_required_resources,
+							risks: user_data.goal_risks,
+							stages: user_data.goal_stages,
+						});
+					}
+				}
 			} else {
 				// Error loading data (could be no data exists, which is fine)
 				console.log("No saved data found or error:", result.data?.message);
@@ -279,9 +312,19 @@ export default function QuarterlyGoalsComponent({
 	};
 
 	const handleSubmit = async (inputData, saveKey) => {
-		if (!formData.smart_goal) {
-			setError("Tu dar nesuformulavai tikslo pagal SMART metodiką!");
-			return;
+		const newFormData = { ...formData };
+		if (!newFormData.smart_goal) {
+			try {
+				const smartGoal = await loadSavedData(false); // load only smart goal
+				
+				if (smartGoal) {
+					newFormData.smart_goal = smartGoal;
+				}
+			} catch (error) {
+				console.error("Error loading smart goal:", error);
+				setError("Klaida bandant įkelti SMART tikslą. Pabandyk dar kartą.");
+				return;
+			}
 		}
 
 		if (useResponsesApi && !blockId) {
@@ -298,7 +341,7 @@ export default function QuarterlyGoalsComponent({
 		setError("");
 
 		const userInput = {
-			...formData,
+			...newFormData,
 			...inputData,
 		};
 
@@ -523,6 +566,7 @@ export default function QuarterlyGoalsComponent({
 						with_buffer: 450,
 					},
 				};
+				console.log("result", result);
 
 				const actionsFormatted = formatActionItems(result.data.actions);
 				setGoalData({
@@ -621,6 +665,7 @@ export default function QuarterlyGoalsComponent({
 					<p style={{ margin: 0 }}>{formData.smart_goal}</p>
 				</div>
 			)}
+			
 			{loadingSaved && (
 				<FormRenderer
 					fields={formFields}
@@ -633,7 +678,7 @@ export default function QuarterlyGoalsComponent({
 				/>
 			)}
 			{/* Results Section */}
-			{!loading && (
+			{!loading && goalData.actions.length > 0 && (
 				<>
 					<EditableTable
 						data={goalData.actions}
