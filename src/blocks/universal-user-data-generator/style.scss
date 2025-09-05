@@ -484,8 +484,20 @@
 			cursor: pointer;
 		}
 
+		.task-checkbox:checked {
+			opacity: 0.2;
+			filter: saturate(0);
+		}
+
 		.task-content {
 			flex: 1;
+		}
+
+		.task-content.completed .task-text,
+		.task-content.completed .task-duration,
+		.task-content.completed .task-context {
+			text-decoration: line-through;
+			color: #64748b45;
 		}
 
 		.task-text {

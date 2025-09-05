@@ -584,125 +584,147 @@ export default function MonthlyGoalsComponent({
 			{/* Error Display */}
 			{error && (
 				<div className="sv-card sv-bg-primary-light sv-border sv-border-primary sv-text-primary">
-					<p className="sv-font-medium">{error}</p>
+					<p className="sv-font-medium" style={{ margin: "0" }}>
+						{error}
+					</p>
+				</div>
+			)}
+
+			{routineTaskHours === 0 && (
+				<div className="sv-card sv-bg-primary-light sv-border sv-border-primary sv-text-primary">
+					<p className="sv-font-medium" style={{ margin: "0" }}>
+						Panašu, kad dar neišsaugojai savo rutininių užduočių. Kad galėtum
+						pilnai naudotis šiuo įrankiu, įvesk ir išsaugok rutinines užduotis
+					</p>
+				</div>
+			)}
+			{routineTaskHours >= workingHours && (
+				<div className="sv-card sv-bg-primary-light sv-border sv-border-primary sv-text-primary">
+					<p className="sv-font-medium" style={{ margin: "0" }}>
+						oi... ko gero, tikslams laiko neturėsi. Turi arba didinti darbo
+						valandų skaičių, arba sumažinti rutininių užduočių valandas.
+					</p>
 				</div>
 			)}
 
 			{/* Month Selector and Working Hours Inputs */}
-			<div className="sv-card">
-				{/* <div className="sv-card__header">
+			{routineTaskHours > 0 &&
+				workingHours > 0 && (
+					<div className="sv-card">
+						{/* <div className="sv-card__header">
                     <h3 className="sv-text-xl sv-font-semibold sv-text-dark">
                         Mėnesio tikslai
                     </h3>
                 </div> */}
 
-				{/* Row 1: Inputs */}
-				<div className="sv-grid sv-grid-cols-3 sv-gap-md sv-mb-md">
-					<div className="sv-form__group">
-						<label htmlFor="month-select" className="sv-form__label">
-							Mėnuo:
-						</label>
-						<select
-							id="month-select"
-							value={selectedMonth}
-							onChange={(e) => handleMonthChange(e.target.value)}
-							disabled={loading}
-							className="sv-form__select"
-						>
-							<option value="">Pasirink...</option>
-							{availableMonths.map((month) => (
-								<option key={month.value} value={month.value}>
-									{month.label}
-								</option>
-							))}
-						</select>
-					</div>
-
-					<div className="sv-form__group">
-						<label htmlFor="vacation-days" className="sv-form__label">
-							Atostogų šį mėnesį (dienomis):
-						</label>
-						<input
-							id="vacation-days"
-							type="number"
-							min="0"
-							max="31"
-							value={vacationDays}
-							onChange={(e) => {
-								setVacationDays(parseInt(e.target.value) || 0);
-								setShowWorkingHoursSaveButton(true);
-							}}
-							className="sv-form__input"
-							disabled={loading}
-						/>
-					</div>
-
-					<div className="sv-form__group">
-						<label htmlFor="hours-per-day" className="sv-form__label">
-							Darbo valandų per dieną šį mėnesį:
-						</label>
-						<input
-							id="hours-per-day"
-							type="number"
-							min="1"
-							max="8"
-							step="0.5"
-							value={hoursPerDay}
-							onChange={(e) => {
-								setHoursPerDay(parseFloat(e.target.value) || 8);
-								setShowWorkingHoursSaveButton(true);
-							}}
-							className="sv-form__input"
-							disabled={loading}
-						/>
-					</div>
-				</div>
-
-				{/* Row 2: Display calculated values with save button */}
-				<div className="sv-flex sv-justify-between sv-items-center sv-text-sm sv-font-medium sv-py-sm sv-border-t sv-border-gray-200">
-					<div className="sv-flex sv-flex-col sv-gap-md">
-						<span className="sv-text-dark">
-							Darbo valandų šį mėnesį iš viso:{" "}
-							{workingHoursDisplay || "Calculating..."}
-						</span>
-						{routineTaskHours > 0 && (
-							<>
-								<span
-									className={`${
-										routineTaskHours > 0 &&
-										workingHours > 0 &&
-										routineTaskHours > workingHours
-											? "sv-text-danger"
-											: "sv-text-dark"
-									}`}
+						{/* Row 1: Inputs */}
+						<div className="sv-grid sv-grid-cols-3 sv-gap-md sv-mb-md">
+							<div className="sv-form__group">
+								<label htmlFor="month-select" className="sv-form__label">
+									Mėnuo:
+								</label>
+								<select
+									id="month-select"
+									value={selectedMonth}
+									onChange={(e) => handleMonthChange(e.target.value)}
+									disabled={loading}
+									className="sv-form__select"
 								>
-									Kasdiems užduotims: {routineTaskHours} h
-								</span>
-								<span className="sv-text-dark">
-									Tikslams:{" "}
-									{routineTaskHours > 0 &&
-									workingHours > 0 &&
-									routineTaskHours > workingHours
-										? "panašu, kad jiems laiko šį mėnesį neturėsi ;("
-										: workingHours - routineTaskHours + " h"}
-								</span>
-							</>
-						)}
-					</div>
+									<option value="">Pasirink...</option>
+									{availableMonths.map((month) => (
+										<option key={month.value} value={month.value}>
+											{month.label}
+										</option>
+									))}
+								</select>
+							</div>
 
-					{/* Save button for working hours */}
-					{showWorkingHoursSaveButton && (
-						<button
-							onClick={() => saveMonthlyGoals(currentMonthGoals)}
-							className="sv-btn sv-btn--outline sv-btn--sm"
-							disabled={saving || loading}
-							title="Išsaugoti darbo valandų nustatymus"
-						>
-							{saving ? "Saugoma..." : "Išsaugoti"}
-						</button>
-					)}
-				</div>
-			</div>
+							<div className="sv-form__group">
+								<label htmlFor="vacation-days" className="sv-form__label">
+									Atostogų šį mėnesį (dienomis):
+								</label>
+								<input
+									id="vacation-days"
+									type="number"
+									min="0"
+									max="31"
+									value={vacationDays}
+									onChange={(e) => {
+										setVacationDays(parseInt(e.target.value) || 0);
+										setShowWorkingHoursSaveButton(true);
+									}}
+									className="sv-form__input"
+									disabled={loading}
+								/>
+							</div>
+
+							<div className="sv-form__group">
+								<label htmlFor="hours-per-day" className="sv-form__label">
+									Darbo valandų per dieną šį mėnesį:
+								</label>
+								<input
+									id="hours-per-day"
+									type="number"
+									min="1"
+									max="8"
+									step="0.5"
+									value={hoursPerDay}
+									onChange={(e) => {
+										setHoursPerDay(parseFloat(e.target.value) || 8);
+										setShowWorkingHoursSaveButton(true);
+									}}
+									className="sv-form__input"
+									disabled={loading}
+								/>
+							</div>
+						</div>
+
+						{/* Row 2: Display calculated values with save button */}
+						<div className="sv-flex sv-justify-between sv-items-center sv-text-sm sv-font-medium sv-py-sm sv-border-t sv-border-gray-200">
+							<div className="sv-flex sv-flex-col sv-gap-md">
+								<span className="sv-text-dark">
+									Darbo valandų šį mėnesį iš viso:{" "}
+									{workingHoursDisplay || "Calculating..."}
+								</span>
+								{routineTaskHours > 0 && (
+									<>
+										<span
+											className={`${
+												routineTaskHours > 0 &&
+												workingHours > 0 &&
+												routineTaskHours > workingHours
+													? "sv-text-danger"
+													: "sv-text-dark"
+											}`}
+										>
+											Kasdiems užduotims: {routineTaskHours} h
+										</span>
+										<span className="sv-text-dark">
+											Tikslams:{" "}
+											{routineTaskHours > 0 &&
+											workingHours > 0 &&
+											routineTaskHours > workingHours
+												? "panašu, kad jiems laiko šį mėnesį neturėsi ;("
+												: workingHours - routineTaskHours + " h"}
+										</span>
+									</>
+								)}
+							</div>
+
+							{/* Save button for working hours */}
+							{showWorkingHoursSaveButton && (
+								<button
+									onClick={() => saveMonthlyGoals(currentMonthGoals)}
+									className="sv-btn sv-btn--outline sv-btn--sm"
+									disabled={saving || loading}
+									title="Išsaugoti darbo valandų nustatymus"
+								>
+									{saving ? "Saugoma..." : "Išsaugoti"}
+								</button>
+							)}
+						</div>
+					</div>
+				)}
 
 			{/* Loading State */}
 			{loading && (

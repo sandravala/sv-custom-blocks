@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import EditableTable from "@components/EditableTable";
-import { getISOWeek, getYear } from 'date-fns';
+import { getISOWeek, getYear } from "date-fns";
 
 export default function MonthlyTimeAllocationComponent({
 	blockId,
@@ -413,7 +413,7 @@ export default function MonthlyTimeAllocationComponent({
 			type: "number",
 			calculated: true,
 			calculate: (row) => {
-                const remainingHours = Number(row.hours) - Number(row.planned);
+				const remainingHours = Number(row.hours) - Number(row.planned);
 				return remainingHours < 0 ? 0 : remainingHours;
 			},
 			flex: flexSettings.weekFlex,
@@ -447,7 +447,7 @@ export default function MonthlyTimeAllocationComponent({
 				"Jokių užduočių nėra. Grįžk į ankstesnius modulius ir išsaugok atsakomybių sąrašą bei tikslus",
 			emptyStateSubtext: "Pasirink mėnesį, kad būtų rodomos užduotys",
 			showTotals: true,
-            saveButtonText: "Išsaugoti",
+			saveButtonText: "Išsaugoti",
 			totalsConfig: {
 				label: "Viso valandų",
 				position: "bottom",
@@ -456,22 +456,25 @@ export default function MonthlyTimeAllocationComponent({
 		};
 	};
 
-    // Check allocation status
-const getAllocationStatus = () => {
-    const totalAvailableHours = tableData.reduce((sum, row) => sum + (row.hours || 0), 0);
-    const totalAllocatedHours = tableData.reduce((sum, row) => {
-        const weeks = getWeeksForMonth(selectedMonth);
-        const rowAllocated = weeks.reduce((weekSum, weekObj) => {
-            const weekNumber = Object.keys(weekObj)[0];
-            return weekSum + (row[`week_${weekNumber}`] || 0);
-        }, 0);
-        return sum + rowAllocated;
-    }, 0);
-    
-    const difference = totalAvailableHours - totalAllocatedHours;
-    
-    return difference;
-};
+	// Check allocation status
+	const getAllocationStatus = () => {
+		const totalAvailableHours = tableData.reduce(
+			(sum, row) => sum + (row.hours || 0),
+			0,
+		);
+		const totalAllocatedHours = tableData.reduce((sum, row) => {
+			const weeks = getWeeksForMonth(selectedMonth);
+			const rowAllocated = weeks.reduce((weekSum, weekObj) => {
+				const weekNumber = Object.keys(weekObj)[0];
+				return weekSum + (row[`week_${weekNumber}`] || 0);
+			}, 0);
+			return sum + rowAllocated;
+		}, 0);
+
+		const difference = totalAvailableHours - totalAllocatedHours;
+
+		return difference;
+	};
 
 	if (!isLoggedIn) {
 		return (
@@ -484,9 +487,9 @@ const getAllocationStatus = () => {
 
 	if (loading) {
 		return (
-<div className="sv-table-loading">
-			<div className="sv-table-loader"></div>
-		</div>
+			<div className="sv-table-loading">
+				<div className="sv-table-loader"></div>
+			</div>
 		);
 	}
 
@@ -501,7 +504,8 @@ const getAllocationStatus = () => {
 				</div>
 			)}
 
-			<div className="month-selector" style={{ marginBottom: "20px" }}>
+			{getAllTasks().length > 0 ? 			
+(			<div className="month-selector" style={{ marginBottom: "20px" }}>
 				<select
 					id="month-select"
 					value={selectedMonth}
@@ -521,15 +525,30 @@ const getAllocationStatus = () => {
 						</option>
 					))}
 				</select>
-			</div>
+			</div> )
+			: 				
+			(<div className="sv-card sv-bg-primary-light sv-border sv-border-primary sv-text-primary">
+					<p className="sv-font-medium" style={{ margin: "0" }}>
+						Panašu, kad jokių užduočių nėra. Kad galėtum pilnai naudotis šiuo įrankiu, grįžk į ankstesnius modulius ir išsaugok
+						atsakomybių (rutininių užduočių) sąrašą bei tikslus.
+					</p>
+				</div>)}
+
 
 			{selectedMonth && getAllTasks().length > 0 && (
 				<>
 					{getAllocationStatus() !== 0 && (
 						<div className="sv-alert sv-alert--info sv-px-lg sv-mb-md">
 							<div className="sv-alert__content sv-text-sm sv-text-primary">
-                                <strong>OHO! </strong>
-								<p>{getAllocationStatus() > 0 ? getAllocationStatus() + ' h dar nesuplanuota. Jei nepriskirsi šių valandų konkrečioms savaitėms, tikėtina, kad jas ištaškysi viskam belenkam - bet nebūtinai tam, kas tau svarbu.': 'Tu planuoji darbui skirti daugiau laiko, nei jo turi (maždaug ' + getAllocationStatus()+ ' h). Ar tikrai tai gera idėja? Greičiausiai kažko vistiek nepadarysi - geriau suplanuok realistiškai.' }</p>
+								<strong>OHO! </strong>
+								<p>
+									{getAllocationStatus() > 0
+										? getAllocationStatus() +
+										  " h dar nesuplanuota. Jei nepriskirsi šių valandų konkrečioms savaitėms, tikėtina, kad jas ištaškysi viskam belenkam - bet nebūtinai tam, kas tau svarbu."
+										: "Tu planuoji darbui skirti daugiau laiko, nei jo turi (maždaug " +
+										  getAllocationStatus() +
+										  " h). Ar tikrai tai gera idėja? Greičiausiai kažko vistiek nepadarysi - geriau suplanuok realistiškai."}
+								</p>
 							</div>
 						</div>
 					)}

@@ -57,7 +57,7 @@ function sv_register_common_blocks()
         register_block_type(__DIR__ . '/build/blocks/' . $block);
 
         // Include block-specific AJAX handlers
-        $handler_file = plugin_dir_path(__FILE__) . 'src/blocks/' . $block . '/includes/ajax-handlers.php';
+        $handler_file = plugin_dir_path(__FILE__) . 'build/blocks/' . $block . '/includes/ajax-handlers.php';
         if (file_exists($handler_file)) {
             require_once $handler_file;
         }

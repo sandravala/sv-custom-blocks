@@ -42,15 +42,22 @@ div#time-calculator-widget {
 	.time-calculator-form {
 		margin-bottom: 32px;
 
+
+
+
+
+
 		.form-row {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 			gap: 20px;
+			align-items: end;
 
 			@media (max-width: 600px) {
 				grid-template-columns: 1fr;
 			}
 		}
+
 
 		.form-group {
 			display: flex;
@@ -61,6 +68,9 @@ div#time-calculator-widget {
 				margin-bottom: 6px;
 				color: #374151;
 				font-size: 14px;
+				min-height: 40px; // Fixed height for labels
+		display: flex;
+		align-items: flex-end; // Align label text to bottom
 			}
 
 			select,
@@ -71,6 +81,8 @@ div#time-calculator-widget {
 				font-size: 16px;
 				transition: border-color 0.15s ease;
 				background: #ffffff;
+				width: auto;
+				min-height: auto;
 
 				&:focus {
 					outline: none;
@@ -124,7 +136,7 @@ div#time-calculator-widget {
 				margin-bottom: 8px;
 
 				.hours-number {
-					font-size: 48px;
+					font-size: 2em;
 					font-weight: 700;
 					line-height: 1;
 				}

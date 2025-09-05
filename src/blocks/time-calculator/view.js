@@ -242,25 +242,25 @@ function TimeCalculatorWidget({ calculationMode }) {
 		const newErrors = {};
 
 		if (!yearOptions.includes(selectedYear)) {
-			newErrors.year = "Prašome pasirinkti galiojantį metus";
+			newErrors.year = "Pasirink metus";
 		}
 
 		if (
 			calculationMode === "monthly" &&
 			(selectedMonth < 1 || selectedMonth > 12)
 		) {
-			newErrors.month = "Prašome pasirinkti galiojantį mėnesį";
+			newErrors.month = "Pasirink mėnesį";
 		}
 
-		if (workingHours < 1 || workingHours > 8) {
-			newErrors.workingHours = "Darbo valandos turi būti nuo 1 iki 8";
+		if (workingHours < 1 || workingHours > 8 || isNaN(workingHours)) {
+			newErrors.workingHours = "Darbo valandų skaičius turi būti nuo 1 iki 8";
 		}
 
 		const maxVacation = getTotalDaysInPeriod(); // Max vacation days based on the period
 		const minVacation = calculationMode === "yearly" ? 20 : 0; // Min 0 days vacation per month
 
-		if (vacationDays < minVacation || vacationDays > maxVacation) {
-			newErrors.vacationDays = `Atostogų dienos turi būti nuo ${minVacation} iki ${maxVacation}`;
+		if (vacationDays < minVacation || vacationDays > maxVacation || isNaN(vacationDays)) {
+			newErrors.vacationDays = `Atostogų dienų skaičius turi būti nuo ${minVacation} iki ${maxVacation}`;
 		}
 
 		setErrors(newErrors);

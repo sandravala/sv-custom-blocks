@@ -183,7 +183,7 @@ const DailyTaskPickerComponent = ({
 
 	// Add unplanned todo
 	const addUnplannedTodo = () => {
-		if (!unplannedTodo.todo.trim() || !weeklyData) return;
+		if (unplannedTodo.todo.trim().length < 1 ) return;
 
 		const updatedWeekData = { ...weeklyData };
 
@@ -200,7 +200,7 @@ const DailyTaskPickerComponent = ({
 				type: "unplanned",
 				todo: [],
 			});
-			unplannedTaskIndex = updatedWeekData.tasks.length - 1;
+			unplannedTaskIndex = updatedWeekData.tasks.length > 0 ? updatedWeekData.tasks.length - 1 : 0;
 		}
 
 		// Add new todo
@@ -210,6 +210,7 @@ const DailyTaskPickerComponent = ({
 		};
 
 		updatedWeekData.tasks[unplannedTaskIndex].todo.push(newTodo);
+
 
 		// Update total hours for unplanned task
 		updatedWeekData.tasks[unplannedTaskIndex].hours = updatedWeekData.tasks[
@@ -375,11 +376,13 @@ const DailyTaskPickerComponent = ({
 										className="unplanned-task-input"
 										placeholder="Užduoties pavadinimas..."
 										value={unplannedTodo.todo}
-										onChange={(e) =>
+										onChange={(e) =>{
 											setUnplannedTodo({
 												...unplannedTodo,
 												todo: e.target.value,
-											})
+											});
+										}
+											
 										}
 									/>
 									<input
@@ -390,12 +393,12 @@ const DailyTaskPickerComponent = ({
 										max="8"
 										step="0.25"
 										value={unplannedTodo.taskHours}
-										onChange={(e) =>
+										onChange={(e) =>{
 											setUnplannedTodo({
 												...unplannedTodo,
 												taskHours: e.target.value,
-											})
-										}
+											});
+										}}
 									/>
 								</div>
 								<div className="form-actions">
@@ -466,7 +469,7 @@ const DailyTaskPickerComponent = ({
 											checked={todo.completed}
 											onChange={() => toggleTodoCompletion(todo.id)} // Use todo.id instead
 										/>
-										<div className="task-content">
+										<div className={`task-content ${todo.completed ? 'completed' : ''}`}>
 											<div className="task-text">
 												{todo.todo}{" "}
 												<span className="task-duration">
@@ -474,10 +477,10 @@ const DailyTaskPickerComponent = ({
 												</span>
 											</div>
 											<div className="task-context">
-												{task.task} •{" "}
+												{task.task}
 												{task.type === "routine"
-													? "Rutininė"
-													: "Mėnesio tikslas"}
+													? " • Rutininė"
+													: task.type === "unplanned" ? "" : " • Mėnesio tikslas"}
 											</div>
 										</div>
 										<button
