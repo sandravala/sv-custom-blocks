@@ -422,9 +422,9 @@ export default function WeeklyTodoListComponent({
 			)}
 
 			{/* Main Content - Table will be rendered here in next chunk */}
-			{!loading && !error && currentWeekData && (
+			{!loading && !error && (
 				<div className="sv-mb-md">
-					{currentWeekData.tasks?.length > 0 &&
+					{currentWeekData?.tasks?.length > 0 &&
 					Object.keys(tableData).length > 0 ? (
 						<div>
 							{/* EditableTable will be implemented in next chunk */}

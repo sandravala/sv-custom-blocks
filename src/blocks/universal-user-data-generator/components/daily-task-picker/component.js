@@ -35,6 +35,7 @@ const DailyTaskPickerComponent = ({
 		todo: "",
 		taskHours: 0,
 		source: "unplanned",
+		completed: false,
 	});
 
 	// Load data on mount and date change
@@ -45,18 +46,21 @@ const DailyTaskPickerComponent = ({
 	}, [isLoggedIn]);
 
 	useEffect(() => {
+		
+		const weekInfo = getWeekInfoFromDate(selectedDate);
+		setCurrentWeekInfo(weekInfo);
 		if (loadedData.monthly_allocation) {
 			const allocations = loadedData.monthly_allocation;
-			const weekInfo = getWeekInfoFromDate(selectedDate);
+
 			const yearData = allocations?.[weekInfo.year];
 			const weekData = yearData?.[weekInfo.weekKey];
 
-			setCurrentWeekInfo(weekInfo);
 			setWeeklyData(weekData);
 		}
 		if (loadedData.chronotype) {
 			setChronotypeData(loadedData.chronotype);
 		}
+		
 	}, [selectedDate, loadedData]);
 
 	useEffect(() => {
@@ -128,8 +132,12 @@ const DailyTaskPickerComponent = ({
 	const debouncedSave = useCallback(
 		debounce(async (weeklyData, currentWeekInfo, allocation) => {
 			const monthlyAllocation = { ...allocation };
+
+			const thisYearAllocation = currentWeekInfo.year in monthlyAllocation
+				? { ...monthlyAllocation[currentWeekInfo.year] }
+				: {};
 			monthlyAllocation[currentWeekInfo.year] = {
-				...allocation[currentWeekInfo.year], // Previous year data
+				...thisYearAllocation,
 				[currentWeekInfo.weekKey]: weeklyData,
 			};
 
@@ -183,24 +191,27 @@ const DailyTaskPickerComponent = ({
 
 	// Add unplanned todo
 	const addUnplannedTodo = () => {
-		if (unplannedTodo.todo.trim().length < 1 ) return;
+		if (unplannedTodo.todo.trim().length < 1) return;
 
 		const updatedWeekData = { ...weeklyData };
 
+		updatedWeekData.tasks = updatedWeekData.tasks || [];
+
 		// Find or create NEPLANINIAI DARBAI task
-		let unplannedTaskIndex = updatedWeekData.tasks?.findIndex(
+		let unplannedTaskIndex = updatedWeekData.tasks.length > 0 ? updatedWeekData.tasks.findIndex(
 			(task) => task.task === "NEPLANINIAI DARBAI",
-		);
+		) : undefined;
 
 		if (unplannedTaskIndex === undefined || unplannedTaskIndex === -1) {
-			// Create new unplanned task container
+			// Create new unplanned task container and tasks array
 			updatedWeekData.tasks.push({
 				task: "NEPLANINIAI DARBAI",
 				hours: 0,
 				type: "unplanned",
 				todo: [],
 			});
-			unplannedTaskIndex = updatedWeekData.tasks.length > 0 ? updatedWeekData.tasks.length - 1 : 0;
+			unplannedTaskIndex =
+				updatedWeekData.tasks.length > 0 ? updatedWeekData.tasks.length - 1 : 0;
 		}
 
 		// Add new todo
@@ -211,18 +222,17 @@ const DailyTaskPickerComponent = ({
 
 		updatedWeekData.tasks[unplannedTaskIndex].todo.push(newTodo);
 
-
 		// Update total hours for unplanned task
 		updatedWeekData.tasks[unplannedTaskIndex].hours = updatedWeekData.tasks[
 			unplannedTaskIndex
-		].todo.reduce((sum, todo) => sum + (todo.taskHours || 0), 0);
+		].todo.reduce((sum, todo) => sum + (Number(todo.taskHours) || 0), 0);
 
 		setWeeklyData(updatedWeekData);
 		setIsDirty(true);
 		//debouncedSave(updatedAllocations);
 
 		// Reset form
-		setUnplannedTodo({ todo: "", taskHours: 1, source: "unplanned" });
+		setUnplannedTodo({ todo: "", taskHours: 1, source: "unplanned", completed: false });
 		setShowUnplannedForm(false);
 	};
 
@@ -294,8 +304,8 @@ const DailyTaskPickerComponent = ({
 		return (
 			<div className="daily-task-picker-loading">
 				<div className="sv-table-loading">
-			<div className="sv-table-loader"></div>
-		</div>
+					<div className="sv-table-loader"></div>
+				</div>
 			</div>
 		);
 	}
@@ -316,10 +326,10 @@ const DailyTaskPickerComponent = ({
 			{chronotypeData && (
 				<AccordionHeader title="Tinkamiausias laikas įvairioms užduotims pagal tavo chronotipą*">
 					<EnergyFlowComponent
-					chronotypeData={chronotypeData}
-					className="sv-mb-lg"
-					title=""
-				/>
+						chronotypeData={chronotypeData}
+						className="sv-mb-lg"
+						title=""
+					/>
 				</AccordionHeader>
 			)}
 
@@ -339,11 +349,11 @@ const DailyTaskPickerComponent = ({
 								task.todo
 									?.filter((todo) => !todo.completed && !todo.scheduledDate)
 									.slice(0, 6)
-									.map((todo, todoIndex) => (
+									.map((todo) => (
 										<div
 											key={todo.id}
 											className="quick-add-pill"
-											onClick={() => scheduleTodo(taskIndex, todoIndex)}
+											onClick={() => scheduleTodo(taskIndex, task.todo.indexOf(todo))}
 										>
 											+ {todo.todo}{" "}
 											<span className="task-hours">({todo.taskHours}h)</span>
@@ -379,14 +389,12 @@ const DailyTaskPickerComponent = ({
 										className="unplanned-task-input"
 										placeholder="Užduoties pavadinimas..."
 										value={unplannedTodo.todo}
-										onChange={(e) =>{
+										onChange={(e) => {
 											setUnplannedTodo({
 												...unplannedTodo,
 												todo: e.target.value,
 											});
-										}
-											
-										}
+										}}
 									/>
 									<input
 										type="number"
@@ -396,7 +404,7 @@ const DailyTaskPickerComponent = ({
 										max="8"
 										step="0.25"
 										value={unplannedTodo.taskHours}
-										onChange={(e) =>{
+										onChange={(e) => {
 											setUnplannedTodo({
 												...unplannedTodo,
 												taskHours: e.target.value,
@@ -472,7 +480,11 @@ const DailyTaskPickerComponent = ({
 											checked={todo.completed}
 											onChange={() => toggleTodoCompletion(todo.id)} // Use todo.id instead
 										/>
-										<div className={`task-content ${todo.completed ? 'completed' : ''}`}>
+										<div
+											className={`task-content ${
+												todo.completed ? "completed" : ""
+											}`}
+										>
 											<div className="task-text">
 												{todo.todo}{" "}
 												<span className="task-duration">
@@ -483,7 +495,9 @@ const DailyTaskPickerComponent = ({
 												{task.task}
 												{task.type === "routine"
 													? " • Rutininė"
-													: task.type === "unplanned" ? "" : " • Mėnesio tikslas"}
+													: task.type === "unplanned"
+													? ""
+													: " • Mėnesio tikslas"}
 											</div>
 										</div>
 										<button
