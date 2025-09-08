@@ -315,7 +315,8 @@ export default function WeeklyTodoListComponent({
 	const createGroupSubtitles = (tasks) => {
 		const subtitles = {};
 		tasks.forEach((task) => {
-			subtitles[task.task] = `${task.hours} val. • ${task.type}`;
+			const taskTypeForDisplay = task.type === "routine" ? "Rutininė" : task.type === "monthly_goal" ? "Mėnesio tikslas" : "Neplaninė";
+			subtitles[task.task] = `${task.hours} val. • ${taskTypeForDisplay}`;
 		});
 		return subtitles;
 	};
@@ -326,13 +327,13 @@ export default function WeeklyTodoListComponent({
 			? createGroupSubtitles(currentWeekData.tasks)
 			: {};
 		return {
-			title: `Savaitės ${currentWeekData?.weekInfo?.weekNumber} užduočių sąrašas`,
+			title: `${currentWeekData?.weekInfo?.weekNumber} savaitės to-do sąrašas`,
 			grouped: true,
 			groupBy: "taskGroup", // Group by task name
 			groupSubtitle: groupSubtitles,
 			allowAdd: true,
 			allowRemove: true,
-			emptyStateText: "Šiai užduočiai dar nėra to-do elementų",
+			emptyStateText: "Šiam darbui dar nepriskirti jokie veiksmai (to-do)",
 			addButtonText: "Pridėti veiksmą",
 			saveButtonText: "Išsaugoti sąrašą",
 			showCounter: false,
@@ -398,11 +399,11 @@ export default function WeeklyTodoListComponent({
 					</div>
 				</div>
 			</div>
-			{!loading && !currentWeekData && (
+			{/* {!loading && !currentWeekData && (
 				<div className="sv-card sv-bg-primary-light sv-border sv-border-primary sv-text-primary">
-					<p className="sv-font-medium">Mėnesio plane nėra užduočių šiai savaitei.</p>
+					<p className="sv-font-medium">Mėnesio plane nėra užduočių SU priskirtomis valandomis šiai savaitei.</p>
 				</div>
-			)}
+			)} */}
 
 			{/* Loading State */}
 			{loading && (
@@ -442,10 +443,10 @@ export default function WeeklyTodoListComponent({
 						<div className="sv-card sv-text-center sv-border-2 sv-border-dashed sv-border sv-opacity-75">
 							<div className="sv-text-3xl sv-mb-sm sv-opacity-50">📝</div>
 							<p className="sv-text-base sv-font-medium sv-text-dark sv-mb-xs">
-								Šiai savaitei užduočių nėra.
+								Kai neplanuoji, ką darysi, dažniausiai <strong>nieko ir nepadarai.</strong>
 							</p>
 							<p className="sv-text-sm sv-text-dark sv-opacity-75">
-								Pirmiau pridėkite užduočių mėnesio laiko paskirstyme.
+								Grįžk į mėnesio planą ir priskirk valandas užduotims šiai savaitei.
 							</p>
 						</div>
 					)}

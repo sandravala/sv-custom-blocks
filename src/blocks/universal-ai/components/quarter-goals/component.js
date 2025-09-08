@@ -191,7 +191,7 @@ export default function QuarterlyGoalsComponent({
 		// Create a counter for each group/area
 		const groupCounters = {};
 
-		if(actions.length === 0) return [];
+		if (actions.length === 0) return [];
 
 		return actions.map((action, index) => {
 			// replace hours_estimate object with total_hours property if hours_estimate is an object
@@ -249,12 +249,9 @@ export default function QuarterlyGoalsComponent({
 
 			if (result.success) {
 				const input_data =
- result.data && result.data.input_data
-    ? result.data.input_data
-    : {};
+					result.data && result.data.input_data ? result.data.input_data : {};
 				const user_data = result.data.user_data ? result.data.user_data : {};
 				if (!fetchAndSetQGoalData) {
-					console.log("user_data", user_data);
 					if (user_data && user_data.smart_goal) {
 						setFormData((prev) => ({
 							...prev,
@@ -262,22 +259,24 @@ export default function QuarterlyGoalsComponent({
 						}));
 						return user_data.smart_goal;
 					}
-					
 				} else {
-					
 					if (input_data && Object.keys(input_data).length > 0) {
 						setFormData((prev) => ({ ...prev, ...input_data }));
 					}
 
 					let actions = [];
 					if (user_data) {
-						if (user_data.smart_goal ) {
+						if (user_data.smart_goal) {
 							setFormData((prev) => ({
 								...prev,
 								smart_goal: user_data.smart_goal,
 							}));
 						}
-						if (user_data.goal_actions && Array.isArray(user_data.goal_actions) && user_data.goal_actions.length > 0) {
+						if (
+							user_data.goal_actions &&
+							Array.isArray(user_data.goal_actions) &&
+							user_data.goal_actions.length > 0
+						) {
 							actions = formatActionItems(user_data.goal_actions);
 						}
 
@@ -316,7 +315,7 @@ export default function QuarterlyGoalsComponent({
 		if (!newFormData.smart_goal) {
 			try {
 				const smartGoal = await loadSavedData(false); // load only smart goal
-				
+
 				if (smartGoal) {
 					newFormData.smart_goal = smartGoal;
 				}
@@ -665,7 +664,7 @@ export default function QuarterlyGoalsComponent({
 					<p style={{ margin: 0 }}>{formData.smart_goal}</p>
 				</div>
 			)}
-			
+
 			{loadingSaved && (
 				<FormRenderer
 					fields={formFields}

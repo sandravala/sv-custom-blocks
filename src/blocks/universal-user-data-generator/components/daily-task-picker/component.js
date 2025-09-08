@@ -188,11 +188,11 @@ const DailyTaskPickerComponent = ({
 		const updatedWeekData = { ...weeklyData };
 
 		// Find or create NEPLANINIAI DARBAI task
-		let unplannedTaskIndex = updatedWeekData.tasks.findIndex(
+		let unplannedTaskIndex = updatedWeekData.tasks?.findIndex(
 			(task) => task.task === "NEPLANINIAI DARBAI",
 		);
 
-		if (unplannedTaskIndex === -1) {
+		if (unplannedTaskIndex === undefined || unplannedTaskIndex === -1) {
 			// Create new unplanned task container
 			updatedWeekData.tasks.push({
 				task: "NEPLANINIAI DARBAI",

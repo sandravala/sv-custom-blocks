@@ -210,7 +210,7 @@ export default function RoutineTasksComponent({
 				// routineTasks.forEach((task, index) => {
 				// 	task.id = index + 1; // Ensure each task has a unique ID
 				// });
-				setRoutineTasks(routineTasksData);
+				setRoutineTasks(Array.isArray(routineTasksData) ? routineTasksData : []);
 			} else {
 				// Error loading data (could be no data exists, which is fine)
 				console.log("No saved data found or error:", result.data?.message);
@@ -389,9 +389,7 @@ export default function RoutineTasksComponent({
 						dataType="routine_tasks_collection"
 						className="routine-tasks-table"
 					/>
-					<AccordionHeader title="Papildoma informacija">
-						{/* Put any content here */}
-					</AccordionHeader>
+					
 				</>
 			)}
 		</div>

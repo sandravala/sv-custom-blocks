@@ -58,18 +58,18 @@ export default function SmartGoalsComponent({
 	];
 
 	const tableConfig = {
-		title: "Mano SMART tikslas",
+		title: "Tavo SMART tikslas",
 		allowEditing: true,
 		allowAddRemove: false,
 		grouped: true,
 		showActions: true,
 		showCounter: false,
-		emptyStateText: "No SMART goals saved yet",
+		emptyStateText: "Dar nėra metinių tikslų",
 		emptyStateSubtext:
-			"Generate your first SMART goal using the form above, then add it to your collection",
+			"Suformuluok SMART tikslą pasinaudojant DI asistento pagalba (aukščiau)",
 		saveButtonText: "Išsaugoti",
 		editButtonText: "✎",
-		deleteConfirmText: "Are you sure you want to delete this SMART goal?",
+		deleteConfirmText: "Ar tikrai nori ištrinti šį SMART tikslą?",
 	};
 
 	// Field labels and placeholders
