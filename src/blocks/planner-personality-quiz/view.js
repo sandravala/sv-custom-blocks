@@ -23,8 +23,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import quiz from "./assets/data/quizData.json";
+import typeGroup from "./assets/data/typeGroups.json";
 import answer from "./assets/data/quizAnswer.json";
 import loaderGif from "./assets/img/calculating-puzzled.gif";
+import AccordionHeader from "../../components/AccordionHeader";
 
 document.addEventListener("DOMContentLoaded", function () {
 	renderForm();
@@ -55,6 +57,8 @@ function QuizRender() {
 	const [quizData, setQuizData] = useState(quiz);
 
 	const [quizAnswer, setQuizAnswer] = useState(answer);
+	const [typeGroupData, setTypeGroupData] = useState(typeGroup);
+	const [selectedGuide, setSelectedGuide] = useState(null);
 
 	const imgFolder = require.context(
 		"./assets/img/",
@@ -190,6 +194,12 @@ function QuizRender() {
 	const [isChecked, setIsChecked] = useState(true);
 	const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 	const [firstRadioClicked, setFirstRadioClicked] = useState(false);
+	const guideDescriptions = {
+		"Veiksmo žmogus": {"title": "KRYPTINGAS VEIKSMAS", "desc": "Skirta tiems, kurie veikia daug, bet rezultatas nedžiugina"},
+		"Geras žmogus": {"title": "LAIKAS TAVO TIKSLAMS", "desc": "Skirta tiems, kurie daug padaro... kitiems, o savo tikslams laiko taip ir neatranda"},
+		"Idėjų žmogus": {"title": "IDĖJŲ BANKAS", "desc": "Skirta tiems, kurie turi daug kūrybinių impulsų, daug pradeda, bet sunkiai užbaigia"},
+		"Strategijų žmogus": {"title": "VEIKIANTI STRATEGIJA", "desc": "Skirta tiems, kurie mėgsta ir moka planuoti, bet nori planus paversti veiksmais"},
+	};
 
 	const checkHandler = () => {
 		setIsChecked(!isChecked);
@@ -345,15 +355,13 @@ function QuizRender() {
 			setTypeImg(imgUrl);
 			setTypeMeme(memeUrl);
 			setType(typeString);
+			setSelectedGuide(typeGroupData[typeString.toLowerCase()]);
 			setTieBreak([]);
 		} else {
-
 			// if (tieBreak.length > 0) {
 			//     return;
 			// }
-
 			// pairs.forEach(({ key1, key2, index }) => {
-
 			//     if (dichotomy[index] === '') {
 			//         setTieBreak((prevTieBreak) => [...prevTieBreak, index]);
 			//     }
@@ -383,7 +391,7 @@ function QuizRender() {
 			"",
 		)}; expires=${expirationDate.toUTCString()}; SameSite=Strict; path=/`;
 
-        document.querySelector(".test-intro").classList.add("hidden");
+		document.querySelector(".test-intro").classList.add("hidden");
 		setShowResultContainer(!showResultContainer);
 	};
 
@@ -484,6 +492,7 @@ function QuizRender() {
 			type: dichotomyToSend,
 			email: subscriberData.email,
 			name: subscriberData.name,
+			guide: selectedGuide ? selectedGuide : typeGroupData[dichotomyToSend],
 		};
 
 		if (isChecked) {
@@ -709,21 +718,49 @@ function QuizRender() {
 									<br />
 									<br />
 									<strong>Žinai ką? Padarykime paprasčiau:</strong> įvesk savo
-									el. paštą ir atsiųsiu tau išsamų aprašymą,
-									kuriame:
+									el. paštą ir atsiųsiu tau išsamų aprašymą, kuriame:
 									<br />
 									<br />
 									<ul>
-										<li>Sužinosi dar daugiau apie savo <strong>elgesio modelius</strong></li>
 										<li>
-											Gausi konkrečių patarimų, kaip keisti savo elgesį, kad <strong> veiktum produktyviau</strong>
+											Sužinosi dar daugiau apie savo{" "}
+											<strong>elgesio modelius</strong>
 										</li>
 										<li>
-											O kituose laiškuose atkeliaus ir tau asmeniškai
-											pritaikytas (<strong>nemokamas!</strong>) gidas, kuris padės visa tai  <strong>įgyvendinti praktiškai</strong>
+											Gausi konkrečių patarimų, kaip keisti savo elgesį, kad{" "}
+											<strong> veiktum produktyviau</strong>
+										</li>
+										<li>
+											Be to, atsiųsiu ir tau asmeniškai
+											pritaikytą (<strong>nemokamą!</strong>) gidą, kuris
+											padės suprasti, kaip visa tai <strong>įgyvendinti praktiškai</strong>
 										</li>
 									</ul>
 								</div>
+								<AccordionHeader title="Pasirink, kuris produktyvumo gidas tau tiktų labiausiai:">
+									<div className="sv-guide-options">
+										{Object.entries(guideDescriptions).map(([key, guide]) => (
+											<label className="sv-guide-option" key={key}>
+												<input
+													type="radio"
+													name="planner_type"
+													value={key}
+													className="sv-guide-option__radio"
+													checked={selectedGuide ? selectedGuide === key : typeGroupData[type.toLowerCase()] === key}
+													onChange={() => setSelectedGuide(key)}
+												/>
+												<span className="sv-guide-option__content">
+													<span className="sv-guide-option__title">
+														{guide.title}
+													</span>
+													<span className="sv-guide-option__desc">
+														{guide.desc}
+													</span>
+												</span>
+											</label>
+										))}
+									</div>
+								</AccordionHeader>
 								<input
 									type="text"
 									id="subscribe-name"
@@ -778,7 +815,7 @@ function QuizRender() {
 					)}
 					{emailError && (
 						<div className="email-sent error" id="email-sent-error">
-							Laiško siuntimas nepavyko. Parašyk sandra@12gm.lt ir atsiųsiu
+							Oi! Laiško siuntimas nepavyko. Parašyk sandra@12gm.lt ir atsiųsiu
 							rankiniu būdu.
 						</div>
 					)}

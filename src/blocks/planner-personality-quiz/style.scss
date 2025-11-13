@@ -543,4 +543,70 @@ p.type-one-liner {
     font-style: italic;
 }
 
+// productivity guide selector styles
 
+.sv-guide-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sv-guide-option {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 14px 16px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: #cbd5e1;
+        background: #f8fafc;
+    }
+
+    &__radio:is(input[type="radio"]) {
+        margin-top: 2px;
+        margin-right: 12px;
+        cursor: pointer;
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        accent-color: #2563eb; // Modern way to color radio buttons
+    }
+
+    // When radio is checked, style the parent label
+    &:has(input:checked) {
+        border-color: #2563eb;
+        background: #eff6ff;
+        
+        .sv-guide-option__title {
+            color: #2563eb;
+            font-weight: 600;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        flex: 1;
+        min-width: 0; // Prevents text overflow issues
+    }
+
+    &__title {
+        font-size: 14px;
+        font-weight: 500;
+        color: #1e293b;
+        line-height: 1.4;
+        transition: all 0.2s ease;
+    }
+
+    &__desc {
+        font-size: 13px;
+        color: #64748b;
+        line-height: 1.4;
+    }
+}

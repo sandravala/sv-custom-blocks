@@ -5,19 +5,21 @@ use MailerLite\MailerLite;
 add_action('wp_ajax_send_personality_type_by_email', 'send_personality_type_by_email');
 add_action('wp_ajax_nopriv_send_personality_type_by_email', 'send_personality_type_by_email');
 
-function send_personality_type_by_email() {
+function send_personality_type_by_email()
+{
     //function for sending personality type data via email
     check_ajax_referer('sv_ajax_nonce', 'nonce'); // Security check
 
     $type = isset($_POST['data']['type']) ? sanitize_text_field(wp_unslash($_POST['data']['type'])) : '';
-    $userEmail = isset($_POST['data']['email']) ? sanitize_email( $_POST['data']['email'] ) : '';
+    $userEmail = isset($_POST['data']['email']) ? sanitize_email($_POST['data']['email']) : '';
     $userName = isset($_POST['data']['name']) ? sanitize_text_field(wp_unslash($_POST['data']['name'])) : '';
     $subscribe = isset($_POST['data']['subscribe']) ? true : false;
+    $selectedGuide = isset($_POST['data']['guide']) ? sanitize_text_field(wp_unslash($_POST['data']['guide'])) : '';
 
     // EMAIL SENDING DISABLED - Only MailerLite subscription is active
     // Uncomment the code below to re-enable email sending
-    
-    
+
+
     // Construct the path to the JSON file
     $data_path = plugin_dir_path(__FILE__) . '../assets/data/' . strtolower($type) . '.json';
 
@@ -46,63 +48,70 @@ function send_personality_type_by_email() {
     $message = fill_email_template($template_path, $type_data);
 
     send_email($userEmail, $subject, $message);
-    
-    // Construct the path to the JSON file with type group data
-    $group_data_path = plugin_dir_path(__FILE__) . '../assets/data/typeGroups.json';
 
-    // Check if the file exists
-    if (!file_exists($group_data_path)) {
-        wp_send_json_error('Group file not found for the given type.');
-        return;
+    if ($selectedGuide === '') {
+
+        // Construct the path to the JSON file with type group data
+        $group_data_path = plugin_dir_path(__FILE__) . '../assets/data/typeGroups.json';
+
+        // Check if the file exists
+        if (!file_exists($group_data_path)) {
+            wp_send_json_error('Group file not found for the given type.');
+            return;
+        }
+
+        // Read and decode the JSON file
+        $group_data_json = file_get_contents($group_data_path);
+        $group_data = json_decode($group_data_json, true); // Decode as an associative array
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            wp_send_json_error('Failed to decode type group JSON data: ' . json_last_error_msg());
+            return;
+        }
+        $selectedGuide = $group_data[$type];
     }
 
-    // Read and decode the JSON file
-    $group_data_json = file_get_contents($group_data_path);
-    $group_data = json_decode($group_data_json, true); // Decode as an associative array
-
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        wp_send_json_error('Failed to decode type group JSON data: ' . json_last_error_msg());
-        return;
-    }
 
     $sanitizedContactInfo = array();
     $sanitizedContactInfo['email'] = $userEmail;
     $sanitizedContactInfo['firstName'] = $userName;
     $sanitizedContactInfo['type'] = $type;
-    $sanitizedContactInfo['typeGroup'] = $group_data[$type];
+    $sanitizedContactInfo['typeGroup'] = $selectedGuide;
 
-    if($subscribe) {
+    if ($subscribe) {
         $subscription_result = subscribeToMailerlite($sanitizedContactInfo);
-        if (!$subscription_result) {
-            wp_send_json_error('Subscription failed. Please try again or contact support.');
-            return;
-        }
+        // dont need to notify user about subscription failure - admin will be notified instead via email
+        // if (!$subscription_result) {
+        //     wp_send_json_error('Subscription failed. Please try again or contact support.');
+        //     return;
+        // }
     }
 
     // Respond with success
     wp_send_json_success([
         'message' => 'Data processed successfully'
     ]);
-
 }
 
-function send_email($to, $subject, $message) {
-    $headers = array('Content-Type: text/html; charset=UTF-8','From: Sandra | 12GM <sandra@12gm.lt>');
+function send_email($to, $subject, $message)
+{
+    $headers = array('Content-Type: text/html; charset=UTF-8', 'From: Sandra | 12GM <sandra@12gm.lt>');
     wp_mail($to, $subject, $message, $headers);
 }
 
-function fill_email_template($template_path, $data = []) {
+function fill_email_template($template_path, $data = [])
+{
     if (!file_exists($template_path)) {
         return '';
     }
 
     // Get the contents of the template
     $template_content = file_get_contents($template_path);
-    $data['plugin_url'] = plugin_dir_url( dirname(__FILE__));
+    $data['plugin_url'] = plugin_dir_url(dirname(__FILE__));
 
     // Replace placeholders with actual data
     foreach ($data as $key => $value) {
-        if($key === 'excercise') {
+        if ($key === 'excercise') {
             $i = 1;
             foreach ($value as $h1 => $excercise) {
 
@@ -116,7 +125,6 @@ function fill_email_template($template_path, $data = []) {
 
                     $i++;
                 }
-           
             }
         }
         if (is_array($value)) {
@@ -130,7 +138,8 @@ function fill_email_template($template_path, $data = []) {
     return $template_content;
 }
 
-function subscribeToMailerlite ( $sanitizedContactInfo ) {
+function subscribeToMailerlite($sanitizedContactInfo)
+{
 
     $data_encryption = new BC_Data_Encryption();
     $api_key = get_option('sv_ml_api_key');
@@ -140,9 +149,9 @@ function subscribeToMailerlite ( $sanitizedContactInfo ) {
         $api_key = $data_encryption->decrypt(get_option('sv_ml_api_key'));
     }
 
-   
+
     $mailerLite = new MailerLite(['api_key' => $api_key]);
-    
+
     $data = [
         'email' => $sanitizedContactInfo['email'],
         "fields" => [
@@ -158,14 +167,14 @@ function subscribeToMailerlite ( $sanitizedContactInfo ) {
     try {
         $response = $mailerLite->subscribers->create($data);
     } catch (Exception $e) {
-       // Send email to admin
+        // Send email to admin
         sendSubscriptionErrorEmailToAdmin($sanitizedContactInfo, $e->getMessage());
         return false;
     }
-      return true;
+    return true;
 }
 
-function sendSubscriptionErrorEmailToAdmin ( $sanitizedContactInfo, $errorMessage )
+function sendSubscriptionErrorEmailToAdmin($sanitizedContactInfo, $errorMessage)
 {
     $admin_email = get_option('admin_email');
     $subject = 'Failed MailerLite Subscription Attempt';
