@@ -27,7 +27,7 @@ function initializeZoomMeeting(embedElement) {
 
     console.log('Formatted meeting number:', meetingNumber);
 
-    // Request signature from server
+    // Request signature from server with the formatted meeting number
     requestZoomSignature(meetingNumber, 0).then(response => {
         console.log('AJAX Response:', response); // Debug log
         
@@ -50,7 +50,7 @@ function initializeZoomMeeting(embedElement) {
         const client = ZoomMtgEmbedded.createClient();
 
         client.init({
-            debug: false,
+            debug: true, // Enable debug mode to see more details
             zoomAppRoot: embedElement,
             language: 'en-US',
             customize: {
@@ -76,6 +76,9 @@ function initializeZoomMeeting(embedElement) {
             meetingNumber: meetingNumber,
             password: meetingPassword || '',
             userName: userName,
+            userEmail: '', // Optional but sometimes helps
+            passWord: meetingPassword || '', // Alternative password field
+            tk: '' // Leave empty for web SDK
         }).catch(error => {
             console.error('Zoom join error:', error);
             let errorMessage = 'Error joining meeting';
@@ -86,6 +89,8 @@ function initializeZoomMeeting(embedElement) {
                 errorMessage = 'Invalid meeting password';
             } else if (error.errorCode === 10000) {
                 errorMessage = 'SDK version not supported';
+            } else if (error.errorCode === 200) {
+                errorMessage = 'Failed to join meeting. Please check:<br>• Meeting is currently active<br>• You have permission to join<br>• Meeting allows SDK clients<br>• Try refreshing the page';
             }
             
             embedElement.innerHTML = `<div class="zoom-meeting-error"><p>${errorMessage}</p><small>Error code: ${error.errorCode}</small></div>`;

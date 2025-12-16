@@ -65,6 +65,9 @@ function zoom_generate_signature() {
         $signature = zoom_create_jwt_signature($meeting_number, $role, $sdk_key, $sdk_secret);
         
         if ($signature) {
+            // Debug log (remove in production)
+            error_log("Generated signature for meeting {$meeting_number}: " . substr($signature, 0, 50) . "...");
+            
             wp_send_json_success(array(
                 'signature' => $signature,
                 'sdk_key' => $sdk_key // Only send key, never secret
@@ -101,11 +104,10 @@ function zoom_create_jwt_signature($meeting_number, $role, $sdk_key, $sdk_secret
     $payload = array(
         'iss' => $sdk_key,
         'exp' => $now + (60 * 60 * 2), // 2 hours expiry
-        'iat' => $now - 30, // issued 30 seconds ago
+        'iat' => $now,
         'aud' => 'zoom',
-        'appKey' => $sdk_key,
-        'tokenExp' => $now + (60 * 60 * 2),
-        'alg' => 'HS256'
+        'mn' => $meeting_number,
+        'role' => $role
     );
 
     try {
