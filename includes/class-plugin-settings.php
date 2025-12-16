@@ -64,6 +64,8 @@ class SV_Plugin_Settings
         // Get decrypted keys
         $ml_api_key = get_option('sv_ml_api_key');
         $openai_key = get_option('sv_openai_api_key');
+        $zoom_sdk_key = get_option('sv_zoom_sdk_key');
+        $zoom_sdk_secret = get_option('sv_zoom_sdk_secret');
 
         if ($ml_api_key) {
             $ml_api_key = $data_encryption->decrypt($ml_api_key);
@@ -71,6 +73,14 @@ class SV_Plugin_Settings
 
         if ($openai_key) {
             $openai_key = $data_encryption->decrypt($openai_key);
+        }
+
+        if ($zoom_sdk_key) {
+            $zoom_sdk_key = $data_encryption->decrypt($zoom_sdk_key);
+        }
+
+        if ($zoom_sdk_secret) {
+            $zoom_sdk_secret = $data_encryption->decrypt($zoom_sdk_secret);
         }
 
 ?>
@@ -117,6 +127,38 @@ class SV_Plugin_Settings
                     </tr>
                 </table>
 
+                <h2>Zoom SDK Settings</h2>
+                <table class="form-table">
+                    <tr>
+                        <th scope="row">
+                            <label for="sv_zoom_sdk_key">Zoom SDK Key</label>
+                        </th>
+                        <td>
+                            <input type="password"
+                                id="sv_zoom_sdk_key"
+                                name="sv_zoom_sdk_key"
+                                class="regular-text"
+                                value="<?php echo esc_attr($zoom_sdk_key ?: ''); ?>"
+                                placeholder="Your Zoom SDK Key" />
+                            <p class="description">Enter your Zoom SDK Key for meeting embeds. Get this from <a href="https://marketplace.zoom.us/" target="_blank">Zoom Marketplace</a>.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="sv_zoom_sdk_secret">Zoom SDK Secret</label>
+                        </th>
+                        <td>
+                            <input type="password"
+                                id="sv_zoom_sdk_secret"
+                                name="sv_zoom_sdk_secret"
+                                class="regular-text"
+                                value="<?php echo esc_attr($zoom_sdk_secret ?: ''); ?>"
+                                placeholder="Your Zoom SDK Secret" />
+                            <p class="description">Enter your Zoom SDK Secret for meeting embeds. Keep this secure!</p>
+                        </td>
+                    </tr>
+                </table>
+
                 <input type="hidden" name="action" value="sv_custom_blocks_submit_settings">
                 <p class="submit">
                     <button type="submit" class="button button-primary">Save Settings</button>
@@ -151,6 +193,24 @@ class SV_Plugin_Settings
             if (!empty($ml_key)) {
                 $encrypted = $data_encryption->encrypt($ml_key);
                 update_option('sv_ml_api_key', $encrypted);
+            }
+        }
+
+        // Handle Zoom SDK Key
+        if (isset($_POST['sv_zoom_sdk_key'])) {
+            $zoom_key = sanitize_text_field($_POST['sv_zoom_sdk_key']);
+            if (!empty($zoom_key)) {
+                $encrypted = $data_encryption->encrypt($zoom_key);
+                update_option('sv_zoom_sdk_key', $encrypted);
+            }
+        }
+
+        // Handle Zoom SDK Secret
+        if (isset($_POST['sv_zoom_sdk_secret'])) {
+            $zoom_secret = sanitize_text_field($_POST['sv_zoom_sdk_secret']);
+            if (!empty($zoom_secret)) {
+                $encrypted = $data_encryption->encrypt($zoom_secret);
+                update_option('sv_zoom_sdk_secret', $encrypted);
             }
         }
 

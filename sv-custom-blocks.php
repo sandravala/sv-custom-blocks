@@ -166,6 +166,11 @@ function sv_time_calc_init()
 }
 add_action('init', 'sv_time_calc_init');
 
+function sv_zoom_meeting_init()
+{
+    register_block_type(__DIR__ . '/build/blocks/zoom-meeting');
+}
+add_action('init', 'sv_zoom_meeting_init');
 
 // function sv_universal_ai_generator_init()
 // {

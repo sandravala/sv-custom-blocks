@@ -1,0 +1,41 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sv-custom-blocks/zoom-meeting",
+	"version": "0.1.0",
+	"title": "Zoom Meeting Embed",
+	"category": "widgets",
+	"icon": "video-alt3",
+	"description": "Embed a Zoom meeting window in your post",
+    "textdomain": "sv-custom-blocks",
+    "attributes": {
+        "meetingNumber": {
+            "type": "string",
+            "default": ""
+        },
+        "meetingPassword": {
+            "type": "string",
+            "default": ""
+        },
+        "userName": {
+            "type": "string",
+            "default": "Guest User"
+        },
+        "width": {
+            "type": "string",
+            "default": "100%"
+        },
+        "height": {
+            "type": "string",
+            "default": "600px"
+        }
+    },
+    "supports": {
+        "html": false
+    },
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
