@@ -2,7 +2,7 @@
 $meeting_number = isset($attributes['meetingNumber']) ? sanitize_text_field($attributes['meetingNumber']) : '';
 $meeting_password = isset($attributes['meetingPassword']) ? sanitize_text_field($attributes['meetingPassword']) : '';
 $user_name = isset($attributes['userName']) ? sanitize_text_field($attributes['userName']) : 'Guest User';
-$width = isset($attributes['width']) ? sanitize_text_field($attributes['width']) : '100%';
+$width = isset($attributes['width']) ? sanitize_text_field($attributes['width']) : '1000px';
 $height = isset($attributes['height']) ? sanitize_text_field($attributes['height']) : '600px';
 
 if (empty($meeting_number)) {
@@ -33,15 +33,21 @@ $unique_id = 'zoom-meeting-' . uniqid();
         data-meeting-password="<?php echo esc_attr($meeting_password); ?>"
         data-user-name="<?php echo esc_attr($user_name); ?>"
     >
+        <!-- Anchor elements for poppers -->
+        <div id="video-anchor" class="popper-anchor" style="position: absolute; top: 0; left: 0;"></div>
+        <div id="chat-anchor" class="popper-anchor" style="position: absolute; top: 0; right: 0;"></div>
+        <div id="participants-anchor" class="popper-anchor" style="position: absolute; bottom: 0; left: 0;"></div>
+        <div id="settings-anchor" class="popper-anchor" style="position: absolute; top: 50%; left: 50%;"></div>
+        
         <div class="zoom-loading">
             <p>Loading Zoom meeting...</p>
         </div>
     </div>
 </div>
 
-<script src="https://source.zoom.us/3.8.10/lib/vendor/react.min.js"></script>
-<script src="https://source.zoom.us/3.8.10/lib/vendor/react-dom.min.js"></script>
-<script src="https://source.zoom.us/3.8.10/lib/vendor/redux.min.js"></script>
-<script src="https://source.zoom.us/3.8.10/lib/vendor/redux-thunk.min.js"></script>
-<script src="https://source.zoom.us/3.8.10/lib/vendor/lodash.min.js"></script>
-<script src="https://source.zoom.us/3.8.10/zoom-meeting-embedded-3.8.10.min.js"></script>
+<script src="https://source.zoom.us/5.0.0/lib/vendor/react.min.js"></script>
+<script src="https://source.zoom.us/5.0.0/lib/vendor/react-dom.min.js"></script>
+<script src="https://source.zoom.us/5.0.0/lib/vendor/redux.min.js"></script>
+<script src="https://source.zoom.us/5.0.0/lib/vendor/redux-thunk.min.js"></script>
+<script src="https://source.zoom.us/5.0.0/lib/vendor/lodash.min.js"></script>
+<script src="https://source.zoom.us/5.0.0/zoom-meeting-embedded-5.0.0.min.js"></script>

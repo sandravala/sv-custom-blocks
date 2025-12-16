@@ -106,6 +106,7 @@ function zoom_create_jwt_signature($meeting_number, $role, $sdk_key, $sdk_secret
         'exp' => $now + (60 * 60 * 2), // 2 hours expiry
         'iat' => $now,
         'aud' => 'zoom',
+        'appKey' => $sdk_key, // Required for SDK 5.0.0
         'mn' => $meeting_number,
         'role' => $role
     );
