@@ -28,6 +28,7 @@ require_once plugin_dir_path(__FILE__) . 'includes/openai-assistant-handler.php'
 require_once plugin_dir_path(__FILE__) . 'includes/openai-responses-handler.php';
 require_once plugin_dir_path(__FILE__) . 'includes/trait-block-database-operations.php';
 require_once plugin_dir_path(__FILE__) . 'includes/admin-feedback-page.php';
+require_once plugin_dir_path(__FILE__) . 'includes/zoom-signature-handler.php';
 
 // Initialize plugin settings
 SV_Plugin_Settings::get_instance();

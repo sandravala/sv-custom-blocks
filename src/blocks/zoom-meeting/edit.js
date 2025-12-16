@@ -41,8 +41,8 @@ export default function Edit({ attributes, setAttributes }) {
 						label={__('Meeting Number', 'sv-custom-blocks')}
 						value={meetingNumber}
 						onChange={(value) => setAttributes({ meetingNumber: value })}
-						placeholder="123456789"
-						help={__('Enter your Zoom meeting number (digits only)', 'sv-custom-blocks')}
+						placeholder="123-456-789 or 123456789"
+						help={__('Enter your Zoom meeting number (9-11 digits, spaces/dashes OK)', 'sv-custom-blocks')}
 					/>
 					<TextControl
 						label={__('Meeting Password', 'sv-custom-blocks')}

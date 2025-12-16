@@ -7,90 +7,121 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeZoomMeeting(embedElement) {
-    const meetingNumber = embedElement.getAttribute('data-meeting-number');
+    let meetingNumber = embedElement.getAttribute('data-meeting-number');
     const meetingPassword = embedElement.getAttribute('data-meeting-password');
     const userName = embedElement.getAttribute('data-user-name');
-    const sdkKey = embedElement.getAttribute('data-sdk-key');
-    const sdkSecret = embedElement.getAttribute('data-sdk-secret');
 
-    if (!meetingNumber || !sdkKey || !sdkSecret) {
-        embedElement.innerHTML = '<div class="zoom-meeting-error"><p>Missing required Zoom configuration.</p></div>';
+    if (!meetingNumber) {
+        embedElement.innerHTML = '<div class="zoom-meeting-error"><p>Missing meeting number.</p></div>';
         return;
     }
 
-    // Initialize Zoom SDK
-    const client = ZoomMtgEmbedded.createClient();
+    // Clean and format meeting number - remove spaces, dashes, etc.
+    meetingNumber = meetingNumber.replace(/[^0-9]/g, '');
+    
+    // Validate meeting number (should be 9-11 digits)
+    if (meetingNumber.length < 9 || meetingNumber.length > 11) {
+        embedElement.innerHTML = '<div class="zoom-meeting-error"><p>Invalid meeting number format. Please enter 9-11 digits.</p></div>';
+        return;
+    }
 
-    let meetingSDKElement = embedElement;
+    console.log('Formatted meeting number:', meetingNumber);
 
-    client.init({
-        debug: false,
-        zoomAppRoot: meetingSDKElement,
-        language: 'en-US',
-        customize: {
-            meetingInfo: ['topic', 'host', 'mn', 'pwd', 'telPwd', 'invite', 'participant', 'dc', 'enctype'],
-            toolbar: {
-                buttons: [
-                    {
-                        text: 'Custom Button',
-                        className: 'CustomButton',
-                        onClick: () => {
-                            console.log('custom button');
-                        }
-                    }
-                ]
-            }
+    // Request signature from server
+    requestZoomSignature(meetingNumber, 0).then(response => {
+        console.log('AJAX Response:', response); // Debug log
+        
+        if (!response.success) {
+            embedElement.innerHTML = '<div class="zoom-meeting-error"><p>Error: ' + response.data + '</p></div>';
+            return;
         }
-    });
 
-    // Generate signature for meeting
-    generateSignature(meetingNumber, 0, sdkKey, sdkSecret).then(signature => {
+        const { signature, sdk_key } = response.data;
+        
+        console.log('SDK Key:', sdk_key); // Debug log
+        console.log('Signature:', signature); // Debug log
+        
+        if (!sdk_key || !signature) {
+            embedElement.innerHTML = '<div class="zoom-meeting-error"><p>Missing SDK key or signature from server</p></div>';
+            return;
+        }
+
+        // Initialize Zoom SDK
+        const client = ZoomMtgEmbedded.createClient();
+
+        client.init({
+            debug: false,
+            zoomAppRoot: embedElement,
+            language: 'en-US',
+            customize: {
+                meetingInfo: ['topic', 'host', 'mn', 'pwd', 'telPwd', 'invite', 'participant', 'dc', 'enctype'],
+                toolbar: {
+                    buttons: [
+                        {
+                            text: 'Custom Button',
+                            className: 'CustomButton',
+                            onClick: () => {
+                                console.log('custom button');
+                            }
+                        }
+                    ]
+                }
+            }
+        });
+
+        // Join meeting with server-generated signature
         client.join({
+            sdkKey: sdk_key,
             signature: signature,
             meetingNumber: meetingNumber,
-            password: meetingPassword,
+            password: meetingPassword || '',
             userName: userName,
+        }).catch(error => {
+            console.error('Zoom join error:', error);
+            let errorMessage = 'Error joining meeting';
+            
+            if (error.errorCode === 3706) {
+                errorMessage = 'Meeting not found or not active. Please check:<br>• Meeting number is correct<br>• Meeting has started<br>• Meeting doesn\'t require registration';
+            } else if (error.errorCode === 3712) {
+                errorMessage = 'Invalid meeting password';
+            } else if (error.errorCode === 10000) {
+                errorMessage = 'SDK version not supported';
+            }
+            
+            embedElement.innerHTML = `<div class="zoom-meeting-error"><p>${errorMessage}</p><small>Error code: ${error.errorCode}</small></div>`;
         });
+
     }).catch(error => {
-        console.error('Error generating signature:', error);
+        console.error('Error requesting signature:', error);
         embedElement.innerHTML = '<div class="zoom-meeting-error"><p>Error initializing Zoom meeting.</p></div>';
     });
 }
 
-// Generate JWT signature for Zoom SDK
-function generateSignature(meetingNumber, role, sdkKey, sdkSecret) {
+// Request signature from server via AJAX
+function requestZoomSignature(meetingNumber, role) {
     return new Promise((resolve, reject) => {
-        // In production, this should be done server-side for security
-        // This is a simplified client-side implementation
-        const iat = Math.round(new Date().getTime() / 1000) - 30;
-        const exp = iat + 60 * 60 * 2;
-
-        const oHeader = { alg: 'HS256', typ: 'JWT' };
-        const oPayload = {
-            iss: sdkKey,
-            exp: exp,
-            alg: 'HS256',
-            appKey: sdkKey,
-            tokenExp: exp,
-            iat: iat,
-            aud: 'zoom'
-        };
-
-        try {
-            // Note: In production, move signature generation to server-side
-            const sHeader = JSON.stringify(oHeader);
-            const sPayload = JSON.stringify(oPayload);
-            const signature = KJUR.jws.JWS.sign('HS256', sHeader, sPayload, sdkSecret);
-            resolve(signature);
-        } catch (error) {
-            reject(error);
+        // Check if AJAX variables are available
+        if (typeof zoomMeetingAjax === 'undefined') {
+            reject('AJAX configuration not found');
+            return;
         }
-    });
-}
 
-// Add KJUR library for JWT if not already included
-if (typeof KJUR === 'undefined') {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/jsrsasign@11.1.0/lib/jsrsasign-all-min.js';
-    document.head.appendChild(script);
+        const formData = new FormData();
+        formData.append('action', 'zoom_generate_signature');
+        formData.append('meeting_number', meetingNumber);
+        formData.append('role', role);
+        formData.append('nonce', zoomMeetingAjax.nonce);
+
+        fetch(zoomMeetingAjax.ajaxUrl, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            resolve(data);
+        })
+        .catch(error => {
+            reject(error);
+        });
+    });
 }
