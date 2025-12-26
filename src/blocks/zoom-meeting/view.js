@@ -17,13 +17,18 @@ function initializeZoomMeeting(embedElement) {
 		return;
 	}
 
-	// Show name input form first
-	showNameInputForm(
-		embedElement,
-		meetingNumber,
-		meetingPassword,
-		defaultUserName,
-	);
+	// Show name input form first if no saved name
+	const savedName = localStorage.getItem("zoomUserName");
+	if (!savedName || savedName.trim() === "") {
+		showNameInputForm(
+			embedElement,
+			meetingNumber,
+			meetingPassword,
+			defaultUserName,
+		);
+	} else {
+		startZoomMeeting(embedElement, meetingNumber, meetingPassword, savedName);
+	}
 }
 
 function showNameInputForm(
@@ -34,12 +39,12 @@ function showNameInputForm(
 ) {
 	embedElement.innerHTML = `
 		<div class="zoom-name-input">
-			<h3>Join Zoom Meeting</h3>
+			<h3>Prisijungti</h3>
 			<div class="input-group">
-				<label for="zoom-user-name">Your Name:</label>
-				<input type="text" id="zoom-user-name" value="${defaultUserName}" placeholder="Enter your name" />
+				<label for="zoom-user-name">Vardas:</label>
+				<input type="text" id="zoom-user-name" value="${defaultUserName}" placeholder="Įvesk savo vardą" />
 			</div>
-			<button id="join-meeting-btn" class="join-btn">Join Meeting</button>
+			<button id="join-meeting-btn" class="join-btn">Jungtis</button>
 		</div>
 	`;
 
@@ -47,7 +52,11 @@ function showNameInputForm(
 	const joinBtn = embedElement.querySelector("#join-meeting-btn");
 
 	joinBtn.addEventListener("click", () => {
+		console.log(nameInput.value.trim());
 		const userName = nameInput.value.trim() || defaultUserName;
+		console.log("Using user name:", userName);
+		// save to local storage for future use for 24 hours
+		localStorage.setItem("zoomUserName", userName);
 		startZoomMeeting(embedElement, meetingNumber, meetingPassword, userName);
 	});
 
@@ -74,8 +83,6 @@ function startZoomMeeting(
 		return;
 	}
 
-
-
 	// Request signature from server with the formatted meeting number
 	requestZoomSignature(meetingNumber, 0)
 		.then((response) => {
@@ -97,10 +104,60 @@ function startZoomMeeting(
 				return;
 			}
 
+			// ...existing code...
+
 			// Calculate sizes within available space
 			const containerWidth = embedElement.offsetWidth;
-			const videoWidth = Math.min(800, containerWidth - 40);
-			const videoHeight = Math.round(videoWidth * 9 / 16); // 16:9 ratio
+			const containerHeight = embedElement.offsetHeight;
+
+			// Detect mobile (or just use width as indicator)
+			const isMobile = containerWidth < 600;
+
+			// Chrome height varies: mobile has compact controls but still ~80-100px
+			const chromeHeight = isMobile ? 80 : 100;
+
+			// On mobile: width is usually the limiting factor
+			// On desktop: could be either
+			let videoWidth, videoHeight;
+
+			if (isMobile) {
+				// Mobile: fit to width, let height follow
+				videoWidth = containerWidth;
+				videoHeight = Math.min(
+					(videoWidth * 9) / 16 + chromeHeight,
+					containerHeight,
+				);
+			} else {
+				// Desktop: fit to container, prefer width
+				videoWidth = containerWidth;
+				videoHeight = (videoWidth * 9) / 16 + chromeHeight;
+
+				// If too tall, recalculate from height
+				if (videoHeight > containerHeight) {
+					videoHeight = containerHeight;
+					videoWidth = ((videoHeight - chromeHeight) * 16) / 9;
+				}
+			}
+
+			// Zoom SDK has minimum sizes
+			const MIN_WIDTH = isMobile ? 300 : 400;
+			const MIN_HEIGHT = isMobile ? 200 : 300;
+
+			videoWidth = Math.max(videoWidth, MIN_WIDTH);
+			videoHeight = Math.max(videoHeight, MIN_HEIGHT);
+
+			console.log(`Device: ${isMobile ? "mobile" : "desktop"}`);
+			console.log(`Container: ${containerWidth}x${containerHeight}`);
+			console.log(
+				`Video: ${Math.round(videoWidth)}x${Math.round(videoHeight)}`,
+			);
+			console.log(`UUser name: ${userName}`);
+			// ...existing code...
+
+			// get element with aria-label="Zoom app container"
+			const zoomAppContainer = document
+				.querySelector('[aria-label="Zoom app container"]');
+
 			// Initialize Zoom SDK
 			const client = ZoomMtgEmbedded.createClient();
 
@@ -108,53 +165,80 @@ function startZoomMeeting(
 				zoomAppRoot: embedElement,
 				language: "en-US",
 				patchJsMedia: true,
-                maximumVideosInGalleryView: 1,
-                leaveOnPageUnload: false,
+				maximumVideosInGalleryView: 1,
+				leaveOnPageUnload: true,
 				customize: {
 					video: {
-						isResizable: false,
+						isResizable: true,
 						defaultViewType: "speaker",
-                        viewSizes: {
-                            default: {
-                                width: videoWidth,
-                                height: videoHeight
-                            }
-                        }
+						// viewSizes: {
+						// 	default: {
+						// 		width: videoWidth,
+						// 		height: videoHeight,
+						// 	},
+						// },
+					},
+					chat: {
+						popper: {
+							anchorElement: embedElement,
+							placement: "bottom-end", // Opens to left of anchor
+						},
+					},
+					participants: {
+						popper: {
+							anchorElement: zoomAppContainer,
+							placement: "right", // Opens above anchor
+						},
+					},
+					settings: {
+						popper: {
+							anchorElement: zoomAppContainer,
+							placement: "right",
+						},
 					},
 					meetingInfo: ["topic", "host", "mn"],
 				},
-			}).then(() => {
-				// Debug: Log any elements that might be overflowing
-				const containerRect = embedElement.getBoundingClientRect();
-				console.log('Container bottom:', containerRect.bottom);
-				
-				// Check for overflowing Zoom elements after a delay (let them render)
-				setTimeout(() => {
-					const allZoomElements = document.querySelectorAll('[class*="zmwebsdk"], [class*="zoom-"], .zmmtg-root, #zmmtg-root');
-					console.log('Found Zoom elements:', allZoomElements.length);
-					
-					allZoomElements.forEach((el, index) => {
-						const rect = el.getBoundingClientRect();
-						if (rect.bottom > containerRect.bottom + 50) { // 50px tolerance
-							console.log(`OVERFLOWING ELEMENT ${index}:`, {
-								className: el.className,
-								id: el.id,
-								bottom: rect.bottom,
-								containerBottom: containerRect.bottom,
-								overflow: rect.bottom - containerRect.bottom,
-								element: el
-							});
-							
-							// Try to reposition overflowing elements
-							if (el.style) {
-								el.style.maxHeight = '500px';
-								el.style.bottom = 'auto';
-								el.style.top = containerRect.top + 'px';
-							}
-						}
-					});
-				}, 2000); // Wait 2 seconds for elements to fully render
 			});
+
+			// Debug: Monitor for overflowing Zoom elements
+			// client.on("video-resize", () => {
+			// 	console.log("Video resized event detected");
+			// }).then(() => {
+			// 	// Debug: Log any elements that might be overflowing
+			// 	const containerRect = embedElement.getBoundingClientRect();
+			// 	console.log('Container bottom:', containerRect.bottom);
+
+			// 	// Check for overflowing Zoom elements after a delay (let them render)
+			// 	setTimeout(() => {
+			// 		const allZoomElements = document.querySelectorAll('[class*="zmwebsdk"], [class*="zoom-"], .zmmtg-root, #zmmtg-root');
+			// 		console.log('Found Zoom elements:', allZoomElements.length);
+
+			// 		allZoomElements.forEach((el, index) => {
+			// 			const rect = el.getBoundingClientRect();
+			// 			if (rect.bottom > containerRect.bottom + 50) { // 50px tolerance
+			// 				console.log(`OVERFLOWING ELEMENT ${index}:`, {
+			// 					className: el.className,
+			// 					id: el.id,
+			// 					bottom: rect.bottom,
+			// 					containerBottom: containerRect.bottom,
+			// 					overflow: rect.bottom - containerRect.bottom,
+			// 					element: el
+			// 				});
+
+			// 				// Try to reposition overflowing elements
+			// 				if (el.style) {
+			// 					el.style.maxHeight = '500px';
+			// 					el.style.bottom = 'auto';
+			// 					el.style.top = containerRect.top + 'px';
+			// 				}
+			// 			}
+			// 		});
+			// 	}, 2000); // Wait 2 seconds for elements to fully render
+			// });
+try {
+    sessionStorage.removeItem('zmmtg-root__username');
+    sessionStorage.removeItem('zmmtg-root__useremail');
+} catch (e) {}
 
 			// Join meeting with server-generated signature
 			client
@@ -163,8 +247,6 @@ function startZoomMeeting(
 					meetingNumber: meetingNumber,
 					password: meetingPassword || "",
 					userName: userName,
-					userEmail: "", // Optional but sometimes helps
-					passWord: meetingPassword || "", // Alternative password field
 					tk: "", // Leave empty for web SDK
 				})
 				.catch((error) => {
