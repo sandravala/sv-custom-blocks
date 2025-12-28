@@ -1,15 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
+
 	const zoomEmbeds = document.querySelectorAll(".zoom-meeting-embed");
 
 	zoomEmbeds.forEach((embedElement) => {
 		initializeZoomMeeting(embedElement);
 	});
+
+// 	window.addEventListener('unhandledrejection', function(event) {
+// 	console.log('Unhandled rejection:', event.reason);
+// 	console.log('Promise:', event.promise);
+// });
 });
+
 
 function initializeZoomMeeting(embedElement) {
 	let meetingNumber = embedElement.getAttribute("data-meeting-number");
 	const meetingPassword = embedElement.getAttribute("data-meeting-password");
 	const defaultUserName = embedElement.getAttribute("data-user-name");
+	const alternativeLink = embedElement.getAttribute("data-alternative-link");
 
 	if (!meetingNumber) {
 		embedElement.innerHTML =
@@ -25,9 +33,10 @@ function initializeZoomMeeting(embedElement) {
 			meetingNumber,
 			meetingPassword,
 			defaultUserName,
+			alternativeLink,
 		);
 	} else {
-		startZoomMeeting(embedElement, meetingNumber, meetingPassword, savedName);
+		startZoomMeeting(embedElement, meetingNumber, meetingPassword, savedName, alternativeLink);
 	}
 }
 
@@ -36,6 +45,7 @@ function showNameInputForm(
 	meetingNumber,
 	meetingPassword,
 	defaultUserName,
+	alternativeLink,
 ) {
 	embedElement.innerHTML = `
 		<div class="zoom-name-input">
@@ -52,12 +62,10 @@ function showNameInputForm(
 	const joinBtn = embedElement.querySelector("#join-meeting-btn");
 
 	joinBtn.addEventListener("click", () => {
-		console.log(nameInput.value.trim());
 		const userName = nameInput.value.trim() || defaultUserName;
-		console.log("Using user name:", userName);
 		// save to local storage for future use for 24 hours
 		localStorage.setItem("zoomUserName", userName);
-		startZoomMeeting(embedElement, meetingNumber, meetingPassword, userName);
+		startZoomMeeting(embedElement, meetingNumber, meetingPassword, userName, alternativeLink);
 	});
 
 	nameInput.addEventListener("keypress", (e) => {
@@ -72,6 +80,7 @@ function startZoomMeeting(
 	meetingNumber,
 	meetingPassword,
 	userName,
+	alternativeLink,
 ) {
 	// Clean and format meeting number - remove spaces, dashes, etc.
 	meetingNumber = meetingNumber.replace(/[^0-9]/g, "");
@@ -95,6 +104,8 @@ function startZoomMeeting(
 					"</p></div>";
 				return;
 			}
+
+			
 
 			const { signature, sdk_key } = response.data;
 
@@ -145,18 +156,15 @@ function startZoomMeeting(
 
 			videoWidth = Math.max(videoWidth, MIN_WIDTH);
 			videoHeight = Math.max(videoHeight, MIN_HEIGHT);
-
-			console.log(`Device: ${isMobile ? "mobile" : "desktop"}`);
-			console.log(`Container: ${containerWidth}x${containerHeight}`);
-			console.log(
-				`Video: ${Math.round(videoWidth)}x${Math.round(videoHeight)}`,
-			);
-			console.log(`UUser name: ${userName}`);
 			// ...existing code...
 
 			// get element with aria-label="Zoom app container"
-			const zoomAppContainer = document
-				.querySelector('[aria-label="Zoom app container"]');
+			const zoomAppContainer = document.querySelector(
+				'[aria-label="Zoom app container"]',
+			);
+
+			const videoContainer = document.querySelector("#video-anchor");
+			const chatContainer = document.querySelector("#chat-anchor");
 
 			// Initialize Zoom SDK
 			const client = ZoomMtgEmbedded.createClient();
@@ -165,80 +173,118 @@ function startZoomMeeting(
 				zoomAppRoot: embedElement,
 				language: "en-US",
 				patchJsMedia: true,
-				maximumVideosInGalleryView: 1,
+				//maximumVideosInGalleryView: 1,
 				leaveOnPageUnload: true,
 				customize: {
 					video: {
 						isResizable: true,
-						defaultViewType: "speaker",
-						// viewSizes: {
-						// 	default: {
-						// 		width: videoWidth,
-						// 		height: videoHeight,
-						// 	},
-						// },
+						defaultViewType: "gallery",
+						viewSizes: {
+							default: {
+								width: 100,
+								height: 56,
+							},
+						},
+						popper: {
+							anchorElement: videoContainer,
+							placement: "top", // Opens below anchor
+							modifiers: [
+								{
+									name: "preventOverflow",
+									options: {
+										boundary: embedElement,
+									},
+								},
+							],
+						},
 					},
 					chat: {
+						notificationCls: {
+							anchorElement: chatContainer,
+							placement: "bottom", // Opens to left of anchor
+							// modifiers: [
+							// 	{
+							// 		name: "preventOverflow",
+							// 		options: {
+							// 			boundary: embedElement,
+							// 		},
+							// 	},
+							// 	// {
+							// 	// 	name: "offset",
+							// 	// 	options: {
+							// 	// 		offset: [0, 10], // [skidding, distance]
+							// 	// 	},
+							// 	// },
+
+							// ],
+						},
 						popper: {
-							anchorElement: embedElement,
-							placement: "bottom-end", // Opens to left of anchor
+							anchorElement: chatContainer,
+							placement: "left-start", // Opens to left of anchor
+							modifiers: [
+								{
+									name: "preventOverflow",
+									options: {
+										boundary: embedElement,
+									},
+								},
+								{
+									name: "flip",
+									options: {
+										fallbackPlacements: ["left", "bottom", "top"],
+									},
+								},
+							],
 						},
 					},
 					participants: {
 						popper: {
-							anchorElement: zoomAppContainer,
-							placement: "right", // Opens above anchor
+							anchorElement: chatContainer,
+							placement: "left-start", // Opens to left of anchor
+							modifiers: [
+								{
+									name: "preventOverflow",
+									options: {
+										boundary: embedElement,
+									},
+								},
+								{
+									name: "flip",
+									options: {
+										fallbackPlacements: ["left", "bottom", "top"],
+									},
+								},
+							],
 						},
 					},
 					settings: {
 						popper: {
-							anchorElement: zoomAppContainer,
-							placement: "right",
+							anchorElement: chatContainer,
+							placement: "left-start", // Opens to left of anchor
+							modifiers: [
+								{
+									name: "preventOverflow",
+									options: {
+										boundary: embedElement,
+									},
+								},
+								{
+									name: "flip",
+									options: {
+										fallbackPlacements: ["bottom", "top"],
+									},
+								},
+							],
 						},
 					},
 					meetingInfo: ["topic", "host", "mn"],
 				},
 			});
 
-			// Debug: Monitor for overflowing Zoom elements
-			// client.on("video-resize", () => {
-			// 	console.log("Video resized event detected");
-			// }).then(() => {
-			// 	// Debug: Log any elements that might be overflowing
-			// 	const containerRect = embedElement.getBoundingClientRect();
-			// 	console.log('Container bottom:', containerRect.bottom);
-
-			// 	// Check for overflowing Zoom elements after a delay (let them render)
-			// 	setTimeout(() => {
-			// 		const allZoomElements = document.querySelectorAll('[class*="zmwebsdk"], [class*="zoom-"], .zmmtg-root, #zmmtg-root');
-			// 		console.log('Found Zoom elements:', allZoomElements.length);
-
-			// 		allZoomElements.forEach((el, index) => {
-			// 			const rect = el.getBoundingClientRect();
-			// 			if (rect.bottom > containerRect.bottom + 50) { // 50px tolerance
-			// 				console.log(`OVERFLOWING ELEMENT ${index}:`, {
-			// 					className: el.className,
-			// 					id: el.id,
-			// 					bottom: rect.bottom,
-			// 					containerBottom: containerRect.bottom,
-			// 					overflow: rect.bottom - containerRect.bottom,
-			// 					element: el
-			// 				});
-
-			// 				// Try to reposition overflowing elements
-			// 				if (el.style) {
-			// 					el.style.maxHeight = '500px';
-			// 					el.style.bottom = 'auto';
-			// 					el.style.top = containerRect.top + 'px';
-			// 				}
-			// 			}
-			// 		});
-			// 	}, 2000); // Wait 2 seconds for elements to fully render
-			// });
-try {
-    sessionStorage.removeItem('zmmtg-root__username');
-    sessionStorage.removeItem('zmmtg-root__useremail');
-} catch (e) {}
+			try {
+				sessionStorage.removeItem("zmmtg-root__username");
+				sessionStorage.removeItem("zmmtg-root__useremail");
+			} catch (e) {}
 
 			// Join meeting with server-generated signature
 			client
@@ -249,34 +295,106 @@ try {
 					userName: userName,
 					tk: "", // Leave empty for web SDK
 				})
+				.then(() => {
+					//client.setViewType({ viewType: "active" }); // "minimized" | "speaker" | "ribbon" | "gallery" | "active"
+					// Wait 2 seconds for elements to fully render
+
+					// Listen for meeting end
+	client.on("connection-change", (payload) => {
+		console.log("Connection change:", payload);
+		if (payload.state === "Closed") {
+			showMeetingEndedMessage(embedElement, alternativeLink);
+		}
+	});
+				})
 				.catch((error) => {
 					console.error("Zoom join error:", error);
-					let errorMessage = "Error joining meeting";
-
-					if (error.errorCode === 3706) {
+					let errorMessage = "Kažkas nepavyko ;(";
+					if (alternativeLink && alternativeLink.trim() !== "") {
+						errorMessage += ` Pamėgink prisijungti prie zoom tiesiogiai per šią nuorodą ${alternativeLink}`;
+					} else {
+						errorMessage += ` Pamėgink perkrauti puslapį ir bandyk dar kartą.`;
+					}
+					if (error.errorCode === 3008 || error.errorCode === 3000) {
 						errorMessage =
-							"Meeting not found or not active. Please check:<br>• Meeting number is correct<br>• Meeting has started<br>• Meeting doesn't require registration";
-					} else if (error.errorCode === 3712) {
-						errorMessage = "Invalid meeting password";
-					} else if (error.errorCode === 3004) {
-						errorMessage =
-							"Meeting passcode is required or incorrect.<br>• Check if meeting requires a passcode<br>• Verify the passcode is correct<br>• Try without passcode if meeting is open";
-					} else if (error.errorCode === 10000) {
-						errorMessage = "SDK version not supported";
-					} else if (error.errorCode === 200) {
-						errorMessage =
-							"Failed to join meeting. Please check:<br>• Meeting is currently active<br>• You have permission to join<br>• Meeting allows SDK clients<br>• Try refreshing the page";
+							"Zoom'as dar neprasidėjo. Palauk, perkrauk puslapį ir bandyk dar kartą.";
+						setTimeout(() => {
+							location.reload();
+						}, 30000);
 					}
 
-					embedElement.innerHTML = `<div class="zoom-meeting-error"><p>${errorMessage}</p><small>Error code: ${error.errorCode}</small></div>`;
+					embedElement.innerHTML = `<div class="zoom-meeting-error"><p>${errorMessage}</p></div>`;
 				});
 		})
 		.catch((error) => {
 			console.error("Error requesting signature:", error);
-			embedElement.innerHTML =
-				'<div class="zoom-meeting-error"><p>Error initializing Zoom meeting.</p></div>';
+			let errorMessage = "Kažkas nepavyko ;(";
+			if (alternativeLink && alternativeLink.trim() !== "") {
+				errorMessage += ` Pamėgink prisijungti prie zoom tiesiogiai per šią nuorodą ${alternativeLink}`;
+			} else {
+				errorMessage += ` Pamėgink perkrauti puslapį ir bandyk dar kartą.`;
+			}
+			embedElement.innerHTML = `<div class="zoom-meeting-error"><p>${errorMessage}</p></div>`;
 		});
 }
+
+function showMeetingEndedMessage(embedElement) {
+	let message = `
+		<div class="zoom-meeting-ended">
+			<h3>susitikimas baigėsi</h3>
+			<p>ačiū, kad dalyvavai!</p>
+	`;
+	
+	message += `</div>`;
+	
+	embedElement.innerHTML = message;
+}
+
+function showOnlyMyVideo() {
+	const allContainers = document.querySelectorAll("video-player-container");
+	const myVideo = document.querySelector('[aria-label="Video for Sandra"]');
+
+	if (allContainers.length === 0) {
+		return false; // Not ready yet
+	}
+
+	// Hide all
+	allContainers.forEach((container) => {
+		container.style.display = "none";
+	});
+
+	// Show only Sandra's
+	if (myVideo) {
+		const myContainer = myVideo.closest("video-player-container");
+		if (myContainer) {
+			myContainer.style.display = "block";
+			return true; // Success
+		}
+	}
+
+	return false;
+}
+
+function checkForCanvas() {
+	const canvas = document.querySelector('canvas[aria-label="Screen share"]');
+	if (canvas) {
+		return true;
+	}
+	return false;
+}
+
+// Keep trying until it works
+let attempts = 0;
+const maxAttempts = 20; // Try for ~20 seconds
+
+const checkInterval = setInterval(() => {
+	attempts++;
+	const success = showOnlyMyVideo();
+
+	if (success || attempts >= maxAttempts) {
+		clearInterval(checkInterval);
+	}
+}, 1000); // Check every second
 
 // Request signature from server via AJAX
 function requestZoomSignature(meetingNumber, role) {
@@ -302,7 +420,9 @@ function requestZoomSignature(meetingNumber, role) {
 				resolve(data);
 			})
 			.catch((error) => {
+				//console.error("AJAX request error:", error);
 				reject(error);
 			});
 	});
+
 }

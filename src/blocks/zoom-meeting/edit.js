@@ -31,7 +31,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { meetingNumber, meetingPassword, userName, width, height } = attributes;
+	const { meetingNumber, meetingPassword, userName, width, height, alternativeLink } = attributes;
 
 	return (
 		<>
@@ -57,6 +57,13 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(value) => setAttributes({ userName: value })}
 						placeholder="Guest User"
 						help={__('Display name for joining the meeting', 'sv-custom-blocks')}
+					/>
+					<TextControl
+						label={__('Alternative Zoom meeting link', 'sv-custom-blocks')}
+						value={alternativeLink}
+						onChange={(value) => setAttributes({ alternativeLink: value })}
+						placeholder="https://zoom.us/j/123456789"
+						help={__('Alternative link to join the Zoom meeting', 'sv-custom-blocks')}
 					/>
 					<TextControl
 						label={__('Width', 'sv-custom-blocks')}

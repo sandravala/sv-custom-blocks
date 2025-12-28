@@ -28,6 +28,10 @@
         "height": {
             "type": "string",
             "default": "600px"
+        },
+        "alternativeLink": {
+            "type": "string",
+            "default": ""
         }
     },
     "supports": {

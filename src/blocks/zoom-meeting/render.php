@@ -4,6 +4,7 @@ $meeting_password = isset($attributes['meetingPassword']) ? sanitize_text_field(
 $user_name = isset($attributes['userName']) ? sanitize_text_field($attributes['userName']) : 'Guest User';
 $width = isset($attributes['width']) ? sanitize_text_field($attributes['width']) : '1000px';
 $height = isset($attributes['height']) ? sanitize_text_field($attributes['height']) : '600px';
+$alternative_link = isset($attributes['alternativeLink']) ? sanitize_text_field($attributes['alternativeLink']) : '';
 
 if (empty($meeting_number)) {
     return '<div class="zoom-meeting-error"><p>Please configure your Zoom meeting number in the block settings.</p></div>';
@@ -28,21 +29,23 @@ $unique_id = 'zoom-meeting-' . uniqid();
     <div 
         id="<?php echo esc_attr($unique_id); ?>" 
         class="zoom-meeting-embed" 
-        style="width: 100%; height: <?php echo esc_attr($height); ?>;"
         data-meeting-number="<?php echo esc_attr($meeting_number); ?>"
         data-meeting-password="<?php echo esc_attr($meeting_password); ?>"
         data-user-name="<?php echo esc_attr($user_name); ?>"
+        data-alternative-link="<?php echo esc_attr($alternative_link); ?>"
     >
         <!-- Anchor elements for poppers -->
-        <div id="video-anchor" class="popper-anchor" style="position: absolute; top: 0; left: 0;"></div>
-        <div id="chat-anchor" class="popper-anchor" style="position: absolute; top: 0; right: 0;"></div>
-        <div id="participants-anchor" class="popper-anchor" style="position: absolute; bottom: 0; left: 0;"></div>
-        <div id="settings-anchor" class="popper-anchor" style="position: absolute; top: 50%; left: 50%;"></div>
+       
         
         <div class="zoom-loading">
             <p>Loading Zoom meeting...</p>
         </div>
+
     </div>
+     <div id="video-anchor" class="popper-anchor" style="position: absolute; top: 0; left: 0;"></div>
+        <div id="chat-anchor" class="popper-anchor" style="position: absolute; top: 0; right: 0;"></div>
+        <div id="participants-anchor" class="popper-anchor" style="position: absolute; bottom: 0; left: 0;"></div>
+        <div id="settings-anchor" class="popper-anchor" style="position: absolute; top: 50%; left: 50%;"></div>
 </div>
 
 <script src="https://source.zoom.us/5.0.0/lib/vendor/react.min.js"></script>
